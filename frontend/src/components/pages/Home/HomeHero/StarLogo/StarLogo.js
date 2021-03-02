@@ -1,10 +1,10 @@
 import React from 'react'
-import { TiStarburstOutline } from "react-icons/ti";
+import { GiSunflower } from "react-icons/gi";
 
 const StarLogo = () => {
   return (
     <div className="StarLogo">
-      <TiStarburstOutline />
+      <GiSunflower />
       <h3 className="StarLogo-header">Handmade</h3>
     </div>
   );

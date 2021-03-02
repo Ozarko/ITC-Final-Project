@@ -1,0 +1,7 @@
+.HomePage {
+  position: relative;
+  background: $main-dark-color;
+}
+
+@import './HomeHero/HomeHero.scss';
+@import './Description/Description.scss';

@@ -1,0 +1,15 @@
+// Basic style
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+// Basic import 
+@import './fonts/font_face.scss';
+@import './variables.scss';
+
+@import '../components/UI/indexUI.scss';
+@import '../components/pages/Home/HomePage.scss';

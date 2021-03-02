@@ -1,0 +1,18 @@
+.Navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 60px;
+  // background: url(../../../image/main_bg.png) no-repeat top center/cover;
+  // border: 1px solid #000;
+  // background-color: #fae1dd;
+  & > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@import './MenuList/MenuList.scss';
+@import './MenuLogo/MenuLogo.scss';

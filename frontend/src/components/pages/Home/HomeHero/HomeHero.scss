@@ -1,0 +1,157 @@
+@import './StarLogo/StarLogo.scss';
+
+.HomeHero {
+  position: relative;
+  max-width: $breakpoint-lg;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+
+  &-showcase {
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    justify-items: center;
+
+    &-window {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      &-title {
+        width:600px;
+        color: $main-light-color;
+        text-transform: uppercase;
+        font-family: $main-font-medium;
+        letter-spacing: 3px;
+        font-size: 40px;
+        margin-bottom: 30px;
+        text-align: center;
+        letter-spacing: 10px;
+    
+        &.second {
+          font-size: 70px;
+          margin-top: 30px;
+        }
+        & > strong {
+          font-size: 70px;
+          display: block;
+        }
+      }
+
+      &-image-box {
+        position: relative;
+        width: 400px;
+        height: 500px;
+        border: 1px solid $main-color;
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+        overflow: hidden;
+        margin: 0 30px;
+        -webkit-box-shadow: 2px 50px 74px 44px rgba(169, 140, 127, 0.14);
+        -moz-box-shadow: 2px 50px 74px 44px rgba(169, 140, 127, 0.14);
+        box-shadow: 2px 50px 74px 44px rgba(169, 140, 127, 0.14);
+        & > img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+
+    &-description {
+      position: relative;
+      max-width: 300px;
+      padding: 40px;
+      width: 100%;
+      font-family: $main-font-light-italic;
+      border: 1px solid $main-color;
+      border-radius: 50%;
+      color: $main-color;
+      text-align: center;
+      &-line {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: rotate(65deg);
+        width: 300px;
+        height: 1px;
+        background: $main-color;
+        animation: lineRotate 5s ease;
+        transition: all 3s ease;
+      }
+      &:hover {
+        transition: all 3s ease;
+        .HomeHero-showcase-description-line {
+          transform: rotate(165deg)
+        }
+      }
+    }
+  }
+
+  &-description {
+    width: 300px;
+    text-align: center;
+    margin-top: 150px;
+    font-size: 20px;
+    color: $main-color;
+  }
+}
+
+@keyframes lineRotate {
+  from {
+    transform: rotate(165deg)
+  }
+  to {
+    transform: rotate(65deg)
+  }
+}
+
+@media screen and (max-width: $breakpoint-md) {
+  .HomeHero {
+    &-showcase {
+      &-window {
+        &-title {
+          width: 440px;
+          font-size: 35px;
+        }
+        &-image-box {
+          width: 300px;
+          height: 400px;
+        }
+      }
+      &-description {
+        padding: 20px;
+        max-width: 200px;
+        &-line {
+          width: 200px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $breakpoint-sm) {
+  .HomeHero-showcase {
+    display: flex;
+    flex-direction: column;
+    &-window {
+      &-title {
+        width: 100%;
+        font-size: 25px;
+      }
+      &-image-box {
+        width: 250px;
+        height: 350px;
+      }
+    }
+    &-description  {
+      display: none;
+    }
+  }
+}

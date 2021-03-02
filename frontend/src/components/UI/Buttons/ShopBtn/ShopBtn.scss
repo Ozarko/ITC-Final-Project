@@ -1,0 +1,71 @@
+.ShopBtn {
+  outline: none;
+  max-width: 200px;
+  width: 100%;
+  height: 200px;
+  border: 1px solid $main-color;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 1s ease;
+
+  &:active,
+  &:focus {
+    outline: none;
+  }
+
+  &>a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: $main-font-medium;
+    font-size: 25px;
+    transition: all 1s ease;
+  }
+
+  &.transparent {
+    background: transparent;
+
+    &>a {
+      color: $main-color;
+
+      &:hover {
+        border-bottom: 1px solid $main-color;
+      }
+    }
+
+    &:hover {
+      -webkit-box-shadow: 0px 0px 100px 11px rgba(169, 140, 127, 0.1);
+      -moz-box-shadow: 0px 0px 100px 11px rgba(169, 140, 127, 0.1);
+      box-shadow: 0px 0px 100px 11px rgba(169, 140, 127, 0.1);
+    }
+  }
+
+  &.standart {
+    background: $main-color;
+
+    &>a {
+      color: $main-light-color;
+      &:hover {
+        border-bottom: 1px solid $main-light-color;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $breakpoint-md) {
+  .ShopBtn {
+    max-width: 150px;
+    height: 150px;
+
+    &>a {
+      font-size: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: $breakpoint-sm) {
+  .ShopBtn {
+    margin-top: 40px;
+  }
+}

@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const ShopBtn = ({to, text, style}) => {
+const ShopBtn = ({to, text, styleType}) => {
 
   const styleClasses = ['ShopBtn']
-  if(style) {
-    styleClasses.push(style)
+  if(styleType) {
+    styleClasses.push(styleType)
   }
 
   return (

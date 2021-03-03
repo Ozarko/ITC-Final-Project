@@ -1,12 +1,12 @@
 import React from "react";
-import StarLogo from "./StarLogo/StarLogo";
+import SunLogo from "./SunLogo/SunLogo";
 import mainFoto from "../../../../image/MainFoto2.jpg";
 import ShopBtn from "../../../UI/Buttons/ShopBtn/ShopBtn";
-
+import hero from '../../../../image/hero1.jpg'
 const HomeHero = () => {
   return (
     <div className="HomeHero">
-      <StarLogo />
+      <SunLogo />
 
       <div className="HomeHero-showcase">
         <div className="HomeHero-showcase-description">
@@ -19,13 +19,13 @@ const HomeHero = () => {
             <strong>Любов</strong> яку можна відчути
           </h2>
           <div className="HomeHero-showcase-window-image-box">
-            <img src={mainFoto} alt="mainImage" />
+            <img src={hero} alt="mainImage" />
           </div>
 
           <h2 className="HomeHero-showcase-window-title second">На дотик</h2>
         </div>
 
-        <ShopBtn to='/' text='Магазин' style='transparent' />
+        <ShopBtn to='/' text='Магазин' styleType='transparent' />
       </div>
 
       <p className="HomeHero-description">

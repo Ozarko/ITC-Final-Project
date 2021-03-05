@@ -8,7 +8,7 @@ const HomePage = () => {
     <div className="HomePage">
       <HomeHero />
       <TextLine />
-      {/* <Description /> */}
+      <Description />
     </div>
   );
 }

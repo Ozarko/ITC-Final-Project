@@ -1,8 +1,8 @@
 import React from "react";
 import SunLogo from "./SunLogo/SunLogo";
-import mainFoto from "../../../../image/MainFoto2.jpg";
 import ShopBtn from "../../../UI/Buttons/ShopBtn/ShopBtn";
-import hero from '../../../../image/hero1.jpg'
+import homeImage from '../../../../image/home/Home.jpg';
+
 const HomeHero = () => {
   return (
     <div className="HomeHero">
@@ -19,7 +19,7 @@ const HomeHero = () => {
             <strong>Любов</strong> яку можна відчути
           </h2>
           <div className="HomeHero-showcase-window-image-box">
-            <img src={hero} alt="mainImage" />
+            <img src={homeImage} alt="mainImage" />
           </div>
 
           <h2 className="HomeHero-showcase-window-title second">На дотик</h2>

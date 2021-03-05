@@ -170,6 +170,9 @@
       &-description  {
         display: none;
       }
+      & > button {
+        margin-top: 40px;
+      }
     }
     &-description {
       padding: 5px;

@@ -1,7 +1,14 @@
 .HomePage {
   position: relative;
   background: $main-dark-color;
+  &-baner {
+    min-height: 50vh;
+    background: url(../../../image/baner2.jpg) no-repeat center center/cover;
+  }
 }
+
 
 @import './HomeHero/HomeHero.scss';
 @import './Description/Description.scss';
+@import './OurStory/OurStory.scss';
+@import './Follow/Follow.scss';

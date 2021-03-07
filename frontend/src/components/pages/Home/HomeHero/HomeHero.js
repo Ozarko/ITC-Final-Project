@@ -5,7 +5,7 @@ import MainLinkButton from "@UI/Buttons/MainLinkButton";
 
 const HomeHero = () => {
   return (
-    <div className="HomeHero">
+    <div className="HomeHero container">
       <SunLogo />
 
       <div className="HomeHero-showcase">

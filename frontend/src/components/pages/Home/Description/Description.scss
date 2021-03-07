@@ -1,6 +1,7 @@
 .Description {
   min-height: 100vh;
   position: relative;
+
   & > div {
     padding: 20px 30px;
   }
@@ -14,9 +15,7 @@
   }
   &-header {
     margin-top: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex(center, center);
     flex-direction: column;
     text-align: left;
     width: 100%;

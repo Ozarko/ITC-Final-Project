@@ -1,14 +1,10 @@
 @import "./SunLogo/SunLogo.scss";
 
 .HomeHero {
-  position: relative;
-  max-width: $breakpoint-lg;
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   padding: 10px;
+  min-height: 100vh;
+  @include flex(center, flex-start);
+  flex-direction: column;
 
   &-showcase {
     position: relative;
@@ -20,10 +16,8 @@
     margin-bottom: 50px;
 
     &-window {
-      display: flex;
+      @include flex(center, center);
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
 
       &-title {
         width: 600px;

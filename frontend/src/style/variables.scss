@@ -26,3 +26,10 @@ $main-font-bold: 'Cormorant Infant Bold';
 $main-font-bold-italic: 'Cormorant Infant Bold Italic';
 $second-font-light: 'Mak Light';
 
+// mixin
+
+@mixin flex($aline, $justify) {
+  display: flex;
+  align-items: $aline;
+  justify-content: $justify;
+}

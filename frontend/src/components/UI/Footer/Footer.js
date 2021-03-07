@@ -67,14 +67,17 @@ const Footer = () => {
             <div className="Footer-box-wrpr-right">
               <div className="Footer-box-wrpr-right-social">
                 <div></div>
-                <a href={FACEBOOK_URL}>Facebook</a>
-                <a href={INSTAGRAM_URL}>Instagram</a>
+                <a href={FACEBOOK_URL} target="_blank" rel="noreferrer">
+                  Facebook
+                </a>
+                <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer">Instagram</a>
               </div>
               <div className="Footer-box-wrpr-right-story">
                 <p>
                   Тут має бути якийсь мега мотивуючий і мілашний текст який буде
                   підсумовувати основну суть роботи, в тому числі і мету роботи
-                  магазину або все таки треба буде реалізувати систему дисконту та підписок
+                  магазину або все таки треба буде реалізувати систему дисконту
+                  та підписок
                 </p>
               </div>
             </div>

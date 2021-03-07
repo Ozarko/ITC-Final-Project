@@ -1,4 +1,4 @@
-@import './SunLogo/SunLogo.scss';
+@import "./SunLogo/SunLogo.scss";
 
 .HomeHero {
   position: relative;
@@ -26,7 +26,7 @@
       justify-content: center;
 
       &-title {
-        width:600px;
+        width: 600px;
         color: $main-light-color;
         text-transform: uppercase;
         font-family: $main-font-medium;
@@ -35,7 +35,7 @@
         margin-bottom: 20px;
         text-align: center;
         letter-spacing: 10px;
-    
+
         &.second {
           margin-top: 20px;
           font-size: 70px;
@@ -90,7 +90,7 @@
       &:hover {
         transition: all 3s ease;
         .HomeHero-showcase-description-line {
-          transform: rotate(165deg)
+          transform: rotate(165deg);
         }
       }
     }
@@ -108,10 +108,10 @@
 
 @keyframes lineRotate {
   from {
-    transform: rotate(165deg)
+    transform: rotate(165deg);
   }
   to {
-    transform: rotate(65deg)
+    transform: rotate(65deg);
   }
 }
 
@@ -167,7 +167,7 @@
           height: 350px;
         }
       }
-      &-description  {
+      &-description {
         display: none;
       }
       & > button {

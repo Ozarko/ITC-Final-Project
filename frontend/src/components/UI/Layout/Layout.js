@@ -1,5 +1,5 @@
 import React from 'react'
-import { menuLinks } from '../../../routes/navigationLink'
+import { menuLinks } from '@routes/navigationLink'
 import Footer from '../Footer/Footer'
 import Navigation from '../Navigation/Navigation'
 

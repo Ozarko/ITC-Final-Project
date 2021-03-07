@@ -1,13 +1,13 @@
-.ShopBtn {
+.MainLinkButton {
   outline: none;
   max-width: 200px;
   width: 100%;
   height: 200px;
-  border: 1px solid $main-light-color;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   transition: all 1s ease;
 
   &:active,
@@ -15,25 +15,30 @@
     outline: none;
   }
 
-  &>a {
+  & > a {
     text-decoration: none;
     text-transform: uppercase;
     font-family: $main-font-medium;
     font-size: 25px;
     transition: all 1s ease;
+    color: $main-light-color;
+    margin-bottom: 5px;
+    &:hover ~ .MainLinkButton-line {
+      background: $main-light-color;
+      width: 70%;
+    }
   }
 
-  &.transparent {
-    background: transparent;
+  &-line {
+    width: 0;
+    height: 1px;
+    background: $main-light-color;
+    transition: all 0.5s ease-in;
+  }
 
-    &>a {
-      color: $main-light-color;
-
-      &:hover {
-        border-bottom: 1px solid $main-light-color;
-      }
-    }
-
+  &.blackStyle {
+    background: none;
+    border: 1px solid $main-light-color;
     &:hover {
       -webkit-box-shadow: 0px 0px 100px 11px rgba(169, 140, 127, 0.1);
       -moz-box-shadow: 0px 0px 100px 11px rgba(169, 140, 127, 0.1);
@@ -41,24 +46,23 @@
     }
   }
 
-  &.standart {
+  &.lightBtn {
     background: $main-color;
-
-    &>a {
-      color: $main-light-color;
-      &:hover {
-        border-bottom: 1px solid $main-light-color;
-      }
+    border: 1px solid $main-color;
+    &:hover {
+      -webkit-box-shadow: 0px 0px 100px 11px rgba(169, 140, 127, 0.1);
+      -moz-box-shadow: 0px 0px 100px 11px rgba(169, 140, 127, 0.1);
+      box-shadow: 0px 0px 100px 11px rgba(169, 140, 127, 0.5);
     }
   }
 }
 
 @media screen and (max-width: $breakpoint-md) {
-  .ShopBtn {
+  .MainLinkButton {
     max-width: 150px;
     height: 150px;
 
-    &>a {
+    & > a {
       font-size: 20px;
     }
   }

@@ -1,6 +1,6 @@
 import React from "react";
-import descriptionImage1 from "../../../../image/home/description/descriptionImage1.jpg";
-import descriptionImage2 from "../../../../image/home/description/descriptionImage2.jpeg";
+import descriptionImage1 from "@image/home/description/descriptionImage1.jpg";
+import descriptionImage2 from "@image/home/description/descriptionImage2.jpeg";
 
 const Description = () => {
   return (

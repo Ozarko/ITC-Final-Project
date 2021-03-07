@@ -10,7 +10,7 @@
     font-size: 60px;
     font-family: $main-font-medium;
     color: $main-light-color;
-          letter-spacing: 5px;
+    letter-spacing: 5px;
   }
   &-header {
     margin-top: 50px;
@@ -55,25 +55,25 @@
     align-items: flex-end;
     margin-bottom: 40px;
     margin-right: 50px;
-      & .first  {
-        border: 1px solid $main-light-color;
-        max-height: 200px;
-        max-width: 300px;
-        transform:rotate(-5deg);
-        z-index: 1;
-                        -webkit-box-shadow: 2px 50px 74px 44px rgba(169, 140, 127, 0.14);
-        -moz-box-shadow: 2px 50px 74px 44px rgba(169, 140, 127, 0.14);
-        box-shadow: 2px 50px 74px 44px rgba(169, 140, 127, 0.14);
-      }
-      & .second  {
-        margin-right: 80px;
-        border: 1px solid $main-light-color;
-        max-height: 400px;
-        max-width: 300px;
-        transform: rotate(8deg);
-                -webkit-box-shadow: 2px 50px 74px 44px rgba(169, 140, 127, 0.14);
-        -moz-box-shadow: 2px 50px 74px 44px rgba(169, 140, 127, 0.14);
-        box-shadow: 2px 50px 74px 44px rgba(169, 140, 127, 0.14);
+    & .first {
+      border: 1px solid $main-light-color;
+      max-height: 200px;
+      max-width: 300px;
+      transform: rotate(-5deg);
+      z-index: 1;
+      -webkit-box-shadow: 2px 50px 74px 44px rgba(169, 140, 127, 0.14);
+      -moz-box-shadow: 2px 50px 74px 44px rgba(169, 140, 127, 0.14);
+      box-shadow: 2px 50px 74px 44px rgba(169, 140, 127, 0.14);
+    }
+    & .second {
+      margin-right: 80px;
+      border: 1px solid $main-light-color;
+      max-height: 400px;
+      max-width: 300px;
+      transform: rotate(8deg);
+      -webkit-box-shadow: 2px 50px 74px 44px rgba(169, 140, 127, 0.14);
+      -moz-box-shadow: 2px 50px 74px 44px rgba(169, 140, 127, 0.14);
+      box-shadow: 2px 50px 74px 44px rgba(169, 140, 127, 0.14);
     }
   }
 }
@@ -91,7 +91,7 @@
       &-mission {
         max-width: 400px;
         margin-top: 30px;
-        &> h3 {
+        & > h3 {
           font-size: 16px;
         }
         & > p {
@@ -132,6 +132,6 @@
         max-height: 200px;
         max-width: 100px;
       }
-    } 
+    }
   }
 }

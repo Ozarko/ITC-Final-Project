@@ -1,7 +1,7 @@
 import React from "react";
 import SunLogo from "./SunLogo/SunLogo";
-import ShopBtn from "../../../UI/Buttons/ShopBtn/ShopBtn";
-import homeImage from '../../../../image/home/Home.jpg';
+import homeImage from "@image/home/Home.jpg";
+import MainLinkButton from "@UI/Buttons/MainLinkButton";
 
 const HomeHero = () => {
   return (
@@ -14,7 +14,7 @@ const HomeHero = () => {
           <p>Речі які зроблені з любовю ! Напряму з сердця карпат.</p>
         </div>
 
-        <div className='HomeHero-showcase-window'>
+        <div className="HomeHero-showcase-window">
           <h2 className="HomeHero-showcase-window-title first">
             <strong>Любов</strong> яку можна відчути
           </h2>
@@ -25,7 +25,11 @@ const HomeHero = () => {
           <h2 className="HomeHero-showcase-window-title second">На дотик</h2>
         </div>
 
-        <ShopBtn to='/' text='Магазин' styleType='transparent' />
+        <MainLinkButton
+          text="Магазин"
+          styleType="blackStyle transparent"
+          linkType={{ type: "React", to: "/" }}
+        />
       </div>
 
       <p className="HomeHero-description">

@@ -1,5 +1,5 @@
 export const menuLinks = [
-  { to: "/", label: "Main", exact: true },
-  { to: "/react_form", label: "React Form", exact: false },
-  { to: "/formik", label: "Formik", exact: false },
+  { to: "/", label: "Головна", exact: true },
+  { to: "/about", label: "Про Нас", exact: false },
+  { to: "/contacts", label: "Контакти", exact: false },
 ];

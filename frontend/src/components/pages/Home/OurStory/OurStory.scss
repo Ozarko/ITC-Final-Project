@@ -14,6 +14,9 @@
       font-size: 20px;
       font-family: $main-font-bold-italic;
       text-transform: uppercase;
+      &:hover ~ .OurStory-title-line {
+        transform: translate(-50%, -50%) rotate(45deg) ;
+      }
     }
     &-line {
       position: absolute;
@@ -24,6 +27,7 @@
       height: 1px;
       background: $main-dark-color;
       animation: line 4s ease;
+      transition: all 3s ease;
     }
   }
   &-description {

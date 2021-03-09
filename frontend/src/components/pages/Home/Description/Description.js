@@ -4,7 +4,7 @@ import descriptionImage2 from "@image/home/description/descriptionImage2.jpeg";
 
 const Description = () => {
   return (
-    <div className="Description">
+    <section className="Description">
       <div className="container">
         <h2 className="Description-title">
           Майстерня <br />
@@ -41,7 +41,7 @@ const Description = () => {
           />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

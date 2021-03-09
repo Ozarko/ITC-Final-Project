@@ -10,23 +10,17 @@
 
     &-wrpr {
       display: flex;
-
       &-left {
         flex: 1;
-
         &-top {
           flex: 1;
           height: 50px;
-          display: flex;
+          @include flex(center, flex-start);
           border-bottom: 1px solid $main-dark-color;
-          display: flex;
-          align-items: center;
 
           &-title {
             padding: 0 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            @include flex(center, center);
             flex: 1;
             text-transform: uppercase;
             font-family: $main-font-regular;
@@ -35,9 +29,7 @@
           }
           &-logo {
             height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            @include flex(center, center);
             padding: 0 35px;
             border-left: 1px solid $main-dark-color;
             & > a {
@@ -51,14 +43,11 @@
           }
         }
         &-info {
-          display: flex;
-          justify-content: space-evenly;
-          align-items: center;
+          @include flex(center, space-evenly);
           font-family: $main-font-regular;
           height: 260px;
 
           &-container {
-
             & > h3 {
               font-size: 25px;
               margin-bottom: 20px;
@@ -81,9 +70,7 @@
         width: 40%;
         border-left: 1px solid $main-dark-color;
         &-social {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
+          @include flex(center, space-between);
           height: 50px;
           border-bottom: 1px solid $main-dark-color;
           & > div {
@@ -92,9 +79,7 @@
           }
           & > a {
             padding: 0 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            @include flex(center, center);
             height: 100%;
             border-left: 1px solid $main-dark-color;
             text-transform: uppercase;
@@ -106,9 +91,7 @@
         }
         &-story {
           height: 260px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+          @include flex(center, center);
           text-align: center;
           padding: 20px;
           & > p {
@@ -122,10 +105,8 @@
     &-copyright {
       width: 100%;
       padding: 5px;
-      display: flex;
-      align-items: center;
+      @include flex(center, center);
       flex-direction: column;
-      justify-content: center;
       text-align: center;
       border-top: 1px solid $main-dark-color;
       & > h2 {
@@ -159,7 +140,7 @@
           }
         }
       }
-      &-info{
+      &-info {
         padding: 25px;
         height: 200px;
         &-container {
@@ -195,7 +176,7 @@
     &-left {
       &-top {
         &-title {
-          font-size: 20px;
+          font-size: 16px;
         }
         &-logo {
           padding: 0 15px;
@@ -204,7 +185,7 @@
           }
         }
       }
-      &-info{
+      &-info {
         padding: 15px;
         &-container {
           & > h3 {
@@ -218,12 +199,8 @@
       }
     }
     &-right {
-      border: none;
-
       &-social {
-        border-top:1px solid $main-dark-color ;
         & > a {
-          border: none;
           padding: 0 5px;
           font-size: 16px;
         }
@@ -256,13 +233,16 @@
     }
 
     &-right {
+      border: none;
       width: 100%;
       &-social {
+        border-top: 1px solid $main-dark-color;
         justify-content: center;
         & > div {
           display: none;
         }
         & > a {
+          border: none;
           width: 100%;
           justify-content: center;
           align-items: center;

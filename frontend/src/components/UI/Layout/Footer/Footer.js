@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FACEBOOK_URL, INSTAGRAM_URL } from "../../../config/URL/socialURL";
+import { FACEBOOK_URL, INSTAGRAM_URL } from "@config/URL/socialURL";
 
 const Footer = () => {
   return (

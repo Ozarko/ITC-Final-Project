@@ -7,14 +7,14 @@ import OurStory from "./OurStory/OurStory";
 
 const HomePage = () => {
   return (
-    <div className="HomePage">
+    <section className="HomePage">
       <HomeHero />
       <TextLine />
       <Description />
       <OurStory />
       <div className="HomePage-baner" />
       <Follow />
-    </div>
+    </section>
   );
 };
 

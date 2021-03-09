@@ -1,0 +1,109 @@
+.LoginAndShopNavLink {
+  flex: 1;
+  z-index: 5;
+  @include flex(center, space-evenly);
+  &-shop {
+    @include flex(center, center);
+
+    &-box {
+      @include flex(center, center);
+      flex-direction: column;
+      & > a {
+        font-family: $main-font-light;
+        font-size: 20px;
+        color: $main-light-color;
+        text-decoration: none;
+        &:hover ~ .LoginAndShopNavLink-shop-box-line {
+          width: 100%;
+          background: $main-light-color;
+        }
+      }
+
+      &-line {
+        transition: all 0.5s ease;
+        width: 0;
+        height: 1px;
+      }
+    }
+    &-count {
+      width: 30px;
+      height: 30px;
+      margin-left: 10px;
+      border: 1px solid $main-light-color;
+      border-radius: 50%;
+      @include flex(center, center);
+      font-size: 15px;
+      color: $main-light-color;
+    }
+  }
+
+  &-login {
+    @include flex(center, center);
+    flex-direction: column;
+    cursor: pointer;
+
+    & > p {
+      font-family: $main-font-light;
+      font-size: 20px;
+      color: $main-light-color;
+      text-decoration: none;
+      &:hover ~ .LoginAndShopNavLink-login-line {
+        width: 100%;
+        background: $main-light-color;
+      }
+    }
+
+    &-line {
+      transition: all 0.5s ease;
+      width: 0;
+      height: 1px;
+    }
+  }
+}
+
+@media screen and (max-width: $breakpoint-lg) {
+  .LoginAndShopNavLink {
+    &-shop-box {
+      & > a {
+        font-size: 16px;
+        &:hover ~ .LoginAndShopNavLink-shop-box-line {
+          background: $main-dark-color;
+        }
+      }
+    }
+    &-login {
+      & > p {
+        font-size: 16px;
+        &:hover ~ .LoginAndShopNavLink-login-line {
+          background: $main-dark-color;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $breakpoint-sm) {
+  .LoginAndShopNavLink {
+    &-shop {
+      &-box {
+        & > a {
+          color: $main-dark-color;
+          font-size: 16px;
+        }
+      }
+      &-count {
+        border: 1px solid $main-dark-color;
+        color: $main-dark-color;
+      }
+    }
+
+    &-login {
+      & > p {
+        color: $main-dark-color;
+        font-size: 16px;
+      }
+    }
+    height: 100%;
+    border-right: 1px solid $main-dark-color;
+  }
+}

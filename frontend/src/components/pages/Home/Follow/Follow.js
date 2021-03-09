@@ -5,7 +5,7 @@ import { INSTAGRAM_URL } from "@config/URL/socialURL";
 
 const Follow = () => {
   return (
-    <div className="Follow">
+    <section className="Follow">
       <div className="Follow-box container">
         <h3>
           Підписуйся
@@ -22,7 +22,7 @@ const Follow = () => {
           Підписуйся на нас в інстаграмі слідкуй за новинами та майстер класами
         </p>
       </div>
-    </div>
+    </section>
   );
 };
 

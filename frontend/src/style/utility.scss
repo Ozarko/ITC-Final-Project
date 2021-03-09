@@ -1,0 +1,21 @@
+.container {
+  max-width: $breakpoint-xlg;
+  margin: 0 auto;
+}
+
+.containImage {
+  width: 100%;
+  height: 100%;
+}
+
+// Mixin
+
+@mixin flex($aline, $justify) {
+  display: flex;
+  align-items: $aline;
+  justify-content: $justify;
+}
+
+@mixin hoverLineRotate ($deg){
+  transform: rotate($deg);
+}

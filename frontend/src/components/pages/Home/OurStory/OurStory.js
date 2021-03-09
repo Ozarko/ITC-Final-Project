@@ -3,7 +3,7 @@ import MainLinkButton from "@UI/Buttons/MainLinkButton";
 
 const OurStory = () => {
   return (
-    <div className="OurStory">
+    <section className="OurStory">
       <div className="container">
         <div className="OurStory-title">
           <h2>Любов яку можна відчути</h2>
@@ -37,7 +37,7 @@ const OurStory = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

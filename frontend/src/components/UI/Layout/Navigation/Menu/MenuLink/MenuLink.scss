@@ -1,0 +1,51 @@
+.MenuLink {
+  @include flex(center, center);
+
+  & > a {
+    text-decoration: none;
+    font-family: $main-font-regular;
+    color: $main-light-color;
+    font-size: 22px;
+
+    &:hover ~ .MenuLink-line {
+      width: 100%;
+      background: $main-light-color;
+    }
+  }
+  &-line {
+    margin-top: 5px;
+    width: 0;
+    height: 1px;
+    transition: all 0.5s ease;
+  }
+  &.active ~ .MenuLink-line {
+    background: $main-light-color;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: $breakpoint-lg) {
+  .MenuLink {
+    & > a {
+      font-size: 18px;
+    }
+  }
+}
+
+@media screen and (max-width: $breakpoint-sm) {
+  .MenuLink {
+    & > a {
+      font-size: 40px;
+      color: $main-dark-color;
+      font-family: $main-font-medium-italic;
+      text-transform: uppercase;
+
+      &:hover ~ .MenuLink-line {
+        background: $main-dark-color;
+      }
+    }
+    &.active ~ .MenuLink-line {
+    background: $main-dark-color;
+  }
+  }
+}

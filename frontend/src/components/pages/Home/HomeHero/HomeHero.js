@@ -5,7 +5,7 @@ import MainLinkButton from "@UI/Buttons/MainLinkButton";
 
 const HomeHero = () => {
   return (
-    <div className="HomeHero container">
+    <section className="HomeHero container">
       <SunLogo />
 
       <div className="HomeHero-showcase">
@@ -36,7 +36,7 @@ const HomeHero = () => {
         Привіт, я Наталя Шкарпетки для сну Для тих, хто мерзне Зв'яжу для дітей
         і дорослих Шкарпетки і не тільки
       </p>
-    </div>
+    </section>
   );
 };
 

@@ -11,7 +11,7 @@ const OurStory = () => {
         </div>
         <div className="OurStory-description">
           <h3>
-            Ми створюємо речі <br /> <span>які</span> дарують людям тепло <br />{" "}
+            Я створюю речі <br /> <span>які</span> дарують тепло, затишок<br />{" "}
             відчуття дому <span>та</span> щастя !
           </h3>
         </div>

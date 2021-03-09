@@ -11,7 +11,7 @@ const HomeHero = () => {
       <div className="HomeHero-showcase">
         <div className="HomeHero-showcase-description">
           <div className="HomeHero-showcase-description-line"></div>
-          <p>Речі які зроблені з любовю ! Напряму з сердця карпат.</p>
+          <p>Речі зроблені з натхненням <br/> Любов з серця Карпат.</p>
         </div>
 
         <div className="HomeHero-showcase-window">
@@ -33,8 +33,7 @@ const HomeHero = () => {
       </div>
 
       <p className="HomeHero-description">
-        Привіт, я Наталя Шкарпетки для сну Для тих, хто мерзне Зв'яжу для дітей
-        і дорослих Шкарпетки і не тільки
+        Привіт! Я - Наталя. <br/> Шкарпетки для Вас, Ваших рідних та наймиліших карапузиків у миті солодкого сну.
       </p>
     </section>
   );

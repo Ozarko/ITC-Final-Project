@@ -25,7 +25,7 @@ const Footer = () => {
                       <Link to="/shop/socks">Шкарпетки</Link>
                     </li>
                     <li>
-                      <Link to="/shop/some">Ще щось там</Link>
+                      <Link to="/shop/some">Одяг для дітей</Link>
                     </li>
                     <li>
                       <Link to="/shop/someelse">І щось там</Link>

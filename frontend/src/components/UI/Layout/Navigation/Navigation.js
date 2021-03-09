@@ -1,9 +1,17 @@
 import React, {useState } from 'react';
+import { useLocation } from 'react-router';
 import LoginAndShopNavLink from './LoginAndShopNavLink/LoginAndShopNavLink';
 import Menu from './Menu/Menu';
 import MenuLogo from './MenuLogo/MenuLogo';
 
 const Navigation = () => {
+
+  const location = useLocation();
+  const navigationStyle = ['Navigation']
+  if(location.pathname === '/sc') {
+    console.log(location.pathname)
+    navigationStyle.push('mainPage')
+  }
 
   const [buttonActive, setButtonActive] = useState(false)
 
@@ -16,7 +24,7 @@ const Navigation = () => {
   }
 
   return (
-    <div className="Navigation">
+    <div className={navigationStyle.join(' ')}>
       <div className="container">
         <div className="Navigation-box">
           <MenuLogo />

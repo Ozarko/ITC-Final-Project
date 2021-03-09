@@ -10,7 +10,11 @@ const TextLine = () => {
       </div>
       <div className="TextLine-box">
         <TiStarburstOutline />
-        <p>Шкарпетки</p>
+        <p>В'язання</p>
+      </div>
+      <div className="TextLine-box">
+        <TiStarburstOutline />
+        <p>Замовлення</p>
       </div>
       <div className="TextLine-box">
         <TiStarburstOutline />
@@ -18,19 +22,11 @@ const TextLine = () => {
       </div>
       <div className="TextLine-box">
         <TiStarburstOutline />
-        <p>Шкарпетки</p>
+        <p>В'язання</p>
       </div>
       <div className="TextLine-box">
         <TiStarburstOutline />
-        <p>Шкарпетки</p>
-      </div>
-      <div className="TextLine-box">
-        <TiStarburstOutline />
-        <p>Шкарпетки</p>
-      </div>
-      <div className="TextLine-box">
-        <TiStarburstOutline />
-        <p>Шкарпетки</p>
+        <p>Замовлення</p>
       </div>
     </div>
   );

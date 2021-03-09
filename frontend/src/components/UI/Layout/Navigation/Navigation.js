@@ -9,8 +9,8 @@ const Navigation = () => {
   const location = useLocation()
 
   useEffect(()=> {
-    setMenuActive(false)
-    setButtonActive(false)
+    setButtonActive(false);
+    setMenuActive(false);
   },[location])
 
   const [buttonActive, setButtonActive] = useState(false);

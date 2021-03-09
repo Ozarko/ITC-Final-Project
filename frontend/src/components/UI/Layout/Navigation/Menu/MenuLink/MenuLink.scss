@@ -16,7 +16,7 @@
     margin-top: 5px;
     width: 0;
     height: 1px;
-    transition: all 0.5s ease;
+    transition: width 0.7s ease;
   }
   &.active ~ .MenuLink-line {
     background: $main-light-color;

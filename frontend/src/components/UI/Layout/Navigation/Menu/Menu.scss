@@ -35,7 +35,7 @@
     @include flex(center, center);
     background: $main-light-color;
     clip-path: circle(0px at 90% -10%);
-    transition: all 0.9s ease-in-out;
+    transition: all 1s ease-in-out;
     &.active {
       top: 0;
       bottom: 0;

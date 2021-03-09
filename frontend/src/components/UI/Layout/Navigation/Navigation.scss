@@ -52,7 +52,7 @@
           @include flex(center, space-between);
           flex-direction: column;
           cursor: pointer;
-          transition: transform 330ms ease-out;
+          transition: transform 0.7s ease-out;
           z-index: 5;
           &:focus,
           &:active {

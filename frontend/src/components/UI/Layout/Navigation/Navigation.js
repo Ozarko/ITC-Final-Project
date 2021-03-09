@@ -1,4 +1,4 @@
-import React, {useState } from 'react';
+import React, {useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
 import LoginAndShopNavLink from './LoginAndShopNavLink/LoginAndShopNavLink';
 import Menu from './Menu/Menu';
@@ -6,14 +6,15 @@ import MenuLogo from './MenuLogo/MenuLogo';
 
 const Navigation = () => {
 
-  const location = useLocation();
-  const navigationStyle = ['Navigation']
-  if(location.pathname === '/sc') {
-    console.log(location.pathname)
-    navigationStyle.push('mainPage')
-  }
+  const location = useLocation()
 
-  const [buttonActive, setButtonActive] = useState(false)
+  useEffect(()=> {
+    setMenuActive(false)
+    setButtonActive(false)
+  },[location])
+
+  const [buttonActive, setButtonActive] = useState(false);
+  const [menuActive, setMenuActive] = useState(false);
 
   const buttonStyle = buttonActive
     ? "Navigation-box-menuBtn-toggle active"
@@ -21,14 +22,15 @@ const Navigation = () => {
 
   const menuToggleHandler = () => {
     setButtonActive(!buttonActive)
+    setMenuActive(!menuActive)
   }
 
   return (
-    <div className={navigationStyle.join(' ')}>
+    <div className={'Navigation'}>
       <div className="container">
         <div className="Navigation-box">
           <MenuLogo />
-          <Menu />
+          <Menu menuStatus={menuActive} />
           <LoginAndShopNavLink />
           <div className="Navigation-box-menuBtn">
             <button onClick={menuToggleHandler} className={buttonStyle}>

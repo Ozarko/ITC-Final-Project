@@ -36,16 +36,16 @@
   .MenuLink {
     & > a {
       font-size: 40px;
-      color: $main-dark-color;
+      color: $main-light-color;
       font-family: $main-font-medium-italic;
       text-transform: uppercase;
 
       &:hover ~ .MenuLink-line {
-        background: $main-dark-color;
+        background: $main-light-color;
       }
     }
     &.active ~ .MenuLink-line {
-    background: $main-dark-color;
+    background: $main-light-color;
   }
   }
 }

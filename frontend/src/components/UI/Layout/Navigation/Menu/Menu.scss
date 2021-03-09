@@ -18,6 +18,14 @@
   }
 }
 
+@media screen and (max-width: $breakpoint-md) {
+  .Menu {
+    flex: 3;
+    width: 100%;
+  }
+}
+
+
 @media screen and (max-width: $breakpoint-sm) {
   .Menu {
     position: fixed;
@@ -25,18 +33,18 @@
     left: 0;
     width: 100%;
     @include flex(center, center);
-    // clip-path: circle(100px at 90% -10%);
-    // transition: all 0.9s ease-in-out;
+    background: $main-light-color;
+    clip-path: circle(0px at 90% -10%);
+    transition: all 0.9s ease-in-out;
     &.active {
       top: 0;
       bottom: 0;
       clip-path: circle(1500px at 90% -10%);
-      // background: $secondary-color;
     }
     & > ul {
       justify-content: center;
       flex-direction: column;
-      background: $main-light-color;
+      background: $main-dark-color;
       & > li {
         height: auto;
         margin: 30px 0;

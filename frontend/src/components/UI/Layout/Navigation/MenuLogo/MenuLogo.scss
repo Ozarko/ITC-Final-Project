@@ -21,14 +21,21 @@
     }
   }
 }
+@media screen and (max-width: $breakpoint-md) {
+  .MenuLogo {
+    & > a {
+      font-size: 16px;
+    }
+  }
+}
 
 @media screen and (max-width: $breakpoint-sm) {
   .MenuLogo {
-    padding: 0 10px;
-    border-right: 1px solid $main-dark-color;
+    padding: 0 5px;
+    border-right: 1px solid $main-light-color;
     & > a {
-      color: $main-dark-color;
-      font-size: 20px;
+      color: $main-light-color;
+      font-size: 14px;
     }
   }
 }

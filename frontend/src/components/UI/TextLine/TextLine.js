@@ -7,24 +7,32 @@ const TextLine = () => {
       <div className="TextLine-box">
         <TiStarburstOutline />
         <p>Шкарпетки</p>
-      </div>
-      <div className="TextLine-box">
         <TiStarburstOutline />
         <p>В'язання</p>
-      </div>
-      <div className="TextLine-box">
         <TiStarburstOutline />
         <p>Замовлення</p>
       </div>
       <div className="TextLine-box">
         <TiStarburstOutline />
         <p>Шкарпетки</p>
+        <TiStarburstOutline />
+        <p>В'язання</p>
+        <TiStarburstOutline />
+        <p>Замовлення</p>
       </div>
       <div className="TextLine-box">
         <TiStarburstOutline />
+        <p>Шкарпетки</p>
+        <TiStarburstOutline />
         <p>В'язання</p>
+        <TiStarburstOutline />
+        <p>Замовлення</p>
       </div>
       <div className="TextLine-box">
+        <TiStarburstOutline />
+        <p>Шкарпетки</p>
+        <TiStarburstOutline />
+        <p>В'язання</p>
         <TiStarburstOutline />
         <p>Замовлення</p>
       </div>

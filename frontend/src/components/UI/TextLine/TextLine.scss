@@ -20,24 +20,21 @@
     font-size: 25px;
     text-transform: uppercase;
     color: $main-light-color;
-    font-family: 'Clara';
+    font-family: $main-font-medium;
     letter-spacing: 10px;
     line-height: 100%;
-    margin-right: 30px;
-    animation: textLine 5s linear infinite;
+    margin-right: 10px;
+    animation: textLine 10s linear infinite;
 
     & > svg {
-      margin-right: 10px;
-    }
-    &.second {
-      animation-delay: 2.5s;
+      margin: 10px;
     }
   }
 }
 
 @keyframes textLine {
   0% {
-    transform: translate(0,0);
+    transform: translate(100,0);
   }
   100% {
     transform: translate(-100%, 0);

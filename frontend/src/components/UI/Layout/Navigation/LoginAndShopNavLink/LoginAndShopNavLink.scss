@@ -84,26 +84,31 @@
 
 @media screen and (max-width: $breakpoint-sm) {
   .LoginAndShopNavLink {
+    flex: 5;
+    width: 100%;
     &-shop {
       &-box {
         & > a {
-          color: $main-dark-color;
-          font-size: 16px;
+          color: $main-light-color;
+          font-size: 14px;
         }
       }
       &-count {
-        border: 1px solid $main-dark-color;
-        color: $main-dark-color;
+        width: 20px;
+        height: 20px;
+        font-size: 10px;
+        border: 1px solid $main-light-color;
+        color: $main-light-color;
       }
     }
 
     &-login {
       & > p {
-        color: $main-dark-color;
-        font-size: 16px;
+        color: $main-light-color;
+        font-size: 14px;
       }
     }
     height: 100%;
-    border-right: 1px solid $main-dark-color;
+    border-right: 1px solid $main-light-color;
   }
 }

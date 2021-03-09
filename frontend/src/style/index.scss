@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+body {
+  overscroll-behavior-y: none;
+}
+
 
 // Basic import 
 @import './fonts/font_face.scss';

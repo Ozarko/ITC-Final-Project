@@ -18,30 +18,12 @@
       letter-spacing: 5px;
     }
 
-    & > img {
+    & > .FrameImage {
       margin-top: 20px;
-      border: 1px solid $main-color;
-      border-top-left-radius: 50%;
-      border-top-right-radius: 50%;
-      max-width: 400px;
-      width: 100%;
-      max-height: 600px;
-      height: 100%;
-      &:hover ~ .Follow-box-line {
-        transform: translate(-50%, -50%) rotate(-30deg);
-      }
     }
-    &-line {
-      position: absolute;
-      top: 70%;
-      left: 40%;
-      transform: translate(-50%, -50%) rotate(35deg);
-      width: 800px;
-      height: 1px;
-      background: $main-color;
-      transition: all 3s ease;
-    }
+
     & > p {
+      z-index: 1;
       text-align: center;
       width: 300px;
       margin-top: 70px;
@@ -50,6 +32,7 @@
       color: $main-dark-color;
     }
     & > button {
+      z-index: 1;
       margin-right: 20px;
       position: absolute;
       right: 0;
@@ -62,21 +45,6 @@
   .Follow-box {
     & > h3 {
       font-size: 40px;
-    }
-    & > img {
-      max-height: 500px;
-      max-width: 300px;
-    }
-    &-line {
-      width: 500px;
-    }
-  }
-}
-
-@media screen and (max-width: $breakpoint-lg) {
-  .Follow-box {
-    & > h3 {
-      font-size: 30px;
     }
 
     & > img {

@@ -1,11 +1,10 @@
 import React from 'react';
 import aboutImage from '@image/about/about-desc.jpg';
-import aboutSecondImage from '@image/about/about-desc-var.jpg';
-import aboutThirdImage from '@image/about/child.jpg';
+import aboutSecondImage from '@image/about/aboutImageS.jpg';
 
 const AboutTitle = () => {
   return (
-    <div className="AboutTitle">
+    <section className="AboutTitle">
       <div className="AboutTitle-header">
         <h2>
           Про мене <br /> <span>та</span> мою майстерню <br /> <span>в</span>{" "}
@@ -31,14 +30,14 @@ const AboutTitle = () => {
             </p>
           </div>
           <div className="AboutTitle-header-description-image">
-            <img src={aboutSecondImage} alt="" />
+            <img src={aboutImage} alt="" />
           </div>
         </div>
       </div>
       <div className="AboutTitle-imageBox">
-        <img src={aboutThirdImage} alt="" />
+        <img src={aboutSecondImage} alt="" />
       </div>
-    </div>
+    </section>
   );
 }
 

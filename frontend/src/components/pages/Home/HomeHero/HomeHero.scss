@@ -1,10 +1,13 @@
-@import "./SunLogo/SunLogo.scss";
-
 .HomeHero {
   padding: 10px;
   min-height: 100vh;
   @include flex(center, flex-start);
   flex-direction: column;
+
+  & > .SunLogo {
+    margin-top: 100px;
+    margin-bottom: 50px;
+  }
 
   &-showcase {
     position: relative;
@@ -53,38 +56,10 @@
         -moz-box-shadow: 2px 50px 74px 44px rgba(169, 140, 127, 0.14);
         box-shadow: 2px 50px 74px 44px rgba(169, 140, 127, 0.14);
         animation: rotate 3s ease;
-        
+
         & > img {
           width: 100%;
           height: 100%;
-        }
-      }
-    }
-
-    &-description {
-      position: relative;
-      max-width: 300px;
-      padding: 40px;
-      width: 100%;
-      font-family: $main-font-light-italic;
-      border: 1px solid $main-light-color;
-      border-radius: 50%;
-      color: $main-light-color;
-      text-align: center;
-      &-line {
-        position: absolute;
-        top: 50%;
-        left: 0;
-        transform: rotate(65deg);
-        width: 300px;
-        height: 1px;
-        background: $main-light-color;
-        animation: lineRotate 5s ease;
-        transition: all 3s ease;
-      }
-      &:hover {
-        .HomeHero-showcase-description-line {
-          @include hoverLineRotate(165deg)
         }
       }
     }
@@ -128,19 +103,16 @@
           height: 400px;
         }
       }
-      &-description {
-        padding: 20px;
-        max-width: 200px;
-        &-line {
-          width: 200px;
-        }
-      }
     }
   }
 }
 
 @media screen and (max-width: $breakpoint-sm) {
   .HomeHero {
+    & > .SunLogo {
+      margin-bottom: 20px;
+    }
+
     &-showcase {
       display: flex;
       flex-direction: column;
@@ -161,9 +133,6 @@
           height: 350px;
         }
       }
-      &-description {
-        display: none;
-      }
       & > button {
         margin-top: 40px;
       }
@@ -172,6 +141,9 @@
       padding: 5px;
       font-size: 16px;
     }
+  }
+  .LogoDescription {
+    display: none;
   }
 }
 

@@ -1,0 +1,29 @@
+.Shop {
+  position: relative;
+  min-height: 100vh;
+  background: $main-light-color;
+  padding-top: 100px;
+  & > div {
+    padding: 0 20px;
+  }
+}
+
+@media screen and (max-width: $breakpoint-lg) {
+  .Shop {
+    padding-top: 90px;
+  }
+}
+@media screen and (max-width: $breakpoint-md) {
+  .Shop {
+    padding-top: 80px;
+  }
+}
+@media screen and (max-width: $breakpoint-sm) {
+  .Shop {
+    padding-top: 70px;
+  }
+}
+
+@import './ShopCategories/ShopCategories.scss';
+@import './ShopProducts/ShopProducts.scss';
+@import './ShopTitle/ShopTitle.scss';

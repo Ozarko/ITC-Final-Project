@@ -1,0 +1,58 @@
+.ShopTitle {
+  width: 100%;
+  &-title {
+    @include flex(center, flex-start);
+    & > h2 {
+      text-transform: uppercase;
+      font-family: $main-font-light;
+      color: $rootStyleTypeColor;
+      font-weight: 200;
+      letter-spacing: 15px;
+      font-size: 100px;
+    }
+    & > p {
+      margin-top: 20px;
+      align-self: flex-start;
+      font-family: $main-font-medium;
+    }
+  }
+  &-line {
+    width: 100%;
+    height: 1px;
+    background: $rootStyleTypeColor;
+  }
+}
+
+@media screen and(max-width: $breakpoint-lg) {
+  .ShopTitle {
+    &-title {
+      & > h2 {
+        font-size: 80px;
+      }
+    }
+  }
+}
+@media screen and(max-width: $breakpoint-md) {
+  .ShopTitle {
+    &-title {
+      & > h2 {
+        font-size: 60px;
+      }
+      & > p {
+        margin-top: 5px;
+      }
+    }
+  }
+}
+@media screen and(max-width: $breakpoint-sm) {
+  .ShopTitle {
+    &-title {
+      & > h2 {
+        font-size: 50px;
+      }
+      & > p {
+        font-size: 10px;
+      }
+    }
+  }
+}

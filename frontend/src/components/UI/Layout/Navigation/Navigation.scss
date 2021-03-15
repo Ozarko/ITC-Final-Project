@@ -3,16 +3,23 @@
   top: 0;
   left: 0;
   width: 100%;
-  background: $main-dark-color;
-  padding: 20px;
+  background: $rootStyleTypeBg;
+  padding: 10px;
   z-index: 100;
   z-index: 2;
 
   &-box {
     position: relative;
     height: 60px;
-    border: 1px solid $main-light-color;
+    border: 1px solid $rootStyleTypeColor;
     @include flex(center, flex-start);
+    &-loginCartLinkBox {
+      flex: 1;
+      @include flex(center, center);
+      max-width: 300px;
+      width: 100%;
+      height: 100%
+    }
     &-menuBtn {
       display: none;
     }
@@ -33,14 +40,17 @@
         left: 0;
         height: 100%;
         width: 100%;
-        border: 1px solid $main-light-color;
+        border: 1px solid $rootStyleTypeColor;
         z-index: 2;
+      }
+       &-loginCartLinkBox {
+        max-width: 100%;
+        flex: 2;
       }
 
       &-menuBtn {
         height: 100%;
         @include flex(center, center);
-        border-left: 1px solid $main-light-color;
 
         &-toggle {
           margin: 0 15px;
@@ -64,7 +74,7 @@
           }
 
           &-menu {
-            background: $main-light-color;
+            background: $rootStyleTypeColor;
             border-radius: 5px;
             width: 100%;
             height: 2px;
@@ -101,5 +111,6 @@
 
 @import "./Menu/Menu.scss";
 @import "./MenuLogo/MenuLogo.scss";
-@import "./LoginAndShopNavLink/LoginAndShopNavLink.scss";
 @import "./Menu/MenuLink/MenuLink.scss";
+@import './LoginLink/LoginLink.scss';
+@import './CartLink/CartLink.scss';

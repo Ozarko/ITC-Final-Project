@@ -19,3 +19,16 @@
 @mixin hoverLineRotate ($deg){
   transform: rotate($deg);
 }
+
+@mixin startSectionMargin() {
+  margin-top: 100px;
+  @media screen and (max-width: $breakpoint-lg) {
+    margin-top: 70px;
+  }
+  @media screen and (max-width: $breakpoint-md) {
+    margin-top: 50px;
+  }
+  @media screen and (max-width: $breakpoint-sm) {
+    margin-top: 30px;
+  }
+}

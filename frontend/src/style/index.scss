@@ -1,20 +1,26 @@
-// Basic style
+@import './fonts/font_face.scss';
+@import './variables.scss';
+@import './utility.scss';
 
+// Basic style
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
+a {
+  text-decoration: underline;
+  color: $rootStyleTypeColor;
+}
+
+html, body {
+  cursor: none;
   overscroll-behavior-y: none;
 }
 
 
 // Basic import 
-@import './fonts/font_face.scss';
-@import './variables.scss';
-@import './utility.scss';
 
 @import '../components/UI/indexUI.scss';
 @import '../components/pages/pages.scss';

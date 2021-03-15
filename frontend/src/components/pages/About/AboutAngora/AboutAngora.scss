@@ -1,0 +1,88 @@
+.AboutAngora {
+  text-align: center;
+  flex-direction: column;
+  padding: 20px;
+  & > div {
+    margin: 70px 0;
+  }
+
+  & > .SunLogo {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  &-box {
+    @include flex(center, space-between);
+    & > .FrameImage {
+      flex: 1;
+    }
+
+    &-description {
+      z-index: 1;
+      flex: 2;
+      text-align: right;
+      max-width: 40%;
+      & > h2 {
+        font-family: $main-font-medium-italic;
+        font-size: 50px;
+        margin-bottom: 50px;
+      }
+      & > p {
+        font-family: $main-font-regular;
+        font-size: 20px;
+        margin-top: 20px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $breakpoint-lg) {
+  .AboutAngora {
+    &-box {
+      &-description {
+        max-width: 50%;
+        & > h2 {
+          font-size: 40px;
+          margin-bottom: 30px;
+        }
+        & > p {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $breakpoint-md) {
+  .AboutAngora {
+    &-box {
+      &-description {
+        & > h2 {
+          margin-bottom: 20px;
+        }
+        & > p {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $breakpoint-sm) {
+  .AboutAngora {
+    // padding: 5px;
+    &-box {
+      flex-direction: column;
+      &-description {
+        max-width: 100%;
+        text-align: center;
+        & > h2 {
+          margin-top: 40px;
+          margin-bottom: 20px;
+        }
+        & > p {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

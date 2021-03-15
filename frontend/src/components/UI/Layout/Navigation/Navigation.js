@@ -1,20 +1,21 @@
 import React, {useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
-import LoginAndShopNavLink from './LoginAndShopNavLink/LoginAndShopNavLink';
+import CartLink from './CartLink/CartLink';
+import LoginLink from './LoginLink/LoginLink';
 import Menu from './Menu/Menu';
 import MenuLogo from './MenuLogo/MenuLogo';
 
 const Navigation = () => {
+  
+  const [buttonActive, setButtonActive] = useState(false);
+  const [menuActive, setMenuActive] = useState(false);
 
-  const location = useLocation()
+  const location = useLocation().pathname;
 
   useEffect(()=> {
     setButtonActive(false);
     setMenuActive(false);
   },[location])
-
-  const [buttonActive, setButtonActive] = useState(false);
-  const [menuActive, setMenuActive] = useState(false);
 
   const buttonStyle = buttonActive
     ? "Navigation-box-menuBtn-toggle active"
@@ -26,12 +27,15 @@ const Navigation = () => {
   }
 
   return (
-    <div className={'Navigation'}>
+    <div className={"Navigation"}>
       <div className="container">
         <div className="Navigation-box">
           <MenuLogo />
           <Menu menuStatus={menuActive} />
-          <LoginAndShopNavLink />
+          <div className="Navigation-box-loginCartLinkBox">
+            <LoginLink />
+            <CartLink />
+          </div>
           <div className="Navigation-box-menuBtn">
             <button onClick={menuToggleHandler} className={buttonStyle}>
               <div className="Navigation-box-menuBtn-toggle-menu half start"></div>

@@ -1,15 +1,14 @@
 .MenuLink {
   @include flex(center, center);
-
   & > a {
     text-decoration: none;
     font-family: $main-font-regular;
-    color: $main-light-color;
+    color: $rootStyleTypeColor;
     font-size: 22px;
 
     &:hover ~ .MenuLink-line {
       width: 100%;
-      background: $main-light-color;
+      background: $rootStyleTypeColor;
     }
   }
   &-line {
@@ -19,7 +18,7 @@
     transition: width 0.7s ease;
   }
   &.active ~ .MenuLink-line {
-    background: $main-light-color;
+    background: $rootStyleTypeColor;
     width: 100%;
   }
 }
@@ -36,16 +35,16 @@
   .MenuLink {
     & > a {
       font-size: 40px;
-      color: $main-light-color;
+      color: $rootStyleTypeColor;
       font-family: $main-font-medium-italic;
       text-transform: uppercase;
 
       &:hover ~ .MenuLink-line {
-        background: $main-light-color;
+        background: $rootStyleTypeColor;
       }
     }
     &.active ~ .MenuLink-line {
-    background: $main-light-color;
+    background: $rootStyleTypeColor;
   }
   }
 }

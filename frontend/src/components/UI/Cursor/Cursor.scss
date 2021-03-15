@@ -1,0 +1,26 @@
+.Cursor {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #fff;
+  border-radius: 100%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transition: all 150ms ease;
+  transition-property: opacity;
+  transition-property:  opacity, background-color, transform, mix-blend-mode;
+  &.hiden {
+    opacity: 0;
+  }
+
+  &.clicked {
+    transform: translate(-50%, -50%) scale(0.9);
+    background-color:  #fff;
+  }
+  &.link-hovered {
+    transform: translate(-50%, -50%) scale(1.25);
+    background-color: #fff;
+  }
+}

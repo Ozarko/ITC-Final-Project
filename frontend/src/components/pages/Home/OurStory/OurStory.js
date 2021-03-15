@@ -11,8 +11,8 @@ const OurStory = () => {
         </div>
         <div className="OurStory-description">
           <h3>
-            Я створюю речі <br /> <span>які</span> дарують тепло, затишок<br />{" "}
-            відчуття дому <span>та</span> щастя !
+            Я створюю речі <br /> <span>які</span> дарують тепло, затишок
+            <br /> відчуття дому <span>та</span> щастя !
           </h3>
         </div>
         <div className="OurStory-box">

@@ -1,0 +1,64 @@
+.SiteTitleNav {
+  margin-top: 20px;
+  & > ul {
+    padding: 0 10px;
+    list-style: none;
+    @include flex(center, flex-start);
+
+    & > li {
+      @include flex(center, center);
+      & > a {
+        text-decoration: none;
+        text-transform: uppercase;
+        font-family: $main-font-regular;
+        color: $rootStyleTypeColor;
+        letter-spacing: 2px;
+        font-size: 20px;
+        opacity: 0.8;
+      }
+      & > span {
+        display: inline-block;
+        color: $rootStyleTypeColor;
+        font-size: 25px;
+        margin: 0 10px;
+      }
+      &:last-child {
+        opacity: 1;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+@media screen and(max-width: $breakpoint-lg) {
+  .SiteTitleNav {
+    & > ul > li > a{
+      font-size: 16px;
+    }
+  }
+}
+
+@media screen and(max-width: $breakpoint-md) {
+  .SiteTitleNav {
+    & > ul  {
+      padding: 0 5px;
+        & > li > a{
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media screen and(max-width: $breakpoint-md) {
+  .SiteTitleNav {
+    margin-top: 10px;
+    & > ul > li  {
+      & > a {
+        font-size: 12px;
+      }
+      & > span {
+        font-size: 16px;
+      }
+    }
+  }
+} 

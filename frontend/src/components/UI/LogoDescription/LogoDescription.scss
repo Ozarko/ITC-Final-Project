@@ -1,0 +1,40 @@
+.LogoDescription {
+  position: relative;
+  max-width: 300px;
+  padding: 40px;
+  width: 100%;
+  font-family: $main-font-light-italic;
+  border: 1px solid $rootStyleTypeColor;
+  border-radius: 50%;
+  color: $rootStyleTypeColor;
+  text-align: center;
+  &-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: rotate(65deg);
+    width: 300px;
+    height: 1px;
+    background: $rootStyleTypeColor;
+    animation: lineRotate 5s ease;
+    transition: all 3s ease;
+  }
+  &:hover {
+    .HomeHero-showcase-description-line {
+      @include hoverLineRotate(165deg);
+    }
+  }
+}
+
+@media screen and (max-width: $breakpoint-md) {
+  .LogoDescription {
+    padding: 20px;
+    max-width: 200px;
+    & > p {
+      font-size: 15px;
+    }
+    &-line {
+      width: 200px;
+    }
+  }
+}

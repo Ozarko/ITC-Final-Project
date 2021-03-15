@@ -1,8 +1,9 @@
 .Menu {
   height: 100%;
   flex: 2;
-  border-right: 1px solid $main-light-color;
+  border-right: 1px solid $rootStyleTypeColor;
   z-index: 1;
+  
   & > ul {
     list-style: none;
     width: 100%;
@@ -33,7 +34,7 @@
     left: 0;
     width: 100%;
     @include flex(center, center);
-    background: $main-light-color;
+    background: $rootStyleTypeColor;
     clip-path: circle(0px at 90% -10%);
     transition: all 1s ease-in-out;
     &.active {
@@ -44,7 +45,7 @@
     & > ul {
       justify-content: center;
       flex-direction: column;
-      background: $main-dark-color;
+      background: $rootStyleTypeBg;
       & > li {
         height: auto;
         margin: 30px 0;

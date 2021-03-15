@@ -1,19 +1,15 @@
 import React from "react";
-import SunLogo from "./SunLogo/SunLogo";
+import SunLogo from "../../../UI/SunLogo/SunLogo";
 import homeImage from "@image/home/Home.jpg";
 import MainLinkButton from "@UI/Buttons/MainLinkButton";
+import LogoDescription from "../../../UI/LogoDescription/LogoDescription";
 
 const HomeHero = () => {
   return (
     <section className="HomeHero container">
       <SunLogo />
-
       <div className="HomeHero-showcase">
-        <div className="HomeHero-showcase-description">
-          <div className="HomeHero-showcase-description-line"></div>
-          <p>Речі зроблені з натхненням <br/> Любов з серця Карпат.</p>
-        </div>
-
+        <LogoDescription />
         <div className="HomeHero-showcase-window">
           <h2 className="HomeHero-showcase-window-title first">
             <strong>Любов</strong> яку можна відчути
@@ -24,7 +20,6 @@ const HomeHero = () => {
 
           <h2 className="HomeHero-showcase-window-title second">На дотик</h2>
         </div>
-
         <MainLinkButton
           text="Магазин"
           styleType="blackStyle transparent"
@@ -33,7 +28,8 @@ const HomeHero = () => {
       </div>
 
       <p className="HomeHero-description">
-        Привіт! Я - Наталя. <br/> Шкарпетки для Вас, Ваших рідних та наймиліших карапузиків у миті солодкого сну.
+        Привіт! Я - Наталя. <br /> Шкарпетки для Вас, Ваших рідних та наймиліших
+        карапузиків у миті солодкого сну.
       </p>
     </section>
   );

@@ -1,0 +1,54 @@
+.LoginLink {
+  @include flex(center, center);
+  border-right: 1px solid $rootStyleTypeColor;
+  height: 100%;
+  flex: 1;
+  padding: 0 10px;
+  z-index: 1;
+  &-box {
+    @include flex(center, center);
+    flex-direction: column;
+    & > a {
+      text-decoration: none;
+      color: $rootStyleTypeColor;
+      font-family: $main-font-regular;
+      font-size: 20px;
+
+      &:hover ~ .LoginLink-box-line{
+        width: 100%;
+        background: $rootStyleTypeColor;
+      }
+
+    }
+    &-line {
+      margin-top: 5px;
+      width: 0;
+      height: 1px;
+      background: $rootStyleTypeColor;
+      transition: all 0.5s ease;
+    }
+  }
+}
+
+@media screen and (max-width: $breakpoint-lg ) {
+  .LoginLink-box {
+    &> a {
+      font-size: 18px;
+    }
+  }
+}
+
+@media screen and (max-width: $breakpoint-md ) {
+  .LoginLink-box {
+    &> a {
+      font-size: 16px;
+    }
+  }
+}
+@media screen and (max-width: $breakpoint-sm ) {
+  .LoginLink-box {
+    &-line {
+      display: none;
+    }
+  }
+}

@@ -1,8 +1,11 @@
 .AboutTitle {
   min-height: 100vh;
   @include flex (center, center);
+  border-bottom: 1px solid $main-color;
+  padding: 20px;
 
   &-header {
+    margin-top: 100px;
     width: 100%;
     height: 100%;
     padding: 10px;
@@ -18,19 +21,22 @@
       @include flex(center, flex-start);
 
       &-text {
-        max-width: 400px;
+        max-width: 50%;
         font-family: $main-font-regular;
         & > p {
           margin-bottom: 20px;
+          font-family: $main-font-regular;
+          font-size: 20px;
+          margin-top: 20px;
         }
       }
 
       &-image {
         margin: auto;
-        justify-self: end;
+        padding: 20px;
         & > img {
-          max-width: 300px;
-          max-height: 300px;
+          max-width: 350px;
+          max-height: 350px;
           height: 100%;
           width: 100%;
         }
@@ -38,10 +44,72 @@
     }
   }
   &-imageBox {
+    padding: 10px;
     height: 100%;
     & > img {
+      max-width: 500px;
+      max-height: 500px;
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+
+@media screen and(max-width: $breakpoint-lg) {
+  .AboutTitle {
+    &-header {
+      & > h2 {
+        font-size: 50px;
+      }
+      &-description-text {
+        & > p {
+          font-size: 17px;
+        }
+      }
+    }
+    &-imageBox > img {
       max-width: 400px;
       max-height: 400px;
+    }
+  }
+}
+
+@media screen and(max-width: $breakpoint-md) {
+  .AboutTitle {
+    justify-content: flex-start;
+    flex-direction: column;
+    &-header {
+      margin-top: 60px;
+      & > h2 {
+        font-size: 50px;
+      }
+      &-description {
+        &-text {
+          &> p {
+            font-size: 15px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and(max-width: $breakpoint-sm) {
+  .AboutTitle {
+    &-header {
+      margin-top: 40px;
+      & > h2 {
+        font-size: 43px;
+      }
+      &-description {
+        margin-top: 20px;
+        &-text {
+          max-width: 100%;
+        }
+        &-image {
+        display: none;
+      }
+      }
     }
   }
 }

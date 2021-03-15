@@ -1,0 +1,77 @@
+.CartLink {
+  @include flex(center, center);
+  flex: 1;
+  padding: 0 10px;
+  height: 100%;
+  z-index: 1;
+  &-box {
+    @include flex(center, center);
+    flex-direction: column;
+    & > a {
+      @include flex(center, center);
+      text-decoration: none;
+      font-family: $main-font-regular;
+      font-size: 20px;
+      color: $rootStyleTypeColor;
+      &:hover ~ .CartLink-box-line {
+        width: 100%;
+      }
+    }
+    &-count {
+      @include flex(center, center);
+      margin-left: 10px;
+      padding: 5px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1px solid $rootStyleTypeColor;
+      font-size: 16px;
+    }
+    &-line {
+      margin-top: 5px;
+      width: 0;
+      height: 1px;
+      background: $rootStyleTypeColor;
+      transition: all 0.5s ease;
+    }
+  }
+}
+
+@media screen and (max-width: $breakpoint-lg) {
+  .CartLink-box {
+    & > a {
+      font-size: 18px;
+    }
+  }
+}
+
+@media screen and (max-width: $breakpoint-md) {
+  .CartLink {
+    &-box {
+      & > a {
+        font-size: 16px;
+      }
+      &-count {
+        width: 25px;
+        height: 25px;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $breakpoint-sm) {
+  .CartLink {
+    border-right: 1px solid $rootStyleTypeColor;
+    &-box {
+        &-count {
+        width: 25px;
+        height: 25px;
+        font-size: 16px;
+      }
+      &-line {
+        display: none;
+      }
+    }
+  }
+}

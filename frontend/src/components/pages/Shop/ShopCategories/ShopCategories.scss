@@ -1,0 +1,14 @@
+.ShopCategories {
+  & > ul {
+    list-style: none;
+    & > li {
+      margin: 20px 0;
+      & > a {
+        text-decoration: none;
+        font-family: $main-font-medium;
+        font-size: 25px;
+        letter-spacing: 2px;
+      }
+    }
+  }
+}

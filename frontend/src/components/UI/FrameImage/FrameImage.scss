@@ -1,0 +1,53 @@
+.FrameImage {
+  position: relative;
+  @include flex(center, center);
+
+  &> img {
+    border: 1px solid $main-color;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    max-width: 400px;
+    width: 100%;
+    max-height: 600px;
+    height: 100%;
+    box-shadow: 2px 50px 74px 44px rgba(255, 255, 255, 0.9);
+    &:hover ~ .FrameImage-line {
+      transform: translate(-50%, -50%) rotate(-35deg);
+    }
+  }
+  &-line {
+    position: absolute;
+    top: 75%;
+    left: 35%;
+    width: 800px;
+    height: 1px;
+    background: $main-color;
+    transform: translate(-50%, -50%) rotate(35deg);
+    transition: all 3s ease;
+    z-index: 1;
+  }
+}
+
+@media screen and (max-width: $breakpoint-lg) {
+  .FrameImage {
+    & > img {
+      max-height: 500px;
+      max-width: 300px;
+    }
+    &-line {
+      width: 500px;
+    }
+  }
+}
+
+@media screen and (max-width: $breakpoint-sm) {
+  .FrameImage {
+    & > img {
+      max-height: 450px;
+      max-width: 250px;
+    }
+    &-line {
+      width: 300px;
+    }
+  }
+}

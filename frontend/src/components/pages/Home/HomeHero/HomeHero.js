@@ -1,8 +1,8 @@
 import React from "react";
-import SunLogo from "../../../UI/SunLogo/SunLogo";
+import SunLogo from "@UI/SunLogo/SunLogo";
 import homeImage from "@image/home/Home.jpg";
-import MainLinkButton from "@UI/Buttons/MainLinkButton";
-import LogoDescription from "../../../UI/LogoDescription/LogoDescription";
+import LogoDescription from "@UI/LogoDescription/LogoDescription";
+import CircleBtn from "@UI/Buttons/CircleBtn/CircleBtn";
 
 const HomeHero = () => {
   return (
@@ -20,7 +20,7 @@ const HomeHero = () => {
 
           <h2 className="HomeHero-showcase-window-title second">На дотик</h2>
         </div>
-        <MainLinkButton
+        <CircleBtn
           text="Магазин"
           styleType="blackStyle transparent"
           linkType={{ type: "React", to: "/" }}

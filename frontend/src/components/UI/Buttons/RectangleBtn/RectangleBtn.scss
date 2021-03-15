@@ -1,0 +1,14 @@
+.RectangleBtn {
+  width: 100%;
+  height: 50px;
+  background: $main-color;
+  border: none;
+  color: $rootStyleTypeBg;
+  font-family: $main-font-medium;
+  font-size: 20px;
+  cursor: pointer;
+  &:active,
+  &:focus {
+    outline: none;
+  }
+}

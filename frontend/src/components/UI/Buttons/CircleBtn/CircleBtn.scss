@@ -1,4 +1,4 @@
-.MainLinkButton {
+.CircleBtn {
   outline: none;
   max-width: 200px;
   width: 100%;
@@ -21,7 +21,7 @@
     transition: all 1s ease;
     color: $main-light-color;
     margin-bottom: 5px;
-    &:hover ~ .MainLinkButton-line {
+    &:hover ~ .CircleBtn-line {
       background: $main-light-color;
       width: 70%;
     }
@@ -56,7 +56,7 @@
 }
 
 @media screen and (max-width: $breakpoint-md) {
-  .MainLinkButton {
+  .CircleBtn {
     max-width: 150px;
     height: 150px;
 

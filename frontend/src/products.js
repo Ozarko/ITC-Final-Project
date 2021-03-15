@@ -1,4 +1,4 @@
-const products =[
+const products = [
   {
     _id: 1,
     image: '/products/babySocks1.jpg',
@@ -11,7 +11,7 @@ const products =[
   },
   {
     _id: 2,
-    image: '/products/babySocks1.jpg',
+    image: '/products/babySocks2.jpg',
     description: 'Милі дитячі шкарпетки',
     name: `Шкарпетки "Сашенька" `,
     price: 500,
@@ -21,7 +21,7 @@ const products =[
   },
   {
     _id: 3,
-    image: '/products/babySocks1.jpg',
+    image: '/products/babySocks3.jpg',
     description: 'Милі дитячі шкарпетки',
     name: `Шкарпетки "Сашенька" `,
     price: 500,
@@ -31,7 +31,7 @@ const products =[
   },
   {
     _id: 4,
-    image: '/products/babySocks1.jpg',
+    image: '/products/babySocks4.jpg',
     description: 'Милі дитячі шкарпетки',
     name: `Шкарпетки "Сашенька" `,
     price: 500,
@@ -60,3 +60,5 @@ const products =[
     likes: 4
   },
 ]
+
+export default products

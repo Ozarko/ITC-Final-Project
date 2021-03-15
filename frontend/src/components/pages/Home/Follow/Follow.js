@@ -1,8 +1,8 @@
 import React from "react";
 import followImage from "@image/home/Follow.jpg";
-import MainLinkButton from "@UI/Buttons/MainLinkButton";
 import { INSTAGRAM_URL } from "@config/URL/socialURL";
 import FrameImage from "../../../UI/FrameImage/FrameImage";
+import CircleBtn from "../../../UI/Buttons/CircleBtn/CircleBtn";
 
 const Follow = () => {
   return (
@@ -12,8 +12,8 @@ const Follow = () => {
           Підписуйся
           <br /> на наш Instagram
         </h3>
-        <FrameImage image={followImage} alt='follow image'/>
-        <MainLinkButton
+        <FrameImage image={followImage} alt="follow image" />
+        <CircleBtn
           styleType="lightBtn"
           text="Instagram"
           linkType={{ type: "Usual", url: `${INSTAGRAM_URL}` }}

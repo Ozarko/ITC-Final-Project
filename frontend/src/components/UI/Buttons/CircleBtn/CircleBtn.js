@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const MainLinkButton = ({ text, styleType, linkType }) => {
+const CircleBtn = ({ text, styleType, linkType }) => {
   
-  const styless = ["MainLinkButton"];
+  const styless = ["CircleBtn"];
   styless.push(styleType)
 
   let anchor = null;
@@ -23,9 +23,9 @@ const MainLinkButton = ({ text, styleType, linkType }) => {
   return (
     <button className={styless.join(" ")}>
       {anchor}
-      <div className="MainLinkButton-line"></div>
+      <div className="CircleBtn-line"></div>
     </button>
   );
 };
 
-export default MainLinkButton;
+export default CircleBtn;

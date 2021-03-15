@@ -6,6 +6,13 @@
   & > div {
     padding: 0 20px;
   }
+  &-box {
+    margin-top: 50px;
+    @include flex(flex-start,center);
+    &-products {
+      flex: 1;
+    }
+  }
 }
 
 @media screen and (max-width: $breakpoint-lg) {
@@ -27,3 +34,5 @@
 @import './ShopCategories/ShopCategories.scss';
 @import './ShopProducts/ShopProducts.scss';
 @import './ShopTitle/ShopTitle.scss';
+@import './ShopFilter/ShopFilter.scss';
+@import './PageNavigator/PageNavigator.scss';

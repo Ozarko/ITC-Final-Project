@@ -1,8 +1,11 @@
 .ShopCategories {
+  min-width: 300px;
+  align-self: start;
   & > ul {
     list-style: none;
+    padding: 10px;
     & > li {
-      margin: 20px 0;
+      margin-bottom: 20px;
       & > a {
         text-decoration: none;
         font-family: $main-font-medium;

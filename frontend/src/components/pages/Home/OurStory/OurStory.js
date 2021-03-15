@@ -1,5 +1,5 @@
 import React from "react";
-import MainLinkButton from "@UI/Buttons/MainLinkButton";
+import CircleBtn from "@UI/Buttons/CircleBtn/CircleBtn";
 
 const OurStory = () => {
   return (
@@ -17,7 +17,7 @@ const OurStory = () => {
         </div>
         <div className="OurStory-box">
           <div className="OurStory-box-btn">
-            <MainLinkButton
+            <CircleBtn
               text="Про Нас"
               styleType="lightBtn"
               linkType={{ type: "React", to: "/about" }}

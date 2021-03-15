@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
+import { useLocation } from "react-router";
 
 const isMobile = () => {
   const ua = navigator.userAgent;
@@ -11,6 +12,7 @@ const Cursor = () => {
   const [cursorHiden, setCursorHiden] = useState(false);
   const [cursorClicked, setCursorClicked] = useState(false);
   const [linkHovered, setLinkHovered] = useState(false);
+  const location = useLocation();
 
  const addEventListeners = useCallback(() => {
    document.addEventListener("mousemove", onMouseMove);
@@ -30,6 +32,10 @@ const Cursor = () => {
 
   const handleLinkHoverEvents = () => {
     document.querySelectorAll("a").forEach((el) => {
+      el.addEventListener("mouseover", () => setLinkHovered(true));
+      el.addEventListener("mouseout", () => setLinkHovered(false));
+    });
+    document.querySelectorAll(".hoverEffect").forEach((el) => {
       el.addEventListener("mouseover", () => setLinkHovered(true));
       el.addEventListener("mouseout", () => setLinkHovered(false));
     });
@@ -59,7 +65,8 @@ const Cursor = () => {
     addEventListeners();
     handleLinkHoverEvents();
     return () => removeEventListeners();
-  }, [addEventListeners, removeEventListeners]);
+  }, [addEventListeners, removeEventListeners, location]);
+
 
   const cursorClasses = ["Cursor"];
   if (cursorHiden) {

@@ -6,11 +6,11 @@ const ShopCategories = () => {
     <div className="ShopCategories">
       <ul>
         <li>
-          <Link to='/shop'>Усі</Link>
+          <Link to='/shop/1'>Усі</Link>
           <div className="ShopCategories-line"></div>
         </li>
         <li>
-          <Link to='/shop'>Шкарпетки</Link>
+          <Link to='/'>Шкарпетки</Link>
           <div className="ShopCategories-line"></div>
         </li>
         <li>

@@ -5,11 +5,11 @@ import HomePage from "../components/pages/Home/HomePage";
 import ProductScreen from "../components/pages/ProductScreen/ProductScreen";
 import Shop from "../components/pages/Shop/Shop";
 
-export const mainRoutes = (
+export let routes = (
   <Switch>
     <Route path={"/"} component={HomePage} exact />
     <Route path={"/shop"} component={Shop} />
-    <Route path={"/shop/:id"} component={ProductScreen} />
+    <Route  path={"/product/:id"} component={ProductScreen}/>
     <Route path={"/about"} component={About} />
     <Route path={"/contacts"} component={Contact} />
     <Redirect to={"/"} />

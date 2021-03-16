@@ -1,0 +1,95 @@
+.Cart {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  transform: translateX(100%);
+  z-index: 100;
+  background: rgba($main-dark-color, 0.5);
+  @include flex(center, flex-end);
+  
+  &.active {
+    transform: translateX(0);
+  }
+  &-box {
+    width: 50%;
+    height: 100%;
+    background: $main-dark-color;
+    padding: 50px;
+    z-index: 100;
+
+    &-title {
+      width: 100%;
+      &-container {
+        @include flex(center, space-between);
+        & > h5 {
+          font-family: $main-font-light;
+          font-size: 50px;
+          letter-spacing:5px;
+          color: $main-light-color;
+          @include flex(flex-start, center);
+          & > span {
+            margin-top: 5px;
+            margin-left: 10px;
+            font-size: 15px;
+          }
+        }
+        & > button {
+          border: none;
+          background: none;
+          font-size: 25px;
+          font-weight: 100;
+          color: $main-light-color;
+          &:active,
+          &:focus {
+            outline: none;
+          } 
+        }
+      }
+    }
+    &-line {
+      margin: 10px 0;
+      width: 100%;
+      height: 1px;
+      background: $main-light-color;
+    }
+    &-item {
+      border: 1px solid $main-light-color;
+      height: 100%;
+      max-height: 60vh;
+    }
+    &-exit {
+      margin: 20px 0;
+      @include flex(center, center);
+      flex-direction: column;
+      &-subtotal {
+        align-self: flex-end;
+        width: 50%;
+        margin: 20px 0;
+        @include flex(center, space-between);
+        font-family: $main-font-regular;
+        color: $main-light-color;
+      }
+      &-btn {
+        width: 100%;
+        @include flex(center, space-between);
+        & > button {
+          color: $main-light-color;
+          width: 50%;
+        }
+        & > a {
+          text-decoration: none;
+          @include flex(center, center);
+          font-family: $main-font-light;
+          letter-spacing: 3px;
+          color: $main-light-color;
+          font-size: 20px;
+           & > svg {
+             margin-right: 10px;
+           }
+        }
+      }
+    }
+  }
+}

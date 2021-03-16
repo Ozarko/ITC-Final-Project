@@ -12,7 +12,7 @@ const ShopProducts = ({ products }) => {
               key={`ShopProducts-${index}`}
               className="ShopProducts-box-card"
             >
-              <Link to={`/shop/${product._id}`}>
+              <Link to={`/product/${product._id}`}>
                 <div className="ShopProducts-box-card-image">
                   <img src={product.image} alt={product.name} />
                 </div>

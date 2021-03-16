@@ -3,17 +3,18 @@ import { menuLinks } from '@routes/navigationLink';
 import Footer from './Footer/Footer';
 import Navigation from './Navigation/Navigation';
 import Cursor from '../Cursor/Cursor';
-import { withRouter } from 'react-router';
+import Cart from '../Cart/Cart';
 
-const Layout = ({ children }) => {
+const Layout = (props) => {
   return (
-    <>
+    <div className='Layout'>
       <Cursor />
       <Navigation menuLinks={menuLinks} />
-      <main>{children}</main>
-      <Footer />
-    </>
+        <Cart />
+        <main>{props.children}</main>
+      <Footer/>
+    </div>
   );
 };
 
-export default withRouter(Layout)
+export default Layout

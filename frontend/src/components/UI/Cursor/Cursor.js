@@ -35,7 +35,7 @@ const Cursor = () => {
       el.addEventListener("mouseover", () => setLinkHovered(true));
       el.addEventListener("mouseout", () => setLinkHovered(false));
     });
-    document.querySelectorAll(".hoverEffect").forEach((el) => {
+    document.querySelectorAll(".cursorHoverEffect").forEach((el) => {
       el.addEventListener("mouseover", () => setLinkHovered(true));
       el.addEventListener("mouseout", () => setLinkHovered(false));
     });

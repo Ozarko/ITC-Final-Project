@@ -1,13 +1,15 @@
 .SiteTitleNav {
   margin-top: 20px;
+  width: 100%;
+
   & > ul {
-    padding: 0 10px;
     list-style: none;
     @include flex(center, flex-start);
 
     & > li {
       @include flex(center, center);
-      & > a {
+      & > a,
+      .fake-link {
         text-decoration: none;
         text-transform: uppercase;
         font-family: $main-font-regular;
@@ -19,7 +21,6 @@
       & > span {
         display: inline-block;
         color: $rootStyleTypeColor;
-        font-size: 25px;
         margin: 0 10px;
       }
       &:last-child {
@@ -32,7 +33,8 @@
 
 @media screen and(max-width: $breakpoint-lg) {
   .SiteTitleNav {
-    & > ul > li > a{
+    & > ul > li > a,
+    .fake-link {
       font-size: 16px;
     }
   }
@@ -40,9 +42,10 @@
 
 @media screen and(max-width: $breakpoint-md) {
   .SiteTitleNav {
-    & > ul  {
+    & > ul {
       padding: 0 5px;
-        & > li > a{
+      & > li > a,
+      .fake-link {
         font-size: 14px;
       }
     }
@@ -52,13 +55,20 @@
 @media screen and(max-width: $breakpoint-md) {
   .SiteTitleNav {
     margin-top: 10px;
-    & > ul > li  {
-      & > a {
-        font-size: 12px;
-      }
-      & > span {
-        font-size: 16px;
+    & > ul {
+      @include flex(center,flex-start);
+      & > li {
+        & > a,
+        .fake-link {
+          font-size: 16px;
+        }
+        & > span {
+          margin: 2px;
+        }
       }
     }
   }
-} 
+  .fake-link {
+    margin-left: 5px;
+  }
+}

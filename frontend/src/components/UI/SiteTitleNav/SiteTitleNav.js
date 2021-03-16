@@ -3,7 +3,7 @@ import { withRouter } from 'react-router'
 import { Link } from 'react-router-dom'
 import { transleteName } from '../../../utilites/utilities'
 
-const SiteTitleNav = ({match}) => {
+const SiteTitleNav = ({match, name}) => {
   const path = match.path;
   const pathArr = path.split('/');
 
@@ -13,12 +13,14 @@ const SiteTitleNav = ({match}) => {
         {pathArr.map((path, index) => {
           return (
             <li key={`SiteTitleNav-${index}`}>
-              {index === 0 ? null : (
-                <span className="SiteTitleNav-itemSlash">/</span>
+              {index === 0 ? null : <span>/</span>}
+              {index < 2 ? (
+                <Link to={`/${path === "product" ? "shop" : path}`}>
+                  {transleteName(path)}
+                </Link>
+              ) : (
+                <p className="fake-link cursorHoverEffect">{name}</p>
               )}
-              <Link to={`/${path}`}>
-                {transleteName(path)}
-              </Link>
             </li>
           );
         })}

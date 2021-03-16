@@ -18,8 +18,11 @@ export function transleteName(name) {
     case 'contacts':
       return "Контакти";
     case 'shop':
-      return 'Магазин'
+      return 'Магазин';
+    case 'product':
+      return 'Магазин';
     default:
       return "error";
   }
 }
+

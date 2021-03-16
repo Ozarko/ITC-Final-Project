@@ -21,7 +21,7 @@
   }
   &:hover {
     .HomeHero-showcase-description-line {
-      @include hoverLineRotate(165deg);
+      transform: rotate(165deg);
     }
   }
 }

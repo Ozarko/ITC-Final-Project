@@ -1,3 +1,4 @@
+
 .container {
   max-width: $breakpoint-xlg;
   margin: 0 auto;
@@ -6,6 +7,8 @@
 .containImage {
   width: 100%;
   height: 100%;
+  object-fit: contain;
+  overflow: hidden;
 }
 
 // Mixin
@@ -14,21 +17,4 @@
   display: flex;
   align-items: $aline;
   justify-content: $justify;
-}
-
-@mixin hoverLineRotate ($deg){
-  transform: rotate($deg);
-}
-
-@mixin startSectionMargin() {
-  margin-top: 100px;
-  @media screen and (max-width: $breakpoint-lg) {
-    margin-top: 70px;
-  }
-  @media screen and (max-width: $breakpoint-md) {
-    margin-top: 50px;
-  }
-  @media screen and (max-width: $breakpoint-sm) {
-    margin-top: 30px;
-  }
 }

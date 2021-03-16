@@ -7,8 +7,8 @@ const PageNavigator = () => {
       <button className="PageNavigator-arrow">
         <FaArrowLeft />
       </button>
-      <button className="PageNavigator-btn current hoverEffect">1</button>
-      <button className="PageNavigator-btn  hoverEffect">2</button>
+      <button className="PageNavigator-btn current cursorHoverEffect">1</button>
+      <button className="PageNavigator-btn  cursorHoverEffect">2</button>
       <button className="PageNavigator-arrow">
         <FaArrowRight />
       </button>

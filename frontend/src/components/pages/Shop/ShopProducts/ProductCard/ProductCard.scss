@@ -1,0 +1,80 @@
+.ProductCard {
+  height: 550px;
+  align-self: center;
+  justify-self: center;
+  @include flex(center, flex-start);
+  flex-direction: column;
+  transition: all 0.5s ease;
+  & > a {
+    text-align: center;
+  }
+
+  & > p {
+    margin-bottom: 10px;
+    font-family: $main-font-medium;
+  }
+
+  &-title {
+    margin: 5px 0;
+    font-family: $main-font-bold;
+    font-size: 25px;
+  }
+
+  & > h5 {
+    margin: 10px;
+    font-family: $main-font-bold;
+    color: $rootStyleTypeColor;
+    font-size: 20px;
+  }
+  &-line {
+    width: 100%;
+    height: 1px;
+    border-radius: 100%;
+    background: rgb(227, 224, 222);
+    background: linear-gradient(
+      90deg,
+      rgba(227, 224, 222, 1) 0%,
+      rgba(169, 140, 127, 1) 30%,
+      rgba(169, 140, 127, 1) 50%,
+      rgba(169, 140, 127, 1) 72%,
+      rgba(227, 224, 222, 1) 100%
+    );
+  }
+  &-image {
+    width: 100%;
+    height: 400px;
+    transition: all 0.5s ease;
+    & > img {
+      object-fit: cover;
+    }
+  }
+  & > button {
+    height: 0;
+    transition: all 0.5s ease;
+  }
+  &:hover > button {
+    height: 60px;
+  }
+
+  &:hover .ProductCard-image {
+    height: 340px;
+  }
+}
+
+@media screen and(max-width: $breakpoint-lg) {
+  .ProductCard {
+    height: 500px;
+
+    &-image {
+      height: 350px;
+    }
+
+    &:hover > button {
+      height: 50px;
+    }
+    
+    &:hover .ProductCard-image {
+      height: 300;
+    }
+  }
+}

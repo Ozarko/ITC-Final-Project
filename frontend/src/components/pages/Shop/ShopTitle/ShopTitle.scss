@@ -44,14 +44,25 @@
     }
   }
 }
+
 @media screen and(max-width: $breakpoint-sm) {
   .ShopTitle {
     &-title {
       & > h2 {
-        font-size: 50px;
+        font-size: 45px;
       }
       & > p {
         font-size: 10px;
+      }
+    }
+  }
+}
+
+@media screen and(max-width: $breakpoint-xsm) {
+  .ShopTitle {
+    &-title {
+      & > h2 {
+        font-size: 35px;
       }
     }
   }

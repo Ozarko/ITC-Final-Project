@@ -28,6 +28,10 @@
 @media screen and (max-width: $breakpoint-sm) {
   .Shop {
     padding-top: 70px;
+    &-box {
+      margin-top: 20px;
+      flex-direction: column;
+    }
   }
 }
 

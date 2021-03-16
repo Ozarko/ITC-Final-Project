@@ -1,8 +1,19 @@
-@import './fonts/font_face.scss';
-@import './variables.scss';
-@import './utility.scss';
+// Basic import
+
+@import "./fonts/font_face.scss";
+@import "./variables.scss";
+@import "./utility.scss";
+@import "../components/UI/indexUI.scss";
+@import "../components/pages/pages.scss";
 
 // Basic style
+
+html,
+body {
+  cursor: none;
+  overscroll-behavior-y: none;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -10,17 +21,10 @@
 }
 
 a {
-  text-decoration: underline;
+  text-decoration: none;
   color: $rootStyleTypeColor;
 }
 
-html, body {
-  cursor: none;
-  overscroll-behavior-y: none;
+ul {
+  list-style: none;
 }
-
-
-// Basic import 
-
-@import '../components/UI/indexUI.scss';
-@import '../components/pages/pages.scss';

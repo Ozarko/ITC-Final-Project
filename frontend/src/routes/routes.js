@@ -4,14 +4,15 @@ import Contact from "../components/pages/Contact/Contact";
 import HomePage from "../components/pages/Home/HomePage";
 import ProductScreen from "../components/pages/ProductScreen/ProductScreen";
 import Shop from "../components/pages/Shop/Shop";
+import { link } from "./navigationLink";
 
 export let routes = (
   <Switch>
-    <Route path={"/"} component={HomePage} exact />
-    <Route path={"/shop"} component={Shop} />
-    <Route  path={"/product/:id"} component={ProductScreen}/>
-    <Route path={"/about"} component={About} />
-    <Route path={"/contacts"} component={Contact} />
-    <Redirect to={"/"} />
+    <Route path={link.main} component={HomePage} exact />
+    <Route path={link.shop} component={Shop} />
+    <Route  path={link.productID} component={ProductScreen}/>
+    <Route path={link.about} component={About} />
+    <Route path={link.contact} component={Contact} />
+    <Redirect to={link.main} />
   </Switch>
 );

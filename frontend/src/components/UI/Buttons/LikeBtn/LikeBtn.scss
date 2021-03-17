@@ -1,0 +1,32 @@
+.LikeBtn {
+  margin: 0 20px ;
+  display: inline-block;
+  width: 100%;
+  max-width: 50px;
+  height: 50px;
+  background: $rootStyleTypeColor;
+  color: $rootStyleTypeBg;
+  border: 1px solid $rootStyleTypeBg;
+  cursor: pointer;
+  transition: all 0.7s ease;
+  
+  &:active > svg {
+    transform: scale(1.3);
+  }
+
+  @include flex(center,center);
+  &:focus,
+  &:active {
+    outline: none;
+  }
+  & > svg {
+    font-weight: lighter;
+    font-size: 20px;
+  }
+}
+
+@media screen and(max-width: $breakpoint-md) {
+  .LikeBtn {
+    margin: 0 10px;
+  }
+}

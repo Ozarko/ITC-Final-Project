@@ -1,5 +1,5 @@
 import React from 'react';
-import SiteTitleNav from '../../UI/SiteTitleNav/SiteTitleNav';
+import SiteTitleNav from '@UI/SiteTitleNav/SiteTitleNav';
 import ShopCategories from './ShopCategories/ShopCategories';
 import ShopProducts from './ShopProducts/ShopProducts';
 import ShopTitle from './ShopTitle/ShopTitle';

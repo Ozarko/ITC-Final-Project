@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FACEBOOK_URL, INSTAGRAM_URL } from "@config/URL/socialURL";
+import { link } from "../../../../routes/navigationLink";
 
 const Footer = () => {
   return (
@@ -36,13 +37,13 @@ const Footer = () => {
                   <h3>Про нас</h3>
                   <ul>
                     <li>
-                      <Link to="/about">Про Нас</Link>
+                      <Link to={link.about}>Про Нас</Link>
                     </li>
                     <li>
-                      <Link to="/contact">Контакти</Link>
+                      <Link to={link.contact}>Контакти</Link>
                     </li>
                     <li>
-                      <Link to="/details">Реквізити</Link>
+                      <Link to={link.paymentDetails}>Реквізити</Link>
                     </li>
                   </ul>
                 </div>
@@ -50,13 +51,13 @@ const Footer = () => {
                   <h3>Підтримка</h3>
                   <ul>
                     <li>
-                      <Link to="/shipping&returns">Доставка та повернення</Link>
+                      <Link to={link.shippingAndReturns}>Доставка та повернення</Link>
                     </li>
                     <li>
-                      <Link to="/legal&privacy">Політика та правила</Link>
+                      <Link to={link.legalAndPrivacy}>Політика та правила</Link>
                     </li>
                     <li>
-                      <Link to="/track&orders">
+                      <Link to={link.trackAndOrders}>
                         Відслідковування замовлення
                       </Link>
                     </li>

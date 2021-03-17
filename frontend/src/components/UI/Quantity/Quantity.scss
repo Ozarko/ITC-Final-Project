@@ -1,0 +1,53 @@
+.Quantity {
+  @include flex(center,center);
+  
+  &-title {
+    font-family: $main-font-regular;
+    font-size: 20px;
+  }
+
+  & > p {
+      font-family: $main-font-medium;
+      font-size: 16px;
+    }
+
+  & > button {
+    margin: 0 10px;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background: none;
+    border-radius: 100%;
+    border: 1px solid $rootStyleTypeColor;
+    cursor: pointer;
+
+    &:active {
+      transform: scale(1.2);
+    }
+    & > span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      width: 70%;
+      height: 2px;
+      background: $rootStyleTypeColor;
+      z-index: 1;
+      &.increment {
+        transform: translate(-50%,-50%) rotate(90deg);
+      }
+    }
+    &:focus,
+    &:active {
+      outline: none;
+    }
+  }
+}
+
+@media screen and(max-width: $breakpoint-md) {
+  .Quantity {
+    &-title {
+      font-size: 16px;
+    }
+  }
+}

@@ -9,23 +9,21 @@
     & > li {
       @include flex(center, center);
       & > a,
-      .fake-link {
+      & > p {
         text-decoration: none;
         text-transform: uppercase;
         font-family: $main-font-regular;
         color: $rootStyleTypeColor;
         letter-spacing: 2px;
         font-size: 20px;
-        opacity: 0.8;
       }
       & > span {
+        margin: 0 5px;
         display: inline-block;
         color: $rootStyleTypeColor;
-        margin: 0 10px;
       }
-      &:last-child {
-        opacity: 1;
-        font-weight: bold;
+      & > p {
+        font-family: $main-font-bold;
       }
     }
   }
@@ -52,11 +50,12 @@
   }
 }
 
-@media screen and(max-width: $breakpoint-md) {
+@media screen and(max-width: $breakpoint-sm) {
   .SiteTitleNav {
     margin-top: 10px;
     & > ul {
-      @include flex(center,flex-start);
+      @include flex(center,center);
+      flex-wrap: wrap;
       & > li {
         & > a,
         .fake-link {

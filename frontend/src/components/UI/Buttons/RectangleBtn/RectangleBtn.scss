@@ -7,8 +7,12 @@
   font-family: $main-font-medium;
   font-size: 20px;
   cursor: pointer;
+  transition: all 0.25s ease-in;
   &:active,
   &:focus {
     outline: none;
+  }
+  &:active {
+    transform: scale(0.95);
   }
 }

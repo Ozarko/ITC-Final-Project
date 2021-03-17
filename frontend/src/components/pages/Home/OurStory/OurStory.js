@@ -1,5 +1,6 @@
 import React from "react";
 import CircleBtn from "@UI/Buttons/CircleBtn/CircleBtn";
+import {link} from '../../../../routes/navigationLink';
 
 const OurStory = () => {
   return (
@@ -20,7 +21,7 @@ const OurStory = () => {
             <CircleBtn
               text="Про Нас"
               styleType="lightBtn"
-              linkType={{ type: "React", to: "/about" }}
+              linkType={{ type: "React", to: link.about }}
             />
           </div>
           <div className="OurStory-box-description">

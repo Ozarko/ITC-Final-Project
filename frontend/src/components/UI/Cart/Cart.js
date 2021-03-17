@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FaTimes,FaArrowLeft } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { link } from '../../../routes/navigationLink';
 import RectangleBtn from '../Buttons/RectangleBtn/RectangleBtn';
 
 const Cart = () => {
@@ -35,7 +36,7 @@ const Cart = () => {
             <p>1500 грн</p>
           </div>
           <div className='Cart-box-exit-btn'>
-            <Link to={'/shop'}><FaArrowLeft/> Повернутись до покупок</Link>
+            <Link to={link.shop}><FaArrowLeft/> Повернутись до покупок</Link>
             <RectangleBtn buttonText={'Купити'} />
           </div>
         </div>

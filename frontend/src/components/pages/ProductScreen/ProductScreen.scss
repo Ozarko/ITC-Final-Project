@@ -2,18 +2,25 @@
   width: 100%;
   min-height: 90vh;
   background: $rootStyleTypeBg;
-  padding-top: 100px;
-
+  & > .container {
+    padding-top: 100px;
+    & > .SunLogo {
+      display: none;
+    }
+    & > .SiteTitleNav {
+      padding: 0 10px;
+    }
+  }
   &-box {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     grid-gap: 30px;
     padding: 10px;
     margin-top: 50px;
-    
+
     &-image {
       width: 100%;
-      max-height: 60vh;
+      max-height: 70vh;
       height: 100%;
       overflow: hidden;
       & > img {
@@ -22,23 +29,144 @@
     }
     &-info {
       align-self: flex-start;
-      flex: 1;
+      height: 100%;
+      @include flex(center, center);
+      flex-direction: column;
+
+      &-details {
+        flex: 1;
+        width: 100%;
+        padding: 20px 0;
+        border-top: 1px solid $rootStyleTypeColor;
+        border-bottom: 1px solid $rootStyleTypeColor;
+        @include flex(flex-start, center);
+        flex-direction: column;
+        &-categories {
+          font-family: $main-font-light-italic;
+          font-size: 20px;
+          padding: 15px 0;
+        }
+        &-name {
+          font-family: $main-font-bold;
+          letter-spacing: 5px;
+          font-size: 45px;
+          padding: 15px 0;
+        }
+        &-description {
+          padding: 10px 0;
+          font-family: $main-font-light;
+          font-size: 25px;
+        }
+        &-price {
+          padding: 15px 0;
+          font-family: $main-font-semibold;
+          font-size: 35px;
+        }
+      }
+      &-add {
+        width: 100%;
+        @include flex(center, center);
+        padding: 20px 0;
+        border-bottom: 1px solid $rootStyleTypeColor;
+      }
+      &-footer {
+        width: 100%;
+        padding: 20px 0;
+        border-bottom: 1px solid $rootStyleTypeColor;
+        @include flex(center, center);
+        flex-direction: column;
+
+        & > ul {
+          @include flex(center, center);
+          & > li {
+            padding: 10px;
+            text-align: center;
+            & > a {
+              font-family: $main-font-medium;
+              font-size: 20px;
+              &.recommendation {
+                font-family: $main-font-bold;
+              }
+            }
+          }
+        }
+        & > p {
+          text-align: center;
+          padding: 10px;
+          font-family: $main-font-medium-italic;
+          font-size: 16px;
+        }
+      }
     }
   }
 }
 
 @media screen and(max-width: $breakpoint-lg) {
   .ProductScreen {
-    padding-top: 90px;
+    &-box {
+      margin-top: 40px;
+      grid-gap: 20px;
+      &-info {
+        &-details {
+          padding: 10px 0;
+          &-name {
+            font-size: 35px;
+            letter-spacing: 3px;
+          }
+          &-description {
+            font-size: 20px;
+          }
+          &-price {
+            font-size: 25px;
+          }
+        }
+        &-footer {
+          & > ul > li {
+            padding: 5px;
+              & > a {
+              font-size: 16px;
+            }
+          }
+          & > p {
+            font-size: 14px;
+          }
+        }
+      }
+    }
   }
 }
 @media screen and(max-width: $breakpoint-md) {
   .ProductScreen {
-    padding-top: 80px;
+    &-box {
+      margin-top: 30px;
+      &-info {
+        &-details {
+          &-categories {
+            font-size: 16px;
+          }
+          &-name {
+            font-size: 27px;
+          }
+          &-price {
+            font-size: 16px;
+          }
+        }
+      }
+    }
   }
 }
 @media screen and(max-width: $breakpoint-sm) {
   .ProductScreen {
-    padding-top: 70px;
+    & > .container {
+      padding: 70px 0;
+      & > .SunLogo {
+        display: block;
+      }
+    }
+    &-box {
+      &-image {
+        max-height: 50vh;
+      }
+    }
   }
 }

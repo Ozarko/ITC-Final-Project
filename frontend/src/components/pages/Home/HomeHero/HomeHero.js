@@ -3,6 +3,7 @@ import SunLogo from "@UI/SunLogo/SunLogo";
 import homeImage from "@image/home/Home.jpg";
 import LogoDescription from "@UI/LogoDescription/LogoDescription";
 import CircleBtn from "@UI/Buttons/CircleBtn/CircleBtn";
+import { link } from "@routes/navigationLink";
 
 const HomeHero = () => {
   return (
@@ -23,7 +24,7 @@ const HomeHero = () => {
         <CircleBtn
           text="Магазин"
           styleType="blackStyle transparent"
-          linkType={{ type: "React", to: "/" }}
+          linkType={{ type: "React", to: link.shop }}
         />
       </div>
 

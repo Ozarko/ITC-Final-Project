@@ -65,9 +65,24 @@
       }
       &-add {
         width: 100%;
-        @include flex(center, center);
         padding: 20px 0;
         border-bottom: 1px solid $rootStyleTypeColor;
+        text-align: center;
+        @include flex(center, space-between);
+        flex-direction: column;
+
+        &-container {
+          width: 100%;
+          @include flex(center, center);
+        }
+
+        &-in-stock {
+          width: 100%;
+          & > p {
+            font-family: $main-font-light-italic;
+            font-size: 20px;
+          }
+        }
       }
       &-footer {
         width: 100%;

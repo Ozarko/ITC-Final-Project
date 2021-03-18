@@ -26,14 +26,10 @@ const OurStory = () => {
           </div>
           <div className="OurStory-box-description">
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
-              reiciendis veniam dignissimos quia sunt! Aut earum dicta
-              temporibus
+              Неможливо змінити погоду за вікном. Але можливо створити собі залишок вдома. Улюблені речі, турбота ближнього, тепло відчуттів - це все прикрашає наш внутрішній світ.
             </p>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
-              reiciendis veniam dignissimos quia sunt! Aut earum dicta
-              temporibus
+              Щасливу людину дуже просто впізнати. Вона ніби випромінює ауру спокою і тепла. Секрет щасливих людей простий - це відсутність напруги. Це задоволення собою. Огортаючи ніжки пухнастими шкарпеточками, ви отримуєте теало. Додайте каву та шоколад. Разом - це спокій та щастя !
             </p>
           </div>
         </div>

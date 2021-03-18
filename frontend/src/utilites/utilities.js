@@ -26,3 +26,9 @@ export function transleteName(name) {
   }
 }
 
+export const outOfStock = (count) => {
+  if(count > 0) {
+    return true
+  }
+  return false
+}

@@ -62,8 +62,10 @@ const Cursor = () => {
   };
 
   useEffect(() => {
-    addEventListeners();
-    handleLinkHoverEvents();
+    setTimeout(()=> {
+      addEventListeners();
+      handleLinkHoverEvents();
+    }, 500)
     return () => removeEventListeners();
   }, [addEventListeners, removeEventListeners, location]);
 

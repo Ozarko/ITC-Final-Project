@@ -7,7 +7,7 @@ import Cart from '../Cart/Cart';
 
 const Layout = (props) => {
   return (
-    <div className='Layout'>
+    <div>
       <Cursor />
       <Navigation menuLinks={menuLinks} />
         <Cart />

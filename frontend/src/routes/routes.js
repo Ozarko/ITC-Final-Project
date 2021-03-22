@@ -6,8 +6,8 @@ import ProductScreen from "../components/pages/ProductScreen/ProductScreen";
 import Shop from "../components/pages/Shop/Shop";
 import { link } from "./navigationLink";
 
-export let routes = (
-  <Switch>
+export const routes = (
+  <Switch >
     <Route path={link.main} component={HomePage} exact />
     <Route path={link.shop} component={Shop} />
     <Route  path={link.productID} component={ProductScreen}/>

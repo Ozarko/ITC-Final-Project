@@ -4,9 +4,10 @@ import {routes} from '@routes/routes'
 import {useLocation, withRouter } from 'react-router';
 import { setColorTheme } from "./utilites/utilities";
 
+
 const App = () => {
   const location = useLocation();
-
+  
   useEffect(() => {
     if (location.pathname === "/") {
       setColorTheme("dark");
@@ -15,7 +16,9 @@ const App = () => {
     }
     window.scrollTo(0, 0);
   }, [location]);
-  
+
+
+
   return <Layout>{routes}</Layout>;
 }
 

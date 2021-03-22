@@ -19,11 +19,6 @@ const Shop = () => {
     dispatch(listProducts())
   }, [dispatch])
 
-  if(loading) {
-    return <Loader/>
-  }else if(error) {
-    return <h2>error.massage</h2>
-  }else {
     return (
       <section className="Shop">
         <div className="container">
@@ -33,13 +28,12 @@ const Shop = () => {
             <ShopCategories />
             <div className="Shop-box-products">
               <ShopFilter />
-              <ShopProducts products={products} />
+              {loading ? <Loader/> : <ShopProducts products={products} />}
             </div>
           </div>
         </div>
       </section>
     );
-  }
 }
 
 export default Shop;

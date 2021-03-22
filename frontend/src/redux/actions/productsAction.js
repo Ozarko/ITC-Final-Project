@@ -1,6 +1,5 @@
-import { PRODUCT_LIST_FAIL, PRODUCT_LIST_REQUEST, PRODUCT_SUCCESS, PRODUCY_LIST_FAIL } from "../types/types"
+import { PRODUCT_LIST_FAIL, PRODUCT_LIST_REQUEST, PRODUCT_SUCCESS} from "../types/types"
 import axios from 'axios'
-
 
 export const listProducts = () => async (dispatch) => {
   try {

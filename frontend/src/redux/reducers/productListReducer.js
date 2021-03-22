@@ -8,9 +8,8 @@ export const productListReducer = (state = initialState, action) => {
   switch(action.type) {
     case PRODUCT_LIST_REQUEST:
       return {
-        ...state,
-        loading: true
-      }
+        loading: true,
+      };
     case PRODUCT_SUCCESS: 
       return {
         loading: false,

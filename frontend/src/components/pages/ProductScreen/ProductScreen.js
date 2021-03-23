@@ -21,12 +21,12 @@ const ProductScreen = ({ match }) => {
     }
     fetchProduct();
   }, [match])
-
+  
   if(loader) {
     return (
       <div className="ProductScreen">
         <div className="container">
-          <SunLogo />
+            <SunLogo />
           <SiteTitleNav name={product.name} />
           <div className="ProductScreen-box">
             <div className="ProductScreen-box-image">

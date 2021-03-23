@@ -10,10 +10,9 @@ import Loader from './components/UI/Loader/Loader';
 
 const App = () => {
   const location = useLocation();
-  
   const dispatch = useDispatch();
-  const {loading} = useSelector((state) => state.productListReducer);
-
+  const {loading, error} = useSelector((state) => state.productListReducer);
+  
   useEffect(()=> {
     dispatch(listProducts());
   }, [dispatch])
@@ -24,7 +23,9 @@ const App = () => {
   }, [location]);
 
   if(loading) {
-    return <Loader />;
+    return <Loader loading={loading}/>;
+  }else if(error){
+    return <h2>error.message</h2>
   }else {
     return <Layout>{routes}</Layout>;
   }

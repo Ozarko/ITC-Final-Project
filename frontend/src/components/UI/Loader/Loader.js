@@ -1,17 +1,17 @@
 import React from 'react'
-import { CSSTransition } from 'react-transition-group'
+import SunLogo from '../SunLogo/SunLogo';
+import {rundomNumber} from '../../../utilites/utilities'
 
-const Loader = (loader) => {
+const Loader = () => {
+  const descriptionText = ['Це перший милий текст', 'Це другий милий текст', 'Це третій милий текст']
+  let currentDescriptionText = descriptionText[rundomNumber(0, descriptionText.length - 1)]
+
   return (
-    <CSSTransition
-      in={loader}
-      timeout={2000}
-      classNames='Loader'
-    >
-      <div className="Loader">
-        <h2>ТУТ БУДЕ ЛОАДЕР...</h2>
-      </div>
-    </CSSTransition>
+    <div className="Loader">
+      <SunLogo/>
+      <h1 className='Loader-title'>SOCKGLAMUR</h1>
+      <p>{currentDescriptionText}</p>
+    </div>
   );
 }
 

@@ -5,13 +5,9 @@ import ShopProducts from './ShopProducts/ShopProducts';
 import ShopTitle from './ShopTitle/ShopTitle';
 import ShopFilter from './ShopFilter/ShopFilter';
 import { useSelector } from 'react-redux';
-import Loader from '../../UI/Loader/Loader';
 
 const Shop = () => {
-  const productList = useSelector((state) => state.productListReducer);
-  
-  const { loading, error, products } = productList;
-  console.log(products)
+  const {products} = useSelector((state) => state.productListReducer);
     return (
       <section className="Shop">
         <div className="container">

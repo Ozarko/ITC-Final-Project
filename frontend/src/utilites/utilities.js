@@ -45,3 +45,7 @@ export const themeStyle = (location) => {
     setColorTheme("light");
   }
 }
+
+export function rundomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}

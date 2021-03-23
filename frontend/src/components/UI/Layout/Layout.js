@@ -9,10 +9,7 @@ import {isMobile} from '../../../utilites/utilities'
 import Loader from '../Loader/Loader';
 
 const Layout = (props) => {
-  const [load, setLoad] = useState(true);
-
-  
-
+  const [load, setLoad] = useState(false);
 
   return (
     <>

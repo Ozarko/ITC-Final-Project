@@ -3,6 +3,7 @@ import { useLocation} from 'react-router'
 import useEventListener from '../../../hooks/useEventListener'
 
 const Cursor = ({ outerScale = 2, innerScale = 0.7 }) => {
+  
   const cursorOuterRef = useRef()
   const cursorInnerRef = useRef()
   const requestRef = useRef()
@@ -130,7 +131,6 @@ const Cursor = ({ outerScale = 2, innerScale = 0.7 }) => {
       })
     }
   }, [isActive])
-
 
   return (
     <>

@@ -3,6 +3,7 @@ import {useLocation} from 'react-router-dom';
 function useEventListener(eventName, handler, element = document) {
   const savedHandler = useRef()
   const location = useLocation();
+  
   useEffect(() => {
     savedHandler.current = handler
   }, [handler])

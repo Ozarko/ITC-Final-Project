@@ -32,3 +32,8 @@ export const outOfStock = (count) => {
   }
   return false
 }
+
+export const isMobile = () => {
+  const ua = navigator.userAgent;
+  return /Android|Mobi/i.test(ua);
+};

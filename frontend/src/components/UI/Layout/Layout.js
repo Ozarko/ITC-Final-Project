@@ -1,15 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { menuLinks } from '@routes/navigationLink';
 import Footer from './Footer/Footer';
 import Navigation from './Navigation/Navigation';
 import Cursor from '../Cursor/Cursor';
 import Cart from '../Cart/Cart';
 import { routes } from '../../../routes/routes';
+import {isMobile} from '../../../utilites/utilities'
+import Loader from '../Loader/Loader';
 
 const Layout = (props) => {
+  const [load, setLoad] = useState(true);
+
+  
+
+
   return (
     <>
-      <Cursor />
+      {typeof navigator !== "undefined" && isMobile() ? null : <Cursor />}
+      <Loader loader={load} />
       <Navigation menuLinks={menuLinks} />
         <Cart />
         <main>{routes}</main>

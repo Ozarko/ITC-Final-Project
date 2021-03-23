@@ -2,24 +2,32 @@ import React, { useEffect } from 'react'
 import Layout from '@UI/Layout/Layout'
 import {routes} from '@routes/routes'
 import {useLocation, withRouter } from 'react-router';
-import { setColorTheme } from "./utilites/utilities";
+import { themeStyle } from "./utilites/utilities";
+import { useDispatch, useSelector } from 'react-redux';
+import { listProducts } from './redux/actions/productsAction';
+import Loader from './components/UI/Loader/Loader';
 
 
 const App = () => {
   const location = useLocation();
   
+  const dispatch = useDispatch();
+  const {loading} = useSelector((state) => state.productListReducer);
+
+  useEffect(()=> {
+    dispatch(listProducts());
+  }, [dispatch])
+
   useEffect(() => {
-    if (location.pathname === "/") {
-      setColorTheme("dark");
-    } else {
-      setColorTheme("light");
-    }
+    themeStyle(location);
     window.scrollTo(0, 0);
   }, [location]);
 
-
-
-  return <Layout>{routes}</Layout>;
+  if(loading) {
+    return <Loader />;
+  }else {
+    return <Layout>{routes}</Layout>;
+  }
 }
 
 export default withRouter(App)

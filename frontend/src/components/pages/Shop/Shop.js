@@ -1,24 +1,17 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import SiteTitleNav from '@UI/SiteTitleNav/SiteTitleNav';
 import ShopCategories from './ShopCategories/ShopCategories';
 import ShopProducts from './ShopProducts/ShopProducts';
 import ShopTitle from './ShopTitle/ShopTitle';
 import ShopFilter from './ShopFilter/ShopFilter';
-import { useDispatch, useSelector } from 'react-redux';
-import { listProducts } from '../../../redux/actions/productsAction';
+import { useSelector } from 'react-redux';
 import Loader from '../../UI/Loader/Loader';
 
 const Shop = () => {
-
-  const dispatch = useDispatch();
   const productList = useSelector((state) => state.productListReducer);
-
+  
   const { loading, error, products } = productList;
-
-  useEffect(()=> {
-    dispatch(listProducts())
-  }, [dispatch])
-
+  console.log(products)
     return (
       <section className="Shop">
         <div className="container">
@@ -28,7 +21,7 @@ const Shop = () => {
             <ShopCategories />
             <div className="Shop-box-products">
               <ShopFilter />
-              {loading ? <Loader/> : <ShopProducts products={products} />}
+              <ShopProducts products={products} />
             </div>
           </div>
         </div>

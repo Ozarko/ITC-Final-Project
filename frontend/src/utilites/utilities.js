@@ -37,3 +37,11 @@ export const isMobile = () => {
   const ua = navigator.userAgent;
   return /Android|Mobi/i.test(ua);
 };
+
+export const themeStyle = (location) => {
+  if (location.pathname === "/") {
+    setColorTheme("dark");
+  } else {
+    setColorTheme("light");
+  }
+}

@@ -14,7 +14,6 @@ const Layout = (props) => {
   return (
     <>
       {typeof navigator !== "undefined" && isMobile() ? null : <Cursor />}
-      <Loader loader={load} />
       <Navigation menuLinks={menuLinks} />
         <Cart />
         <main>{routes}</main>

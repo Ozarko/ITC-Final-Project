@@ -1,4 +1,5 @@
-import { DOWNLOAD_COMPLETE, DOWNLOAD_ERROR, DOWNLOAD_STARTED } from "../types/types";
+import { DOWNLOAD_COMPLETE, DOWNLOAD_ERROR, DOWNLOAD_STARTED } from "../../types/download/downloadTypes";
+
 
 const initialState = {
 }

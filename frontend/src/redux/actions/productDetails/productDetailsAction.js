@@ -1,16 +1,11 @@
-import {
-  DOWNLOAD_COMPLETE,
-  DOWNLOAD_STARTED,
-  PRODUCT_DETAILS_FAIL,
-  PRODUCT_DETAILS_REQUEST,
-  PRODUCT_DETAILS_SUCCESS,
-} from "../types/types";
-
 import axios from "axios";
+import { DOWNLOAD_COMPLETE, DOWNLOAD_ERROR, DOWNLOAD_STARTED } from "../../types/download/downloadTypes";
+import { PRODUCT_DETAILS_REQUEST, PRODUCT_DETAILS_SUCCESS } from "../../types/productDetails/productDetailsTypes";
 
 export const productDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: DOWNLOAD_STARTED });
+    dispatch({type: PRODUCT_DETAILS_REQUEST})
     const { data } = await axios.get(`/api/products/${id}`);
       dispatch({
         type: PRODUCT_DETAILS_SUCCESS,
@@ -19,7 +14,7 @@ export const productDetails = (id) => async (dispatch) => {
       dispatch({type: DOWNLOAD_COMPLETE})
   } catch (error) {
     dispatch({
-      type: PRODUCT_DETAILS_FAIL,
+      type: DOWNLOAD_ERROR,
       payload:
         error.responce && error.responce.data.message
           ? error.responce.data.message

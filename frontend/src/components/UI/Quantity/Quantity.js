@@ -1,16 +1,14 @@
 import React from 'react'
-import {outOfStock} from '../../../utilites/utilities';
 
-const Quantity = ({title, count}) => {
-
+const Quantity = ({title, count,inStock ,clickHandler}) => {
   return (
     <div className="Quantity">
       {title ? <h6 className="Quantity-title">{title}</h6> : null}
-      <button className="Quantity-decrement cursorHoverEffect" disabled={outOfStock(count)}>
+      <button className="Quantity-decrement cursorHoverEffect Quantity-btn" onClick={()=> clickHandler(count - 1)} disabled={count <= 1}>
         <span />
       </button>
       <p>{count}</p>
-      <button className="Quantity-increment cursorHoverEffect" disabled={outOfStock(count)}>
+      <button className="Quantity-increment cursorHoverEffect Quantity-btn" onClick={()=> clickHandler(count + 1)} disabled={count >= inStock}>
         <span />
         <span className="increment" />
       </button>

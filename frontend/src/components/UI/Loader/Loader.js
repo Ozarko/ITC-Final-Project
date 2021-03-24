@@ -2,6 +2,7 @@ import React from 'react'
 import SunLogo from '../SunLogo/SunLogo';
 import {rundomNumber} from '../../../utilites/utilities'
 import { CSSTransition } from 'react-transition-group';
+import { loaderTimeOut } from '../../../config/siteConfig';
 
 const Loader = ({loading}) => {
   const descriptionText = ['Це перший милий текст', 'Це другий милий текст', 'Це третій милий текст']
@@ -10,7 +11,7 @@ const Loader = ({loading}) => {
   return (
     <CSSTransition 
       in={loading}
-      timeout={2000}
+      timeout={loaderTimeOut}
       mountOnEnter
       unmountOnExit
     >

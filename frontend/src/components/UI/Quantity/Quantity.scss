@@ -11,20 +11,19 @@
       font-size: 16px;
     }
 
-  & > button {
-    margin: 0 10px;
+  &-btn {
     position: relative;
+    margin: 0 10px;
     width: 30px;
     height: 30px;
     background: none;
     border-radius: 100%;
     border: 1px solid $rootStyleTypeColor;
     cursor: pointer;
-
+    z-index: 1;
     &:active {
       transform: scale(1.2);
     }
-    
     & > span {
       position: absolute;
       top: 50%;

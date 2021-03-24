@@ -1,4 +1,4 @@
-import React, { useEffect} from "react";
+import React, { useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import LikeBtn from "@UI/Buttons/LikeBtn/LikeBtn";
 import RectangleBtn from "@UI/Buttons/RectangleBtn/RectangleBtn";
@@ -8,16 +8,24 @@ import { link } from "../../../routes/navigationLink";
 import SunLogo from "../../UI/SunLogo/SunLogo";
 import { outOfStock } from "../../../utilites/utilities";
 import { useDispatch, useSelector } from "react-redux";
-import {productDetails} from '../../../redux/actions/productDetailsAction'
+import {productDetails} from '../../../redux/actions/productDetails/productDetailsAction'
+import { addProductToCart } from "../../../redux/actions/cart/cartActions";
 
-const ProductScreen = ({ match }) => {
+const ProductScreen = ({history, match }) => {
+  
+  const [qty, setQty] = useState(1)
+
   const dispatch = useDispatch()
   
   const {product} = useSelector((state) => state.productDetails);
-  
+
   useEffect(()=> {
     dispatch(productDetails(match.params.id));
   }, [match, dispatch])
+
+  const addToCard = () => {
+    dispatch(addProductToCart(product, qty))
+  } 
 
     return (
       <div className="ProductScreen">
@@ -59,8 +67,8 @@ const ProductScreen = ({ match }) => {
                   </div>
                 ) : (
                   <div className="ProductScreen-box-info-add-container">
-                    <Quantity title="Придбати" count={product.countInStock} />
-                    <RectangleBtn buttonText={"В Кошик"} />
+                    <Quantity title="Придбати" inStock={product.countInStock} count={qty} clickHandler={setQty}/>
+                    <RectangleBtn clickHandler={addToCard} buttonText={"В Кошик"} />
                     <LikeBtn />
                   </div>
                 )}

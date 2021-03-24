@@ -1,11 +1,6 @@
-import {
-  DOWNLOAD_COMPLETE,
-  DOWNLOAD_STARTED,
-  PRODUCT_LIST_FAIL,
-  PRODUCT_LIST_REQUEST,
-  PRODUCT_LIST_SUCCESS,
-} from "../types/types";
 import axios from 'axios'
+import { DOWNLOAD_COMPLETE, DOWNLOAD_ERROR, DOWNLOAD_STARTED } from '../../types/download/downloadTypes';
+import { PRODUCT_LIST_SUCCESS } from '../../types/productList/productListTypes';
 
 export const listProducts = () => async (dispatch) => {
   try {
@@ -18,7 +13,7 @@ export const listProducts = () => async (dispatch) => {
       dispatch({type: DOWNLOAD_COMPLETE})
   } catch (error) {
     dispatch({
-      type: PRODUCT_LIST_FAIL,
+      type: DOWNLOAD_ERROR,
       payload: error.responce && error.responce.data.message ? error.responce.data.message : error.message
     })
   }

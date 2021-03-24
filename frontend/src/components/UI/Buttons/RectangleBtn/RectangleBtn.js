@@ -1,8 +1,8 @@
 import React from 'react'
 
-const RectangleBtn = ({buttonText}) => {
+const RectangleBtn = ({buttonText, clickHandler}) => {
 
-  return <button className="RectangleBtn">{buttonText}</button>;
+  return <button onClick={() => clickHandler()} className="RectangleBtn">{buttonText}</button>;
 }
 
 export default RectangleBtn

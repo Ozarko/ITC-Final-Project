@@ -1,22 +1,33 @@
-.CartLink {
+.CartButton {
   @include flex(center, center);
   flex: 1;
   padding: 0 10px;
   height: 100%;
   z-index: 1;
+
   &-box {
     @include flex(center, center);
     flex-direction: column;
-    & > a {
+
+    &>button {
+      background: none;
+      border: none;
       @include flex(center, center);
       text-decoration: none;
       font-family: $main-font-regular;
       font-size: 20px;
       color: $rootStyleTypeColor;
-      &:hover ~ .CartLink-box-line {
+
+      &:hover~.CartButton-box-line {
         width: 100%;
       }
+
+      &:active,
+      &:focus {
+        outline: none;
+      }
     }
+
     &-count {
       @include flex(center, center);
       margin-left: 10px;
@@ -27,6 +38,7 @@
       border: 1px solid $rootStyleTypeColor;
       font-size: 16px;
     }
+
     &-line {
       margin-top: 5px;
       width: 0;
@@ -38,19 +50,20 @@
 }
 
 @media screen and (max-width: $breakpoint-lg) {
-  .CartLink-box {
-    & > a {
+  .CartButton-box {
+    &>a {
       font-size: 18px;
     }
   }
 }
 
 @media screen and (max-width: $breakpoint-md) {
-  .CartLink {
+  .CartButton {
     &-box {
-      & > a {
+      &>a {
         font-size: 16px;
       }
+
       &-count {
         width: 25px;
         height: 25px;
@@ -61,14 +74,16 @@
 }
 
 @media screen and (max-width: $breakpoint-sm) {
-  .CartLink {
+  .CartButton {
     border-right: 1px solid $rootStyleTypeColor;
+
     &-box {
-        &-count {
+      &-count {
         width: 25px;
         height: 25px;
         font-size: 16px;
       }
+
       &-line {
         display: none;
       }

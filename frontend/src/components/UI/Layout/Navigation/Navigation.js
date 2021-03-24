@@ -1,6 +1,6 @@
 import React, {useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
-import CartLink from './CartLink/CartLink';
+import CartButton from '../../Buttons/CartButton/CartButton';
 import LoginLink from './LoginLink/LoginLink';
 import Menu from './Menu/Menu';
 import MenuLogo from './MenuLogo/MenuLogo';
@@ -34,7 +34,7 @@ const Navigation = () => {
           <Menu menuStatus={menuActive} />
           <div className="Navigation-box-loginCartLinkBox">
             <LoginLink />
-            <CartLink />
+            <CartButton />
           </div>
           <div className="Navigation-box-menuBtn">
             <button onClick={menuToggleHandler} className={buttonStyle}>

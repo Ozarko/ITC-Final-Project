@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import { Link } from "react-router-dom";
 import LikeBtn from "@UI/Buttons/LikeBtn/LikeBtn";
 import RectangleBtn from "@UI/Buttons/RectangleBtn/RectangleBtn";
@@ -7,22 +7,18 @@ import SiteTitleNav from "@UI/SiteTitleNav/SiteTitleNav";
 import { link } from "../../../routes/navigationLink";
 import SunLogo from "../../UI/SunLogo/SunLogo";
 import { outOfStock } from "../../../utilites/utilities";
-import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import {productDetails} from '../../../redux/actions/productDetailsAction'
 
 const ProductScreen = ({ match }) => {
-  const [product, setProduct] = useState({})
-  const [loader, setLoader] = useState(false);
+  const dispatch = useDispatch()
+  
+  const {product} = useSelector((state) => state.productDetails);
   
   useEffect(()=> {
-    const fetchProduct = async() => {
-      const {data} = await axios.get(`/api/products/${match.params.id}`)
-      setProduct(data)
-      setLoader(true)
-    }
-    fetchProduct();
-  }, [match])
-  
-  if(loader) {
+    dispatch(productDetails(match.params.id));
+  }, [match, dispatch])
+
     return (
       <div className="ProductScreen">
         <div className="container">
@@ -39,7 +35,7 @@ const ProductScreen = ({ match }) => {
             <div className="ProductScreen-box-info">
               <div className="ProductScreen-box-info-details">
                 <h5 className="ProductScreen-box-info-details-categories">
-                  {product.categories.join(' & ')}
+                  {/* {product.categories.join(' & ')} */}
                 </h5>
                 <h4 className="ProductScreen-box-info-details-name">
                   {product.name}
@@ -99,11 +95,8 @@ const ProductScreen = ({ match }) => {
             </div>
           </div>
         </div>
-      </div>
-    );
-  }else {
-    return <p>Loader</p>
-  }
+    </div>
+  );
 };
 
 export default ProductScreen;

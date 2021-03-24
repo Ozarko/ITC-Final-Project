@@ -7,7 +7,7 @@ import ShopFilter from './ShopFilter/ShopFilter';
 import { useSelector } from 'react-redux';
 
 const Shop = () => {
-  const {products} = useSelector((state) => state.productListReducer);
+  const {products} = useSelector((state) => state.productList);
     return (
       <section className="Shop">
         <div className="container">

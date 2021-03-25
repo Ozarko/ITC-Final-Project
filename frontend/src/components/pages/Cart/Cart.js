@@ -10,13 +10,19 @@ import CartItem from './CartItem/CartItem';
 
 const Cart = ({isOpen}) => {
 
+
   const dispatch = useDispatch()
   
   const {productInCart} = useSelector(state => state.cart)
-  
+
   const cartHandler = () => {
     dispatch(setCartStatus())
   }
+
+  const subtotal = productInCart.reduce((acc, product) => {
+    return acc += (product.qty * product.price ) 
+  }, 0)
+
 
   const clickBGHandler = (e) => {
     if(e.target.className === 'Cart enter-done') {
@@ -63,11 +69,12 @@ const Cart = ({isOpen}) => {
             <div className="Cart-box-footer-checkout">
               <div className="Cart-box-footer-checkout-subtotal">
                 <h5>Разом: </h5>
-                <h6>16$</h6>
+                <h6>{subtotal} грн</h6>
               </div>
               <RectangleBtn
                 buttonText="Придбати"
-                clickHandler={() => console.log("clik")}
+                clickHandler={() => console.log(productInCart.length)}
+                disabledBtn={productInCart.length === 0 ? true : false}
               />
             </div>
           </div>

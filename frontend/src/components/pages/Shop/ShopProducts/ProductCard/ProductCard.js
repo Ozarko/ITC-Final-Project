@@ -1,8 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import RectangleBtn from "@UI/Buttons/RectangleBtn/RectangleBtn";
+import { useDispatch } from "react-redux";
+import { addProductToCart } from "../../../../../redux/actions/cart/cartActions";
 
-const ProductCard = ({ product, index }) => {
+const ProductCard = ({ product}) => {
+
+  const dispatch = useDispatch()
+
+  const addProduct = () => {
+    if(product.countInStock !== 0) {
+      dispatch(addProductToCart(product._id, 1)) 
+    }
+  }
+
   return (
     <div className="ProductCard">
       <Link to={`/product/${product._id}`}>
@@ -18,7 +29,7 @@ const ProductCard = ({ product, index }) => {
       <p>{product.description}</p>
       <div className="ProductCard-line"></div>
       <h5>{product.price} грн</h5>
-      <RectangleBtn buttonText={"Купити"} />
+      <RectangleBtn buttonText={"Купити"}  clickHandler={addProduct}/>
     </div>
   );
 };

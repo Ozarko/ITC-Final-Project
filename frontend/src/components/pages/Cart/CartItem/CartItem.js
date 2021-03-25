@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addProductToCart } from '../../../../redux/actions/cart/cartActions';
 import RemoveBtn from '../../../UI/Buttons/RemoveBtn/RemoveBtn';
 import Quantity from '../../../UI/Quantity/Quantity';
@@ -43,7 +43,7 @@ const CartItem = (props) => {
       <div className="CartItem-qntDelAndPrice">
         <div className="CartItem-qntDelAndPrice-qntDel">
           <Quantity count={props.qty} inStock={props.countInStock} clickHandlerIncrement={addQty} clickHandlerDecrement={removeQty}/>
-          <RemoveBtn clickHandler={()=> console.log('')} />
+          <RemoveBtn clickHandler={()=> removeFromCartHandler()} />
         </div>
         <div className='CartItem-qntDelAndPrice-price'>
           <h5>{props.qty * props.price} <span>грн</span></h5>

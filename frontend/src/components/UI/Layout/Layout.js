@@ -29,7 +29,8 @@ const Layout = () => {
             <Cart isOpen={open} />
             <main>{routes}</main>
             <Footer />
-            {typeof navigator !== "undefined" && isMobile() ? null : <Cursor />}
+            <Cursor />
+            {/* {typeof navigator !== "undefined" && isMobile() ? null : <Cursor />} */}
           </>
       }
     </>

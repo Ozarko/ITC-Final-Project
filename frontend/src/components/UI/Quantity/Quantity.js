@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Quantity = ({title, count,inStock ,clickHandler}) => {
+const Quantity = ({title, count, inStock ,clickHandler}) => {
   return (
     <div className="Quantity">
       {title ? <h6 className="Quantity-title">{title}</h6> : null}

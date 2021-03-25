@@ -8,11 +8,13 @@
   z-index: 10;
   &-box {
     float: right;
-    max-width: 50%;
+    max-width: 60%;
     width: 100%;
     height: 100%;
     background: $main-dark-color;
-    padding: 20px 30px;
+    padding: 30px;
+    @include flex(flex-start, center);
+    flex-direction: column;
     &-header {
       width: 100%;
       border-bottom: 1px solid $main-light-color;
@@ -67,101 +69,49 @@
         }
       }
     }
+    &-body {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+    }
+    &-footer {
+      width: 100%;
+      @include flex(center,center);
+      &-to-shopping > a {
+        text-decoration: none;
+        color: $main-light-color;
+        font-family: $main-font-light;
+        font-size: 24px;
+        letter-spacing: 2px;
+        @include flex(center, center);
+        & > span {
+          margin-left: 10px;
+        }
+      }
+      &-checkout {
+        flex: 1;
+        padding: 0 25px;
+        width: 100%;
+        &-subtotal {
+          padding: 10px 0;
+          @include flex(center, space-between);
+          & > h5 {
+            font-family: $main-font-light;
+            font-size: 25px;
+            font-weight: 400;
+            color: $main-light-color;
+          }
+          & > h6 {
+            font-family: $main-font-regular;
+            letter-spacing: 2px;
+            font-size: 40px;
+            color: $main-light-color;
+          } 
+        }
+      }
+    }
   }
 }
 
-
-
-// .Cart {
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-//   max-height: 100vh;
-//   z-index: 100;
-//   background: rgba($main-dark-color, 0.5);
-//   @include flex(center, flex-end);
-
-//   &-box {
-//     flex: 2;
-//     background: $main-dark-color;
-//     padding: 50px;
-//     z-index: 100;
-
-//     &-title {
-//       width: 100%;
-//       &-container {
-
-//         @include flex(center, space-between);
-//         & > h5 {
-//           font-family: $main-font-light;
-//           font-size: 50px;
-//           letter-spacing:5px;
-//           color: $main-light-color;
-//           @include flex(flex-start, center);
-//           & > span {
-//             margin-top: 5px;
-//             margin-left: 10px;
-//             font-size: 15px;
-//           }
-//         }
-//         & > button {
-//           border: none;
-//           background: none;
-//           font-size: 25px;
-//           font-weight: 100;
-//           color: $main-light-color;
-//           &:active,
-//           &:focus {
-//             outline: none;
-//           } 
-//         }
-//       }
-//     }
-//     &-line {
-//       margin: 10px 0;
-//       width: 100%;
-//       height: 1px;
-//       background: $main-light-color;
-//     }
-//     &-item {
-//       padding: 10px 0;
-//       height: 100%;
-//       overflow-x: scroll;
-//     }
-//     &-exit {
-//       flex: 1;
-//       margin: 20px 0;
-//       @include flex(center, center);
-//       flex-direction: column;
-//       &-subtotal {
-//         align-self: flex-end;
-//         width: 50%;
-//         margin: 20px 0;
-//         @include flex(center, space-between);
-//         font-family: $main-font-regular;
-//         color: $main-light-color;
-//       }
-//       &-btn {
-//         width: 100%;
-//         @include flex(center, space-between);
-//         & > button {
-//           color: $main-light-color;
-//           width: 50%;
-//         }
-//         & > a {
-//           text-decoration: none;
-//           @include flex(center, center);
-//           font-family: $main-font-light;
-//           letter-spacing: 3px;
-//           color: $main-light-color;
-//           font-size: 20px;
-//            & > svg {
-//              margin-right: 10px;
-//            }
-//         }
-//       }
-//     }
-//   }
-// }
+@import './CartItem/CartItem.scss';

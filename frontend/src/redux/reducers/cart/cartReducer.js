@@ -1,4 +1,4 @@
-import { CART_ADD_ITEM, SHOW_CART } from "../../types/cart/cartTypes";
+import { ADD_PRODUCT_QTY, CART_ADD_ITEM, SHOW_CART } from "../../types/cart/cartTypes";
 
 const initialState = {
   open: false,
@@ -10,16 +10,21 @@ export const cartReducer = (state = initialState, action) => {
     case CART_ADD_ITEM:
       return {
         ...state,
-        productInCart: [
-          ...state.productInCart,
-          action.payload
-        ]
+        productInCart: [...state.productInCart, action.payload],
       };
-    case SHOW_CART: 
+    case SHOW_CART:
       return {
         ...state,
-        open: !state.open
-      }
+        open: !state.open,
+      };
+    case CHANGE_CART_PRODUCT_QTY:
+      return {
+        ...state,
+        productInCart: [
+          state.productInCart.find(product => product.id != action.payload.product.id),
+          action.payload.product,
+        ],
+      };
     default:
       return state;
   }

@@ -28,3 +28,17 @@ a {
 ul {
   list-style: none;
 }
+
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+	background: $rootStyleTypeColor;
+}
+
+::-webkit-scrollbar-thumb {
+	background: $main-color;
+  border-radius: 10px;
+}

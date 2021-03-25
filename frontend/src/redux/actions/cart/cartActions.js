@@ -9,6 +9,11 @@ export const addProductToCart = (product, qty) => {
   }
 }
 
+export const changeProductQty = (product, qty) => {
+  const product = 
+}
+
+
 export const setCartStatus = () => {
   return {
     type: SHOW_CART

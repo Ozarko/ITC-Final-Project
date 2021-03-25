@@ -9,9 +9,13 @@ const CartButton = () => {
   };
   
   const {productInCart} = useSelector(state => state.cart)
- 
+
+  const click = (e) => {
+    console.log(e)
+  }
+
   return (
-    <div className="CartButton">
+    <div className="CartButton" onClick={(e)=> click(e)}>
       <div className="CartButton-box">
         <button onClick={() => showCart()}>
           <span>Кошик</span> <span className="CartButton-box-count">{productInCart.length}</span>

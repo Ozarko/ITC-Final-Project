@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {productDetails} from '../../../redux/actions/productDetails/productDetailsAction'
 import { addProductToCart } from "../../../redux/actions/cart/cartActions";
 
-const ProductScreen = ({history, match }) => {
+const ProductScreen = ({match }) => {
   
   const [qty, setQty] = useState(1)
 
@@ -19,13 +19,21 @@ const ProductScreen = ({history, match }) => {
   
   const {product} = useSelector((state) => state.productDetails);
 
+  const addQty = (qty) => {
+    setQty(qty + 1)
+  }
+
+  const removeQty = (qty) => {
+    setQty(qty - 1)
+  }
+
   useEffect(()=> {
     dispatch(productDetails(match.params.id));
   }, [match, dispatch])
 
   const addToCard = () => {
-    dispatch(addProductToCart(product, qty))
-  } 
+    dispatch(addProductToCart(match.params.id, qty))
+  }
 
     return (
       <div className="ProductScreen">
@@ -67,7 +75,7 @@ const ProductScreen = ({history, match }) => {
                   </div>
                 ) : (
                   <div className="ProductScreen-box-info-add-container">
-                    <Quantity title="Придбати" inStock={product.countInStock} count={qty} clickHandler={setQty}/>
+                    <Quantity title="Придбати" inStock={product.countInStock} count={qty} clickHandlerIncrement={addQty} clickHandlerDecrement={removeQty}/>
                     <RectangleBtn clickHandler={addToCard} buttonText={"В Кошик"} />
                     <LikeBtn />
                   </div>

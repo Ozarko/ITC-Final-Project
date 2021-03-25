@@ -1,0 +1,15 @@
+.RemoveBtn {
+  display: inline-block;
+  background: none;
+  border: none;
+  font-size: 25px;
+  color: $rootStyleTypeColor;
+  transition: scale 0.5s ease;
+  &:active,
+  &:focus {
+    outline: none;
+  }
+  &:active {
+    transform: scale(1.2);
+  }
+}

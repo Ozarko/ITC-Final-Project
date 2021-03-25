@@ -5,7 +5,6 @@
   width: 100%;
   background: $rootStyleTypeBg;
   padding: 10px;
-  z-index: 100;
   z-index: 2;
 
   &-box {
@@ -13,6 +12,7 @@
     height: 60px;
     border: 1px solid $rootStyleTypeColor;
     @include flex(center, flex-start);
+
     &-loginCartLinkBox {
       flex: 1;
       @include flex(center, center);
@@ -20,7 +20,9 @@
       width: 100%;
       height: 100%
     }
+
     &-menuBtn {
+      z-index: 2;
       display: none;
     }
   }
@@ -31,8 +33,10 @@
 @media screen and (max-width: $breakpoint-sm) {
   .Navigation {
     padding: 10px;
+
     &-box {
       height: 40px;
+
       &::before {
         content: "";
         position: absolute;
@@ -41,9 +45,9 @@
         height: 100%;
         width: 100%;
         border: 1px solid $rootStyleTypeColor;
-        z-index: 2;
       }
-       &-loginCartLinkBox {
+
+      &-loginCartLinkBox {
         max-width: 100%;
         flex: 2;
       }
@@ -63,7 +67,7 @@
           flex-direction: column;
           cursor: pointer;
           transition: transform 0.7s ease-out;
-          z-index: 5;
+
           &:focus,
           &:active {
             outline: none;

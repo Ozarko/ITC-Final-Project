@@ -9,10 +9,10 @@ import RectangleBtn from '../../UI/Buttons/RectangleBtn/RectangleBtn';
 import CartItem from './CartItem/CartItem';
 
 const Cart = ({isOpen}) => {
+
   const dispatch = useDispatch()
   
   const {productInCart} = useSelector(state => state.cart)
-  const {products} = useSelector(state => state.productList)
   
   const cartHandler = () => {
     dispatch(setCartStatus())
@@ -41,12 +41,13 @@ const Cart = ({isOpen}) => {
             </button>
           </div>
           <div className="Cart-box-body">
-            {productInCart ? (
+            {productInCart.length !== 0 ? (
               <>
-                <CartItem {...products[0]} />
-                <CartItem {...products[0]} />
-                <CartItem {...products[0]} />
-                <CartItem {...products[0]} />
+                {
+                productInCart.map(product => {
+                  return <CartItem key={`CartItem-${product.product}`} {...product} />
+                })
+                }
               </>
             ) : (
               <h2>Зробіть свій вибір</h2>

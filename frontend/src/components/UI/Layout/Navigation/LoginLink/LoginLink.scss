@@ -4,7 +4,6 @@
   height: 100%;
   flex: 1;
   padding: 0 10px;
-  z-index: 1;
   &-box {
     @include flex(center, center);
     flex-direction: column;

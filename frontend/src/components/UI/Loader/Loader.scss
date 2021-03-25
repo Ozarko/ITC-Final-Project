@@ -4,12 +4,13 @@
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 10000;
   padding: 20px;
   text-align: center;
   @include flex(center, center);
   flex-direction: column;
   background: $rootStyleTypeBg;
+  z-index: 10;
+  
   & > .SunLogo {
     & > svg {
       animation: spin 5s linear infinite;

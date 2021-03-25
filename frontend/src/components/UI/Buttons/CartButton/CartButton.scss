@@ -3,8 +3,7 @@
   flex: 1;
   padding: 0 10px;
   height: 100%;
-  z-index: 3;
-
+  z-index: 1;
   &-box {
     @include flex(center, center);
     flex-direction: column;

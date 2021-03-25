@@ -3,7 +3,6 @@
   border-right: 1px solid $rootStyleTypeColor;
   @include flex(center, center);
   padding: 0 20px;
-  z-index: 5;
 
   & > a {
     text-decoration: none;

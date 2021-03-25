@@ -4,10 +4,12 @@
   &-title {
     font-family: $main-font-regular;
     font-size: 20px;
+    color: $rootStyleTypeColor;
   }
 
   & > p {
       font-family: $main-font-medium;
+      color: $rootStyleTypeColor;
       font-size: 16px;
     }
 
@@ -20,7 +22,6 @@
     border-radius: 100%;
     border: 1px solid $rootStyleTypeColor;
     cursor: pointer;
-    z-index: 1;
     &:active {
       transform: scale(1.2);
     }
@@ -32,7 +33,6 @@
       width: 70%;
       height: 2px;
       background: $rootStyleTypeColor;
-      z-index: 1;
       &.increment {
         transform: translate(-50%,-50%) rotate(90deg);
       }

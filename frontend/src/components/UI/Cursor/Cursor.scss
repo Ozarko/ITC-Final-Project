@@ -1,13 +1,12 @@
 .Cursor {
-  z-index: 999;
   position: fixed;
   pointer-events: none;
   border-radius: 50%;
   transition: opacity 0.15s ease-in-out, transform 0.15s ease-in-out;
   background: #fff;
+  z-index: 2;
   &.inner {
     mix-blend-mode: difference;
-    z-index: 100;
     width: 10px;
     height: 10px;
   }

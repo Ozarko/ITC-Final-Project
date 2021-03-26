@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
 import { FaArrowLeft } from "react-icons/fa";
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 import { setCartStatus } from '../../../redux/actions/cart/cartActions';
 import { link } from '../../../routes/navigationLink';
 import RectangleBtn from '../../UI/Buttons/RectangleBtn/RectangleBtn';
 import CartItem from './CartItem/CartItem';
 
-const Cart = ({isOpen}) => {
+const Cart = ({history, isOpen}) => {
 
 
   const dispatch = useDispatch()
@@ -23,11 +23,14 @@ const Cart = ({isOpen}) => {
     return acc += (product.qty * product.price ) 
   }, 0)
 
-
   const clickBGHandler = (e) => {
     if(e.target.className === 'Cart enter-done') {
       dispatch(setCartStatus())
     }
+  }
+
+  const checkoutHandler = () => {
+    history.push('/login?redirect=shipping')
   }
 
   return (
@@ -61,7 +64,7 @@ const Cart = ({isOpen}) => {
           </div>
           <div className="Cart-box-footer">
             <div className="Cart-box-footer-to-shopping">
-              <Link to={link.shop}>
+              <Link to={link.shop} onClick={()=>cartHandler()}>
                 <FaArrowLeft />
                 <span>Назад до покупок</span>
               </Link>
@@ -73,7 +76,7 @@ const Cart = ({isOpen}) => {
               </div>
               <RectangleBtn
                 buttonText="Придбати"
-                clickHandler={() => console.log(productInCart.length)}
+                clickHandler={() => checkoutHandler}
                 disabledBtn={productInCart.length === 0 ? true : false}
               />
             </div>
@@ -84,4 +87,4 @@ const Cart = ({isOpen}) => {
   );
 }
 
-export default Cart
+export default withRouter(Cart)

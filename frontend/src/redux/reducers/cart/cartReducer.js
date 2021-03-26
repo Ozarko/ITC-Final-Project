@@ -1,4 +1,4 @@
-import { CART_ADD_ITEM, SHOW_CART } from "../../types/cart/cartTypes";
+import { CART_ADD_ITEM, CART_REMOVE_ITEM, SHOW_CART } from "../../types/cart/cartTypes";
 
 const cartItemsFromStorage = localStorage.getItem('productInCart') ? JSON.parse(localStorage.getItem('productInCart')) : []
 
@@ -24,6 +24,11 @@ export const cartReducer = (state = initialState, action) => {
           productInCart: [...state.productInCart, productItem],
         };
       }
+    case CART_REMOVE_ITEM: 
+      return {
+        ...state,
+        productInCart: state.productInCart.filter((item) => item.product !== action.payload)
+      };
     case SHOW_CART:
       return {
         ...state,

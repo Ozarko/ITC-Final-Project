@@ -1,0 +1,11 @@
+.Login {
+  min-height: 100vh;
+  background: $rootStyleTypeBg;
+
+  & > .container {
+    padding: 100px 20px 0px 20px;
+  }
+  &-form {
+    
+  }
+}

@@ -12,7 +12,7 @@ const Shop = () => {
       <section className="Shop">
         <div className="container">
           <SiteTitleNav />
-          <ShopTitle />
+          <ShopTitle productLength={products.length}/>
           <div className="Shop-box">
             <ShopCategories />
             <div className="Shop-box-products">

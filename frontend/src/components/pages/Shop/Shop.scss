@@ -15,19 +15,8 @@
   }
 }
 
-@media screen and (max-width: $breakpoint-lg) {
-  .Shop {
-    padding-top: 90px;
-  }
-}
-@media screen and (max-width: $breakpoint-md) {
-  .Shop {
-    padding-top: 80px;
-  }
-}
 @media screen and (max-width: $breakpoint-sm) {
   .Shop {
-    padding-top: 70px;
     &-box {
       margin-top: 20px;
       flex-direction: column;

@@ -10,32 +10,39 @@ export function setColorTheme(styleType) {
 }
 
 export function transleteName(name) {
-  switch(name) {
-    case '': 
-      return 'Головна'
-    case 'about':
+  switch (name) {
+    case "":
+      return "Головна";
+    case "about":
       return "Про Мене";
-    case 'contacts':
+    case "contacts":
       return "Контакти";
-    case 'shop':
-      return 'Магазин';
-    case 'product':
-      return 'Магазин';
+    case "shop":
+      return "Магазин";
+    case "product":
+      return "Магазин";
     default:
       return "error";
   }
 }
 
 export const outOfStock = (count) => {
-  if(count > 0) {
-    return true
+  if (count > 0) {
+    return true;
   }
-  return false
-}
+  return false;
+};
 
 export const isMobile = () => {
-  const ua = navigator.userAgent;
-  return /Android|Mobi/i.test(ua);
+  if (
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    )
+  ) {
+    return true;
+  }else {
+    return false;
+  }
 };
 
 export const themeStyle = (location) => {
@@ -44,7 +51,7 @@ export const themeStyle = (location) => {
   } else {
     setColorTheme("light");
   }
-}
+};
 
 export function rundomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);

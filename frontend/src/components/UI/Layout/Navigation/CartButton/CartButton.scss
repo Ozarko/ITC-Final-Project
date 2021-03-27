@@ -1,14 +1,15 @@
 .CartButton {
   @include flex(center, center);
   flex: 1;
-  padding: 0 10px;
+  padding: 0 15px;
   height: 100%;
   z-index: 1;
+  min-width: 90px;
   &-box {
     @include flex(center, center);
     flex-direction: column;
 
-    &>button {
+    & > button {
       background: none;
       border: none;
       @include flex(center, center);
@@ -50,16 +51,16 @@
 
 @media screen and (max-width: $breakpoint-lg) {
   .CartButton-box {
-    &>a {
-      font-size: 18px;
-    }
+    & > button {
+      font-size: 16px;
+    } 
   }
 }
 
 @media screen and (max-width: $breakpoint-md) {
   .CartButton {
     &-box {
-      &>a {
+      & > a {
         font-size: 16px;
       }
 
@@ -74,9 +75,10 @@
 
 @media screen and (max-width: $breakpoint-sm) {
   .CartButton {
-    border-right: 1px solid $rootStyleTypeColor;
-
+    height: 40px;
+    border-bottom: 1px solid $rootStyleTypeColor;
     &-box {
+      flex: 1;
       &-count {
         width: 25px;
         height: 25px;

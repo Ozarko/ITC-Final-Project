@@ -6,7 +6,7 @@ const LoginLink = () => {
   return (
     <div className="LoginLink">
       <div className="LoginLink-box">
-        <Link to={link.main}>Вхід</Link>
+        <Link to={link.login}>Вхід</Link>
         <div className="LoginLink-box-line"></div>
       </div>
     </div>

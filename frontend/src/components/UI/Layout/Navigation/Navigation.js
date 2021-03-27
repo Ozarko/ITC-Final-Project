@@ -1,6 +1,6 @@
 import React, {useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
-import CartButton from '../../Buttons/CartButton/CartButton';
+import CartButton from './CartButton/CartButton';
 import LoginLink from './LoginLink/LoginLink';
 import Menu from './Menu/Menu';
 import MenuLogo from './MenuLogo/MenuLogo';

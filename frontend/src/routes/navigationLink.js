@@ -4,6 +4,7 @@ export const link = {
   about: "/about",
   contact: "/contacts",
   productID: "/product/:id",
+  login: '/login',
   productDetailes: "/product-details",
   shippingAndReturns: "/shipping-and-returns",
   recommendationForCare: "/recommendation-for-care",

@@ -1,35 +1,20 @@
 .OurStory {
   background: $main-light-color;
   padding: 20px;
+  & > .container {
+    & > .TextPageIntro {
+      margin-top: 100px;
+      @include flex(center, center);
+      & > h3 {
 
-  &-title {
-    margin-top: 100px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 50px;
-    width: 100%;
-    & > h2 {
-      font-size: 20px;
-      font-family: $main-font-bold-italic;
-      text-transform: uppercase;
-      &:hover ~ .OurStory-title-line {
-        transform: translate(-50%, -50%) rotate(45deg) ;
+        color: $main-dark-color;
+      }
+      & > div {
+        background: $main-dark-color;
       }
     }
-    &-line {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) rotate(-45deg);
-      width: 150px;
-      height: 1px;
-      background: $main-dark-color;
-      animation: line 4s ease;
-      transition: all 3s ease;
-    }
   }
+
   &-description {
     margin-top: 100px;
     display: flex;

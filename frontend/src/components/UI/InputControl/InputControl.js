@@ -7,7 +7,7 @@ const InputControl = ({type, name, value, valueFromInput, valid, errorMessage}) 
     if (type === "email") {
       currentInput.current.focus();
     }
-  }, []);
+  }, [type]);
 
   return (
     <div className={''}>

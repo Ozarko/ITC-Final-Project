@@ -1,13 +1,17 @@
 import React from 'react'
-import SiteTitleNav from '../../UI/SiteTitleNav/SiteTitleNav'
+import TextPageIntro from '../../UI/TextPageIntro/TextPageIntro';
 
 const Contact = () => {
   return (
-    <section>
-      <SiteTitleNav/>
-      Це у нас контакт пейдж
+    <section className="Contact">
+      <div className="container">
+        <TextPageIntro />
+        <div className="Contact-title">
+          <h2>Виникли запитання ? Ми завжди раді дати відповідь на них !</h2>
+        </div>
+      </div>
     </section>
-  )
+  );
 }
 
 export default Contact

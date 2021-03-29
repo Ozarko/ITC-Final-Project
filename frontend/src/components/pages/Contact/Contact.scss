@@ -1,0 +1,21 @@
+.Contact {
+  min-height: 100vh;
+  background: $rootStyleTypeBg;
+
+  & > .container {
+    padding-top: 140px;
+    @include flex(center, center);
+    flex-direction: column;
+  }
+  &-title {
+    margin-top:50px;
+    text-align: center;
+    & > h2 {
+      max-width: 700px;
+      text-transform: uppercase;
+      color: $rootStyleTypeColor;
+      font-family: $main-font-regular;
+      font-size: 50px;
+    }
+  }
+}

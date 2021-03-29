@@ -8,7 +8,7 @@ export const productDetailsReducer = (state = initialState, action) => {
   switch (action.type) {
     case PRODUCT_DETAILS_REQUEST:
       return {
-        ...state,
+        product: {},
       };
     case PRODUCT_DETAILS_SUCCESS:
       return {

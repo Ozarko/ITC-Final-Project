@@ -1,3 +1,5 @@
+import { link } from "../routes/navigationLink";
+
 export function setColorTheme(styleType) {
   const root = document.documentElement.style;
   if (styleType === "dark") {
@@ -46,7 +48,7 @@ export const isMobile = () => {
 };
 
 export const themeStyle = (location) => {
-  if (location.pathname === "/") {
+  if (location.pathname === link.main || location.pathname === link.contact) {
     setColorTheme("dark");
   } else {
     setColorTheme("light");

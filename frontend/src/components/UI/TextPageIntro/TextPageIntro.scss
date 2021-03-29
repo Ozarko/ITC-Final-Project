@@ -1,0 +1,44 @@
+.TextPageIntro {
+  position: relative;
+  & > h3 {
+    color: $rootStyleTypeColor;
+    font-size: 20px;
+    font-family: $main-font-bold-italic;
+    text-transform: uppercase;
+    &:hover ~ .TextPageIntro-line {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+  }
+  &-line {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    width: 150px;
+    height: 1px;
+    background: $rootStyleTypeColor;
+    animation: line 4s ease;
+    transition: all 3s ease;
+  }
+}
+
+@media screen and(max-width: $breakpoint-sm) {
+  .TextPageIntro {
+    &> h3 {
+      font-size: 16px;
+    }
+    &-line {
+      width: 100px;
+    }
+  }
+}
+
+
+@keyframes line {
+  from {
+    transform: translate(-50%, -50%) rotate(0);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+}

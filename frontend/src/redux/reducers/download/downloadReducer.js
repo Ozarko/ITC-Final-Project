@@ -2,6 +2,7 @@ import { DOWNLOAD_COMPLETE, DOWNLOAD_ERROR, DOWNLOAD_STARTED } from "../../types
 
 
 const initialState = {
+  loading: true,
 }
 
 export const downloadReducer = (state = initialState, action) => {

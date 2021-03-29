@@ -1,15 +1,13 @@
 import React from "react";
 import CircleBtn from "@UI/Buttons/CircleBtn/CircleBtn";
 import {link} from '../../../../routes/navigationLink';
+import TextPageIntro from "../../../UI/TextPageIntro/TextPageIntro";
 
 const OurStory = () => {
   return (
     <section className="OurStory">
       <div className="container">
-        <div className="OurStory-title">
-          <h2>Любов яку можна відчути</h2>
-          <div className="OurStory-title-line"></div>
-        </div>
+        <TextPageIntro />
         <div className="OurStory-description">
           <h3>
             Я створюю речі <br /> <span>які</span> дарують тепло, затишок

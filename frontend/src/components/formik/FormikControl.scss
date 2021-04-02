@@ -1,0 +1,50 @@
+.form-control {
+  margin-top: 20px;
+  position: relative;
+  width: 100%;
+  & > input,
+  & > textarea {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    font-family: $main-font-bold;
+    letter-spacing: 3px;
+    font-size: 16px;
+    color: $rootStyleTypeColor;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 1px solid $rootStyleTypeColor;
+    outline: none;
+    background: transparent;
+    &:focus ~ label,
+    &.isNotEmpty ~ label {
+      top: -30px;
+      left: 0;
+      font-size: 15px;
+    }
+  }
+  & > label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-family: $main-font-regular;
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: $rootStyleTypeColor;
+    pointer-events: none;
+    transition: 0.5s ease;
+  }
+  & > p {
+    display: block;
+    text-align: left;
+    font-family: $main-font-regular;
+    letter-spacing: 2px;
+    min-height: 10px;
+  }
+  & > textarea {
+    margin-top: 20px;
+    height: 80px;
+    resize: none;
+  }
+}

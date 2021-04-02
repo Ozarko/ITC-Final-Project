@@ -1,254 +1,148 @@
 .Footer {
   background: $main-light-color;
   padding: 20px;
-
+  
   &-box {
-    border: 1px solid $main-dark-color;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-
-    &-wrpr {
-      display: flex;
-      &-left {
-        flex: 1;
-        &-top {
+    @include flex(center, center);
+    &-info {
+      flex: 1;
+      height: 100%;
+      width: 100%;
+      border: 1px solid $main-dark-color;
+      border-bottom: none;
+      &:last-child {
+        border-left: none;
+      }
+      &-header {
+        @include flex(center, center);
+        border-bottom: 1px solid $main-dark-color;
+        text-align: center;
+        &-title {
+          width: 100%;
           flex: 1;
-          height: 50px;
-          @include flex(center, flex-start);
-          border-bottom: 1px solid $main-dark-color;
-
-          &-title {
-            padding: 0 10px;
-            @include flex(center, center);
-            flex: 1;
-            text-transform: uppercase;
-            font-family: $main-font-regular;
+          border-right: 1px solid $main-dark-color;
+          & > p {
+            padding: 10px;
             color: $main-dark-color;
-            font-size: 25px;
-          }
-          &-logo {
-            height: 100%;
-            @include flex(center, center);
-            padding: 0 35px;
-            border-left: 1px solid $main-dark-color;
-            & > a {
-              text-decoration: none;
-              font-family: $main-font-bold-italic;
-              font-weight: bold;
-              font-size: 30px;
-              color: $main-dark-color;
-              text-transform: uppercase;
-            }
+            font-family: $main-font-medium;
+            text-transform: uppercase;
+            @include adaptivFont(18, 14);
+            white-space: nowrap;
           }
         }
-        &-info {
-          @include flex(center, space-evenly);
-          font-family: $main-font-regular;
-          height: 260px;
-
-          &-container {
-            & > h3 {
-              font-size: 25px;
-              margin-bottom: 20px;
-            }
-            & > ul {
-              list-style: none;
-              & > li {
-                margin: 10px 0;
-                & > a {
-                  text-decoration: none;
-                  color: $main-dark-color;
-                }
+        &-logo {
+          width: 100%;
+          flex: 1;
+          & > a {
+            padding: 10px;
+            color: $main-dark-color;
+            font-family: $main-font-bold;
+            text-transform: uppercase;
+            @include adaptivFont(28, 25);
+          }
+        }
+      }
+      &-links {
+        @include flex(center, center);
+        min-height: 260px;
+        &-container {
+          flex: 1;
+          padding: 10px;
+          text-align: center;
+          & > h3 {
+            font-family: $main-font-medium;
+            @include adaptivFont(22, 14);
+          }
+          & > ul {
+            margin-top: 15px;
+            & > li {
+              margin-top: 5px;
+              & > a {
+                white-space: nowrap;
+                color: $main-dark-color;
+                font-family: $main-font-medium;
+                @include adaptivFont(16, 12);
+                letter-spacing: 1px;
               }
             }
           }
         }
       }
-
-      &-right {
-        width: 40%;
-        border-left: 1px solid $main-dark-color;
-        &-social {
-          @include flex(center, space-between);
-          height: 50px;
-          border-bottom: 1px solid $main-dark-color;
-          & > div {
-            height: 100%;
-            width: 100%;
-          }
-          & > a {
-            padding: 0 30px;
-            @include flex(center, center);
-            height: 100%;
-            border-left: 1px solid $main-dark-color;
-            text-transform: uppercase;
-            text-decoration: none;
-            font-family: $main-font-regular;
-            color: $main-dark-color;
-            font-size: 25px;
-          }
-        }
-        &-story {
-          height: 260px;
-          @include flex(center, center);
-          text-align: center;
-          padding: 20px;
-          & > p {
-            font-family: $main-font-regular;
-            font-size: 20px;
-          }
-        }
-      }
-    }
-
-    &-copyright {
-      width: 100%;
-      padding: 5px;
-      @include flex(center, center);
-      flex-direction: column;
-      text-align: center;
-      border-top: 1px solid $main-dark-color;
-      & > h2 {
-        font-family: $main-font-regular;
-        font-size: 16px;
-        letter-spacing: 3px;
-      }
-      & > a {
-        cursor: pointer;
-        margin-top: 5px;
-        text-decoration: none;
-        color: $main-dark-color;
-        font-family: $main-font-light-italic;
-        font-size: 16px;
-      }
-    }
-  }
-}
-
-@media screen and (max-width: $breakpoint-lg) {
-  .Footer-box-wrpr {
-    &-left {
-      &-top {
-        &-title {
-          font-size: 20px;
-        }
-        &-logo {
-          padding: 0 25px;
-          & > a {
-            font-size: 25px;
-          }
-        }
-      }
-      &-info {
-        padding: 25px;
-        height: 200px;
-        &-container {
-          & > h3 {
-            margin-bottom: 10px;
-            font-size: 20px;
-          }
-          & > ul > li > a {
-            font-size: 14px;
-          }
-        }
-      }
-    }
-    &-right {
       &-social {
-        & > a {
-          padding: 0 10px;
-          font-size: 20px;
-        }
-      }
-      &-story {
-        height: 200px;
-        & > p {
-          font-size: 16px;
-        }
-      }
-    }
-  }
-}
+        @include flex(center,center);
+        border-bottom: 1px solid $main-dark-color;
+        text-align: center;
 
-@media screen and (max-width: $breakpoint-md) {
-  .Footer-box-wrpr {
-    &-left {
-      &-top {
-        &-title {
-          font-size: 16px;
-        }
-        &-logo {
-          padding: 0 15px;
-          & > a {
-            font-size: 16px;
-          }
-        }
-      }
-      &-info {
-        padding: 15px;
-        &-container {
-          & > h3 {
-            margin-bottom: 5px;
-            font-size: 16px;
-          }
-          & > ul > li > a {
-            font-size: 12px;
-          }
-        }
-      }
-    }
-    &-right {
-      &-social {
-        & > a {
-          padding: 0 5px;
-          font-size: 16px;
-        }
-      }
-      &-story {
-        & > p {
-          font-size: 14px;
-        }
-      }
-    }
-  }
-}
-
-@media screen and (max-width: $breakpoint-sm) {
-  .Footer-box-wrpr {
-    flex-direction: column;
-    &-left {
-      &-top {
-        &-title {
-          font-size: 14px;
-        }
-        &-logo {
+        & > div {
           flex: 1;
         }
+        & > a {
+          flex: 2;
+          padding: 10px;
+          color: $main-dark-color;
+          font-family: $main-font-bold;
+          text-transform: uppercase;
+          @include adaptivFont(18, 14);
+          border-left: 1px solid $main-dark-color;
+        }
       }
-      &-info {
-        padding: 0 5px;
-        text-align: center;
+
+      &-story {
+        padding: 10px;
+        min-height: 260px;
+        @include flex(center,center);
+        & > p {
+          font-family: $main-font-medium-italic;
+          @include adaptivFont(18, 14);
+          text-align: center;
+        }
       }
     }
+  }
 
-    &-right {
-      border: none;
-      width: 100%;
-      &-social {
-        border-top: 1px solid $main-dark-color;
-        justify-content: center;
-        & > div {
-          display: none;
+  &-copyright {
+    padding: 10px 0;
+    border: 1px solid $main-dark-color;
+    @include flex(center, center);
+    flex-direction: column;
+    & > h2 {
+      font-family: $main-font-bold;
+      @include adaptivFont(20, 14);
+    }
+    & > a {
+      margin-top: 5px;
+      font-family: $main-font-italic;
+      @include adaptivFont(16, 12);
+      color: $main-dark-color;
+    }
+  }
+}
+
+@media screen and(max-width: $breakpoint-sm) {
+  .Footer {
+    &-box {
+      flex-direction: column;
+      &-info {
+        &:last-child {
+          border-left: 1px solid $main-dark-color;
         }
-        & > a {
-          border: none;
-          width: 100%;
-          justify-content: center;
-          align-items: center;
-          &:nth-child(2) {
-            border-right: 1px solid $main-dark-color;
+        &-header {
+          flex-direction: column-reverse;
+          &-title {
+            display: none;
           }
+        }
+        &-social {
+          flex-wrap: wrap;
+          & > div {
+            display: none;
+          }
+          & > a:first-of-type {
+            border-left: none;
+          }
+        }
+        &-links {
+          flex-wrap: wrap;
         }
       }
     }

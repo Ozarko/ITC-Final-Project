@@ -1,10 +1,13 @@
 .TextPageIntro {
   position: relative;
+  @include flex(center, center);
+  
   & > h3 {
     color: $rootStyleTypeColor;
-    font-size: 20px;
     font-family: $main-font-bold-italic;
+    @include adaptivFont(20,16);
     text-transform: uppercase;
+    
     &:hover ~ .TextPageIntro-line {
       transform: translate(-50%, -50%) rotate(45deg);
     }
@@ -24,9 +27,7 @@
 
 @media screen and(max-width: $breakpoint-sm) {
   .TextPageIntro {
-    &> h3 {
-      font-size: 16px;
-    }
+    margin: 10px 0;
     &-line {
       width: 100px;
     }

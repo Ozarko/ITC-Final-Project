@@ -18,7 +18,7 @@
     text-decoration: none;
     text-transform: uppercase;
     font-family: $main-font-medium;
-    font-size: 25px;
+    @include adaptivFont(25, 20);
     transition: all 1s ease;
     color: $main-light-color;
     margin-bottom: 5px;
@@ -60,9 +60,5 @@
   .CircleBtn {
     max-width: 150px;
     height: 150px;
-
-    & > a {
-      font-size: 20px;
-    }
   }
 }

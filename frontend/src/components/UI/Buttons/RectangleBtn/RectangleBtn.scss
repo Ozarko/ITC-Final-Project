@@ -5,12 +5,15 @@
   border: none;
   color: $rootStyleTypeBg;
   font-family: $main-font-medium;
-  font-size: 20px;
-  cursor: pointer;
+  @include adaptivFont(20,16);
+  cursor: none;
   transition: all 0.25s ease-in;
   &:active,
   &:focus {
     outline: none;
+  }
+  &:disabled {
+    pointer-events: none;
   }
   &:active {
     transform: scale(0.95);

@@ -1,0 +1,15 @@
+.ContactForm {
+  & > button {
+    margin-top: 40px;
+  }
+  &-sent {
+    font-family: $main-font-medium;
+    & > h3 {
+      margin-top: 50px;
+      font-size: 30px;
+    }
+    & > p {
+      margin-top: 10px;
+    }
+  }
+}

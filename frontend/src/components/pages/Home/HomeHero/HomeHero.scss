@@ -1,6 +1,5 @@
 .HomeHero {
   padding: 10px;
-  min-height: 100vh;
   @include flex(center, flex-start);
   flex-direction: column;
 

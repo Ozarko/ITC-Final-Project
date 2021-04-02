@@ -21,7 +21,7 @@
   }
   & > svg {
     font-weight: lighter;
-    font-size: 20px;
+    @include adaptivFont(20, 16);
   }
 }
 

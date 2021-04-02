@@ -48,7 +48,7 @@ export const isMobile = () => {
 };
 
 export const themeStyle = (location) => {
-  if (location.pathname === link.main || location.pathname === link.contact) {
+  if (location.pathname === link.main) {
     setColorTheme("dark");
   } else {
     setColorTheme("light");

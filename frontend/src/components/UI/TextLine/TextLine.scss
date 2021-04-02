@@ -2,7 +2,6 @@
   position: relative;
   margin-top: 40px;
   width: 100%;
-  height: 60px;
   border-top: 1px solid $main-light-color;
   border-bottom: 1px solid $main-light-color;
   display: flex;
@@ -17,7 +16,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 25px;
+    @include adaptivFont(25,16);
     text-transform: uppercase;
     color: $main-light-color;
     font-family: $main-font-medium;
@@ -38,14 +37,5 @@
   }
   100% {
     transform: translate(-100%, 0);
-  }
-}
-
-@media screen and (max-width: $breakpoint-sm) {
-  .TextLine {
-    height: 40px;
-    &-box {
-      font-size: 20px;
-    }
   }
 }

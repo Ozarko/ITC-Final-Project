@@ -17,7 +17,7 @@ const Loader = ({loading}) => {
     >
       <div className="Loader">
         <SunLogo />
-        <h1 className="Loader-title">SOCKGLAMUR</h1>
+        <h1 className="Loader-title">SOCKGLAMOUR</h1>
         <p>{currentDescriptionText}</p>
       </div>
     </CSSTransition>

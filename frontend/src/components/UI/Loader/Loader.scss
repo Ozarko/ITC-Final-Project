@@ -10,7 +10,7 @@
   flex-direction: column;
   background: $rootStyleTypeBg;
   z-index: 10;
-  
+
   & > .SunLogo {
     & > svg {
       animation: spin 5s linear infinite;
@@ -20,14 +20,14 @@
     width: 100%;
     margin-top: 20px;
     color: $rootStyleTypeColor;
-    font-size: 100px;
+    @include adaptivFont(80, 30);
     font-family: $main-font-light;
     font-weight: 100;
     letter-spacing: 20px;
   }
   & > p {
     margin-top: 40px;
-    font-size: 30px;
+    @include adaptivFont(30, 20);
     color: $rootStyleTypeColor;
     font-family: $main-font-light-italic;
   }
@@ -42,55 +42,32 @@
   }
 }
 
-@media screen and(max-width: $breakpoint-lg) {
-  .Loader {
-    &-title {
-      font-size: 80px;
-    }
-  }
-}
-
-@media screen and(max-width: $breakpoint-md) {
-  .Loader {
-    &-title {
-      font-size: 50px;
-    }
-    & > p {
-      font-size: 25px;
-    }
-  }
-}
-
 @media screen and(max-width: $breakpoint-sm) {
   .Loader {
     &-title {
       letter-spacing: 5px;
-      font-size: 25px;
-    }
-    & > p {
-      font-size: 20px;
     }
   }
-}
 
-.Loader.load {
-  transition: opacity 1s;
-  &-enter {
-    opacity: 0;
-  }
-  &-enter-active {
-    opacity: 0.5;
-  }
-  &-enter-done {
-    opacity: 1;
-  }
-  &-exit {
-    opacity: 0.75;
-  }
-  &-exit-active {
-    opacity: 0;
-  }
-  &-exit-done {
-    opacity: 0;
+  .Loader.load {
+    transition: opacity 1s;
+    &-enter {
+      opacity: 0;
+    }
+    &-enter-active {
+      opacity: 0.5;
+    }
+    &-enter-done {
+      opacity: 1;
+    }
+    &-exit {
+      opacity: 0.75;
+    }
+    &-exit-active {
+      opacity: 0;
+    }
+    &-exit-done {
+      opacity: 0;
+    }
   }
 }

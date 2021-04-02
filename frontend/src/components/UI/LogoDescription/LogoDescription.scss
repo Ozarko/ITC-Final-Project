@@ -4,6 +4,7 @@
   padding: 40px;
   width: 100%;
   font-family: $main-font-light-italic;
+  @include adaptivFont(18, 10);
   border: 1px solid $rootStyleTypeColor;
   border-radius: 50%;
   color: $rootStyleTypeColor;
@@ -30,9 +31,6 @@
   .LogoDescription {
     padding: 20px;
     max-width: 200px;
-    & > p {
-      font-size: 15px;
-    }
     &-line {
       width: 200px;
     }

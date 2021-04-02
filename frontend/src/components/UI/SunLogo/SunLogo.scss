@@ -1,14 +1,13 @@
 .SunLogo {
   text-align: center;
   color: $rootStyleTypeColor;
-  font-size: 20px;
   font-family: $main-font-light;
   text-transform: uppercase;
   & > svg {
-    font-size: 30px;
+    @include adaptivFont(25,16);
   }
   &-header {
-    font-size: 13px;
+    @include adaptivFont(16,13);
     letter-spacing: 3px;
   }
 }

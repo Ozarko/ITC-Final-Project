@@ -15,7 +15,7 @@
         font-family: $main-font-regular;
         color: $rootStyleTypeColor;
         letter-spacing: 2px;
-        font-size: 20px;
+        @include adaptivFont(20,16);
       }
       & > span {
         margin: 0 5px;
@@ -29,23 +29,10 @@
   }
 }
 
-@media screen and(max-width: $breakpoint-lg) {
-  .SiteTitleNav {
-    & > ul > li > a,
-    .fake-link {
-      font-size: 16px;
-    }
-  }
-}
-
 @media screen and(max-width: $breakpoint-md) {
   .SiteTitleNav {
     & > ul {
       padding: 0 5px;
-      & > li > a,
-      .fake-link {
-        font-size: 14px;
-      }
     }
   }
 }
@@ -57,17 +44,10 @@
       @include flex(center,center);
       flex-wrap: wrap;
       & > li {
-        & > a,
-        .fake-link {
-          font-size: 16px;
-        }
         & > span {
           margin: 2px;
         }
       }
     }
-  }
-  .fake-link {
-    margin-left: 5px;
   }
 }

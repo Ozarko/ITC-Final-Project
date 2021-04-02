@@ -1,17 +1,56 @@
-import React from 'react'
-import TextPageIntro from '../../UI/TextPageIntro/TextPageIntro';
+import React from "react";
+import contactImage from "../../../image/contact/ContactUs.jpg";
+import SunLogo from "../../UI/SunLogo/SunLogo";
+import ContactForm from "./ContactForm/ContactForm";
+import {IoIosPhonePortrait} from 'react-icons/io';
+import { AiOutlineMail } from "react-icons/ai";
+import { GrLocation } from "react-icons/gr";
+import { LOCATION } from "../../../config/URL/socialURL";
 
 const Contact = () => {
   return (
     <section className="Contact">
       <div className="container">
-        <TextPageIntro />
-        <div className="Contact-title">
-          <h2>Виникли запитання ? Ми завжди раді дати відповідь на них !</h2>
+        <SunLogo />
+        <div className="Contact-box">
+          <div className="Contact-box-info">
+            <h2>Раді вашим повідомленням !</h2>
+            <ul className="Contact-box-info-list">
+              <li>
+                <IoIosPhonePortrait />{" "}
+                <a href="tel:+380969748467">+380969748467</a>
+              </li>
+              <li>
+                <AiOutlineMail />
+                <a href="mailto:socksglamur@gmail.com">socksglamur@gmail.com</a>
+              </li>
+              <li>
+                <GrLocation />
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href={LOCATION}
+                >
+                  м.Івано-Франківськ
+                </a>
+              </li>
+            </ul>
+
+            <div className="Contact-box-info-or">
+              <div className="Contact-box-info-or-line left"></div>
+              <p>Або</p>
+              <div className="Contact-box-info-or-line right"></div>
+            </div>
+            <ContactForm />
+          </div>
+          <div className="Contact-box-image">
+            <div className="Contact-box-image-frame cursorHoverEffect"></div>
+            <img src={contactImage} alt="Contact title" />
+          </div>
         </div>
       </div>
     </section>
   );
-}
+};
 
-export default Contact
+export default Contact;

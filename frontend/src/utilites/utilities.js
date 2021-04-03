@@ -37,9 +37,7 @@ export const outOfStock = (count) => {
 
 export const isMobile = () => {
   if (
-    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-      navigator.userAgent
-    )
+    /Mobi/.test(navigator.userAgent)
   ) {
     return true;
   }else {

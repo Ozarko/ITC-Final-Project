@@ -1,17 +1,9 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Layout from '@UI/Layout/Layout'
 import {routes} from '@routes/routes'
-import {useLocation, withRouter } from 'react-router';
-import { themeStyle } from "./utilites/utilities";
+import {withRouter } from 'react-router';
 
 const App = () => {
-  const location = useLocation();
-
-  useEffect(() => {
-    themeStyle(location);
-    window.scrollTo(0, 0);
-  }, [location]);
-
   return <Layout>{routes}</Layout>;
 }
 

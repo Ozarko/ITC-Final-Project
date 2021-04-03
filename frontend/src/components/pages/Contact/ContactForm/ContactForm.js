@@ -77,12 +77,11 @@ const ContactForm = () => {
                 name="message"
                 isEmpty={formik.values.message}
               />
-              {/* buttonText, clickHandler, disabledBtn, btnType */}
+
               <RectangleBtn
                 buttonText="Надіслати"
                 btnType="submit"
                 disabledBtn={!formik.isValid}
-                clickHandler={() => console.log("hi")}
               />
             </Form>
           );

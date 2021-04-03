@@ -4,7 +4,7 @@
   padding: 40px;
   width: 100%;
   font-family: $main-font-light-italic;
-  @include adaptivFont(18, 10);
+  @include adaptivFont(16, 10);
   border: 1px solid $rootStyleTypeColor;
   border-radius: 50%;
   color: $rootStyleTypeColor;

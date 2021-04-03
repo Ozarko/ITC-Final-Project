@@ -5,7 +5,7 @@ const RectangleBtn = ({buttonText, clickHandler, disabledBtn, btnType = 'button'
     <button
       type={btnType}
       disabled={disabledBtn}
-      onClick={() => clickHandler()}
+      onClick={clickHandler ? () => clickHandler() : null}
       className="RectangleBtn"
     >
       {buttonText}

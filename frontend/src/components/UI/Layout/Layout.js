@@ -5,19 +5,28 @@ import Navigation from './Navigation/Navigation';
 import Cursor from '../Cursor/Cursor';
 import Cart from '../../pages/Cart/Cart';
 import { routes } from '../../../routes/routes';
-import {isMobile} from '../../../utilites/utilities'
+import {isMobile, themeStyle} from '../../../utilites/utilities'
 import { useDispatch, useSelector } from 'react-redux';
 import { listProducts } from '../../../redux/actions/productList/productsAction';
 import Loader from '../Loader/Loader';
 import Message from '../../pages/Message/Message';
+import { useLocation } from 'react-router';
 
 const Layout = () => {
   const dispatch = useDispatch();
   const { loading, error } = useSelector((state) => state.download);
   const {open} = useSelector(state => state.cart)
+
   useEffect(() => {
     dispatch(listProducts());
   }, [dispatch]);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    themeStyle(location);
+    window.scrollTo(0, 0);
+  }, [location]);
 
   return (
     <>

@@ -4,8 +4,9 @@
 
   & > .container {
     padding: 100px 20px 0px 20px;
+    @include flex(center, center);
   }
   &-form {
-    
+    width: 600px;
   }
 }

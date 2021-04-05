@@ -6,6 +6,7 @@ import {IoIosPhonePortrait} from 'react-icons/io';
 import { AiOutlineMail } from "react-icons/ai";
 import { GrLocation } from "react-icons/gr";
 import { LOCATION } from "../../../config/URL/socialURL";
+import SeparatingLine from "../../UI/SeparatingLine/SeparatingLine";
 
 const Contact = () => {
   return (
@@ -35,12 +36,7 @@ const Contact = () => {
                 </a>
               </li>
             </ul>
-
-            <div className="Contact-box-info-or">
-              <div className="Contact-box-info-or-line left"></div>
-              <p>Або</p>
-              <div className="Contact-box-info-or-line right"></div>
-            </div>
+            <SeparatingLine />
             <ContactForm />
           </div>
           <div className="Contact-box-image">

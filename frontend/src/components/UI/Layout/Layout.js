@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { menuLinks } from '@routes/navigationLink';
 import Footer from './Footer/Footer';
 import Navigation from './Navigation/Navigation';
@@ -6,43 +6,38 @@ import Cursor from '../Cursor/Cursor';
 import Cart from '../../pages/Cart/Cart';
 import { routes } from '../../../routes/routes';
 import {isMobile, themeStyle} from '../../../utilites/utilities'
-import { useDispatch, useSelector } from 'react-redux';
-import { listProducts } from '../../../redux/actions/productList/productsAction';
-import Loader from '../Loader/Loader';
-import Message from '../../pages/Message/Message';
+import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router';
+import Loader from '../Loader/Loader';
 
 const Layout = () => {
-  const dispatch = useDispatch();
-  const { loading, error } = useSelector((state) => state.download);
-  const {open} = useSelector(state => state.cart)
+  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    dispatch(listProducts());
-  }, [dispatch]);
+  const { open } = useSelector((state) => state.cart);
 
   const location = useLocation();
 
   useEffect(() => {
     themeStyle(location);
     window.scrollTo(0, 0);
+    setTimeout(()=> {
+      setLoading(false);
+    }, 2000)
   }, [location]);
 
-  return (
-    <>
-      <Loader loading={loading}/>
-      {error 
-        ? <Message message={error.message} />
-        : <>
-            <Navigation menuLinks={menuLinks} />
-            <Cart isOpen={open} />
-            <main>{routes}</main>
-            <Footer />
-            {typeof navigator !== "undefined" && isMobile() ? null : <Cursor />}
-          </>
-      }
-    </>
-  );
+  if (loading) {
+    return <Loader loading={loading} />;
+  } else {
+    return (
+      <>
+        <Navigation menuLinks={menuLinks} />
+        <Cart isOpen={open} />
+        <main>{routes}</main>
+        <Footer location={location.pathname} />
+        {typeof navigator !== "undefined" && isMobile() ? null : <Cursor />}
+      </>
+    );
+  }
 };
 
 export default Layout

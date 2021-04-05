@@ -8,11 +8,13 @@
   &-box {
     @include flex(center, center);
     flex-direction: column;
+    text-align: center;
     & > a {
       text-decoration: none;
       color: $rootStyleTypeColor;
       font-family: $main-font-regular;
       font-size: 20px;
+      white-space: nowrap;
 
       &:hover ~ .LoginLink-box-line {
         width: 100%;

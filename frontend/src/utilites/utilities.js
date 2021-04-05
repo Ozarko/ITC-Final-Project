@@ -11,6 +11,38 @@ export function setColorTheme(styleType) {
   }
 }
 
+export function setFooterStyle(styleType) {
+  const root = document.documentElement.style;
+  if (styleType === "dark") {
+    root.setProperty("--footerRootStyleTypeColor", "#e3e0de");
+    root.setProperty("--footerRootStyleTypeBg", "#181818");
+  } else {
+    root.setProperty("--footerRootStyleTypeColor", "#181818");
+    root.setProperty("--footerRootStyleTypeBg", "#e3e0de");
+  }
+}
+
+export const themeStyle = (location) => {
+  switch (location.pathname) {
+    case link.main:
+      setColorTheme("dark");
+      setFooterStyle("light");
+      break;
+    case link.signin:
+      setColorTheme("dark");
+      setFooterStyle("dark");
+      break;
+    case link.profile:
+      setColorTheme("dark");
+      setFooterStyle("dark");
+      break;
+    default:
+      setColorTheme("light");
+      setFooterStyle("light");
+  }
+};
+
+
 export function transleteName(name) {
   switch (name) {
     case "":
@@ -23,8 +55,10 @@ export function transleteName(name) {
       return "Магазин";
     case "product":
       return "Магазин";
+    case "profile":
+      return "Особистий кабінет користувача";
     default:
-      return "error";
+      return "Назва відсутня";
   }
 }
 
@@ -35,24 +69,14 @@ export const outOfStock = (count) => {
   return false;
 };
 
-export const isMobile = () => {
-  if (
-    /Mobi/.test(navigator.userAgent)
-  ) {
-    return true;
-  }else {
-    return false;
-  }
-};
-
-export const themeStyle = (location) => {
-  if (location.pathname === link.main) {
-    setColorTheme("dark");
-  } else {
-    setColorTheme("light");
-  }
-};
-
 export function rundomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
+
+export const isMobile = () => {
+  if (/Mobi/.test(navigator.userAgent)) {
+    return true;
+  } else {
+    return false;
+  }
+};

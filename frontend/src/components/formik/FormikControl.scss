@@ -1,5 +1,5 @@
 .form-control {
-  margin-top: 20px;
+  margin-top: 30px;
   position: relative;
   width: 100%;
   & > input,
@@ -36,6 +36,7 @@
     transition: 0.5s ease;
   }
   & > p {
+    color: $rootStyleTypeColor;
     display: block;
     text-align: left;
     font-family: $main-font-regular;
@@ -43,6 +44,7 @@
     min-height: 10px;
   }
   & > textarea {
+    color: $rootStyleTypeColor;
     margin-top: 20px;
     height: 80px;
     resize: none;

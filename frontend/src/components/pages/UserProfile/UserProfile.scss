@@ -1,0 +1,64 @@
+.UserProfile {
+  min-height: 100vh;
+  & > .container {
+    padding: 100px 10px 10px 10px;
+  }
+  &-title {
+    margin: 15px 0;
+    width: 100%;
+    text-align: left;
+    border-bottom: 1px solid $rootStyleTypeColor;
+    & > h4 {
+      text-transform: uppercase;
+      padding: 10px 0;
+      color: $rootStyleTypeColor;
+      font-family: $main-font-regular;
+      letter-spacing: 5px;
+      @include adaptivFont(50, 24);
+    }
+  }
+  &-box {
+    @include flex(center,center);
+    width: 100%;
+    &-navigation {
+      flex: 1;
+      & > ul {
+        margin-top: 20px;
+        width: 100%;
+        height: 100%;
+        & > li {
+          &:hover > div {
+            width: 100%;
+          }
+          & > button {
+            margin: 0;
+            padding: 0;
+            background: none;
+            border: none;
+            color: $rootStyleTypeColor;
+            font-family: $main-font-regular;
+            @include adaptivFont(25, 14);
+            &:active,
+            &:focus {
+              outline: none;
+            }
+          }
+        }
+      }
+      &-line {
+        margin: 20px 0;
+        width: 0;
+        height: 1px;
+        background: $rootStyleTypeColor;
+        transition: width 0.7s ease-in;
+      }
+    }
+    &-screen {
+      padding: 0 20px;
+      width: 100%;
+      height: 100%;
+      flex: 3;
+      border-left: 1px solid $rootStyleTypeColor;
+    }
+  }
+}

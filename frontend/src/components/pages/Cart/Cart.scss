@@ -77,6 +77,14 @@
       width: 100%;
       height: 100%;
       overflow: auto;
+      text-align: center;
+      &-empty {
+        max-width: 90%;
+        padding: 10px;
+        font-family: $main-font-regular;
+        color: $rootStyleTypeColor;
+        @include adaptivFont(20, 14);
+      }
     }
     &-footer {
       width: 100%;

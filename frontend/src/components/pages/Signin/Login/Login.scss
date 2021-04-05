@@ -1,0 +1,14 @@
+.Login {
+  margin-top: 30px;
+  width: 100%;
+  & > button {
+    margin-top: 30px;
+  }
+  &-login-error {
+    text-align: left;
+    margin-top: 15px;
+    color: $main-color;
+    font-family: $main-font-regular;
+    text-transform: uppercase;
+  }
+}

@@ -1,0 +1,56 @@
+@import './Login/Login.scss';
+@import './Registration/Registration.scss';
+
+.Signin {
+  min-height: 90vh;
+  background: $rootStyleTypeBg;
+  @include flex(flex-start, center);
+
+  & > .container {
+    margin: 50px 0;
+    width: 100%;
+    @include flex(center, center);
+    flex-direction: column;
+    & > .SunLogo {
+      margin-top: 100px;
+    }
+  }
+  &-box {
+    padding: 10px;
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    &-title {
+      margin-top: 30px;
+      color: $rootStyleTypeColor;
+      font-family: $main-font-regular;
+      letter-spacing: 5px;
+      @include adaptivFont(28, 18);
+    }
+    & > .SeparatingLine {
+      margin: 15px 0;
+    }
+    &-signin {
+      color: $rootStyleTypeColor;
+      font-family: $main-font-light;
+      letter-spacing: 3px;
+      @include adaptivFont(16, 14);
+      @include flex(center,center);
+      & > button {
+        margin: 0 10px;
+        display: inline-block;
+        border: none;
+        background: none;
+        color: $rootStyleTypeColor;
+        font-weight: bold;
+        @include adaptivFont(20, 16);
+        letter-spacing: 3px;
+        font-family: $main-font-light-italic;
+        &:active,
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+}

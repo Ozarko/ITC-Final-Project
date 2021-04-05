@@ -52,19 +52,26 @@ const Cart = ({history, isOpen}) => {
           <div className="Cart-box-body">
             {productInCart.length !== 0 ? (
               <>
-                {
-                productInCart.map(product => {
-                  return <CartItem key={`CartItem-${product.product}`} {...product} />
-                })
-                }
+                {productInCart.map((product) => {
+                  return (
+                    <CartItem
+                      key={`CartItem-${product.product}`}
+                      {...product}
+                    />
+                  );
+                })}
               </>
             ) : (
-              <h2>Зробіть свій вибір</h2>
+              <p className="Cart-box-body-empty">
+                Ваша корзина пуста. <br/> Огортаючи ніжки пухнастими шкарпеточками, ви
+                отримуєте тепло. Додайте каву та шоколад. Разом - це спокій та
+                щастя !
+              </p>
             )}
           </div>
           <div className="Cart-box-footer">
             <div className="Cart-box-footer-to-shopping">
-              <Link to={link.shop} onClick={()=>cartHandler()}>
+              <Link to={link.shop} onClick={() => cartHandler()}>
                 <FaArrowLeft />
                 <span>Назад до покупок</span>
               </Link>

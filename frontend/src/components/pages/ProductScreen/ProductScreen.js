@@ -10,14 +10,16 @@ import { outOfStock } from "../../../utilites/utilities";
 import { useDispatch, useSelector } from "react-redux";
 import {productDetails} from '../../../redux/actions/productDetails/productDetailsAction'
 import { addProductToCart } from "../../../redux/actions/cart/cartActions";
+import Loader from "../../UI/Loader/Loader";
+import { ErrorMessage } from "formik";
 
 const ProductScreen = ({match }) => {
-  
+  const [isInCart, setIsInCart] = useState(false);
   const [qty, setQty] = useState(1)
 
   const dispatch = useDispatch()
   
-  const {product} = useSelector((state) => state.productDetails);
+  const {loading, error, product} = useSelector((state) => state.productDetails);
 
   const addQty = (qty) => {
     setQty(qty + 1)
@@ -26,6 +28,15 @@ const ProductScreen = ({match }) => {
   const removeQty = (qty) => {
     setQty(qty - 1)
   }
+  const { productInCart } = useSelector((state) => state.cart);
+  
+  useEffect(() => {
+    if (productInCart.some((item) => item.product === product._id)) {
+      setIsInCart(true);
+    } else {
+      setIsInCart(false);
+    }
+  }, [productInCart, product]);
 
   useEffect(()=> {
     dispatch(productDetails(match.params.id));
@@ -35,10 +46,15 @@ const ProductScreen = ({match }) => {
     dispatch(addProductToCart(match.params.id, qty))
   }
 
+  if(loading) {
+    return <Loader loading={loading}/>
+  }else if(error) {
+    <ErrorMessage/>
+  }else {
     return (
       <div className="ProductScreen">
         <div className="container">
-            <SunLogo />
+          <SunLogo />
           <SiteTitleNav name={product.name} />
           <div className="ProductScreen-box">
             <div className="ProductScreen-box-image">
@@ -75,8 +91,17 @@ const ProductScreen = ({match }) => {
                   </div>
                 ) : (
                   <div className="ProductScreen-box-info-add-container">
-                    <Quantity title="Придбати" inStock={product.countInStock} count={qty} clickHandlerIncrement={addQty} clickHandlerDecrement={removeQty}/>
-                    <RectangleBtn clickHandler={addToCard} buttonText={"В Кошик"} />
+                    <Quantity
+                      title="Придбати"
+                      inStock={product.countInStock}
+                      count={qty}
+                      clickHandlerIncrement={addQty}
+                      clickHandlerDecrement={removeQty}
+                    />
+                    <RectangleBtn
+                      clickHandler={addToCard}
+                      buttonText={isInCart ? "Уже в корзині" : "В кошик"}
+                    />
                     <LikeBtn />
                   </div>
                 )}
@@ -111,8 +136,9 @@ const ProductScreen = ({match }) => {
             </div>
           </div>
         </div>
-    </div>
-  );
+      </div>
+    );
+  }
 };
 
 export default ProductScreen;

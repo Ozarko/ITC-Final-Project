@@ -20,7 +20,8 @@ const UserProfile = ({ history }) => {
   };
 
   useEffect(() => {
-    if (!userInfo) {
+    if (!userInfo || !user) {
+      dispatch(logout());
       history.push(link.signin);
     } else {
       if (!user ||!user.name) {

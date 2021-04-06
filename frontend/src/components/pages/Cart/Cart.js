@@ -30,7 +30,9 @@ const Cart = ({history, isOpen}) => {
   }
 
   const checkoutHandler = () => {
-    history.push('/login?redirect=shipping')
+    console.log('click')
+    history.push('/signin?redirect=shipping')
+    dispatch(setCartStatus())
   }
 
   return (
@@ -83,7 +85,7 @@ const Cart = ({history, isOpen}) => {
               </div>
               <RectangleBtn
                 buttonText="Придбати"
-                clickHandler={() => checkoutHandler}
+                clickHandler={() => checkoutHandler()}
                 disabledBtn={productInCart.length === 0 ? true : false}
               />
             </div>

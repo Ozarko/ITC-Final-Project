@@ -23,11 +23,11 @@ const Cursor = ({ outerScale = 2, innerScale = 0.7 }) => {
     cursorInnerRef.current.style.left = clientX + 'px'
     endX.current = clientX
     endY.current = clientY
-  }, [])
+  }, [cursorInnerRef])
 
   const animateOuterCursor = useCallback(
     (time) => {
-      if (previousTimeRef.current !== undefined && cursorOuterRef.current) {
+      if (previousTimeRef.current !== undefined &&previousTimeRef.current !== null && cursorOuterRef.current) {
         coords.x += (endX.current - coords.x) / 9
         coords.y += (endY.current - coords.y) / 9
         cursorOuterRef.current.style.top = `${coords.y}px`

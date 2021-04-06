@@ -10,7 +10,7 @@ const CartButton = () => {
   };
   
   const {productInCart} = useSelector(state => state.cart)
-
+  
 
   return (
     <div className="CartButton">

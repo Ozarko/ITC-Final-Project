@@ -3,10 +3,14 @@ import React from 'react'
 import FormikControl from '../../../formik/FormikControl';
 import RectangleBtn from '../../../UI/Buttons/RectangleBtn/RectangleBtn';
 import * as Yup from 'yup';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateUserProfile } from '../../../../redux/actions/user/userAction';
 
 const UpdateProfile = ({user}) => {
 
-  
+  const dispatch = useDispatch()
+
+  const {success} = useSelector(state => state.userUpdateProfile)
 
   const userInitialValues = {
     firstName: user.name.split(" ")[0],
@@ -16,8 +20,14 @@ const UpdateProfile = ({user}) => {
     confirmPassword: ''
   };
 
-  const onSubmit = (values) => {
-    console.log(values)
+  const onSubmit = (values, {setSubmitting}) => {
+    dispatch(updateUserProfile({
+      id: user._id,
+      name: `${values.firstName} ${values.lastName}`,
+      email: values.email,
+      password: values.password
+    }))
+    setSubmitting(false)
   }
 
     const validationSchema = Yup.object({
@@ -32,7 +42,7 @@ const UpdateProfile = ({user}) => {
         .when("password", {
           is: (val) => val !== user.password,
           then: Yup.string()
-            .required("req")
+            .required("Дане поле є обов'язковим")
             .oneOf([Yup.ref("password"), ""], "Ви ввели різні паролі"),
         }),
     });
@@ -46,7 +56,7 @@ const UpdateProfile = ({user}) => {
       {
         formik => {
           return (
-            <Form>
+            <Form className='UpdateProfile'>
               <FormikControl
                 control="input"
                 type="text"
@@ -87,11 +97,9 @@ const UpdateProfile = ({user}) => {
                 isEmpty={formik.values.confirmPassword}
               />
 
-              {/* <p className="Registration-error">
-                {error ? (
-                  <span>Користувач з вказаним email уже зареєстрований...</span>
-                ) : null}
-              </p> */}
+              <p className="Registration-error">
+                {success && "Ваш профіль було оновлено"}
+              </p>
 
               <RectangleBtn
                 buttonText="Підтвердити зміни"

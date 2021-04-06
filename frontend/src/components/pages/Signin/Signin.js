@@ -1,10 +1,22 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux';
+import { link } from '../../../routes/navigationLink';
 import SeparatingLine from '../../UI/SeparatingLine/SeparatingLine';
 import SunLogo from '../../UI/SunLogo/SunLogo';
 import Login from './Login/Login';
 import Registration from './Registration/Registration';
 
-const Signin = () => {
+const Signin = ({location, history}) => {
+
+  const {userInfo} = useSelector(state => state.userLogin)
+
+  const redirect = location.search ? location.search.split('=')[1] : link.shop
+
+  useEffect(()=> {
+    if(userInfo) {
+      history.push(redirect)
+    }
+  }, [history,  userInfo, redirect])
 
   const [showRegister, setShowRegister] = useState(false)
 

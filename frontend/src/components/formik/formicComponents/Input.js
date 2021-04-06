@@ -9,7 +9,6 @@ const Input = ({label, name, isEmpty, ...rest}) => {
         id={`formId_${name}`}
         name={name}
         {...rest}
-        autoComplete="off"
       />
       <label htmlFor={name}>{label}</label>
       <p>

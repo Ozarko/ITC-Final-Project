@@ -7,6 +7,7 @@ import Shop from "../components/pages/Shop/Shop";
 import { link } from "./navigationLink";
 import Signin from "../components/pages/Signin/Signin";
 import UserProfile from "../components/pages/UserProfile/UserProfile";
+import Shipping from "../components/pages/Shipping/Shipping";
 
 export const routes = (
   <Switch>
@@ -17,6 +18,7 @@ export const routes = (
     <Route path={link.contact} component={Contact} />
     <Route path={link.signin} component={Signin} />
     <Route path={link.profile} component={UserProfile} />
+    <Route path={link.shipping} component={Shipping} />
     <Redirect to={link.main} />
   </Switch>
 );

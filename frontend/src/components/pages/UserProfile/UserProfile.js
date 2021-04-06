@@ -2,14 +2,15 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router";
 import { getUserDetails, logout } from "../../../redux/actions/user/userAction";
+import { USER_UPDATE_PROFILE_RESET } from "../../../redux/types/user/userTypes";
 import { link } from "../../../routes/navigationLink";
 import Loader from "../../UI/Loader/Loader";
 import SiteTitleNav from "../../UI/SiteTitleNav/SiteTitleNav";
 import UpdateProfile from "./UpdateProfile/UpdateProfile";
 
 const UserProfile = ({ history }) => {
+  
   const dispatch = useDispatch();
-
   const { userInfo } = useSelector((state) => state.userLogin);
   const { loading, user } = useSelector((state) => state.userDetails);
 
@@ -22,7 +23,8 @@ const UserProfile = ({ history }) => {
     if (!userInfo) {
       history.push(link.signin);
     } else {
-      if (!user.name) {
+      if (!user ||!user.name) {
+        dispatch({type:USER_UPDATE_PROFILE_RESET})
         dispatch(getUserDetails("profile"));
       }
     }

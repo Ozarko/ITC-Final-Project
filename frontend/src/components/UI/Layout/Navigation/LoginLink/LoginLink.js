@@ -11,7 +11,7 @@ const LoginLink = () => {
     <div className="LoginLink">
       <div className="LoginLink-box">
         {userInfo ? (
-          <Link to={link.profile}>{userInfo.name.split(" ")[0]}</Link>
+          <Link to={link.profile}>{userInfo.name.split(' ')[0]}</Link>
         ) : (
           <Link to={link.signin}>Вхід</Link>
         )}

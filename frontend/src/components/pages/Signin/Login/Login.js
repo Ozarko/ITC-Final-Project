@@ -8,17 +8,16 @@ import { link } from "../../../../routes/navigationLink";
 import FormikControl from "../../../formik/FormikControl";
 import RectangleBtn from "../../../UI/Buttons/RectangleBtn/RectangleBtn";
 
-const Login = ({ location, history }) => {
+const Login = ({history}) => {
   const dispatch = useDispatch();
 
   const { error, userInfo } = useSelector((state) => state.userLogin);
-  const redirect = location.search ? location.search.split("=")[1] : link.shop;
 
-  useEffect(() => {
-    if (userInfo) {
-      history.push(redirect);
+  useEffect(()=> {
+    if(userInfo) {
+      history.push(link.shop)
     }
-  }, [history, userInfo, redirect]);
+  }, [dispatch, history, userInfo])
 
   const initialValues = {
     email: "",

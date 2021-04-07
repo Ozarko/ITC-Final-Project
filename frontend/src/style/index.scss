@@ -14,7 +14,7 @@
 @import "../components/pages/pages.scss";
 @import '../components/formik/FormikControl.scss';
 
-// Basic style
+// Basic style and reset
 
 html,
 body {
@@ -35,6 +35,13 @@ a {
 
 ul {
   list-style: none;
+}
+
+button {
+  &:active,
+  &:focus {
+    outline: none;
+  }
 }
 
 input:-webkit-autofill,
@@ -68,4 +75,8 @@ select:-webkit-autofill:focus {
 
 #root {
   background: $rootStyleTypeBg;
+}
+
+section {
+  min-height: 100vh;
 }

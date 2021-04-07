@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
-import { addProductToCart, removeFromCart } from '../../../../redux/actions/cart/cartActions';
-import RemoveBtn from '../../../UI/Buttons/RemoveBtn/RemoveBtn';
-import Quantity from '../../../UI/Quantity/Quantity';
+import { addProductToCart, removeFromCart } from '../../../redux/actions/cart/cartActions';
+import RemoveBtn from '../Buttons/RemoveBtn/RemoveBtn';
+import Quantity from '../Quantity/Quantity';
 
 const CartItem = (props) => {
 
@@ -22,7 +22,7 @@ const CartItem = (props) => {
   return (
     <div className="CartItem">
       <div className="CartItem-image">
-        <img src={props.image} alt={props.description} />
+        <img className='coverImage' src={props.image} alt={props.description} />
       </div>
       <div className="CartItem-info">
         <h5>{props.categories.join(" & ")}</h5>

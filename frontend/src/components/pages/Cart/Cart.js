@@ -5,11 +5,11 @@ import { Link, withRouter } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 import { setCartStatus } from '../../../redux/actions/cart/cartActions';
 import { link } from '../../../routes/navigationLink';
+import { subtotal } from '../../../utilites/utilities';
 import RectangleBtn from '../../UI/Buttons/RectangleBtn/RectangleBtn';
-import CartItem from './CartItem/CartItem';
+import CartItem from '../../UI/CartItem/CartItem';
 
 const Cart = ({history, isOpen}) => {
-
 
   const dispatch = useDispatch()
   
@@ -19,10 +19,6 @@ const Cart = ({history, isOpen}) => {
     dispatch(setCartStatus())
   }
 
-  const subtotal = productInCart.reduce((acc, product) => {
-    return acc += (product.qty * product.price ) 
-  }, 0)
-
   const clickBGHandler = (e) => {
     if(e.target.className === 'Cart enter-done') {
       dispatch(setCartStatus())
@@ -30,7 +26,6 @@ const Cart = ({history, isOpen}) => {
   }
 
   const checkoutHandler = () => {
-    console.log('click')
     history.push('/signin?redirect=shipping')
     dispatch(setCartStatus())
   }
@@ -81,7 +76,7 @@ const Cart = ({history, isOpen}) => {
             <div className="Cart-box-footer-checkout">
               <div className="Cart-box-footer-checkout-subtotal">
                 <h5>Разом: </h5>
-                <h6>{subtotal} грн</h6>
+                <h6>{subtotal(productInCart)} грн</h6>
               </div>
               <RectangleBtn
                 buttonText="Придбати"

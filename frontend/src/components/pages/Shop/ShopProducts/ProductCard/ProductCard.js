@@ -32,7 +32,7 @@ const ProductCard = ({ product}) => {
           <img
             src={product.image}
             alt={product.name}
-            className="containImage"
+            className="coverImage"
           />
         </div>
         <h4 className="ProductCard-title">{product.name}</h4>

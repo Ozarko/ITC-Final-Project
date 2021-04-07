@@ -1,18 +1,18 @@
 .Shipping {
   min-height: 100vh;
+  
   & > .container {
     padding: 100px 20px 20px 20px;
     @include flex(center, center);
   }
+  
   &-details {
-    flex: 1;
+    flex: 2;
+    width: 100%;
   }
   &-order {
-    width: 100%;
-    height: 100%;
     background: $main-dark-color;
     flex: 1;
-    max-width: 100vh;
   }
 }
 
@@ -24,4 +24,5 @@
   }  
 }
 
-@import './ShippingOrder/ShippingOrder.scss';
+@import './Order/Order.scss';
+@import './ShippingFormControl/ShippingFormControl.scss';

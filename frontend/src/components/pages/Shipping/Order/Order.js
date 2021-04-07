@@ -1,21 +1,21 @@
 import React from "react";
-import CartItem from "../../Cart/CartItem/CartItem";
+import CartItem from "../../../UI/CartItem/CartItem";
 
-const ShippingOrder = ({ productInCart }) => {
+const Order = ({ productInCart }) => {
   
   const subtotal = productInCart.reduce((acc, product) => {
     return acc += (product.qty * product.price ) 
   }, 0)
 
   return (
-    <div className="ShippingOrder">
-      <h3 className="ShippingOrder-title">Ваше замовлення</h3>
-      <div className='ShippingOrder-cart'>
+    <div className="Order darkTheme">
+      <h3 className="Order-title">Ваше замовлення</h3>
+      <div className='Order-cart'>
         {productInCart.map((product) => {
           return <CartItem key={`CartItem-${product.product}`} {...product} />;
         })}
       </div>
-      <div className="ShippingOrder-total">
+      <div className="Order-total">
         <h5>Загальна сума</h5>
         <p>{subtotal} грн</p>
       </div>
@@ -23,4 +23,4 @@ const ShippingOrder = ({ productInCart }) => {
   );
 };
 
-export default ShippingOrder;
+export default Order;

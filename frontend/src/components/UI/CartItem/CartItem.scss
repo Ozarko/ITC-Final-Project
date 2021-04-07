@@ -1,0 +1,68 @@
+.CartItem {
+  @include flex(center,center);
+  border-bottom: 1px solid $rootStyleTypeColor;
+  padding: 10px;
+  flex-wrap: wrap;
+  &-image {
+    margin: 30px 0;
+    flex: 2;
+    min-width: 300px;
+    max-height: 300px;
+    & > img {
+       max-height: 300px;
+    }
+  }
+  &-info {
+    margin: 30px 0;
+    min-width: 200px;
+    margin: 0 10px;
+    flex: 2;
+    text-align: left;
+    @include flex(flex-start, space-between);
+    flex-direction: column;
+    & > h5 {
+      @include setFontStyle($main-font-medium, $rootStyleTypeColor , 20, 16);
+      font-weight: 100;
+      letter-spacing: 2px;
+    }
+    &-name {
+      margin-top: 40px;
+      & > h4 {
+        @include setFontStyle($main-font-medium, $rootStyleTypeColor, 22, 16);
+        letter-spacing: 3px;
+      }
+    }
+    &-descAndLikes {
+      margin-top: 40px;
+      width: 100%;
+      @include flex(center, space-between);
+      & > div {
+        @include flex(center,center);
+        flex-direction: column;
+        @include setFontStyle($main-font-medium, $rootStyleTypeColor, 20, 16);
+        & > p {
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+  &-qntDelAndPrice{
+    margin: 30px 0;
+    flex: 1;
+    height: 100%;
+    min-width: 200px;
+    width: 100%;
+    @include flex(center, space-between);
+    flex-direction: column;
+    &-qntDel {
+      padding: 10px 0;
+      @include flex(center, space-around);
+    }
+    &-price {
+      @include setFontStyle($main-font-medium, $rootStyleTypeColor, 30, 25);
+      & > span {
+        font-weight: 100;
+      }
+    }
+  }
+}

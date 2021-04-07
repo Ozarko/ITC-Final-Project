@@ -80,3 +80,9 @@ export const isMobile = () => {
     return false;
   }
 };
+
+export const subtotal = (arr) => {
+  return arr.reduce((acc, product) => {
+    return acc += (product.qty * product.price ) 
+  }, 0)
+}

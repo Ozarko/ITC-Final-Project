@@ -11,7 +11,7 @@ const Footer = () => {
             <div className="Footer-box-info">
               <div className="Footer-box-info-header">
                 <div className="Footer-box-info-header-title">
-                  <p>Любов яку можна відчути </p>
+                  <h5>Любов яку можна відчути </h5>
                 </div>
                 <div className="Footer-box-info-header-logo">
                   <Link to={link.main}>SocksGlamour</Link>
@@ -25,10 +25,10 @@ const Footer = () => {
                       <Link to="/shop/socks">Шкарпетки</Link>
                     </li>
                     <li>
-                      <Link to="/shop/some">Одяг для дітей</Link>
+                      <Link to="/shop/some">Дитячий одяг</Link>
                     </li>
                     <li>
-                      <Link to="/shop/someelse">І щось там</Link>
+                      <Link to="/shop/someelse">В'язані вироби</Link>
                     </li>
                   </ul>
                 </div>
@@ -78,10 +78,8 @@ const Footer = () => {
               </div>
               <div className="Footer-box-info-story">
                 <p>
-                  Тут має бути якийсь мега мотивуючий і мілашний текст який буде
-                  підсумовувати основну суть роботи, в тому числі і мету роботи
-                  магазину або все таки треба буде реалізувати систему дисконту
-                  та підписок
+                  Зона комфорту - ваше місце сили! Ви самі визначаєте її межі, придумуєте правила і сортуєте запрошених.
+                  Займіться тим, про що мрієте, що давно відкладаєте.  Просто будьте собою! І будьте щасливими!
                 </p>
               </div>
             </div>

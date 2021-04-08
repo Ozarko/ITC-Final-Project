@@ -16,12 +16,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    @include adaptivFont(25,16);
+    @include setFontStyles($main-font-medium,$rootStyleTypeColor, 2.4rem);
     text-transform: uppercase;
-    color: $main-light-color;
-    font-family: $main-font-medium;
     letter-spacing: 10px;
-    line-height: 100%;
     margin-right: 10px;
     animation: textLine 10s linear infinite;
 

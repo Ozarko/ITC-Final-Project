@@ -2,20 +2,19 @@
   margin-top: 30px;
   position: relative;
   width: 100%;
+
   & > input,
   & > textarea {
     display: block;
     width: 100%;
     padding: 10px 0;
-    font-family: $main-font-bold;
-    letter-spacing: 3px;
-    font-size: 16px;
-    color: $rootStyleTypeColor;
+    @include setFontStyles($main-font-medium, $rootStyleTypeColor, 2rem);
     margin-bottom: 10px;
     border: none;
     border-bottom: 1px solid $rootStyleTypeColor;
-    outline: none;
     background: transparent;
+    letter-spacing: 1px;
+
     &:focus ~ label,
     &.isNotEmpty ~ label {
       top: -30px;
@@ -23,28 +22,26 @@
       font-size: 15px;
     }
   }
+
   & > label {
     position: absolute;
     top: 0;
     left: 0;
     padding: 10px 0;
-    font-family: $main-font-regular;
-    font-size: 20px;
+    @include setFontStyles($main-font-regular, $rootStyleTypeColor, 2rem);
     letter-spacing: 2px;
-    color: $rootStyleTypeColor;
     pointer-events: none;
     transition: 0.5s ease;
   }
-  & > p {
-    color: $rootStyleTypeColor;
+
+  & p {
+    min-height: 10px;
     display: block;
     text-align: left;
-    font-family: $main-font-regular;
+    @include setFontStyles($main-font-regular, $rootStyleTypeColor, 1.6rem);
     letter-spacing: 2px;
-    min-height: 10px;
   }
   & > textarea {
-    color: $rootStyleTypeColor;
     margin-top: 20px;
     height: 80px;
     resize: none;

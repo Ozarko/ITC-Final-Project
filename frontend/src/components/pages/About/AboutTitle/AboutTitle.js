@@ -7,7 +7,7 @@ const AboutTitle = () => {
     <section className="AboutTitle">
       <div className="AboutTitle-header">
         <h2>
-          Про мене <br /> <span>та</span> мою майстерню <br /> <span>в</span>{" "}
+          Про <span>мене</span><br /> <span>та</span> мою майстерню <br /> <span>в</span>{" "}
           декількох словах
         </h2>
         <div className="AboutTitle-header-description">

@@ -16,38 +16,34 @@
     padding: 30px;
     @include flex(flex-start, center);
     flex-direction: column;
+
     &-header {
       width: 100%;
       border-bottom: 1px solid $rootStyleTypeColor;
       @include flex(center, space-between);
+
       & > h5 {
-        color: $rootStyleTypeColor;
-        font-family: $main-font-light;
-        font-weight: 100;
-        font-size: 50px;
-        letter-spacing: 3px;
         display: flex;
+        @include setFontStyles($main-font-light, $rootStyleTypeColor, 5rem);
+        font-weight: 100;
+        letter-spacing: 3px;
+
         & > span {
           margin-left: 10px;
-          font-family: $main-font-light;
-          color: $rootStyleTypeColor;
-          font-size: 20px;
+          font-size: 2rem;
         }
       }
+
       &-btn {
-        align-self: flex-end;
-        margin-bottom: 10px;
         position: relative;
+        margin-bottom: 10px;
         width: 28px;
         height: 28px;
+        align-self: flex-end;
         background: none;
         border: none;
         transition: all 0.5s ease;
 
-        &:active,
-        &:focus {
-          outline: none;
-        }
         &:active {
           transform: scale(1.2);
         }
@@ -61,6 +57,7 @@
           width: 100%;
           height: 2px;
           background: $rootStyleTypeColor;
+
           &:first-child {
             transform: translate(-50%, -50%) rotate(50deg);
           }
@@ -70,32 +67,34 @@
         }
       }
     }
+
     &-body {
       flex: 1;
       width: 100%;
       height: 100%;
       overflow: auto;
       text-align: center;
+
       &-empty {
+        margin-top: 40px;
         max-width: 90%;
         padding: 10px;
-        font-family: $main-font-regular;
-        color: $rootStyleTypeColor;
-        @include adaptivFont(20, 14);
+        @include setFontStyles($main-font-regular, $rootStyleTypeColor, 2.2rem);
       }
+
     }
     &-footer {
       width: 100%;
       @include flex(center,center);
+
       &-to-shopping {
         min-width: 40%;
+
         & > a {
-          text-decoration: none;
-          color: $rootStyleTypeColor;
-          font-family: $main-font-light;
-          font-size: 24px;
-          letter-spacing: 2px;
           @include flex(center, center);
+          @include setFontStyles($main-font-light, $rootStyleTypeColor, 2.4rem);
+          letter-spacing: 2px;
+
           & > span {
             margin-left: 10px;
           }
@@ -105,20 +104,19 @@
         flex: 1;
         padding: 0 25px;
         width: 100%;
+
         &-subtotal {
           padding: 20px 0;
           @include flex(center, space-between);
+
           & > h5 {
-            font-family: $main-font-light;
-            font-size: 25px;
+            @include setFontStyles($main-font-light, $rootStyleTypeColor, 2.5rem);
             font-weight: 400;
-            color: $rootStyleTypeColor;
           }
+
           & > h6 {
-            font-family: $main-font-regular;
+            @include setFontStyles($main-font-regular, $rootStyleTypeColor, 4rem);
             letter-spacing: 2px;
-            font-size: 40px;
-            color: $rootStyleTypeColor;
           } 
         }
       }
@@ -132,7 +130,6 @@
       padding: 20px;
       &-header {
         & > h5 {
-          font-size: 30px;
           letter-spacing: 2px;
         }
         &-btn {
@@ -145,18 +142,9 @@
         flex-direction: column-reverse;
         &-to-shopping > a {
           min-width: 30%;
-          font-size: 18px;
         }
         &-checkout {
           padding: 0 10px;
-          &-subtotal {
-            & > h5 {
-              font-size: 20px;
-            }
-            & > h6 {
-              font-size: 32px;
-            }
-          }
         }
       }
     }
@@ -171,14 +159,6 @@
         &-to-shopping > a {
           margin-top: 30px;
           min-width: 20%;
-          font-size: 16px;
-        }
-        &-checkout {
-          &-subtotal {
-            & > h5 {
-              font-size: 16px;
-            }
-          }
         }
       }
     }

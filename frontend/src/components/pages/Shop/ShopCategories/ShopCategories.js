@@ -14,11 +14,11 @@ const ShopCategories = () => {
           <div className="ShopCategories-line"></div>
         </li>
         <li>
-          <Link to='/shop'>Одяг для дітей</Link>
+          <Link to='/shop'>Дитячий одяг</Link>
           <div className="ShopCategories-line"></div>
         </li>
         <li>
-          <Link to='/shop'>Ще щось там</Link>
+          <Link to='/shop'>В'язані вироби</Link>
           <div className="ShopCategories-line"></div>
         </li>
       </ul>

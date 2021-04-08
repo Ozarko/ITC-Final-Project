@@ -19,7 +19,7 @@ const Contact = () => {
             <ul className="Contact-box-info-list">
               <li>
                 <IoIosPhonePortrait />{" "}
-                <a href="tel:+380969748467">+380969748467</a>
+                <a href="tel:+380959100751">+380959100751</a>
               </li>
               <li>
                 <AiOutlineMail />

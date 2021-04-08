@@ -1,40 +1,38 @@
 .AboutTitle {
-  min-height: 100vh;
   @include flex (center, center);
   border-bottom: 1px solid $main-color;
-  padding: 20px;
 
   &-header {
-    margin-top: 100px;
-    width: 100%;
-    height: 100%;
     padding: 10px;
-    & > h2 {
-      font-family: $main-font-bold-italic;
-      font-size: 70px;
-      & > span {
-        font-family: $main-font-light-italic;
+
+    &>h2 {
+      @include setFontStyles($main-font-medium, $rootStyleTypeColor, 7rem);
+      font-weight: 400;
+
+      &>span {
+        font-family: $main-font-semibold-italic;
+        font-weight: 700;
       }
     }
+
     &-description {
       margin-top: 50px;
       @include flex(center, flex-start);
 
       &-text {
         max-width: 50%;
-        font-family: $main-font-regular;
-        & > p {
-          margin-bottom: 20px;
-          font-family: $main-font-regular;
-          font-size: 20px;
-          margin-top: 20px;
+
+        & p {
+          margin: 20px 0;
+          @include setFontStyles($main-font-regular, $rootStyleTypeColor, 2rem);
         }
       }
 
       &-image {
         margin: auto;
         padding: 20px;
-        & > img {
+
+        &>img {
           max-width: 350px;
           max-height: 350px;
           height: 100%;
@@ -43,10 +41,12 @@
       }
     }
   }
+
   &-imageBox {
     padding: 10px;
     height: 100%;
-    & > img {
+
+    &>img {
       max-width: 500px;
       max-height: 500px;
       height: 100%;
@@ -57,16 +57,6 @@
 
 @media screen and(max-width: $breakpoint-lg) {
   .AboutTitle {
-    &-header {
-      & > h2 {
-        font-size: 50px;
-      }
-      &-description-text {
-        & > p {
-          font-size: 17px;
-        }
-      }
-    }
     &-imageBox > img {
       max-width: 400px;
       max-height: 400px;
@@ -78,18 +68,9 @@
   .AboutTitle {
     justify-content: flex-start;
     flex-direction: column;
+
     &-header {
-      margin-top: 60px;
-      & > h2 {
-        font-size: 50px;
-      }
-      &-description {
-        &-text {
-          &> p {
-            font-size: 15px;
-          }
-        }
-      }
+      margin-top: 100px;
     }
   }
 }
@@ -97,17 +78,16 @@
 @media screen and(max-width: $breakpoint-sm) {
   .AboutTitle {
     &-header {
-      & > h2 {
-        font-size: 43px;
-      }
       &-description {
         margin-top: 20px;
+
         &-text {
           max-width: 100%;
         }
+
         &-image {
-        display: none;
-      }
+          display: none;
+        }
       }
     }
   }

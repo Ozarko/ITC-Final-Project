@@ -4,10 +4,10 @@
   font-family: $main-font-light;
   text-transform: uppercase;
   & > svg {
-    @include adaptivFont(25,16);
+    font-size: 2.6rem;
   }
   &-header {
-    @include adaptivFont(16,13);
+    font-size: 1.6rem;
     letter-spacing: 3px;
   }
 }

@@ -1,50 +1,31 @@
 .MenuLink {
   @include flex(center, center);
+
   & > a {
-    text-decoration: none;
-    font-family: $main-font-regular;
-    color: $rootStyleTypeColor;
-    font-size: 22px;
+    @include setFontStyles($main-font-regular, $rootStyleTypeColor, 2.2rem);
 
     &:hover ~ .MenuLink-line {
       width: 100%;
-      background: $rootStyleTypeColor;
     }
   }
   &-line {
     margin-top: 5px;
     width: 0;
     height: 1px;
+    background: $rootStyleTypeColor;
     transition: width 0.7s ease;
   }
   &.active ~ .MenuLink-line {
-    background: $rootStyleTypeColor;
     width: 100%;
   }
 }
 
-@media screen and (max-width: $breakpoint-lg) {
-  .MenuLink {
-    & > a {
-      font-size: 18px;
-    }
-  }
-}
 
 @media screen and (max-width: $breakpoint-sm) {
   .MenuLink {
     & > a {
-      font-size: 40px;
-      color: $rootStyleTypeColor;
-      font-family: $main-font-medium-italic;
       text-transform: uppercase;
-
-      &:hover ~ .MenuLink-line {
-        background: $rootStyleTypeColor;
-      }
+      @include setFontStyles($main-font-medium-italic, $rootStyleTypeColor, 4rem)
     }
-    &.active ~ .MenuLink-line {
-    background: $rootStyleTypeColor;
-  }
   }
 }

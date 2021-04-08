@@ -1,45 +1,47 @@
 .Contact {
   position: relative;
   background: $rootStyleTypeBg;
-  & > .container {
+
+  &>.container {
     padding-top: 100px;
     margin-bottom: 100px;
   }
+
   &-box {
     margin-top: 50px;
     padding: 0 20px;
     @include flex(center, center);
-    
+
     &-info {
       flex: 1;
       @include flex(center, center);
       flex-direction: column;
       text-align: center;
 
-      & > h2 {
-        font-family: $main-font-medium-italic;
-        @include adaptivFont(30, 16);
+      &>h2 {
+        @include setFontStyles($main-font-medium-italic, $rootStyleTypeColor, 3rem);
       }
+
       &-list {
         margin: 10px;
         @include flex(center, space-between);
         flex-wrap: wrap;
-        & > li {
+
+        &>li {
           padding: 10px;
           flex: 1;
           @include flex(center, center);
-          font-family: $main-font-medium;
-          @include adaptivFont(16, 14);
+          @include setFontStyles($main-font-medium, $rootStyleTypeColor, 1.6rem);
           letter-spacing: 1px;
-          color: $rootStyleTypeColor;
-          & > a {
+
+          &>a {
             white-space: nowrap;
             margin-left: 5px;
           }
         }
       }
     }
-    
+
     &-image {
       flex: 1;
       height: 100%;
@@ -56,8 +58,9 @@
         border: 1px solid $main-color;
         transform: rotate(-15deg);
       }
-      & > img {
-        max-height:400px;
+
+      &>img {
+        max-height: 400px;
         max-width: 400px;
       }
     }
@@ -69,12 +72,14 @@
     &-box {
       &-image {
         margin-top: 100px;
+
         &-frame {
           width: 300px;
           height: 300px
         }
-        & > img {
-          max-height:300px;
+
+        &>img {
+          max-height: 300px;
           max-width: 300px;
         }
       }
@@ -86,14 +91,17 @@
   .Contact {
     &-box {
       flex-direction: column;
+
       &-image {
         margin-top: 100px;
+
         &-frame {
           width: 200px;
           height: 200px
         }
-        & > img {
-          max-height:200px;
+
+        &>img {
+          max-height: 200px;
           max-width: 200px;
         }
       }

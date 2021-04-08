@@ -1,27 +1,21 @@
 .LikeBtn {
   margin: 0 20px ;
-  display: inline-block;
   width: 100%;
   max-width: 50px;
   height: 50px;
+  @include flex(center,center);
   background: $rootStyleTypeColor;
-  color: $rootStyleTypeBg;
   border: 1px solid $rootStyleTypeBg;
-  cursor: pointer;
   transition: all 0.7s ease;
-  
+
   &:active > svg {
     transform: scale(1.3);
   }
 
-  @include flex(center,center);
-  &:focus,
-  &:active {
-    outline: none;
-  }
   & > svg {
+    color: $footerRootStyleTypeBg;
     font-weight: lighter;
-    @include adaptivFont(20, 16);
+    font-size: 2rem;
   }
 }
 

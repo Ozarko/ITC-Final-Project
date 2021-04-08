@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import LikeBtn from "@UI/Buttons/LikeBtn/LikeBtn";
 import RectangleBtn from "@UI/Buttons/RectangleBtn/RectangleBtn";
@@ -8,28 +8,31 @@ import { link } from "../../../routes/navigationLink";
 import SunLogo from "../../UI/SunLogo/SunLogo";
 import { outOfStock } from "../../../utilites/utilities";
 import { useDispatch, useSelector } from "react-redux";
-import {productDetails} from '../../../redux/actions/productDetails/productDetailsAction'
+import { productDetails } from "../../../redux/actions/productDetails/productDetailsAction";
 import { addProductToCart } from "../../../redux/actions/cart/cartActions";
 import Loader from "../../UI/Loader/Loader";
 import { ErrorMessage } from "formik";
 
-const ProductScreen = ({match }) => {
+const ProductScreen = ({ match }) => {
   const [isInCart, setIsInCart] = useState(false);
-  const [qty, setQty] = useState(1)
+  const [qty, setQty] = useState(1);
 
-  const dispatch = useDispatch()
-  
-  const {loading, error, product} = useSelector((state) => state.productDetails);
+  const dispatch = useDispatch();
+
+  const { loading, error, product } = useSelector(
+    (state) => state.productDetails
+  );
 
   const addQty = (qty) => {
-    setQty(qty + 1)
-  }
+    setQty(qty + 1);
+  };
 
   const removeQty = (qty) => {
-    setQty(qty - 1)
-  }
+    setQty(qty - 1);
+  };
+
   const { productInCart } = useSelector((state) => state.cart);
-  
+
   useEffect(() => {
     if (productInCart.some((item) => item.product === product._id)) {
       setIsInCart(true);
@@ -38,19 +41,19 @@ const ProductScreen = ({match }) => {
     }
   }, [productInCart, product]);
 
-  useEffect(()=> {
+  useEffect(() => {
     dispatch(productDetails(match.params.id));
-  }, [match, dispatch])
+  }, [match, dispatch]);
 
   const addToCard = () => {
-    dispatch(addProductToCart(match.params.id, qty))
-  }
+    dispatch(addProductToCart(match.params.id, qty));
+  };
 
-  if(loading) {
-    return <Loader loading={loading}/>
-  }else if(error) {
-    <ErrorMessage/>
-  }else {
+  if (loading) {
+    return <Loader loading={loading} />;
+  } else if (error) {
+    <ErrorMessage />;
+  } else {
     return (
       <div className="ProductScreen">
         <div className="container">
@@ -59,7 +62,7 @@ const ProductScreen = ({match }) => {
           <div className="ProductScreen-box">
             <div className="ProductScreen-box-image">
               <img
-                className="containImage"
+                className="coverImage"
                 src={product.image}
                 alt={product.name}
               />
@@ -67,7 +70,7 @@ const ProductScreen = ({match }) => {
             <div className="ProductScreen-box-info">
               <div className="ProductScreen-box-info-details">
                 <h5 className="ProductScreen-box-info-details-categories">
-                  {/* {product.categories.join(' & ')} */}
+                  {product.categories.join(" & ")}
                 </h5>
                 <h4 className="ProductScreen-box-info-details-name">
                   {product.name}
@@ -100,7 +103,7 @@ const ProductScreen = ({match }) => {
                     />
                     <RectangleBtn
                       clickHandler={addToCard}
-                      buttonText={isInCart ? "Уже в корзині" : "В кошик"}
+                      buttonText={isInCart ? "Додано" : "В кошик"}
                     />
                     <LikeBtn />
                   </div>

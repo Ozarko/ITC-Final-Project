@@ -1,69 +1,77 @@
 .Footer {
   background: $footerRootStyleTypeBg;
   padding: 20px;
+
   &-box {
     @include flex(center, center);
+
     &-info {
-      flex: 1;
       height: 100%;
       width: 100%;
+      flex: 1;
       border: 1px solid $footerRootStyleTypeColor;
       border-bottom: none;
+
       &:last-child {
         border-left: none;
       }
+
       &-header {
         @include flex(center, center);
         border-bottom: 1px solid $footerRootStyleTypeColor;
         text-align: center;
+
         &-title {
           width: 100%;
           flex: 1;
           border-right: 1px solid $footerRootStyleTypeColor;
-          & > p {
+
+          & > h5 {
             padding: 10px;
-            color: $footerRootStyleTypeColor;
-            font-family: $main-font-medium;
+            flex: 1;
+            @include setFontStyles($main-font-medium, $footerRootStyleTypeColor, 1.6rem);
+            letter-spacing: 2px;
             text-transform: uppercase;
-            @include adaptivFont(16, 14);
             white-space: nowrap;
           }
         }
+
         &-logo {
           width: 100%;
           flex: 1;
+
           & > a {
             padding: 10px;
-            color: $footerRootStyleTypeColor;
-            font-family: $main-font-bold;
+            @include setFontStyles($main-font-semibold, $footerRootStyleTypeColor, 2.6rem);
+            letter-spacing: 4px;
             text-transform: uppercase;
-            @include adaptivFont(26, 18);
           }
         }
       }
       &-links {
         @include flex(center, center);
         min-height: 260px;
+
         &-container {
           flex: 1;
           padding: 15px;
           text-align: center;
+
           & > h3 {
-            color: $footerRootStyleTypeColor;
-            font-family: $main-font-medium;
-            @include adaptivFont(18, 14);
+            @include setFontStyles($main-font-medium, $footerRootStyleTypeColor, 2.1rem);
             letter-spacing: 2px;
           }
+
           & > ul {
             margin-top: 15px;
+
             & > li {
-              margin-top: 5px;
+              margin-top: 10px;
+
               & > a {
+                @include setFontStyles($main-font-medium, $footerRootStyleTypeColor, 1.6rem);
+                letter-spacing: 1px;
                 white-space: nowrap;
-                color: $footerRootStyleTypeColor;
-                font-family: $main-font-medium;
-                @include adaptivFont(16, 12);
-                letter-spacing: 2px;
               }
             }
           }
@@ -77,13 +85,12 @@
         & > div {
           flex: 1;
         }
+
         & > a {
           flex: 2;
           padding: 10px;
-          color: $footerRootStyleTypeColor;
-          font-family: $main-font-bold;
+          @include setFontStyles($main-font-medium, $footerRootStyleTypeColor, 1.6rem);
           text-transform: uppercase;
-          @include adaptivFont(16, 14);
           border-left: 1px solid $footerRootStyleTypeColor;
         }
       }
@@ -92,11 +99,10 @@
         padding: 10px;
         min-height: 260px;
         @include flex(center,center);
+
         & > p {
+          @include setFontStyles($main-font-medium-italic, $footerRootStyleTypeColor, 2rem);
           letter-spacing: 2px;
-          color: $footerRootStyleTypeColor;
-          font-family: $main-font-medium-italic;
-          @include adaptivFont(16, 14);
           text-align: center;
         }
       }
@@ -108,16 +114,14 @@
     border: 1px solid $footerRootStyleTypeColor;
     @include flex(center, center);
     flex-direction: column;
+
     & > h2 {
-      color: $footerRootStyleTypeColor;
-      font-family: $main-font-bold;
-      @include adaptivFont(20, 14);
+      @include setFontStyles($main-font-medium, $footerRootStyleTypeColor, 2.2rem);
     }
+
     & > a {
       margin-top: 5px;
-      font-family: $main-font-italic;
-      @include adaptivFont(16, 12);
-      color: $footerRootStyleTypeColor;
+      @include setFontStyles($main-font-light-italic, $footerRootStyleTypeColor, 1.6rem);
     }
   }
 }

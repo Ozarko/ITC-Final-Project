@@ -5,26 +5,9 @@
   padding: 0 20px;
 
   & > a {
-    text-decoration: none;
-    font-family: $main-font-bold;
-    font-size: 25px;
+    @include setFontStyles($main-font-medium, $rootStyleTypeColor, 2.4rem);
+    letter-spacing: 2px;
     text-transform: uppercase;
-    color: $rootStyleTypeColor;
-  }
-}
-
-@media screen and (max-width: $breakpoint-lg) {
-  .MenuLogo {
-    & > a {
-      font-size: 20px;
-    }
-  }
-}
-@media screen and (max-width: $breakpoint-md) {
-  .MenuLogo {
-    & > a {
-      font-size: 18px;
-    }
   }
 }
 
@@ -34,10 +17,5 @@
     height: 40px;
     border: 1px solid $rootStyleTypeColor;
     z-index: 10;
-    & > a {
-      border: none;
-      color: $rootStyleTypeColor;
-      font-size: 16px;
-    }
   }
 }

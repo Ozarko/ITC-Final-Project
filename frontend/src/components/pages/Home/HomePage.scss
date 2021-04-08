@@ -1,10 +1,6 @@
-.HomePage {
-  position: relative;
-  background: $main-dark-color;
-  &-baner {
-    min-height: 50vh;
-    background: url(../../../image/home/HomePageBanner.jpg) no-repeat center center/cover;
-  }
+.HomePage-baner {
+  min-height: 50vh;
+  background: url(../../../image/home/HomePageBanner.jpg) no-repeat center center/cover;
 }
 
 @import "./HomeHero/HomeHero.scss";

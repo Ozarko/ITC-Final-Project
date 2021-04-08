@@ -1,68 +1,69 @@
 .ProductScreen {
   width: 100%;
-  min-height: 90vh;
+
   & > .container {
     padding-top: 100px;
     padding-bottom: 50px;
+
     & > .SunLogo {
       display: none;
     }
+
     & > .SiteTitleNav {
       padding: 0 10px;
     }
   }
   &-box {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    grid-gap: 30px;
+    @include flex(center,center);
     padding: 10px;
     margin-top: 50px;
 
     &-image {
-      width: 100%;
-      max-height: 70vh;
-      height: 100%;
-      overflow: hidden;
-      & > img {
-        object-fit: cover;
-      }
+      padding: 10px 0;
+      flex: 1;
+      width: 600px;
+      height: 600px;
     }
+
     &-info {
+      flex: 1;
+      padding: 10px;
       align-self: flex-start;
-      height: 100%;
+      height: 600px;
       @include flex(center, center);
       flex-direction: column;
 
       &-details {
         flex: 1;
         width: 100%;
+        height: 100%;
         padding: 20px 0;
         border-top: 1px solid $rootStyleTypeColor;
         border-bottom: 1px solid $rootStyleTypeColor;
         @include flex(flex-start, center);
         flex-direction: column;
+
         &-categories {
-          font-family: $main-font-light-italic;
-          font-size: 20px;
+          @include setFontStyles($main-font-light-italic, $rootStyleTypeColor, 2.2rem);
           padding: 15px 0;
         }
         &-name {
-          font-family: $main-font-bold;
           letter-spacing: 5px;
-          font-size: 45px;
           padding: 15px 0;
+          @include setFontStyles($main-font-bold, $rootStyleTypeColor, 3.5rem);
         }
+
         &-description {
           padding: 10px 0;
-          font-family: $main-font-light;
-          font-size: 25px;
+          @include setFontStyles($main-font-light, $rootStyleTypeColor, 2rem);
         }
+
         &-price {
           padding: 15px 0;
-          font-family: $main-font-semibold;
-          font-size: 35px;
+          @include setFontStyles($main-font-semibold, $rootStyleTypeColor, 3.5rem);
         }
       }
+
       &-add {
         width: 100%;
         padding: 20px 0;
@@ -79,11 +80,11 @@
         &-in-stock {
           width: 100%;
           & > p {
-            font-family: $main-font-light-italic;
-            font-size: 20px;
+            @include setFontStyles($main-font-light-italic, $rootStyleTypeColor, 2.2rem);
           }
         }
       }
+
       &-footer {
         width: 100%;
         padding: 20px 0;
@@ -97,19 +98,17 @@
             padding: 10px;
             text-align: center;
             & > a {
-              font-family: $main-font-medium;
-              font-size: 20px;
+              @include setFontStyles($main-font-medium, $rootStyleTypeColor, 2rem);
               &.recommendation {
-                font-family: $main-font-bold;
+                font-weight: 600;
               }
             }
           }
         }
         & > p {
-          text-align: center;
           padding: 10px;
-          font-family: $main-font-medium-italic;
-          font-size: 16px;
+          text-align: center;
+          @include setFontStyles($main-font-medium-italic, $rootStyleTypeColor, 1.9rem);
         }
       }
     }
@@ -125,51 +124,27 @@
         &-details {
           padding: 10px 0;
           &-name {
-            font-size: 35px;
             letter-spacing: 3px;
-          }
-          &-description {
-            font-size: 20px;
-          }
-          &-price {
-            font-size: 25px;
           }
         }
         &-footer {
           & > ul > li {
             padding: 5px;
-              & > a {
-              font-size: 16px;
-            }
-          }
-          & > p {
-            font-size: 14px;
           }
         }
       }
     }
   }
 }
+
 @media screen and(max-width: $breakpoint-md) {
   .ProductScreen {
     &-box {
       margin-top: 30px;
-      &-info {
-        &-details {
-          &-categories {
-            font-size: 16px;
-          }
-          &-name {
-            font-size: 27px;
-          }
-          &-price {
-            font-size: 16px;
-          }
-        }
-      }
     }
   }
 }
+
 @media screen and(max-width: $breakpoint-sm) {
   .ProductScreen {
     & > .container {

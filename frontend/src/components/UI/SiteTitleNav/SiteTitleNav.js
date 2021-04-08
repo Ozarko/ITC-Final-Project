@@ -19,7 +19,7 @@ const SiteTitleNav = ({match, name}) => {
                   {transleteName(path)}
                 </Link>
               ) : (
-                <p className="fake-link cursorHoverEffect">{name}</p>
+                <p className="cursorHoverEffect">{name}</p>
               )}
             </li>
           );

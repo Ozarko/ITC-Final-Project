@@ -15,15 +15,12 @@
   }
 
   & > a {
-    text-decoration: none;
-    text-transform: uppercase;
-    font-family: $main-font-medium;
-    @include adaptivFont(25, 20);
-    transition: all 1s ease;
-    color: $main-light-color;
     margin-bottom: 5px;
+    @include setFontStyles($main-font-medium, $rootStyleTypeColor, 2.5rem);
+    text-transform: uppercase;
+    transition: all 1s ease;
+
     &:hover ~ .CircleBtn-line {
-      background: $main-light-color;
       width: 70%;
     }
   }
@@ -31,13 +28,14 @@
   &-line {
     width: 0;
     height: 1px;
-    background: $main-light-color;
+    background: $rootStyleTypeColor;
     transition: all 0.5s ease-in;
   }
 
   &.blackStyle {
     background: none;
     border: 1px solid $main-light-color;
+
     &:hover {
       -webkit-box-shadow: 0px 0px 100px 11px rgba(169, 140, 127, 0.1);
       -moz-box-shadow: 0px 0px 100px 11px rgba(169, 140, 127, 0.1);
@@ -48,6 +46,7 @@
   &.lightBtn {
     background: $main-color;
     border: 1px solid $main-color;
+    
     &:hover {
       -webkit-box-shadow: 0px 0px 100px 11px rgba(169, 140, 127, 0.1);
       -moz-box-shadow: 0px 0px 100px 11px rgba(169, 140, 127, 0.1);

@@ -1,10 +1,11 @@
 .CartButton {
-  @include flex(center, center);
-  flex: 1;
   padding: 0 15px;
   height: 100%;
-  z-index: 1;
   min-width: 90px;
+  flex: 1;
+  z-index: 1;
+  @include flex(center, center);
+
   &-box {
     @include flex(center, center);
     flex-direction: column;
@@ -13,30 +14,22 @@
       background: none;
       border: none;
       @include flex(center, center);
-      text-decoration: none;
-      font-family: $main-font-regular;
-      font-size: 20px;
-      color: $rootStyleTypeColor;
+      @include setFontStyles($main-font-regular, $rootStyleTypeColor, 2.2rem);
 
       &:hover~.CartButton-box-line {
         width: 100%;
       }
-
-      &:active,
-      &:focus {
-        outline: none;
-      }
     }
 
     &-count {
-      @include flex(center, center);
       margin-left: 10px;
       padding: 5px;
       width: 30px;
       height: 30px;
+      @include flex(center, center);
       border-radius: 50%;
       border: 1px solid $rootStyleTypeColor;
-      font-size: 16px;
+      @include setFontStyles($main-font-regular, $rootStyleTypeColor, 1.6rem);
     }
 
     &-line {
@@ -49,27 +42,11 @@
   }
 }
 
-@media screen and (max-width: $breakpoint-lg) {
-  .CartButton-box {
-    & > button {
-      font-size: 16px;
-    } 
-  }
-}
-
 @media screen and (max-width: $breakpoint-md) {
-  .CartButton {
-    &-box {
-      & > a {
-        font-size: 16px;
-      }
-
-      &-count {
-        width: 25px;
-        height: 25px;
-        font-size: 14px;
-      }
-    }
+  .CartButton-box-count {
+    width: 25px;
+    height: 25px;
+    font-size: 14px;
   }
 }
 
@@ -84,7 +61,6 @@
         height: 25px;
         font-size: 16px;
       }
-
       &-line {
         display: none;
       }

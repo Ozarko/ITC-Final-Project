@@ -77,11 +77,6 @@
           cursor: pointer;
           transition: transform 0.7s ease-out;
 
-          &:focus,
-          &:active {
-            outline: none;
-          }
-
           &.active {
             transform: rotate(-45deg);
           }

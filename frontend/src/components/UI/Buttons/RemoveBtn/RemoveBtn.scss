@@ -2,13 +2,11 @@
   display: inline-block;
   background: none;
   border: none;
-  @include adaptivFont(25,20);
-  color: $rootStyleTypeColor;
   transition: scale 0.5s ease;
-  &:active,
-  &:focus {
-    outline: none;
+  & > svg {
+    @include setFontStyles($main-font-medium, $rootStyleTypeColor, 2.4rem);
   }
+
   &:active {
     transform: scale(1.2);
   }

@@ -2,15 +2,11 @@
   @include flex(center,center);
   
   &-title {
-    font-family: $main-font-regular;
-    @include adaptivFont(20,16);
-    color: $rootStyleTypeColor;
+    @include setFontStyles($main-font-regular, $rootStyleTypeColor, 2.2rem);
   }
 
   & > p {
-      font-family: $main-font-medium;
-      color: $rootStyleTypeColor;
-      @include adaptivFont(25,20);
+      @include setFontStyles($main-font-medium, $rootStyleTypeColor, 2.5rem);
     }
 
   &-btn {
@@ -22,9 +18,11 @@
     border-radius: 100%;
     border: 1px solid $rootStyleTypeColor;
     cursor: pointer;
+
     &:active {
       transform: scale(1.2);
     }
+
     & > span {
       position: absolute;
       top: 50%;
@@ -33,13 +31,17 @@
       width: 70%;
       height: 2px;
       background: $rootStyleTypeColor;
+
       &.increment {
         transform: translate(-50%,-50%) rotate(90deg);
       }
     }
-    &:focus,
-    &:active {
-      outline: none;
-    }
+  }
+}
+
+@media screen and(max-width: $breakpoint-sm) {
+  .Quantity-btn {
+    width: 25px;
+    height: 25px;
   }
 }

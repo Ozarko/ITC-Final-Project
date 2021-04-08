@@ -16,6 +16,10 @@
 
 // Basic style and reset
 
+html {
+  font-size: 10px;
+}
+
 html,
 body {
   cursor: none;
@@ -37,7 +41,12 @@ ul {
   list-style: none;
 }
 
-button {
+button,
+input,
+textarea {
+  &:disabled {
+    pointer-events: none;
+  }
   &:active,
   &:focus {
     outline: none;
@@ -79,4 +88,28 @@ select:-webkit-autofill:focus {
 
 section {
   min-height: 100vh;
+}
+
+@media screen and(max-width: $breakpoint-lg) {
+  html {
+    font-size: 9px;
+  }
+}
+
+@media screen and(max-width: $breakpoint-md) {
+  html {
+    font-size: 8px;
+  }
+}
+
+@media screen and(max-width: $breakpoint-sm) {
+  html {
+    font-size: 7px;
+  }
+}
+
+@media screen and(max-width: $breakpoint-xsm) {
+  html {
+    font-size: 6px;
+  }
 }

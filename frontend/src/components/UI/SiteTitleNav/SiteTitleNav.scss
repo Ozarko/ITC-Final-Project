@@ -8,23 +8,21 @@
 
     & > li {
       @include flex(center, center);
+
       & > a,
       & > p {
-        text-decoration: none;
-        text-transform: uppercase;
-        font-family: $main-font-regular;
-        color: $rootStyleTypeColor;
         letter-spacing: 2px;
-        @include adaptivFont(20,12);
+        @include setFontStyles($main-font-regular, $rootStyleTypeColor, 2.3rem);
+        text-transform: uppercase;
         white-space: nowrap;
       }
       & > span {
         margin: 0 5px;
+        @include setFontStyles($main-font-regular, $rootStyleTypeColor, 2.3rem);
         display: inline-block;
-        color: $rootStyleTypeColor;
       }
-      & > p {
-        font-family: $main-font-bold;
+      &:last-child {
+        font-weight: 600;
       }
     }
   }

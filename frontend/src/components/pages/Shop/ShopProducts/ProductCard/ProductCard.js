@@ -40,7 +40,7 @@ const ProductCard = ({ product}) => {
       <p>{product.description}</p>
       <div className="ProductCard-line"></div>
       <h5>{product.price} грн</h5>
-      <RectangleBtn buttonText={isInCart? 'Уже в корзині' : "Купити"}  clickHandler={addProduct}/>
+      <RectangleBtn buttonText={isInCart? 'Додано' : "Купити"}  clickHandler={addProduct}/>
     </div>
   );
 };

@@ -1,14 +1,14 @@
 .LogoDescription {
   position: relative;
-  max-width: 300px;
   padding: 40px;
-  width: 100%;
-  font-family: $main-font-light-italic;
-  @include adaptivFont(16, 10);
   border: 1px solid $rootStyleTypeColor;
   border-radius: 50%;
-  color: $rootStyleTypeColor;
   text-align: center;
+
+  & > p {
+    @include setFontStyles($main-font-light-italic, $rootStyleTypeColor, 1.6rem);
+  }
+
   &-line {
     position: absolute;
     top: 50%;
@@ -20,6 +20,7 @@
     animation: lineRotate 5s ease;
     transition: all 3s ease;
   }
+
   &:hover {
     .HomeHero-showcase-description-line {
       transform: rotate(165deg);

@@ -19,17 +19,14 @@
   &-title {
     width: 100%;
     margin-top: 20px;
-    color: $rootStyleTypeColor;
-    @include adaptivFont(80, 30);
-    font-family: $main-font-light;
+    @include setFontStyles($main-font-light, $rootStyleTypeColor, 10rem);
     font-weight: 100;
     letter-spacing: 20px;
   }
   & > p {
-    margin-top: 40px;
-    @include adaptivFont(30, 20);
-    color: $rootStyleTypeColor;
-    font-family: $main-font-light-italic;
+    max-width: 600px;
+    margin-top: 30px;
+    @include setFontStyles($main-font-light-italic, $rootStyleTypeColor, 3rem);
   }
 }
 
@@ -42,32 +39,50 @@
   }
 }
 
+@media screen and(max-width: $breakpoint-md) {
+  .Loader {
+    &-title {
+      font-size: 7rem;
+      letter-spacing: 10px;
+    }
+    & > p {
+      font-size: 2.2rem;
+    }
+  }
+}
+
 @media screen and(max-width: $breakpoint-sm) {
   .Loader {
     &-title {
+      margin-top: 10px;
+      font-size: 4rem;
       letter-spacing: 5px;
     }
+    & > p {
+      font-size: 1.6rem;
+    }
   }
+}
 
-  .Loader.load {
-    transition: opacity 1s;
-    &-enter {
-      opacity: 0;
-    }
-    &-enter-active {
-      opacity: 0.5;
-    }
-    &-enter-done {
-      opacity: 1;
-    }
-    &-exit {
-      opacity: 0.75;
-    }
-    &-exit-active {
-      opacity: 0;
-    }
-    &-exit-done {
-      opacity: 0;
-    }
+
+.Loader.load {
+  transition: opacity 1s;
+  &-enter {
+    opacity: 0;
+  }
+  &-enter-active {
+    opacity: 0.5;
+  }
+  &-enter-done {
+    opacity: 1;
+  }
+  &-exit {
+    opacity: 0.75;
+  }
+  &-exit-active {
+    opacity: 0;
+  }
+  &-exit-done {
+    opacity: 0;
   }
 }

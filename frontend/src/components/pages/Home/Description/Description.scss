@@ -8,9 +8,7 @@
 
   &-title {
     margin-top: 50px;
-    font-size: 60px;
-    font-family: $main-font-medium;
-    color: $main-light-color;
+    @include setFontStyles($main-font-medium, $rootStyleTypeColor, 6rem);
     letter-spacing: 5px;
   }
   &-header {
@@ -22,10 +20,8 @@
 
     & > h3 {
       max-width: 600px;
+      @include setFontStyles($main-font-regular, $rootStyleTypeColor, 2rem);
       letter-spacing: 3px;
-      font-family: $main-font-regular;
-      font-size: 20px;
-      color: $main-light-color;
     }
 
     &-mission {
@@ -33,21 +29,18 @@
       width: 100%;
       margin-top: 50px;
       text-align: center;
-      color: $main-light-color;
 
       & > h3 {
         text-align: left;
-        font-family: $main-font-regular;
+        @include setFontStyles($main-font-regular, $rootStyleTypeColor, 2rem);
         letter-spacing: 2px;
-        font-size: 20px;
       }
 
       & > p {
+        margin-top: 10px;
         max-width: 300px;
         text-align: left;
-        font-family: $main-font-light;
-        margin-top: 10px;
-        font-size: 14px;
+        @include setFontStyles($main-font-light, $rootStyleTypeColor, 1.6rem);
       }
     }
   }
@@ -67,6 +60,7 @@
       -moz-box-shadow: 2px 50px 74px 44px rgba(169, 140, 127, 0.14);
       box-shadow: 2px 50px 74px 44px rgba(169, 140, 127, 0.14);
     }
+
     & .second {
       margin-right: 80px;
       border: 1px solid $main-light-color;
@@ -82,23 +76,14 @@
 
 @media screen and (max-width: $breakpoint-lg) {
   .Description {
-    &-title {
-      font-size: 40px;
-    }
     &-header {
       & > h3 {
-        font-size: 16px;
         max-width: 400px;
       }
       &-mission {
         max-width: 400px;
-        margin-top: 30px;
-        & > h3 {
-          font-size: 16px;
-        }
         & > p {
           max-width: 250px;
-          font-size: 12px;
         }
       }
     }

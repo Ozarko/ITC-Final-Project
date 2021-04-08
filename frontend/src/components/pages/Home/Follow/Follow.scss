@@ -1,5 +1,4 @@
 .Follow {
-  min-height: 100vh;
   background: $main-light-color;
   @include flex(center, center);
 
@@ -13,8 +12,7 @@
 
     & > h3 {
       text-align: center;
-      font-family: $main-font-regular;
-      font-size: 60px;
+      @include setFontStyles($main-font-regular, $main-dark-color, 5rem);
       letter-spacing: 5px;
     }
 
@@ -27,9 +25,7 @@
       text-align: center;
       width: 300px;
       margin-top: 70px;
-      font-family: $main-font-light;
-      font-size: 20px;
-      color: $main-dark-color;
+      @include setFontStyles($main-font-light, $main-dark-color, 2.2rem);
     }
     & > button {
       margin-right: 20px;
@@ -42,9 +38,6 @@
 
 @media screen and (max-width: $breakpoint-lg) {
   .Follow-box {
-    & > h3 {
-      font-size: 40px;
-    }
 
     & > img {
       max-height: 450px;

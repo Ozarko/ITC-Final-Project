@@ -22,23 +22,21 @@
       flex-direction: column;
 
       &-title {
-        width: 600px;
-        color: $main-light-color;
-        text-transform: uppercase;
-        font-family: $main-font-medium;
-        letter-spacing: 3px;
-        font-size: 40px;
         margin-bottom: 20px;
+        width: 600px;
         text-align: center;
+        @include setFontStyles($main-font-medium, $rootStyleTypeColor, 3rem);
+        text-transform: uppercase;
+        letter-spacing: 3px;
         letter-spacing: 10px;
         white-space: nowrap;
 
         &.second {
           margin-top: 20px;
-          font-size: 70px;
+          @include setFontStyles($main-font-medium, $rootStyleTypeColor, 5rem);
         }
         & > strong {
-          font-size: 70px;
+          @include setFontStyles($main-font-medium, $rootStyleTypeColor, 5rem);
           display: block;
         }
       }
@@ -66,12 +64,10 @@
   }
 
   &-description {
-    margin-bottom: 30px;
-    font-family: $main-font-medium;
     width: 300px;
+    margin-bottom: 30px;
     text-align: center;
-    font-size: 20px;
-    color: $main-light-color;
+    @include setFontStyles($main-font-medium, $rootStyleTypeColor, 2.2rem);
   }
 }
 
@@ -90,13 +86,6 @@
       &-window {
         &-title {
           width: 440px;
-          font-size: 25px;
-          & > strong {
-            font-size: 40px;
-          }
-          &.second {
-            font-size: 40px;
-          }
         }
         &-image-box {
           width: 300px;
@@ -119,14 +108,7 @@
       &-window {
         &-title {
           width: 100%;
-          font-size: 25px;
           letter-spacing: 3px;
-          & > strong {
-            font-size: 30px;
-          }
-          &.second {
-            font-size: 30px;
-          }
         }
         &-image-box {
           width: 250px;
@@ -139,7 +121,6 @@
     }
     &-description {
       padding: 5px;
-      font-size: 16px;
     }
   }
   .LogoDescription {

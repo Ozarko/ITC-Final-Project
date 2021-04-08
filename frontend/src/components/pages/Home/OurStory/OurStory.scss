@@ -1,6 +1,7 @@
 .OurStory {
   background: $main-light-color;
   padding: 20px;
+
   & > .container {
     & > .TextPageIntro {
       margin-top: 50px;
@@ -15,16 +16,11 @@
 
   &-description {
     margin-top: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex(center, center);
+
     & > h3 {
       text-align: center;
-      font-size: 60px;
-      font-family: $main-font-regular;
-      // & > span {
-      //   font-family: $main-font-light-italic;
-      // }
+      @include setFontStyles($main-font-regular, $main-dark-color, 6rem);
     }
   }
 
@@ -37,23 +33,18 @@
     justify-content: center;
 
     &-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      @include flex(center, center);
     }
 
     &-description {
       height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      @include flex(center, space-between);
       flex-direction: column;
       text-align: left;
       & > p {
         padding: 30px;
-        font-family: $main-font-bold;
-        font-size: 16px;
-        max-width: 500px;
+        max-width: 600px;
+        @include setFontStyles($main-font-regular, $main-dark-color, 2.4rem);
       }
     }
   }
@@ -63,25 +54,21 @@
   .OurStory {
     & > div {
       height: 100%;
-      display: flex;
+      @include flex(normal, space-between);
       flex-direction: column;
-      justify-content: space-between;
     }
+
     &-title {
       margin-top: 30px;
-      & > h2 {
-        font-size: 14px;
-      }
+
       &-line {
         width: 100px;
       }
     }
     &-description {
       margin-top: 30px;
-      & > h3 {
-        font-size: 30px;
-      }
     }
+
     &-box {
       margin-top: 30px;
       margin-bottom: 0;

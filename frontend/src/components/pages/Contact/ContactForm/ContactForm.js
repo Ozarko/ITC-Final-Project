@@ -16,7 +16,7 @@ const ContactForm = () => {
   };
 
   const validationSchema = Yup.object({
-    name: Yup.string().required(`Обов'язкове поле`),
+    name: Yup.string().required(`Обов'язково вкажіть`),
     email: Yup.string()
       .trim()
       .email(`Некоректно введені дані`)
@@ -92,8 +92,8 @@ const ContactForm = () => {
     return (
       <CSSTransition in={!showForm} timeout={2000} mountOnEnter unmountOnExit>
         <div className="ContactForm-sent">
-          <h3>Ваше повідомлення було надіслано !</h3>
-          <p>Найближчим часом ми зв'яжемось з вами</p>
+          <h3>Ваше повідомлення уже прямує до нас!</h3>
+          <p>Найближчим часом ми зв'яжемось з вами.</p>
         </div>
       </CSSTransition>
     );

@@ -2,6 +2,7 @@
   text-align: center;
   flex-direction: column;
   padding: 20px;
+
   & > div {
     margin: 70px 0;
   }
@@ -12,6 +13,7 @@
   }
   &-box {
     @include flex(center, space-between);
+    
     & > .FrameImage {
       flex: 1;
     }
@@ -22,14 +24,12 @@
       max-width: 40%;
       z-index: 1;
       & > h2 {
-        font-family: $main-font-medium-italic;
-        font-size: 50px;
         margin-bottom: 50px;
+        @include setFontStyles($main-font-medium, $rootStyleTypeColor, 5rem);
       }
       & > p {
-        font-family: $main-font-regular;
-        font-size: 20px;
         margin-top: 20px;
+        @include setFontStyles($main-font-regular, $rootStyleTypeColor, 2rem);
       }
     }
   }
@@ -41,11 +41,7 @@
       &-description {
         max-width: 50%;
         & > h2 {
-          font-size: 40px;
           margin-bottom: 30px;
-        }
-        & > p {
-          font-size: 16px;
         }
       }
     }
@@ -59,9 +55,6 @@
         & > h2 {
           margin-bottom: 20px;
         }
-        & > p {
-          font-size: 14px;
-        }
       }
     }
   }
@@ -69,7 +62,6 @@
 
 @media screen and (max-width: $breakpoint-sm) {
   .AboutAngora {
-    // padding: 5px;
     &-box {
       flex-direction: column;
       &-description {
@@ -78,9 +70,6 @@
         & > h2 {
           margin-top: 40px;
           margin-bottom: 20px;
-        }
-        & > p {
-          font-size: 14px;
         }
       }
     }

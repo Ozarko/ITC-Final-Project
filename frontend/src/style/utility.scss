@@ -54,3 +54,9 @@
   }
 
 }
+
+@mixin setFontStyles($fontType, $fontColor, $fontSize) {
+  font-family: $fontType;
+  color: $fontColor;
+  font-size: $fontSize;
+}

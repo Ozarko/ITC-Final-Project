@@ -5,7 +5,7 @@ import { CSSTransition } from 'react-transition-group';
 import { loaderTimeOut } from '../../../config/siteConfig';
 
 const Loader = ({loading}) => {
-  const descriptionText = ['Це перший милий текст', 'Це другий милий текст', 'Це третій милий текст']
+  const descriptionText = ['Обгорнувшись тишею й теплом, можна мріяти навіть у погану погоду.', 'Живіть сьогодні й зараз, не відкладайте нічого на завтра.', 'Багато що лікується людським теплом, обіймами і добрими словами...']
   let currentDescriptionText = descriptionText[rundomNumber(0, descriptionText.length - 1)]
 
   return (

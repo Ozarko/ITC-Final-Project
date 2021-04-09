@@ -1,24 +1,17 @@
 .ShopCategories {
   min-width: 300px;
   align-self: start;
+
   & > ul {
     list-style: none;
     padding: 10px;
     & > li {
       margin-bottom: 20px;
       & > a {
-        text-decoration: none;
-        font-family: $main-font-medium;
-        font-size: 25px;
+        @include setFontStyles($main-font-regular, $rootStyleTypeColor, 3rem);
         letter-spacing: 2px;
       }
     }
-  }
-}
-
-@media screen and(max-width: $breakpoint-lg) {
-  .ShopCategories ul li a {
-    font-size: 22px;
   }
 }
 
@@ -27,9 +20,6 @@
     min-width: 200px;
     ul > li {
       margin-bottom: 10px;
-      & > a {
-        font-size: 18px;
-      } 
     }
   }
 }
@@ -43,9 +33,6 @@
       padding: 0;
       & > li {
         padding: 10px;
-        & > a {
-          font-size: 16px;
-        }
       } 
     }
   }

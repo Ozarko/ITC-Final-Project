@@ -28,12 +28,12 @@ const AboutTitle = () => {
             </p>
           </div>
           <div className="AboutTitle-header-description-image">
-            <img src={aboutImage} alt="" />
+            <img className='coverImage' src={aboutImage} alt="about" />
           </div>
         </div>
       </div>
-      <div className="AboutTitle-imageBox">
-        <img src={aboutSecondImage} alt="" />
+      <div className="AboutTitle-rightImage">
+        <img className='coverImage' src={aboutSecondImage} alt="about" />
       </div>
     </section>
   );

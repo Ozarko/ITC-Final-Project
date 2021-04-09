@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { updateUserProfile } from '../../../../redux/actions/user/userAction';
 
 const UpdateProfile = ({user}) => {
-
+  
   const dispatch = useDispatch()
 
   const {success} = useSelector(state => state.userUpdateProfile)

@@ -1,11 +1,5 @@
 .Shop {
-  position: relative;
-  min-height: 100vh;
-  background: $main-light-color;
   padding-top: 100px;
-  & > div {
-    padding: 0 20px;
-  }
   &-box {
     margin-top: 50px;
     @include flex(flex-start,center);

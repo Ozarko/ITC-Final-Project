@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
-import { addProductToCart, removeFromCart } from '../../../redux/actions/cart/cartActions';
+import { Link } from 'react-router-dom';
+import { addProductToCart, removeFromCart, setCartStatus } from '../../../redux/actions/cart/cartActions';
 import RemoveBtn from '../Buttons/RemoveBtn/RemoveBtn';
 import Quantity from '../Quantity/Quantity';
 
@@ -19,6 +20,10 @@ const CartItem = (props) => {
     dispatch(removeFromCart(id))
   }
 
+  const cartHandler = () => {
+    dispatch(setCartStatus())
+  }
+
   return (
     <div className="CartItem">
       <div className="CartItem-image">
@@ -27,7 +32,9 @@ const CartItem = (props) => {
       <div className="CartItem-info">
         <h5>{props.categories.join(" & ")}</h5>
         <div className="CartItem-info-name">
-          <h4>{props.name}</h4>
+        <Link to={`/product/${props.product}`} onClick={()=>cartHandler()}>
+          {props.name}
+        </Link>
         </div>
         <div className="CartItem-info-descAndLikes">
           <div className="CartItem-info-descAndLikes-desc">

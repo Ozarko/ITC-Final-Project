@@ -17,7 +17,7 @@ const HomeHero = () => {
               <strong>Любов</strong> яку можна відчути
             </h2>
           <div className="HomeHero-showcase-window-image-box">
-            <img src={homeImage} alt="mainImage" />
+            <img className='coverImage' src={homeImage} alt="mainImage" />
           </div>
 
           <h2 className="HomeHero-showcase-window-title second">На дотик</h2>

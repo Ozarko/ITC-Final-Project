@@ -1,21 +1,22 @@
 .ShopTitle {
   width: 100%;
+
   &-title {
     @include flex(center, flex-start);
+
     & > h2 {
       text-transform: uppercase;
-      font-family: $main-font-light;
-      color: $rootStyleTypeColor;
+      @include setFontStyles($main-font-light, $rootStyleTypeColor, 8.5rem);
       font-weight: 200;
       letter-spacing: 15px;
-      font-size: 100px;
     }
     & > p {
+      @include setFontStyles($main-font-medium, $rootStyleTypeColor, 1.4rem);
       margin-top: 20px;
       align-self: flex-start;
-      font-family: $main-font-medium;
     }
   }
+
   &-line {
     width: 100%;
     height: 1px;
@@ -23,20 +24,11 @@
   }
 }
 
-@media screen and(max-width: $breakpoint-lg) {
-  .ShopTitle {
-    &-title {
-      & > h2 {
-        font-size: 80px;
-      }
-    }
-  }
-}
 @media screen and(max-width: $breakpoint-md) {
   .ShopTitle {
     &-title {
       & > h2 {
-        font-size: 60px;
+        font-size: 6.5rem;
       }
       & > p {
         margin-top: 5px;
@@ -48,22 +40,7 @@
 @media screen and(max-width: $breakpoint-sm) {
   .ShopTitle {
     &-title {
-      & > h2 {
-        font-size: 45px;
-      }
-      & > p {
-        font-size: 10px;
-      }
-    }
-  }
-}
-
-@media screen and(max-width: $breakpoint-xsm) {
-  .ShopTitle {
-    &-title {
-      & > h2 {
-        font-size: 35px;
-      }
+      justify-content: center;
     }
   }
 }

@@ -6,7 +6,7 @@
   text-align: center;
 
   & > p {
-    @include setFontStyles($main-font-light-italic, $rootStyleTypeColor, 1.6rem);
+    @include setFontStyles($main-font-light-italic, $rootStyleTypeColor, 1.8rem);
   }
 
   &-line {
@@ -24,6 +24,14 @@
   &:hover {
     .HomeHero-showcase-description-line {
       transform: rotate(165deg);
+    }
+  }
+}
+
+@media screen and (max-width: $breakpoint-lg) {
+  .LogoDescription {
+    & > p {
+      font-size: 1.6rem;
     }
   }
 }

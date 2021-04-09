@@ -11,6 +11,7 @@ const ProductCard = ({ product}) => {
   const dispatch = useDispatch()
 
   const { productInCart } = useSelector((state) => state.cart);
+
   useEffect(()=> {
     if (productInCart.some((item) => item.product === product._id)) {
       setIsInCart(true)
@@ -40,7 +41,7 @@ const ProductCard = ({ product}) => {
       <p>{product.description}</p>
       <div className="ProductCard-line"></div>
       <h5>{product.price} грн</h5>
-      <RectangleBtn buttonText={isInCart? 'Додано' : "Купити"}  clickHandler={addProduct}/>
+      <RectangleBtn buttonText={product.countInStock !== 0? isInCart? 'Додано' : "Купити": "Товар очікується"}  clickHandler={addProduct}/>
     </div>
   );
 };

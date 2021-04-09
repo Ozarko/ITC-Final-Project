@@ -1,50 +1,47 @@
 .CartItem {
-  padding: 10px;
-  @include flex(center,center);
-  flex-wrap: wrap;
   border-bottom: 1px solid $rootStyleTypeColor;
+  @include flex(center, space-between);
+  flex-wrap: wrap;
 
   &-image {
-    margin: 30px 0;
-    flex: 2;
-    min-width: 300px;
-    max-height: 300px;
-    & > img {
-       max-height: 300px;
-    }
+    margin: 20px 0;
+    flex-grow: 1;
+    flex-shrink: 0;
+    max-width: 17rem;
+    max-height: 17rem;
   }
 
   &-info {
-    margin: 30px 0;
-    min-width: 200px;
-    margin: 0 10px;
-    flex: 2;
+    flex: 1;
+    width: 100%;
+    margin: 20px 0;
+    padding-left: 20px;
+    height: 17rem;
     text-align: left;
     @include flex(flex-start, space-between);
     flex-direction: column;
 
     & > h5 {
-      @include setFontStyles($main-font-medium, $rootStyleTypeColor, 2rem);
+      @include setFontStyles($main-font-medium, $rootStyleTypeColor, 1.8rem);
       font-weight: 100;
       letter-spacing: 2px;
     }
     &-name {
-      margin-top: 40px;
-      & > h4 {
+      
+      & > a {
         @include setFontStyles($main-font-medium, $rootStyleTypeColor, 2.2rem);
+        font-weight: bold;
         letter-spacing: 3px;
       }
     }
 
     &-descAndLikes {
-      margin-top: 40px;
-      width: 100%;
       @include flex(center, space-between);
 
       & > div {
         @include flex(center,center);
         flex-direction: column;
-        @include setFontStyles($main-font-medium, $rootStyleTypeColor, 2rem);
+        @include setFontStyles($main-font-medium, $rootStyleTypeColor, 1.8rem);
 
         & > p {
           white-space: nowrap;
@@ -52,16 +49,13 @@
       }
     }
   }
+
   &-qntDelAndPrice{
-    margin: 30px 0;
     flex: 1;
-    height: 100%;
-    min-width: 200px;
-    width: 100%;
+    margin: 20px 0;
     @include flex(center, space-between);
     flex-direction: column;
     &-qntDel {
-      padding: 10px 0;
       @include flex(center, space-around);
     }
     &-price {
@@ -70,5 +64,11 @@
         font-weight: 100;
       }
     }
+  }
+}
+
+@media screen and(max-width: $breakpoint-sm) {
+  .CartItem {
+    justify-content: center;
   }
 }

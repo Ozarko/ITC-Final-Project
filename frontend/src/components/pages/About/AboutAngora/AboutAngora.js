@@ -8,7 +8,9 @@ const AboutAngora = () => {
     <section className="AboutAngora">
       <SunLogo />
       <div className="AboutAngora-box">
-        <FrameImage image={AboutAngoraImg} alt={'angora rabbit photo'}/>
+        <div className='AboutAngora-box-frame'>
+          <FrameImage image={AboutAngoraImg} alt={'angora rabbit photo'}/>
+        </div>
         <div className="AboutAngora-box-description">
           <h2>З якого матеріалу  <br/> виготовляються ваші мрії ?</h2>
           <p>

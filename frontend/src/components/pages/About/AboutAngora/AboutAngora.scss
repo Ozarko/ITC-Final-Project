@@ -1,4 +1,5 @@
 .AboutAngora {
+  min-height: 0;
   text-align: center;
   flex-direction: column;
   padding: 20px;
@@ -12,16 +13,18 @@
     margin-bottom: 50px;
   }
   &-box {
+    width: 100%;
     @include flex(center, space-between);
-    
-    & > .FrameImage {
-      flex: 1;
-    }
 
+    &-frame {
+      flex: 1;
+      @include flex(center,center);
+    }
+    
     &-description {
-      flex: 2;
+      flex: 1;
+      justify-self: flex-end;
       text-align: right;
-      max-width: 40%;
       z-index: 1;
       & > h2 {
         margin-bottom: 50px;

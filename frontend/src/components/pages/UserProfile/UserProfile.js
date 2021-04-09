@@ -20,13 +20,11 @@ const UserProfile = ({ history }) => {
   };
 
   useEffect(() => {
-    if (!userInfo || !user) {
+    if (!userInfo) {
       history.push(link.signin);
-    } else {
-      if (!user ||!user.name) {
-        dispatch({type:USER_UPDATE_PROFILE_RESET})
-        dispatch(getUserDetails("profile"));
-      }
+    } else if (!user.name) {
+      dispatch({type:USER_UPDATE_PROFILE_RESET})
+      dispatch(getUserDetails("profile"));
     }
   }, [dispatch, history, userInfo, user]);
 

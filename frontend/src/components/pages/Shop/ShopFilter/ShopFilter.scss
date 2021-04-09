@@ -4,17 +4,16 @@
   &-box {
     @include flex(center, space-between);
     padding: 10px;
-    font-family: $main-font-bold;
     &-filter {
       @include flex(center,center);
-      cursor: pointer;
+      @include setFontStyles($main-font-regular, $rootStyleTypeColor, 2rem);
       & > svg {
         margin-left: 10px;
       }
     }
     &-sort {
+      @include setFontStyles($main-font-regular, $rootStyleTypeColor, 2rem);
       @include flex(center,center);
-      cursor: pointer;
       & > svg {
         margin-left: 10px;
       }

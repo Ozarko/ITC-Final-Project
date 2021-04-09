@@ -39,9 +39,11 @@ const Contact = () => {
             <SeparatingLine />
             <ContactForm />
           </div>
-          <div className="Contact-box-image">
-            <div className="Contact-box-image-frame cursorHoverEffect"></div>
-            <img src={contactImage} alt="Contact title" />
+          <div className="Contact-box-frame">
+            <div className="Contact-box-frame-line cursorHoverEffect"></div>
+            <div className='Contact-box-frame-image'>
+              <img className='coverImage' src={contactImage} alt="Contact title"/>
+            </div>
           </div>
         </div>
       </div>

@@ -24,12 +24,12 @@ const Description = () => {
         </div>
         <div className="Description-image">
           <img
-            className="containImage first"
+            className="coverImage first"
             src={descriptionImage2}
             alt="ddd"
           />
           <img
-            className="containImage second"
+            className="coverImage second"
             src={descriptionImage1}
             alt="ddd"
           />

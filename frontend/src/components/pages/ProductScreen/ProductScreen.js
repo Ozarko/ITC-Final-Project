@@ -9,7 +9,7 @@ import SunLogo from "../../UI/SunLogo/SunLogo";
 import { outOfStock } from "../../../utilites/utilities";
 import { useDispatch, useSelector } from "react-redux";
 import { productDetails } from "../../../redux/actions/productDetails/productDetailsAction";
-import { addProductToCart } from "../../../redux/actions/cart/cartActions";
+import { addProductToCart, removeFromCart } from "../../../redux/actions/cart/cartActions";
 import Loader from "../../UI/Loader/Loader";
 import { ErrorMessage } from "formik";
 
@@ -45,8 +45,12 @@ const ProductScreen = ({ match }) => {
     dispatch(productDetails(match.params.id));
   }, [match, dispatch]);
 
-  const addToCard = () => {
-    dispatch(addProductToCart(match.params.id, qty));
+  const cartProductHandler = () => {
+    if(isInCart) {
+      dispatch(removeFromCart(match.params.id))
+    }else {
+      dispatch(addProductToCart(match.params.id, qty));
+    }
   };
 
   if (loading) {
@@ -55,7 +59,7 @@ const ProductScreen = ({ match }) => {
     <ErrorMessage />;
   } else {
     return (
-      <div className="ProductScreen">
+      <section className="ProductScreen">
         <div className="container">
           <SunLogo />
           <SiteTitleNav name={product.name} />
@@ -78,6 +82,7 @@ const ProductScreen = ({ match }) => {
                 <p className="ProductScreen-box-info-details-description">
                   {product.description}
                 </p>
+                
                 <h5 className="ProductScreen-box-info-details-price">
                   {product.price} грн
                 </h5>
@@ -101,11 +106,13 @@ const ProductScreen = ({ match }) => {
                       clickHandlerIncrement={addQty}
                       clickHandlerDecrement={removeQty}
                     />
-                    <RectangleBtn
-                      clickHandler={addToCard}
-                      buttonText={isInCart ? "Додано" : "В кошик"}
-                    />
-                    <LikeBtn />
+                    <div className='ProductScreen-box-info-add-container'>
+                      <RectangleBtn
+                        clickHandler={cartProductHandler}
+                        buttonText={isInCart ? "Додано" : "В кошик"}
+                      />
+                      <LikeBtn />
+                    </div>
                   </div>
                 )}
               </div>
@@ -139,7 +146,7 @@ const ProductScreen = ({ match }) => {
             </div>
           </div>
         </div>
-      </div>
+      </section>
     );
   }
 };

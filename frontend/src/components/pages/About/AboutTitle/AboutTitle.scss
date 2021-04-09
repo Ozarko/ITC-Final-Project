@@ -1,6 +1,7 @@
 .AboutTitle {
   @include flex (center, center);
   border-bottom: 1px solid $main-color;
+  padding-bottom: 50px;
 
   &-header {
     padding: 10px;
@@ -20,7 +21,8 @@
       @include flex(center, flex-start);
 
       &-text {
-        max-width: 50%;
+        flex: 1;
+        min-width: 50%;
 
         & p {
           margin: 20px 0;
@@ -29,29 +31,18 @@
       }
 
       &-image {
+        max-width: 400px;
+        max-height: 500px;
         margin: auto;
         padding: 20px;
-
-        &>img {
-          max-width: 350px;
-          max-height: 350px;
-          height: 100%;
-          width: 100%;
-        }
       }
     }
   }
 
-  &-imageBox {
+  &-rightImage {
     padding: 10px;
-    height: 100%;
-
-    &>img {
-      max-width: 500px;
-      max-height: 500px;
-      height: 100%;
-      width: 100%;
-    }
+    max-height: 300px;
+    max-width: 400px;
   }
 }
 

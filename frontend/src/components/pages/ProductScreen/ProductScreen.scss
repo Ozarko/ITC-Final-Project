@@ -1,66 +1,61 @@
 .ProductScreen {
   width: 100%;
+  padding-top: 100px;
+  min-height: 0;
 
   & > .container {
-    padding-top: 100px;
-    padding-bottom: 50px;
-
+    padding: 20px;
     & > .SunLogo {
       display: none;
     }
-
-    & > .SiteTitleNav {
-      padding: 0 10px;
-    }
   }
+
   &-box {
-    @include flex(center,center);
-    padding: 10px;
-    margin-top: 50px;
+    margin-top: 30px;
+    @include grid(360px);
+    grid-gap: 2rem;
 
     &-image {
-      padding: 10px 0;
       flex: 1;
-      width: 600px;
-      height: 600px;
+      height: 60rem;
     }
 
     &-info {
-      flex: 1;
       padding: 10px;
+      flex: 1;
+      height: 60rem;
       align-self: flex-start;
-      height: 600px;
-      @include flex(center, center);
+      @include flex(center, stretch);
       flex-direction: column;
+      border-top: 1px solid $rootStyleTypeColor;
+      border-bottom: 1px solid $rootStyleTypeColor;
 
       &-details {
-        flex: 1;
+        justify-self: stretch;
         width: 100%;
-        height: 100%;
-        padding: 20px 0;
-        border-top: 1px solid $rootStyleTypeColor;
+        flex: 1;
         border-bottom: 1px solid $rootStyleTypeColor;
-        @include flex(flex-start, center);
+        @include flex(flex-start, space-evenly);
         flex-direction: column;
 
         &-categories {
           @include setFontStyles($main-font-light-italic, $rootStyleTypeColor, 2.2rem);
-          padding: 15px 0;
+          margin-bottom: 5px;
         }
         &-name {
           letter-spacing: 5px;
-          padding: 15px 0;
           @include setFontStyles($main-font-bold, $rootStyleTypeColor, 3.5rem);
+          margin-bottom: 5px;
         }
 
         &-description {
-          padding: 10px 0;
           @include setFontStyles($main-font-light, $rootStyleTypeColor, 2rem);
+          margin-bottom: 5px;
         }
 
         &-price {
-          padding: 15px 0;
           @include setFontStyles($main-font-semibold, $rootStyleTypeColor, 3.5rem);
+          margin-bottom: 5px;
         }
       }
 
@@ -75,6 +70,10 @@
         &-container {
           width: 100%;
           @include flex(center, center);
+          &-btn {
+            @include flex(center, center);
+            width: 100%;
+          }
         }
 
         &-in-stock {
@@ -88,7 +87,6 @@
       &-footer {
         width: 100%;
         padding: 20px 0;
-        border-bottom: 1px solid $rootStyleTypeColor;
         @include flex(center, center);
         flex-direction: column;
 
@@ -118,11 +116,9 @@
 @media screen and(max-width: $breakpoint-lg) {
   .ProductScreen {
     &-box {
-      margin-top: 40px;
-      grid-gap: 20px;
+      grid-gap: 10px;
       &-info {
         &-details {
-          padding: 10px 0;
           &-name {
             letter-spacing: 3px;
           }
@@ -141,6 +137,9 @@
   .ProductScreen {
     &-box {
       margin-top: 30px;
+      &-image {
+        max-width: 500px;
+      }
     }
   }
 }
@@ -153,8 +152,18 @@
       }
     }
     &-box {
-      &-image {
-        max-height: 50vh;
+      @include flex(center, center);
+      flex-direction: column;
+
+      &-info {
+        &-add {
+          &-container {
+            flex-direction: column;
+            &-btn {
+              margin-top: 10px;
+            }
+          }
+        }
       }
     }
   }

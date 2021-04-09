@@ -42,68 +42,34 @@
       }
     }
 
-    &-image {
+    &-frame {
       flex: 1;
       height: 100%;
-      align-self: center;
-      justify-self: center;
       padding: 10px;
       position: relative;
       @include flex(center, center);
 
-      &-frame {
+      &-line {
         position: absolute;
-        width: 400px;
-        height: 400px;
+        width: 42rem;
+        height: 42rem;
         border: 1px solid $main-color;
         transform: rotate(-15deg);
       }
-
-      &>img {
-        max-height: 400px;
-        max-width: 400px;
-      }
-    }
-  }
-}
-
-@media screen and(max-width: $breakpoint-lg) {
-  .Contact {
-    &-box {
       &-image {
-        margin-top: 100px;
-
-        &-frame {
-          width: 300px;
-          height: 300px
-        }
-
-        &>img {
-          max-height: 300px;
-          max-width: 300px;
-        }
+        max-width: 38rem;
+        max-height: 38rem;
       }
     }
   }
 }
 
-@media screen and(max-width: $breakpoint-sm) {
+@media screen and(max-width: $breakpoint-md) {
   .Contact {
     &-box {
       flex-direction: column;
-
-      &-image {
+      &-frame {
         margin-top: 100px;
-
-        &-frame {
-          width: 200px;
-          height: 200px
-        }
-
-        &>img {
-          max-height: 200px;
-          max-width: 200px;
-        }
       }
     }
   }

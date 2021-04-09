@@ -1,25 +1,24 @@
 .FrameImage {
   position: relative;
   @include flex(center, center);
-
-  &> img {
-    border: 1px solid $main-color;
+  border: 1px solid $main-color;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  max-width: 40rem;
+  max-height: 60rem;
+  & > img {
     border-top-left-radius: 50%;
     border-top-right-radius: 50%;
-    max-width: 400px;
-    width: 100%;
-    max-height: 600px;
-    height: 100%;
-    
-    &:hover ~ .FrameImage-line {
-      transform: translate(-50%, -50%) rotate(-35deg);
-    }
   }
+  &:hover .FrameImage-line {
+    transform: translate(-50%, -50%) rotate(-35deg);
+  }
+
   &-line {
     position: absolute;
     top: 75%;
     left: 35%;
-    width: 800px;
+    width: 700px;
     height: 1px;
     background: $main-color;
     transform: translate(-50%, -50%) rotate(35deg);
@@ -29,22 +28,22 @@
 
 @media screen and (max-width: $breakpoint-lg) {
   .FrameImage {
-    & > img {
-      max-height: 500px;
-      max-width: 300px;
-    }
     &-line {
-      width: 500px;
+      width: 600px;
     }
   }
 }
 
 @media screen and (max-width: $breakpoint-sm) {
   .FrameImage {
-    & > img {
-      max-height: 450px;
-      max-width: 250px;
+    &-line {
+      width: 500px;
     }
+  }
+}
+
+@media screen and (max-width: $breakpoint-xsm) {
+  .FrameImage {
     &-line {
       width: 300px;
     }

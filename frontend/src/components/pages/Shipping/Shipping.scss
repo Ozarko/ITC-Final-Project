@@ -11,17 +11,10 @@
     width: 100%;
   }
   &-order {
+    min-width: 50%;
     background: $main-dark-color;
     flex: 1;
   }
-}
-
-@media screen and(max-width: $breakpoint-sm) {
-  .Shipping {
-    & > .container {
-      flex-direction: column
-    }
-  }  
 }
 
 @import './Order/Order.scss';

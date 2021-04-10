@@ -46,6 +46,10 @@ const UserProfile = ({ history }) => {
                   <div className="UserProfile-box-navigation-line"></div>
                 </li>
                 <li>
+                  <button>Мої вподобання</button>
+                  <div className="UserProfile-box-navigation-line"></div>
+                </li>
+                <li>
                   <button>Мої покупки</button>
                   <div className="UserProfile-box-navigation-line"></div>
                 </li>

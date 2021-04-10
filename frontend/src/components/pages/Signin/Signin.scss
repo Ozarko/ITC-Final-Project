@@ -11,6 +11,7 @@
     width: 100%;
     @include flex(center, center);
     flex-direction: column;
+
     & > .SunLogo {
       margin-top: 100px;
     }
@@ -19,38 +20,25 @@
     padding: 10px;
     max-width: 600px;
     width: 100%;
+    @include flex(center, center);
+    flex-direction: column;
     text-align: center;
     &-title {
-      margin-top: 30px;
-      color: $rootStyleTypeColor;
-      font-family: $main-font-regular;
+      margin-top: 30px; 
       letter-spacing: 5px;
-      @include adaptivFont(28, 18);
+      @include setFontStyles($main-font-regular, $rootStyleTypeColor, 3rem);
     }
     & > .SeparatingLine {
       margin: 15px 0;
     }
+
     &-signin {
-      color: $rootStyleTypeColor;
-      font-family: $main-font-light;
+      align-self: center;
+      border: none;
+      background: none;
       letter-spacing: 3px;
-      @include adaptivFont(16, 14);
+      @include setFontStyles($main-font-light, $rootStyleTypeColor, 2rem);
       @include flex(center,center);
-      & > button {
-        margin: 0 10px;
-        display: inline-block;
-        border: none;
-        background: none;
-        color: $rootStyleTypeColor;
-        font-weight: bold;
-        @include adaptivFont(20, 16);
-        letter-spacing: 3px;
-        font-family: $main-font-light-italic;
-        &:active,
-        &:focus {
-          outline: none;
-        }
-      }
     }
   }
 }

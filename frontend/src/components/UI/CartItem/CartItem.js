@@ -38,11 +38,11 @@ const CartItem = (props) => {
         </div>
         <div className="CartItem-info-descAndLikes">
           <div className="CartItem-info-descAndLikes-desc">
-            <p className="title">Допис :</p>
-            <p>Тут буде щось</p>
+            <p className="title">Продукт :</p>
+            <p>{props.productType}</p>
           </div>
           <div className="CartItem-info-descAndLikes-likes">
-            <p className="title">Сердечок :</p>
+            <p className="title">Вподобали: </p>
             <p>{props.likes}</p>
           </div>
         </div>

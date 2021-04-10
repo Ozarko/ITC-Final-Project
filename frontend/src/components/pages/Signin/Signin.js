@@ -22,30 +22,24 @@ const Signin = ({location, history}) => {
 
   return (
     <section className="Signin">
-      <div className="container">
-        <SunLogo />
-        <div className="Signin-box">
-          <h2 className="Signin-box-title">Раді вас бачити !</h2>
-          {showRegister ? <Registration /> : <Login />}
-          <SeparatingLine />
-          {showRegister ? (
-            <h3 className="Signin-box-signin ">
-              Ввійти в акаунт можна 
-              <button onClick={() => setShowRegister(!showRegister)}>
-                тут.
-              </button>{" "}
-            </h3>
-          ) : (
-            <h3 className="Signin-box-signin ">
-              <button onClick={() => setShowRegister(!showRegister)}>
-                Зареєструйтесь
-              </button>{" "}
-              у нас на сайті !
-            </h3>
-          )}
-        </div>
+    <div className="container">
+      <SunLogo />
+      <div className="Signin-box">
+        <h2 className="Signin-box-title">Раді вас бачити !</h2>
+        {showRegister ? <Registration /> : <Login />}
+        <SeparatingLine />
+        {showRegister ? (
+            <button className="Signin-box-signin" onClick={() => setShowRegister(!showRegister)}>
+            <p><strong>Ввійти</strong> в акаунт можна тут. </p>
+            </button>
+        ) : (
+            <button className="Signin-box-signin" onClick={() => setShowRegister(!showRegister)}>
+              <p><strong>Зареєструйтесь</strong> у нас на сайті !</p>
+            </button>
+        )}
       </div>
-    </section>
+    </div>
+  </section>
   );
 }
 

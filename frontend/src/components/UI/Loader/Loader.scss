@@ -55,34 +55,24 @@
   .Loader {
     &-title {
       margin-top: 10px;
-      font-size: 4rem;
+      font-size: 5rem;
       letter-spacing: 5px;
-    }
-    & > p {
-      font-size: 1.6rem;
     }
   }
 }
 
 
-.Loader.load {
-  transition: opacity 1s;
-  &-enter {
-    opacity: 0;
-  }
-  &-enter-active {
-    opacity: 0.5;
-  }
-  &-enter-done {
-    opacity: 1;
-  }
-  &-exit {
-    opacity: 0.75;
-  }
-  &-exit-active {
-    opacity: 0;
-  }
-  &-exit-done {
-    opacity: 0;
-  }
+.load-enter {
+  opacity: 0;
+}
+.load-enter-active {
+  opacity: 1;
+  transition: opacity 200ms;
+}
+.load-exit {
+  opacity: 1;
+}
+.load-exit-active {
+  opacity: 0;
+  transition: opacity 200ms;
 }

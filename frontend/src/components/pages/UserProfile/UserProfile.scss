@@ -1,12 +1,16 @@
 .UserProfile {
   min-height: 100vh;
+  
   & > .container {
     padding: 100px 10px 10px 10px;
   }
+
   &-title {
+    margin-top: 10px;
     width: 100%;
     text-align: left;
     border-bottom: 1px solid $rootStyleTypeColor;
+
     & > h4 {
       text-transform: uppercase;
       padding: 10px 0;
@@ -16,6 +20,7 @@
       @include adaptivFont(50, 24);
     }
   }
+
   &-box {
     padding: 20px 0;
     @include flex(flex-start,center);
@@ -73,9 +78,17 @@
 
 @media screen and(max-width: $breakpoint-sm) {
   .UserProfile {
+    &-title{
+      text-align: center;
+    }
+
     &-box {
       padding: 0;
       flex-direction: column;
+      &-screen {
+        margin-top: 20px;
+        padding: 0;
+      }
       &-navigation {
         border-bottom: 1px solid $footerRootStyleTypeColor;
         & > ul {

@@ -3,9 +3,61 @@
   width: 100%;
 
   &-cart {
-    min-width: 30vw;
     max-height: 50vh;
     overflow: auto;
+    & .CartItem {
+      padding: 1.5rem 0.5rem;
+    
+      &-image {
+        max-width: 16rem;
+        max-height: 16rem;
+      }
+    
+      &-info {
+        & > h5 {
+          @include setFontStyles($main-font-medium, $rootStyleTypeColor, 1.7rem);
+          font-weight: 100;
+          letter-spacing: 2px;
+        }
+        
+        &-name {
+          & > a {
+            @include setFontStyles($main-font-medium, $rootStyleTypeColor, 2rem);
+            font-weight: bold;
+            letter-spacing: 3px;
+          }
+        }
+    
+        &-descAndLikes {
+          width: 100%;
+          @include flex(center, space-between);
+          & > div {
+            @include flex(center, space-between);
+            flex-direction: column;
+            @include setFontStyles($main-font-medium, $rootStyleTypeColor, 1.8rem);
+    
+            & > p {
+              white-space: nowrap;
+            }
+          }
+        }
+      }
+    
+      &-qntDelAndPrice{
+        @include flex(center, space-between);
+        flex-direction: column;
+        &-qntDel {
+          margin-bottom: 20px;
+          @include flex(center, space-around);
+        }
+        &-price {
+          @include setFontStyles($main-font-medium, $rootStyleTypeColor, 3rem);
+          & > span {
+            font-weight: 100;
+          }
+        }
+      }
+    }
   }
 
   &-title {

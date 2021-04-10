@@ -23,6 +23,7 @@ const authUser = asyncHandler(async (req,res) => {
 
 const getUserProfile = asyncHandler(async (req,res) => {
   const user = await User.findById(req.user._id)
+
   if(user) {
     res.json({
       _id: user._id,
@@ -68,6 +69,7 @@ const registerUser = asyncHandler(async (req, res) => {
 
 const updateUserProfile = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id);
+  
   if (user) {
     user.name = req.body.name || user.name
     user.email = req.body.email || user.email;
@@ -81,7 +83,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
       name: updatedUser.name,
       email: updatedUser.email,
       isAdmin: updatedUser.isAdmin,
-      token: generateToken(user._id),
+      token: generateToken(updatedUser._id),
     });
   } else {
     res.status(401);

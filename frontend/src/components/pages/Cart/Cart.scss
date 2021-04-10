@@ -9,7 +9,7 @@
 
   &-box {
     float: right;
-    max-width: 50%;
+    max-width: 60%;
     width: 100%;
     height: 100%;
     background: $rootStyleTypeBg;
@@ -124,26 +124,11 @@
   }
 }
 
-@media screen and (max-width: $breakpoint-xlg) {
-  .Cart {
-    &-box {
-      max-width: 60%;
-    }
-  }
-}
-
-@media screen and (max-width: $breakpoint-lg) {
-  .Cart {
-    &-box {
-      max-width: 65%;
-    }
-  }
-}
-
 @media screen and (max-width: $breakpoint-md) {
   .Cart {
     &-box {
       padding: 20px;
+      max-width: 65%;
       &-header {
         & > h5 {
           letter-spacing: 2px;

@@ -22,7 +22,7 @@ const Layout = () => {
     window.scrollTo(0, 0);
     setTimeout(()=> {
       setLoading(false);
-    }, 1000)
+    }, 3000)
   }, [location]);
 
   if (loading) {

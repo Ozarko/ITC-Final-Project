@@ -24,6 +24,8 @@ const CartItem = (props) => {
     dispatch(setCartStatus())
   }
 
+  console.log(props)
+
   return (
     <div className="CartItem">
       <div className="CartItem-image">

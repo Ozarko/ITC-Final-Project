@@ -12,17 +12,17 @@
 
   & > p {
     margin-bottom: 10px;
-    @include setFontStyles($main-font-medium, $rootStyleTypeColor, 1.6rem);
+    @include setFontStyles($main-font-medium, $rootStyleTypeColor, 2rem);
   }
 
   &-title {
     margin: 5px 0;
-    @include setFontStyles($main-font-bold, $rootStyleTypeColor, 2.4rem);
+    @include setFontStyles($main-font-bold, $rootStyleTypeColor, 2.8rem);
   }
 
   & > h5 {
     margin: 10px;
-    @include setFontStyles($main-font-bold, $rootStyleTypeColor, 2.4rem);
+    @include setFontStyles($main-font-bold, $rootStyleTypeColor, 2.5rem);
   }
   
   &-line {
@@ -57,6 +57,8 @@
   }
 }
 
+
+
 @media screen and(max-width: $breakpoint-lg) {
   .ProductCard {
     height: 500px;
@@ -73,4 +75,22 @@
       height: 300;
     }
   }
+}
+
+@media screen and(max-width: $breakpoint-sm) {
+  .ProductCard {
+  & > p {
+    font-size: 2.7rem;
+  }
+
+  &-title {
+    font-size: 4rem;
+  }
+
+  & > h5 {
+    font-size: 3.2rem;
+  }
+
+}
+
 }

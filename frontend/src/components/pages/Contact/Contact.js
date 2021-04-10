@@ -23,15 +23,13 @@ const Contact = () => {
               </li>
               <li>
                 <AiOutlineMail />
-                <a href="mailto:socksglamur@gmail.com">socksglamur@gmail.com</a>
+                <a href="mailto:socksglamour@gmail.com">
+                  socksglamour@gmail.com
+                </a>
               </li>
               <li>
                 <GrLocation />
-                <a
-                  target="_blank"
-                  rel="noreferrer"
-                  href={LOCATION}
-                >
+                <a target="_blank" rel="noreferrer" href={LOCATION}>
                   м.Івано-Франківськ
                 </a>
               </li>
@@ -41,8 +39,12 @@ const Contact = () => {
           </div>
           <div className="Contact-box-frame">
             <div className="Contact-box-frame-line cursorHoverEffect"></div>
-            <div className='Contact-box-frame-image'>
-              <img className='coverImage' src={contactImage} alt="Contact title"/>
+            <div className="Contact-box-frame-image">
+              <img
+                className="coverImage"
+                src={contactImage}
+                alt="Contact title"
+              />
             </div>
           </div>
         </div>

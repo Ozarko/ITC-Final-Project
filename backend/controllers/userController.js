@@ -1,94 +1,221 @@
-import asyncHandler from 'express-async-handler';
-import User from '../models/userModel.js';
-import generateToken from '../utils/generateToken.js'
+import User from "../models/userModel.js";
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import sendEmail from "./sendEmail.js";
+import dotenv from "dotenv";
 
-const authUser = asyncHandler(async (req,res) => {
-  const {email, password} = req.body;
+dotenv.config();
 
-  const user = await User.findOne({email})
-  
-  if(user && (await user.matchPassword(password))) {
-    return res.json({
-      _id: user._id,
-      name: user.name,
-      email: user.email,
-      isAdmin: user.isAdmin,
-      token: generateToken(user._id),
-    })
-  }else {
-    res.status(401)
-    throw new Error('Ваш пароль або email невірний.')
-  }
-});
+const { CLIENT_URL } = process.env;
 
-const getUserProfile = asyncHandler(async (req,res) => {
-  const user = await User.findById(req.user._id)
+const userCtrl = {
+  register: async (req, res) => {
+    try {
+      const { firstName, lastName, phone, email, password } = req.body;
+      if (!firstName || !lastName || !phone || !email || !password) {
+        return res.status(400).json({ msg: "Not fill in all fields" });
+      }
 
-  if(user) {
-    res.json({
-      _id: user._id,
-      name: user.name,
-      email: user.email,
-      isAdmin: user.isAdmin,
-    })
-  }else {
-    res.status(401)
-    throw new Error('User not found')
-  }
-});
+      const user = await User.findOne({ email });
+      if (user) {
+        return res
+          .status(400)
+          .json({ msg: "Цей email уже використовується !" });
+      }
 
-const registerUser = asyncHandler(async (req, res) => {
-  const { name, email, password } = req.body;
+      const passwordHash = await bcrypt.hash(password, 12);
 
-  const userExists = await User.findOne({ email });
+      const newUser = {
+        firstName,
+        lastName,
+        phone,
+        email,
+        password: passwordHash,
+      };
 
-  if(userExists) {
-    res.status(400)
-    throw new Error('User already exists')
-  }
+      const activation_token = createActivationToken(newUser);
 
-  const user = await User.create({
-    name,
-    email,
-    password
-  })
+      const url = `${CLIENT_URL}/users/activate/${activation_token}`;
 
-  if(user) {
-    res.status(201).json({
-      _id: user._id,
-      name: user.name,
-      email: user.email,
-      isAdmin: user.isAdmin,
-      token: generateToken(user._id),
-    });
-  }else {
-    res.status(400) 
-    throw new Error('Invalid user data')
-  }
-});
+      sendEmail(email, url, "Verify your email address");
 
-const updateUserProfile = asyncHandler(async (req, res) => {
-  const user = await User.findById(req.user._id);
-  
-  if (user) {
-    user.name = req.body.name || user.name
-    user.email = req.body.email || user.email;
-    if(req.body.password) {
-      user.password = req.body.password
+      res.json({
+        msg:
+          "Регістрація пройшла успішно! Вам на пошту прийшов лист, будь-ласка активуйте ваш email !",
+      });
+    } catch (error) {
+      return res.status(500).json({ msg: error.message });
     }
-    const updatedUser = await user.save()
+  },
+  activateEmail: async (req, res) => {
+    try {
+      const { activation_token } = req.body;
+      const user = jwt.verify(
+        activation_token,
+        process.env.ACTIVATION_TOKEN_SECRET
+      );
 
-    return res.json({
-      _id: updatedUser._id,
-      name: updatedUser.name,
-      email: updatedUser.email,
-      isAdmin: updatedUser.isAdmin,
-      token: generateToken(updatedUser._id),
-    });
-  } else {
-    res.status(401);
-    throw new Error("User not found");
-  }
-});
+      const { firstName, lastName, phone, email, password } = user;
 
-export { authUser, getUserProfile, registerUser, updateUserProfile };
+      const check = await User.findOne({ email });
+      if (check)
+        return res.status(400).json({ msg: "This email already exists." });
+
+      const newUser = new User({
+        firstName,
+        lastName,
+        phone,
+        email,
+        password,
+      });
+
+      await newUser.save();
+
+      res.json({ msg: "Account has been activated!" });
+    } catch (error) {
+      return res.status(500).json({ msg: error.message });
+    }
+  },
+  login: async (req, res) => {
+    try {
+      const { email, password } = req.body;
+      console.log(email);
+      const user = await User.findOne({ email });
+
+      if (!user)
+        return res.status(400).json({ msg: "This email does not exist." });
+
+      const isMatch = await bcrypt.compare(password, user.password);
+      if (!isMatch)
+        return res.status(400).json({ msg: "Password is incorrect." });
+
+      const refresh_token = createRefreshToken({ id: user._id });
+      res.cookie("refreshtoken", refresh_token, {
+        httpOnly: true,
+        path: "/users/refresh_token",
+        maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+      });
+
+      console.log(user);
+
+      res.json({ msg: "Login success!" });
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+  getAccessToken: (req, res) => {
+    try {
+      const rf_token = req.cookies.refreshtoken;
+      console.log(rf_token);
+      if (!rf_token) return res.status(400).json({ msg: "Please login now!" });
+
+      jwt.verify(rf_token, process.env.REFRESH_TOKEN_SECRET, (err, user) => {
+        if (err) return res.status(400).json({ msg: "Please login now!" });
+
+        const access_token = createAccessToken({ id: user.id });
+        res.json({ access_token });
+      });
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+  forgotPassword: async (req, res) => {
+    try {
+      const { email } = req.body;
+      const user = await User.findOne({ email });
+      if (!user)
+        return res.status(400).json({ msg: "This email does not exist." });
+
+      const access_token = createAccessToken({ id: user._id });
+      const url = `${CLIENT_URL}/user/reset/${access_token}`;
+
+      sendEmail(email, url, "Reset your password");
+      res.json({ msg: "Re-send the password, please check your email." });
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+  resetPassword: async (req, res) => {
+    try {
+      const { password } = req.body;
+
+      const passwordHash = await bcrypt.hash(password, 12);
+
+      await User.findOneAndUpdate(
+        { _id: req.user.id },
+        {
+          password: passwordHash,
+        }
+      );
+
+      res.json({ msg: "Password successfully changed!" });
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+  getUserInfor: async (req, res) => {
+    try {
+      const user = await User.findById(req.user.id).select("-password");
+
+      res.json(user);
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+  getUsersAllInfor: async (req, res) => {
+    try {
+      const users = await User.find().select("-password");
+
+      res.json(users);
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+  logout: async (req, res) => {
+    try {
+      res.clearCookie("refreshtoken", { path: "/user/refresh_token" });
+      return res.json({ msg: "Logged out." });
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+  updateUser: async (req, res) => {
+    try {
+      const { firstName, lastName, email, password } = req.body;
+      await User.findOneAndUpdate(
+        { _id: req.user.id },
+        {
+          firstName,
+          lastName,
+          email,
+          phone,
+          password
+        }
+      );
+
+      res.json({ msg: "Update Success!" });
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+};
+
+const createActivationToken = (payload) => {
+  return jwt.sign(payload, process.env.ACTIVATION_TOKEN_SECRET, {
+    expiresIn: "5m",
+  });
+};
+
+const createAccessToken = (payload) => {
+  return jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, {
+    expiresIn: "15m",
+  });
+};
+
+const createRefreshToken = (payload) => {
+  return jwt.sign(payload, process.env.REFRESH_TOKEN_SECRET, {
+    expiresIn: "7d",
+  });
+};
+
+export { userCtrl };

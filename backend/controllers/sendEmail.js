@@ -1,9 +1,10 @@
 import nodemailer from 'nodemailer';
-import { google } from "googleapis";
-import email from '../data/email.js'
+import googleapis from "googleapis";
 import dotenv from "dotenv";
+
 dotenv.config();
-const {OAuth2} = google.auth;
+
+const {OAuth2} = googleapis.google.auth;
 
 const OAUTH_PLAYGROUND = 'https://developers.google.com/oauthplayground'
 

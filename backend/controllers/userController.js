@@ -181,16 +181,23 @@ const userCtrl = {
   },
   updateUser: async (req, res) => {
     try {
-      const { firstName, lastName, email, password } = req.body;
-      await User.findOneAndUpdate(
+      const { firstName, lastName,phone, email, password } = req.body;
+      const user = User.findById(req.user.id);
+      const passwordHash = await bcrypt.hash(password, 12);
+
+      const updatedUser = {
+        firstName: firstName ? firstName : user.firstName,
+        lastName: lastName ? lastName : user.lastName,
+        phone: phone ? phone : user.phone,
+        email: email ? email : user.email,
+        password: password ? passwordHash : user.password,
+      }
+
+      console.log(updatedUser)
+
+      await User.updateOne(
         { _id: req.user.id },
-        {
-          firstName,
-          lastName,
-          email,
-          phone,
-          password
-        }
+        updatedUser
       );
 
       res.json({ msg: "Update Success!" });
@@ -198,6 +205,28 @@ const userCtrl = {
       return res.status(500).json({ msg: err.message });
     }
   },
+  updateUsersRole: async (req, res) => {
+    try {
+        const {isAdmin} = req.body
+
+        await User.findOneAndUpdate({_id: req.params.id}, {
+            isAdmin
+        })
+
+        res.json({msg: "Update Success!"})
+    } catch (err) {
+        return res.status(500).json({msg: err.message})
+    }
+  },
+  deleteUser: async (req, res) => {
+    try {
+        await User.findByIdAndDelete(req.params.id)
+
+        res.json({msg: "Deleted Success!"})
+    } catch (err) {
+        return res.status(500).json({msg: err.message})
+    }
+},
 };
 
 const createActivationToken = (payload) => {

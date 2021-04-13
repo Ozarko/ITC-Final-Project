@@ -8,7 +8,7 @@ import Registration from './Registration/Registration';
 
 const Signin = ({location, history}) => {
 
-  const {userInfo} = useSelector(state => state.userLogin)
+  const {userInfo} = useSelector(state => state.user)
 
   const redirect = location.search ? location.search.split('=')[1] : link.shop
 

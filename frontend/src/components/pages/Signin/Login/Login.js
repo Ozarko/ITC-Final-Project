@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router";
 import * as Yup from "yup";
-import { login } from "../../../../redux/actions/user/userAction";
+import { login } from "../../../../redux/actions/auth/authAction";
 import { link } from "../../../../routes/navigationLink";
 import FormikControl from "../../../formik/FormikControl";
 import RectangleBtn from "../../../UI/Buttons/RectangleBtn/RectangleBtn";
@@ -11,7 +11,7 @@ import RectangleBtn from "../../../UI/Buttons/RectangleBtn/RectangleBtn";
 const Login = ({history}) => {
   const dispatch = useDispatch();
 
-  const { error, userInfo } = useSelector((state) => state.userLogin);
+  const { error, userInfo } = useSelector((state) => state.user);
 
   useEffect(()=> {
     if(userInfo) {
@@ -32,7 +32,9 @@ const Login = ({history}) => {
     password: Yup.string().trim().required(`Це поле є обов'язковим`),
   });
 
+
   const onSubmit = (values, { setSubmitting, resetForm }) => {
+    console.log('from submmit')
     dispatch(login(values.email.toLowerCase(), values.password));
     setSubmitting(false);
     resetForm();

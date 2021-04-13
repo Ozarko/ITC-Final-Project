@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router";
 import * as Yup from "yup";
-import { register } from "../../../../redux/actions/user/userAction";
+import { registration } from "../../../../redux/actions/auth/authAction";
 import { link } from "../../../../routes/navigationLink";
 import FormikControl from "../../../formik/FormikControl";
 import RectangleBtn from "../../../UI/Buttons/RectangleBtn/RectangleBtn";
@@ -11,7 +11,7 @@ import RectangleBtn from "../../../UI/Buttons/RectangleBtn/RectangleBtn";
 const Registration = ({history}) => {
   const dispatch = useDispatch();
 
-  const { error, userInfo } = useSelector((state) => state.userRegister);
+  const { error, userInfo } = useSelector((state) => state.user);
 
   useEffect(()=> {
     if(!error && userInfo) {
@@ -23,6 +23,7 @@ const Registration = ({history}) => {
     firstName: "",
     lastName: "",
     email: "",
+    phone: '',
     password: "",
     confirmPassword: "",
   };
@@ -34,6 +35,7 @@ const Registration = ({history}) => {
       .trim()
       .email("Введіть валідний емейл")
       .required(`Дане поле є обов'язковим`),
+    phone: Yup.string().required(`Дане поле є обов'язковим`),
     password: Yup.string()
       .trim()
       .required(`Дане поле є обов'язковим`)
@@ -44,9 +46,17 @@ const Registration = ({history}) => {
   });
 
   const onSubmit = (values, { setSubmitting, resetForm }) => {
-    dispatch(register(`${values.firstName} ${values.lastName}`, values.email, values.password))
+    dispatch(
+      registration(
+        values.firstName,
+        values.lastName,
+        values.phone,
+        values.email,
+        values.password
+      )
+    );
     setSubmitting(false);
-    resetForm();
+    // resetForm();
   };
 
   return (
@@ -84,6 +94,14 @@ const Registration = ({history}) => {
 
             <FormikControl
               control="input"
+              type="text"
+              label={`Ваш номер телефону`}
+              name="phone"
+              isEmpty={formik.values.phone}
+            />
+
+            <FormikControl
+              control="input"
               type="password"
               label={`Ваш пароль`}
               name="password"
@@ -99,9 +117,7 @@ const Registration = ({history}) => {
             />
             <p className="Registration-error">
               {error ? (
-                <span>
-                  Користувач з вказаним email уже зареєстрований...
-                </span>
+                <span>Користувач з вказаним email уже зареєстрований...</span>
               ) : null}
             </p>
 

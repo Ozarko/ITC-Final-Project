@@ -79,7 +79,6 @@ const userCtrl = {
   login: async (req, res) => {
     try {
       const { email, password } = req.body;
-      console.log(email);
       const user = await User.findOne({ email });
 
       if (!user)
@@ -96,8 +95,6 @@ const userCtrl = {
         maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
       });
 
-      console.log(user);
-
       res.json({ msg: "Login success!" });
     } catch (err) {
       return res.status(500).json({ msg: err.message });
@@ -106,7 +103,6 @@ const userCtrl = {
   getAccessToken: (req, res) => {
     try {
       const rf_token = req.cookies.refreshtoken;
-      console.log(rf_token);
       if (!rf_token) return res.status(400).json({ msg: "Please login now!" });
 
       jwt.verify(rf_token, process.env.REFRESH_TOKEN_SECRET, (err, user) => {

@@ -8,17 +8,22 @@ import { link } from "./navigationLink";
 import Signin from "../components/pages/Signin/Signin";
 import UserProfile from "../components/pages/UserProfile/UserProfile";
 import Shipping from "../components/pages/Shipping/Shipping";
+import ActivationEmail from "../components/pages/ActivationEmail/ActivationEmail";
 
 export const routes = (
   <Switch>
     <Route path={link.main} component={HomePage} exact />
-    <Route path={link.shop} component={Shop} />
+    <Route path={link.shop} component={Shop} exact />
     <Route path={link.productID} component={ProductScreen} />
-    <Route path={link.about} component={About} />
-    <Route path={link.contact} component={Contact} />
-    <Route path={link.signin} component={Signin} />
-    <Route path={link.profile} component={UserProfile} />
-    <Route path={link.shipping} component={Shipping} />
-    <Redirect to={link.main} />
+    <Route path={link.about} component={About} exact />
+    <Route path={link.contact} component={Contact} exact />
+    <Route path={link.signin} component={Signin} exact />
+    <Route path={link.profile} component={UserProfile} exact />
+    <Route path={link.shipping} component={Shipping} exact />
+    <Route
+      path="/users/activate/:activation_token"
+      component={ActivationEmail}
+    />
+    {/* <Redirect to={link.main} /> */}
   </Switch>
 );

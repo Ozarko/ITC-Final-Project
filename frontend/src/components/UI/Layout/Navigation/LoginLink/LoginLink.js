@@ -5,13 +5,13 @@ import { link } from '../../../../../routes/navigationLink';
 
 const LoginLink = () => {
 
-  const {userInfo} = useSelector(state => state.userLogin)
+  const {isLogged, userInfo} = useSelector(state => state.user)
 
   return (
     <div className="LoginLink">
       <div className="LoginLink-box">
-        {userInfo ? (
-          <Link to={link.profile}>{userInfo.name.split(' ')[0]}</Link>
+        {isLogged ? (
+          <Link to={link.profile}>Log</Link>
         ) : (
           <Link to={link.signin}>Вхід</Link>
         )}

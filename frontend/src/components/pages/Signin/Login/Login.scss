@@ -5,10 +5,10 @@
     margin-top: 30px;
   }
   &-login-error {
+    @include setFontStyles($main-font-regular, $main-color, 1.7rem);
     text-align: left;
     margin-top: 15px;
-    color: $main-color;
-    font-family: $main-font-regular;
     text-transform: uppercase;
+    transition: all 0.5s ease;
   }
 }

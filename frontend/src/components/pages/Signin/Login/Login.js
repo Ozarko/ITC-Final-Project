@@ -11,13 +11,13 @@ import RectangleBtn from "../../../UI/Buttons/RectangleBtn/RectangleBtn";
 const Login = ({history}) => {
   const dispatch = useDispatch();
 
-  const { error, userInfo } = useSelector((state) => state.user);
+  const {isLogged, error} = useSelector((state) => state.auth);
 
   useEffect(()=> {
-    if(userInfo) {
+    if(isLogged) {
       history.push(link.shop)
     }
-  }, [dispatch, history, userInfo])
+  }, [dispatch, history, isLogged])
 
   const initialValues = {
     email: "",
@@ -34,7 +34,6 @@ const Login = ({history}) => {
 
 
   const onSubmit = (values, { setSubmitting, resetForm }) => {
-    console.log('from submmit')
     dispatch(login(values.email.toLowerCase(), values.password));
     setSubmitting(false);
     resetForm();
@@ -65,12 +64,7 @@ const Login = ({history}) => {
               isEmpty={formik.values.password}
             />
             <p className="Login-login-error">
-              {error ? (
-                <span>
-                  Такого користувача немає...
-                  <br /> Перевірте введення або зареєструйтесь.
-                </span>
-              ) : null}
+              {error}
             </p>
             <RectangleBtn
               buttonText="Ввійти"

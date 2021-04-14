@@ -7,9 +7,9 @@ const userInfoFromStorage = localStorage.getItem("userInfo")
 
   const initialState = {
     loading: true,
-    userInfo: userInfoFromStorage,
     msg: '',
     isLogged: false,
+    isRegister: false
   };
 
   const authUserReducer = (state = initialState, action) => {
@@ -42,6 +42,7 @@ const userInfoFromStorage = localStorage.getItem("userInfo")
           ...state,
           msg: action.payload,
           loading: false,
+          isRegister: true
         }
       case AUTH_REGISTER_FAIL: 
         return {

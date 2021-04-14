@@ -8,15 +8,15 @@ import Registration from './Registration/Registration';
 
 const Signin = ({location, history}) => {
 
-  const {userInfo} = useSelector(state => state.user)
+  const {isLogged} = useSelector(state => state.auth)
 
   const redirect = location.search ? location.search.split('=')[1] : link.shop
 
   useEffect(()=> {
-    if(userInfo) {
+    if(isLogged) {
       history.push(redirect)
     }
-  }, [history,  userInfo, redirect])
+  }, [history,  isLogged, redirect])
 
   const [showRegister, setShowRegister] = useState(false)
 

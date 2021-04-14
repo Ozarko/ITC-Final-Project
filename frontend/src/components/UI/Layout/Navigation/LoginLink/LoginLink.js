@@ -5,7 +5,7 @@ import { link } from '../../../../../routes/navigationLink';
 
 const LoginLink = () => {
 
-  const {isLogged, userInfo} = useSelector(state => state.user)
+  const {isLogged} = useSelector(state => state.auth)
 
   return (
     <div className="LoginLink">

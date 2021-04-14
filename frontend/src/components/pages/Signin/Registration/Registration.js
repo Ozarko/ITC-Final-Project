@@ -11,13 +11,13 @@ import RectangleBtn from "../../../UI/Buttons/RectangleBtn/RectangleBtn";
 const Registration = ({history}) => {
   const dispatch = useDispatch();
 
-  const { error, userInfo } = useSelector((state) => state.user);
+  const { error, isLogged, isRegister } = useSelector((state) => state.auth);
 
   useEffect(()=> {
-    if(!error && userInfo) {
+    if(isLogged) {
       history.push(link.shop)
     }
-  }, [error, dispatch, userInfo, history])
+  }, [dispatch, isLogged, history])
 
   const initialValues = {
     firstName: "",
@@ -56,81 +56,87 @@ const Registration = ({history}) => {
       )
     );
     setSubmitting(false);
-    // resetForm();
+    resetForm();
   };
 
-  return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={validationSchema}
-      onSubmit={onSubmit}
-    >
-      {(formik) => {
-        return (
-          <Form className="Registration">
-            <FormikControl
-              control="input"
-              type="text"
-              label={`Ваше ім'я`}
-              name="firstName"
-              isEmpty={formik.values.firstName}
-            />
-
-            <FormikControl
-              control="input"
-              type="text"
-              label={`Ваше прізвище`}
-              name="lastName"
-              isEmpty={formik.values.lastName}
-            />
-
-            <FormikControl
-              control="input"
-              type="email"
-              label={`Ваш email`}
-              name="email"
-              isEmpty={formik.values.email}
-            />
-
-            <FormikControl
-              control="input"
-              type="text"
-              label={`Ваш номер телефону`}
-              name="phone"
-              isEmpty={formik.values.phone}
-            />
-
-            <FormikControl
-              control="input"
-              type="password"
-              label={`Ваш пароль`}
-              name="password"
-              isEmpty={formik.values.password}
-            />
-
-            <FormikControl
-              control="input"
-              type="password"
-              label={`Підтвердіть ваш пароль`}
-              name="confirmPassword"
-              isEmpty={formik.values.confirmPassword}
-            />
-            <p className="Registration-error">
-              {error ? (
-                <span>Користувач з вказаним email уже зареєстрований...</span>
-              ) : null}
-            </p>
-
-            <RectangleBtn
-              buttonText="Зареєструватись"
-              btnType="submit"
-              disabledBtn={!formik.isValid}
-            />
-          </Form>
-        );
-      }}
-    </Formik>
-  );
+  if(isRegister) {
+    return (
+      <div>
+        емейл
+      </div>
+    )
+  }else {
+    return (
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={onSubmit}
+      >
+        {(formik) => {
+          return (
+            <Form className="Registration">
+              <FormikControl
+                control="input"
+                type="text"
+                label={`Ваше ім'я`}
+                name="firstName"
+                isEmpty={formik.values.firstName}
+              />
+  
+              <FormikControl
+                control="input"
+                type="text"
+                label={`Ваше прізвище`}
+                name="lastName"
+                isEmpty={formik.values.lastName}
+              />
+  
+              <FormikControl
+                control="input"
+                type="email"
+                label={`Ваш email`}
+                name="email"
+                isEmpty={formik.values.email}
+              />
+  
+              <FormikControl
+                control="input"
+                type="text"
+                label={`Ваш номер телефону`}
+                name="phone"
+                isEmpty={formik.values.phone}
+              />
+  
+              <FormikControl
+                control="input"
+                type="password"
+                label={`Ваш пароль`}
+                name="password"
+                isEmpty={formik.values.password}
+              />
+  
+              <FormikControl
+                control="input"
+                type="password"
+                label={`Підтвердіть ваш пароль`}
+                name="confirmPassword"
+                isEmpty={formik.values.confirmPassword}
+              />
+              <p className="Registration-error">
+                {error}
+              </p>
+  
+              <RectangleBtn
+                buttonText="Зареєструватись"
+                btnType="submit"
+                disabledBtn={!formik.isValid}
+              />
+            </Form>
+          );
+        }}
+      </Formik>
+    );
+  }
 };
 
 export default withRouter(Registration);

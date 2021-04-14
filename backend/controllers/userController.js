@@ -12,11 +12,9 @@ const userCtrl = {
   register: async (req, res) => {
     try {
       const { firstName, lastName, phone, email, password } = req.body;
-      if (!firstName || !lastName || !phone || !email || !password) {
-        return res.status(400).json({ msg: "Not fill in all fields" });
-      }
 
       const user = await User.findOne({ email });
+
       if (user) {
         return res
           .status(400)
@@ -37,7 +35,7 @@ const userCtrl = {
 
       const url = `${CLIENT_URL}/users/activate/${activation_token}`;
 
-      sendEmail(email, url, "Verify your email address");
+      sendEmail(email, url, "Підтвердіть адресу вашої електронної пошти");
 
       res.json({
         msg:
@@ -47,6 +45,7 @@ const userCtrl = {
       return res.status(500).json({ msg: error.message });
     }
   },
+  
   activateEmail: async (req, res) => {
     try {
       const { activation_token } = req.body;
@@ -71,33 +70,28 @@ const userCtrl = {
 
       await newUser.save();
 
-      res.json({ msg: "Account has been activated!" });
+      res.json({ msg: "Ваш акаунт активовано" });
     } catch (error) {
       return res.status(500).json({ msg: error.message });
     }
   },
   login: async (req, res) => {
-    try {
-      const { email, password } = req.body;
-      const user = await User.findOne({ email });
+      try {
+        const {email, password} = req.body
+        const user = await User.findOne({email})
+        const isMatch = await bcrypt.compare(password, user.password)
+        if(!user || !isMatch) return res.status(400).json({msg: "Ваш пароль або емейл не вірний"})
 
-      if (!user)
-        return res.status(400).json({ msg: "This email does not exist." });
+        const refresh_token = createRefreshToken({id: user._id})
+        res.cookie('refreshtoken', refresh_token, {
+            httpOnly: true,
+            path: '/user/refresh_token',
+            maxAge: 7*24*60*60*1000 
+        })
 
-      const isMatch = await bcrypt.compare(password, user.password);
-      if (!isMatch)
-        return res.status(400).json({ msg: "Password is incorrect." });
-
-      const refresh_token = createRefreshToken({ id: user._id });
-      res.cookie("refreshtoken", refresh_token, {
-        httpOnly: true,
-        path: "/users/refresh_token",
-        maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
-      });
-
-      res.json({ msg: "Login success!" });
+        res.json({msg: "Ви успішно ввійшли"})
     } catch (err) {
-      return res.status(500).json({ msg: err.message });
+        return res.status(500).json({msg: err.message})
     }
   },
   getAccessToken: (req, res) => {

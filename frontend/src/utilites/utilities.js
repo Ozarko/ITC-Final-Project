@@ -28,7 +28,11 @@ export const themeStyle = (location) => {
       setColorTheme("dark");
       setFooterStyle("light");
       break;
-    case link.signin:
+    case link.login:
+      setColorTheme("dark");
+      setFooterStyle("dark");
+      break;
+    case link.registration:
       setColorTheme("dark");
       setFooterStyle("dark");
       break;

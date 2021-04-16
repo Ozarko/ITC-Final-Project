@@ -4,6 +4,9 @@
   & > button {
     margin-top: 30px;
   }
+  & > .SeparatingLine {
+    margin: 20px 0;
+  }
   &-error {
     text-align: left;
     margin-top: 15px;
@@ -11,10 +14,8 @@
     font-family: $main-font-regular;
     text-transform: uppercase;
   }
-  &-toLog {
+  & > a {
     align-self: center;
-    border: none;
-    background: none;
     letter-spacing: 3px;
     @include setFontStyles($main-font-light, $rootStyleTypeColor, 2rem);
     @include flex(center, center);

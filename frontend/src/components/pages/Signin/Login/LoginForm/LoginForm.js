@@ -12,7 +12,6 @@ const LoginForm = ({ history }) => {
   const dispatch = useDispatch();
 
   const { isLogged, error } = useSelector((state) => state.auth);
-  let errorMsg = ''
 
   useEffect(() => {
     if (isLogged) {

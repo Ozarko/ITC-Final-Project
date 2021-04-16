@@ -15,7 +15,7 @@ const Loader = ({ loading }) => {
   return (
     <CSSTransition
     in={loading}
-    timeout={2000}
+    timeout={5000}
     classNames="load"
     mountOnEnter
     unmountOnExit

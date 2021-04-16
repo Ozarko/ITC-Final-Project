@@ -11,7 +11,7 @@ import RectangleBtn from "../../../../UI/Buttons/RectangleBtn/RectangleBtn";
 const RegistrationForm = ({ history }) => {
   const dispatch = useDispatch();
 
-  const { error, isLogged} = useSelector((state) => state.auth);
+  const { error, isLogged } = useSelector((state) => state.auth);
 
   useEffect(() => {
     if (isLogged) {
@@ -35,7 +35,10 @@ const RegistrationForm = ({ history }) => {
       .trim()
       .email("Введіть валідний емейл")
       .required(`Дане поле є обов'язковим`),
-    phone: Yup.string().required(`Дане поле є обов'язковим`),
+    phone: Yup.string()
+      .trim()
+      .matches(/^\+?3?8?(0\d{9})$/, `Некоректно введені дані`)
+      .required(`Обов'язкове поле`),
     password: Yup.string()
       .trim()
       .required(`Дане поле є обов'язковим`)

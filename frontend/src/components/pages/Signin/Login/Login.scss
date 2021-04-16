@@ -3,18 +3,19 @@
   & > .SeparatingLine {
     margin: 15px 0;
   }
-
-  & > button {
+  &-links {
     width: 100%;
-    align-self: center;
-    border: none;
-    background: none;
-    letter-spacing: 3px;
-    @include setFontStyles($main-font-light, $rootStyleTypeColor, 2rem);
-    @include flex(center, center);
-  }
-  & > button:first-of-type {
-    margin-top: 6rem;
+    @include flex(flex-start,center);
+    flex-direction: column;
+    & > a {
+      margin: 20px 0;
+      white-space: nowrap;
+      text-align: left;
+      letter-spacing: 3px;
+      @include setFontStyles($main-font-light, $rootStyleTypeColor, 1.6rem);
+    }
   }
 }
+
+
 @import "./LoginForm/LoginForm.scss";

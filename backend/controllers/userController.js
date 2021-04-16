@@ -45,7 +45,7 @@ const userCtrl = {
       return res.status(500).json({ msg: error.message });
     }
   },
-  
+
   activateEmail: async (req, res) => {
     try {
       const { activation_token } = req.body;
@@ -76,51 +76,47 @@ const userCtrl = {
     }
   },
   login: async (req, res) => {
-      try {
-        const {email, password} = req.body
-        const user = await User.findOne({email})
-        if(!user) return res.status(400).json({msg: "Ваш пароль або емейл не вірний"})
-        const isMatch = await bcrypt.compare(password, user.password);
-        if (!isMatch)
-          return res
-            .status(400)
-            .json({ msg: "Ваш пароль або емейл не вірний" });
+    try {
+      const { email, password } = req.body;
+      const user = await User.findOne({ email });
+      if (!user)
+        return res.status(400).json({ msg: "Ваш пароль або емейл не вірний" });
+      const isMatch = await bcrypt.compare(password, user.password);
+      if (!isMatch)
+        return res.status(400).json({ msg: "Ваш пароль або емейл не вірний" });
 
-        const refresh_token = createRefreshToken({id: user._id})
+      const refresh_token = createRefreshToken({ id: user._id });
 
-        res.cookie('refreshtoken', refresh_token, {
-            httpOnly: true,
-            path: '/users/refresh_token',
-            maxAge: 7*24*60*60*1000 
-        })
+      res.cookie("refreshtoken", refresh_token, {
+        httpOnly: true,
+        path: "/users/refresh_token",
+        maxAge: 7 * 24 * 60 * 60 * 1000,
+      });
 
-        res.json({msg: "Ви успішно ввійшли"})
+      res.json({ msg: "Ви успішно ввійшли" });
     } catch (err) {
-        return res.status(500).json({msg: err.message})
+      return res.status(500).json({ msg: err.message });
     }
   },
   getAccessToken: (req, res) => {
-        try {
-          const rf_token = req.cookies.refreshtoken;
+    try {
+      const rf_token = req.cookies.refreshtoken;
 
-          if (!rf_token)
-            return res.status(400).json({ msg: "Please login now!" });
+      if (!rf_token) return res.status(400).json({ msg: "Please login now!" });
 
-          jwt.verify(
-            rf_token,
-            process.env.REFRESH_TOKEN_SECRET,
+      jwt.verify(
+        rf_token,
+        process.env.REFRESH_TOKEN_SECRET,
 
-            (err, user) => {
-              if (err)
-                return res.status(400).json({ msg: "Please login now!" });
-              console.log(user.id)
-              const access_token = createAccessToken({ id: user.id });
-              res.json({ access_token });
-            }
-          );
-        } catch (err) {
-          return res.status(500).json({ msg: err.message });
+        (err, user) => {
+          if (err) return res.status(400).json({ msg: "Please login now!" });
+          const access_token = createAccessToken({ id: user.id });
+          res.json({ access_token });
         }
+      );
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
   },
   forgotPassword: async (req, res) => {
     try {
@@ -158,7 +154,6 @@ const userCtrl = {
   },
   getUserInfor: async (req, res) => {
     try {
-      console.log(req.user.id);
       const user = await User.findById(req.user.id).select("-password");
       res.json(user);
     } catch (err) {
@@ -184,7 +179,7 @@ const userCtrl = {
   },
   updateUser: async (req, res) => {
     try {
-      const { firstName, lastName,phone, email, password } = req.body;
+      const { firstName, lastName, phone, email, password } = req.body;
       const user = User.findById(req.user.id);
       const passwordHash = await bcrypt.hash(password, 12);
 
@@ -194,14 +189,9 @@ const userCtrl = {
         phone: phone ? phone : user.phone,
         email: email ? email : user.email,
         password: password ? passwordHash : user.password,
-      }
+      };
 
-      console.log(updatedUser)
-
-      await User.updateOne(
-        { _id: req.user.id },
-        updatedUser
-      );
+      await User.updateOne({ _id: req.user.id }, updatedUser);
 
       res.json({ msg: "Update Success!" });
     } catch (err) {
@@ -210,26 +200,29 @@ const userCtrl = {
   },
   updateUsersRole: async (req, res) => {
     try {
-        const {isAdmin} = req.body
+      const { isAdmin } = req.body;
 
-        await User.findOneAndUpdate({_id: req.params.id}, {
-            isAdmin
-        })
+      await User.findOneAndUpdate(
+        { _id: req.params.id },
+        {
+          isAdmin,
+        }
+      );
 
-        res.json({msg: "Update Success!"})
+      res.json({ msg: "Update Success!" });
     } catch (err) {
-        return res.status(500).json({msg: err.message})
+      return res.status(500).json({ msg: err.message });
     }
   },
   deleteUser: async (req, res) => {
     try {
-        await User.findByIdAndDelete(req.params.id)
+      await User.findByIdAndDelete(req.params.id);
 
-        res.json({msg: "Deleted Success!"})
+      res.json({ msg: "Deleted Success!" });
     } catch (err) {
-        return res.status(500).json({msg: err.message})
+      return res.status(500).json({ msg: err.message });
     }
-},
+  },
 };
 
 const createActivationToken = (payload) => {

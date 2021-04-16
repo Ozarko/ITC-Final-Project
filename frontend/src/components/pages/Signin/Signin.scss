@@ -15,7 +15,7 @@
   }
   &-box {
     padding: 10px;
-    max-width: 600px;
+    max-width: 700px;
     width: 100%;
     @include flex(center, center);
     flex-direction: column;
@@ -30,4 +30,5 @@
 
 @import './Login/Login.scss';
 @import './Registration/Registration.scss';
-@import './ChangePassword/ChangePassword.scss';
+@import './ResetPassword/ResetPassword.scss';
+@import './ActivationEmail/ActivationEmail.scss';

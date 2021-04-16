@@ -1,5 +1,4 @@
 import { ErrorMessage, Field } from 'formik';
-import React, { useEffect, useRef } from 'react'
 
 const Input = ({label, name, isEmpty, ...rest}) => {
 

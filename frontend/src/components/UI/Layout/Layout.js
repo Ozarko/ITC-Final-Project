@@ -14,6 +14,7 @@ const Layout = () => {
   const [loading, setLoading] = useState(true);
 
   const { open } = useSelector((state) => state.cart);
+  const user = useSelector((state)=> state.user)
 
   const location = useLocation();
 
@@ -24,11 +25,12 @@ const Layout = () => {
       setLoading(false);
     }, 3000)
   }, [location]);
-
-  if (loading) {
-    return <Loader loading={loading} />;
-  } else {
-    return (
+  return (
+    <>
+    <Loader loading={loading}/>
+    {
+      !loading || !user.loading 
+      ?
       <>
         <Navigation menuLinks={menuLinks} />
         <Cart isOpen={open} />
@@ -36,8 +38,10 @@ const Layout = () => {
         <Footer location={location.pathname} />
         {typeof navigator !== "undefined" && isMobile() ? null : <Cursor />}
       </>
-    );
-  }
+      : null
+    }
+    </>
+  )
 };
 
 export default Layout

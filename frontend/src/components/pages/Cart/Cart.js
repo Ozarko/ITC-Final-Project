@@ -26,7 +26,7 @@ const Cart = ({history, isOpen}) => {
   }
 
   const checkoutHandler = () => {
-    history.push('/signin?redirect=shipping')
+    history.push('/login?redirect=shipping')
     dispatch(setCartStatus())
   }
 

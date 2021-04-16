@@ -15,13 +15,13 @@ const Shipping = ({ history }) => {
     }
   }, [history, productInCart]);
 
-  const initialValues = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    policyCheck: false,
-  }
+  // const initialValues = {
+  //   firstName: '',
+  //   lastName: '',
+  //   email: '',
+  //   phone: '',
+  //   policyCheck: false,
+  // }
 
   return (
     <section className="Shipping">

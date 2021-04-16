@@ -2,6 +2,7 @@
   width: 100%;
   @include flex(center, center);
   & > p {
+    white-space: nowrap;
     padding: 10px;
     @include setFontStyles($main-font-light-italic, $rootStyleTypeColor, 2rem);
     letter-spacing: 3px;

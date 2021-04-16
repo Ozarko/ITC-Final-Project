@@ -11,4 +11,18 @@
     font-family: $main-font-regular;
     text-transform: uppercase;
   }
+  &-toLog {
+    align-self: center;
+    border: none;
+    background: none;
+    letter-spacing: 3px;
+    @include setFontStyles($main-font-light, $rootStyleTypeColor, 2rem);
+    @include flex(center, center);
+  }
+  &-success {
+    @include setFontStyles($main-font-light, $rootStyleTypeColor, 4rem);
+    letter-spacing: 3px;
+  }
 }
+
+@import './RegistrationForm/RegistrationForm.scss';

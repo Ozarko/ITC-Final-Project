@@ -9,64 +9,64 @@ import SiteTitleNav from "../../UI/SiteTitleNav/SiteTitleNav";
 import UpdateProfile from "./UpdateProfile/UpdateProfile";
 
 const UserProfile = ({ history }) => {
-  
-  const dispatch = useDispatch();
-  const { userInfo } = useSelector((state) => state.userLogin);
-  const { loading, user } = useSelector((state) => state.userDetails);
+  return <div></div>
+  // const dispatch = useDispatch();
+  // const { userInfo } = useSelector((state) => state.userLogin);
+  // const { loading, user } = useSelector((state) => state.userDetails);
 
-  const logoutHandler = () => {
-    dispatch(logout());
-    history.push(link.main);
-  };
+  // const logoutHandler = () => {
+  //   dispatch(logout());
+  //   history.push(link.main);
+  // };
 
-  useEffect(() => {
-    if (!userInfo) {
-      history.push(link.signin);
-    } else if (!user.name) {
-      dispatch({type:USER_UPDATE_PROFILE_RESET})
-      dispatch(getUserDetails("profile"));
-    }
-  }, [dispatch, history, userInfo, user]);
+  // useEffect(() => {
+  //   if (!userInfo) {
+  //     history.push(link.signin);
+  //   } else if (!user.name) {
+  //     dispatch({type:USER_UPDATE_PROFILE_RESET})
+  //     dispatch(getUserDetails("profile"));
+  //   }
+  // }, [dispatch, history, userInfo, user]);
 
-  if(loading) {
-    return <Loader loading={loading}/>
-  }else {
-    return (
-      <section className="UserProfile">
-        <div className="container">
-          <SiteTitleNav />
-          <div className="UserProfile-title">
-            <h4>{userInfo && userInfo.name}</h4>
-          </div>
-          <div className="UserProfile-box">
-            <div className="UserProfile-box-navigation">
-              <ul>
-                <li>
-                  <button>Особисті дані</button>
-                  <div className="UserProfile-box-navigation-line"></div>
-                </li>
-                <li>
-                  <button>Мої вподобання</button>
-                  <div className="UserProfile-box-navigation-line"></div>
-                </li>
-                <li>
-                  <button>Мої покупки</button>
-                  <div className="UserProfile-box-navigation-line"></div>
-                </li>
-                <li>
-                  <button onClick={() => logoutHandler()}>Вихід</button>
-                  <div className="UserProfile-box-navigation-line"></div>
-                </li>
-              </ul>
-            </div>
-            <div className="UserProfile-box-screen">
-              <UpdateProfile user={user} />
-            </div>
-          </div>
-        </div>
-      </section>
-    );
-  }
+  // if(loading) {
+  //   return <Loader loading={loading}/>
+  // }else {
+  //   return (
+  //     <section className="UserProfile">
+  //       <div className="container">
+  //         <SiteTitleNav />
+  //         <div className="UserProfile-title">
+  //           <h4>{userInfo && userInfo.name}</h4>
+  //         </div>
+  //         <div className="UserProfile-box">
+  //           <div className="UserProfile-box-navigation">
+  //             <ul>
+  //               <li>
+  //                 <button>Особисті дані</button>
+  //                 <div className="UserProfile-box-navigation-line"></div>
+  //               </li>
+  //               <li>
+  //                 <button>Мої вподобання</button>
+  //                 <div className="UserProfile-box-navigation-line"></div>
+  //               </li>
+  //               <li>
+  //                 <button>Мої покупки</button>
+  //                 <div className="UserProfile-box-navigation-line"></div>
+  //               </li>
+  //               <li>
+  //                 <button onClick={() => logoutHandler()}>Вихід</button>
+  //                 <div className="UserProfile-box-navigation-line"></div>
+  //               </li>
+  //             </ul>
+  //           </div>
+  //           <div className="UserProfile-box-screen">
+  //             <UpdateProfile user={user} />
+  //           </div>
+  //         </div>
+  //       </div>
+  //     </section>
+  //   );
+  // }
 };
 
 export default withRouter(UserProfile);

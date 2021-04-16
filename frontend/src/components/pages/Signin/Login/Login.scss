@@ -1,14 +1,20 @@
 .Login {
-  margin-top: 30px;
   width: 100%;
-  & > button {
-    margin-top: 30px;
+  & > .SeparatingLine {
+    margin: 15px 0;
   }
-  &-login-error {
-    @include setFontStyles($main-font-regular, $main-color, 1.7rem);
-    text-align: left;
-    margin-top: 15px;
-    text-transform: uppercase;
-    transition: all 0.5s ease;
+
+  & > button {
+    width: 100%;
+    align-self: center;
+    border: none;
+    background: none;
+    letter-spacing: 3px;
+    @include setFontStyles($main-font-light, $rootStyleTypeColor, 2rem);
+    @include flex(center, center);
+  }
+  & > button:first-of-type {
+    margin-top: 6rem;
   }
 }
+@import "./LoginForm/LoginForm.scss";

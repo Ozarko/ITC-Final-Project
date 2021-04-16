@@ -24,6 +24,6 @@ export const routes = (
       path="/users/activate/:activation_token"
       component={ActivationEmail}
     />
-    {/* <Redirect to={link.main} /> */}
+    <Redirect to={link.main} />
   </Switch>
 );

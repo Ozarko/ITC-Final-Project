@@ -17,7 +17,6 @@ const ActivationEmail = () => {
 
   return (
     <div>
-dfgdfgdfg
     </div>
   )
 }

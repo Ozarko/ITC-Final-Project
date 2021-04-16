@@ -79,13 +79,18 @@ const userCtrl = {
       try {
         const {email, password} = req.body
         const user = await User.findOne({email})
-        const isMatch = await bcrypt.compare(password, user.password)
-        if(!user || !isMatch) return res.status(400).json({msg: "Ваш пароль або емейл не вірний"})
+        if(!user) return res.status(400).json({msg: "Ваш пароль або емейл не вірний"})
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (!isMatch)
+          return res
+            .status(400)
+            .json({ msg: "Ваш пароль або емейл не вірний" });
 
         const refresh_token = createRefreshToken({id: user._id})
+
         res.cookie('refreshtoken', refresh_token, {
             httpOnly: true,
-            path: '/user/refresh_token',
+            path: '/users/refresh_token',
             maxAge: 7*24*60*60*1000 
         })
 
@@ -95,19 +100,27 @@ const userCtrl = {
     }
   },
   getAccessToken: (req, res) => {
-    try {
-      const rf_token = req.cookies.refreshtoken;
-      if (!rf_token) return res.status(400).json({ msg: "Please login now!" });
+        try {
+          const rf_token = req.cookies.refreshtoken;
 
-      jwt.verify(rf_token, process.env.REFRESH_TOKEN_SECRET, (err, user) => {
-        if (err) return res.status(400).json({ msg: "Please login now!" });
+          if (!rf_token)
+            return res.status(400).json({ msg: "Please login now!" });
 
-        const access_token = createAccessToken({ id: user.id });
-        res.json({ access_token });
-      });
-    } catch (err) {
-      return res.status(500).json({ msg: err.message });
-    }
+          jwt.verify(
+            rf_token,
+            process.env.REFRESH_TOKEN_SECRET,
+
+            (err, user) => {
+              if (err)
+                return res.status(400).json({ msg: "Please login now!" });
+              console.log(user.id)
+              const access_token = createAccessToken({ id: user.id });
+              res.json({ access_token });
+            }
+          );
+        } catch (err) {
+          return res.status(500).json({ msg: err.message });
+        }
   },
   forgotPassword: async (req, res) => {
     try {
@@ -145,8 +158,8 @@ const userCtrl = {
   },
   getUserInfor: async (req, res) => {
     try {
+      console.log(req.user.id);
       const user = await User.findById(req.user.id).select("-password");
-
       res.json(user);
     } catch (err) {
       return res.status(500).json({ msg: err.message });

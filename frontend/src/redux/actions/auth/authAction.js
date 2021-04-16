@@ -1,4 +1,4 @@
-import { AUTH_ACTIVATE_EMAIL_FAIL, AUTH_ACTIVATE_EMAIL_SUCCESS, AUTH_LOGIN_FAIL, AUTH_LOGIN_REQUEST, AUTH_LOGIN_SUCCESS, AUTH_REGISTER_FAIL, AUTH_REGISTER_REQUEST, AUTH_REGISTER_SUCCESS } from "../../types/auth/authTypes";
+import { AUTH_ACTIVATE_EMAIL_FAIL, AUTH_ACTIVATE_EMAIL_SUCCESS, AUTH_LOGIN_FAIL, AUTH_LOGIN_REQUEST, AUTH_LOGIN_SUCCESS, AUTH_REGISTER_FAIL, AUTH_REGISTER_REQUEST, AUTH_REGISTER_SUCCESS, GET_USER_TOKEN } from "../../types/auth/authTypes";
 import axios from "axios";
 
 export const login = (email, password) => async (dispatch) => {
@@ -15,6 +15,7 @@ export const login = (email, password) => async (dispatch) => {
       type: AUTH_LOGIN_SUCCESS,
       payload: data.msg,
     });
+    localStorage.setItem('firstLogin', true)
   } catch (error) {
     dispatch({
       type: AUTH_LOGIN_FAIL,
@@ -23,6 +24,14 @@ export const login = (email, password) => async (dispatch) => {
           : error.message,
     });
   }
+};
+
+export const getAccessToken = () => async (dispatch) => {
+  const { data } = await axios.post("/users/refresh_token", null);
+  dispatch({
+    type: GET_USER_TOKEN,
+    payload: data.access_token,
+  });
 };
 
 
@@ -73,4 +82,3 @@ export const activateEmail = (activation_token) => async (dispatch) => {
     });
   }
 };
-

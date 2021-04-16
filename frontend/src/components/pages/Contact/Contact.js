@@ -34,7 +34,7 @@ const Contact = () => {
                 </a>
               </li>
             </ul>
-            <SeparatingLine />
+            <SeparatingLine text='або'/>
             <ContactForm />
           </div>
           <div className="Contact-box-frame">

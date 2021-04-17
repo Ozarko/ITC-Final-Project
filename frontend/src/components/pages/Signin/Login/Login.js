@@ -4,8 +4,11 @@ import { Link } from "react-router-dom";
 import { AUTH_CLEAR_ERROR } from "../../../../redux/types/auth/authTypes";
 import { link } from "../../../../routes/navigationLink";
 import SeparatingLine from "../../../UI/SeparatingLine/SeparatingLine";
-import SunLogo from "../../../UI/SunLogo/SunLogo";
+import Singnin from "../../../UI/Singnin/Singnin";
 import LoginForm from "./LoginForm/LoginForm";
+import SigninBtn from "../../../UI/Buttons/SigninBtn/SigninBtn";
+import { GoogleLogin } from "react-google-login";
+import { loginWithGoogle } from "../../../../redux/actions/auth/authAction";
 
 const Login = ({location, history}) => {
   const dispatch = useDispatch()
@@ -25,26 +28,21 @@ const Login = ({location, history}) => {
   }, [location, dispatch])
 
   return (
-    <section className="Signin">
-      <div className="container">
-        <SunLogo />
-        <div className="Signin-box">
-          <h2 className="Signin-box-title">Раді вас бачити !</h2>
-          <div className="Login">
-            <LoginForm />
-            <SeparatingLine text="Або" />
-            <div className='Login-links'>
-              <Link to={link.resetPassword}>
-                  <strong>Тут</strong> можна відновити пароль.{" "}
-              </Link>
-              <Link to={link.registration}>
-                  <strong>Зареєструйтесь</strong> у нас на сайті !
-              </Link>
-            </div>
-          </div>
+    <Singnin title="Раді Вас бачити !">
+      <div className="Login">
+        <LoginForm />
+        <SeparatingLine text="Або" />
+        <SigninBtn signinType="Ввійти"/>
+        <div className="Login-links">
+          <Link to={link.forgotPassword}>
+            <strong>Тут</strong> можна відновити пароль.{" "}
+          </Link>
+          <Link to={link.registration}>
+            <strong>Зареєструйтесь</strong> у нас на сайті !
+          </Link>
         </div>
       </div>
-    </section>
+    </Singnin>
   );
 };
 

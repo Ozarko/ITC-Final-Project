@@ -3,8 +3,12 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import sendEmail from "./sendEmail.js";
 import dotenv from "dotenv";
+import googleapis from "googleapis";
 
 dotenv.config();
+
+const {OAuth2} = googleapis.google.auth
+const client = new OAuth2(process.env.MAINLING_SERVICE_CLIENT_ID);
 
 const { CLIENT_URL } = process.env;
 
@@ -58,7 +62,9 @@ const userCtrl = {
 
       const check = await User.findOne({ email });
       if (check)
-        return res.status(400).json({ msg: "This email already exists." });
+        return res
+          .status(400)
+          .json({ msg: "Даний email, уже зареєстрований !" });
 
       const newUser = new User({
         firstName,
@@ -123,13 +129,17 @@ const userCtrl = {
       const { email } = req.body;
       const user = await User.findOne({ email });
       if (!user)
-        return res.status(400).json({ msg: "This email does not exist." });
+        return res
+          .status(400)
+          .json({ msg: "Такого email не знайдено. Перевірте введення !" });
 
       const access_token = createAccessToken({ id: user._id });
       const url = `${CLIENT_URL}/user/reset/${access_token}`;
 
-      sendEmail(email, url, "Reset your password");
-      res.json({ msg: "Re-send the password, please check your email." });
+      sendEmail(email, url, "Скинути ваш пароль !");
+      res.json({
+        msg: "Ваш пароль було скинуто. Будь ласка перевірте вашу пошту !",
+      });
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }
@@ -147,7 +157,7 @@ const userCtrl = {
         }
       );
 
-      res.json({ msg: "Password successfully changed!" });
+      res.json({ msg: "Пароль було успішно змінено" });
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }
@@ -179,16 +189,35 @@ const userCtrl = {
   },
   updateUser: async (req, res) => {
     try {
-      const { firstName, lastName, phone, email, password } = req.body;
-      const user = User.findById(req.user.id);
-      const passwordHash = await bcrypt.hash(password, 12);
+      const { firstName, lastName, phone, email } = req.body;
+
+      const user = await User.findById(req.user.id);
+
+      if (email) {
+        const userWithThisEmail = await User.findOne({ email });
+        if (userWithThisEmail && email !== user.email) {
+          res.status(400);
+          return res.json({
+            msg: "Користувач з вказаним email уже зареєстрований !",
+          });
+        }
+      }
+
+      if (phone) {
+        const userWithThisPhone = await User.findOne({ phone });
+        if (userWithThisPhone && phone !== user.phone) {
+          res.status(400);
+          return res.json({
+            msg: "Користувач з вказаним номером телефону уже зареєстрований !",
+          });
+        }
+      }
 
       const updatedUser = {
         firstName: firstName ? firstName : user.firstName,
         lastName: lastName ? lastName : user.lastName,
         phone: phone ? phone : user.phone,
-        email: email ? email : user.email,
-        password: password ? passwordHash : user.password,
+        email: email ? email.toLowerCase() : user.email,
       };
 
       await User.updateOne({ _id: req.user.id }, updatedUser);
@@ -219,6 +248,62 @@ const userCtrl = {
       await User.findByIdAndDelete(req.params.id);
 
       res.json({ msg: "Deleted Success!" });
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+  googleLogin: async (req, res) => {
+    try {
+      const { tokenId } = req.body;
+      const verify = await client.verifyIdToken({
+        idToken: tokenId,
+        audience: process.env.MAILING_SERVICE_CLIENT_ID,
+      });
+
+      const { email_verified, email, name } = verify.payload;
+
+      const password = email + process.env.GOOGLE_SECRET;
+
+      const passwordHash = await bcrypt.hash(password, 12);
+
+      if (!email_verified)
+        return res.status(400).json({ msg: "Верифікація email була відхилена!" });
+
+      const user = await User.findOne({ email });
+
+      if (user) {
+        const isMatch = await bcrypt.compare(password, user.password);
+
+        if (!isMatch)
+          return res.status(400).json({ msg: "Ваш пароль невірний." });
+
+        const refresh_token = createRefreshToken({ id: user._id });
+        res.cookie("refreshtoken", refresh_token, {
+          httpOnly: true,
+          path: "/users/refresh_token",
+          maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+        });
+
+        res.json({ msg: "Ласкаво просимо в наш магазин!" });
+      } else {
+        const newUser = new User({
+          firstName: name.split(' ')[0],
+          lastName: name.split(' ')[1],
+          email,
+          password: passwordHash,
+        });
+
+        await newUser.save();
+
+        const refresh_token = createRefreshToken({ id: newUser._id });
+        res.cookie("refreshtoken", refresh_token, {
+          httpOnly: true,
+          path: "/user/refresh_token",
+          maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+        });
+
+        res.json({ msg: "Ласкаво просимо в наш магазин!" });
+      }
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }

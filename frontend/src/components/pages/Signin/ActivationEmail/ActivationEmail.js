@@ -17,10 +17,10 @@ const ActivationEmail = ({ history }) => {
     if (activation_token) {
       dispatch(activateEmail(activation_token));
     }
-  }, [activation_token]);
+  }, [activation_token, dispatch]);
 
-  const pushToShop = () => {
-    history.push(link.shop);
+  const toLoginHandler = () => {
+    history.push(link.login);
   };
 
   return (
@@ -34,14 +34,14 @@ const ActivationEmail = ({ history }) => {
               Щасливу людину дуже просто впізнати. Вона ніби випромінює ауру
               спокою і тепла. Секрет щасливих людей простий - це відсутність
               напруги. Це задоволення собою. Огортаючи ніжки пухнастими
-              шкарпеточками, ви отримуєте теало. Додайте каву та шоколад. Разом
-              - це спокій та щастя{" "}
+              шкарпеточками, ви отримуєте тепло. Додайте каву та шоколад. Разом
+              - це спокій та щастя
             </p>
           </div>
           <RectangleBtn
-            buttonText="В магазин"
+            buttonText="Ввійти в профіль"
             disabledBtn={false}
-            clickHandler={pushToShop}
+            clickHandler={toLoginHandler}
           />
         </div>
         <FrameImage image={activationImage} alt="Активація була успішна" />

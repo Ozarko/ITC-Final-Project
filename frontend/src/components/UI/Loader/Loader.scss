@@ -67,12 +67,13 @@
 }
 .load-enter-active {
   opacity: 1;
-  transition: opacity 1s;
+  transition: opacity 3s;
 }
 .load-exit {
   opacity: 1;
+  transition: opacity 3s;
 }
 .load-exit-active {
-  opacity: 0;
   transition: opacity 1s;
+  opacity: 0;
 }

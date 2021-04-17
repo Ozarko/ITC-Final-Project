@@ -4,6 +4,7 @@
     margin: 15px 0;
   }
   &-links {
+    margin-top: 4rem;
     width: 100%;
     @include flex(flex-start,center);
     flex-direction: column;

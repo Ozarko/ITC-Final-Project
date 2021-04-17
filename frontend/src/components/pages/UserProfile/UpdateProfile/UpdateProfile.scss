@@ -1,5 +1,18 @@
 .UpdateProfile {
+  width: 100%;
   & > button {
-    margin-top: 20px;
+    margin-top: 30px;
+  }
+  &-error {
+    @include setFontStyles($main-font-regular, $main-color, 1.7rem);
+    text-align: left;
+    margin-top: 15px;
+    text-transform: uppercase;
+    &-important {
+      margin-top: 5px;
+      @include setFontStyles($main-font-regular, $main-color, 2rem);
+      text-align: left;
+      text-transform: uppercase;
+    }
   }
 }

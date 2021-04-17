@@ -3,11 +3,14 @@ import React from 'react'
 import FormikControl from '../../../formik/FormikControl';
 import RectangleBtn from '../../../UI/Buttons/RectangleBtn/RectangleBtn';
 import * as Yup from 'yup';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import {updateUser} from '../../../../redux/actions/user/userAction';
 
 const UpdateProfile = ({user}) => {
   
   const dispatch = useDispatch()
+  const { token } = useSelector((state) => state.auth);
+  const {error} = useSelector(state => state.user)
 
   const userInitialValues = {
     firstName: user.firstName,
@@ -19,6 +22,7 @@ const UpdateProfile = ({user}) => {
   };
 
   const onSubmit = (values, {setSubmitting}) => {
+    dispatch(updateUser({values, token}));
     setSubmitting(false)
   }
 
@@ -51,7 +55,7 @@ const UpdateProfile = ({user}) => {
       {
         formik => {
           return (
-            <Form className='UpdateProfile'>
+            <Form className="UpdateProfile">
               <FormikControl
                 control="input"
                 type="text"
@@ -100,12 +104,13 @@ const UpdateProfile = ({user}) => {
                 isEmpty={formik.values.confirmPassword}
               />
 
-              <p className="Registration-error">
-                {"Ваш профіль було оновлено"}
-              </p>
+              <p className="UpdateProfile-error">{error}</p>
+              {formik.values.password ? (
+                <p className="UpdateProfile-error-important">* Якщо ви змінете пароль тут, ви не зможете ввійти на сайт використовуючи Google !</p>
+              ) : null}
 
               <RectangleBtn
-                buttonText="Підтвердити зміни"
+                buttonText="Змінити особисті дані"
                 btnType="submit"
                 disabledBtn={!formik.isValid}
               />

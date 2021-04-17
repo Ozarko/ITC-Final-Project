@@ -11,6 +11,7 @@ import ActivationEmail from "../components/pages/Signin/ActivationEmail/Activati
 import Login from "../components/pages/Signin/Login/Login";
 import Registration from "../components/pages/Signin/Registration/Registration";
 import Admin from "../components/pages/Admin/Admin";
+import ForgotPassword from "../components/pages/Signin/ForgotPassword/ForgotPassword";
 import ResetPassword from "../components/pages/Signin/ResetPassword/ResetPassword";
 
 export const routes = (
@@ -21,15 +22,13 @@ export const routes = (
     <Route path={link.about} component={About} exact />
     <Route path={link.contact} component={Contact} exact />
     <Route path={link.login} component={Login} exact />
-    <Route path={link.resetPassword} component={ResetPassword} exact />
+    <Route path={link.activateEmail} component={ActivationEmail}/>
+    <Route path={link.resetPassword} component={ResetPassword} />
+    <Route path={link.forgotPassword} component={ForgotPassword} exact />
     <Route path={link.registration} component={Registration} exact />
     <Route path={link.admin} component={Admin} exact />
     <Route path={link.profile} component={UserProfile} exact />
     <Route path={link.shipping} component={Shipping} exact />
-    <Route
-      path="/users/activate/:activation_token"
-      component={ActivationEmail}
-    />
     <Redirect to={link.main} />
   </Switch>
 );

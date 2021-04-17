@@ -1,11 +1,12 @@
-import { AUTH_ACTIVATE_EMAIL_FAIL, AUTH_ACTIVATE_EMAIL_SUCCESS, AUTH_CLEAR_ERROR, AUTH_LOGIN_FAIL, AUTH_LOGIN_REQUEST, AUTH_LOGIN_SUCCESS, AUTH_REGISTER_FAIL, AUTH_REGISTER_REQUEST, AUTH_REGISTER_SUCCESS, GET_USER_TOKEN } from "../../types/auth/authTypes";
+import { AUTH_ACTIVATE_EMAIL_FAIL, AUTH_ACTIVATE_EMAIL_SUCCESS, AUTH_CLEAR_ERROR, AUTH_GOOGLE_LOGIN_FAIL, AUTH_GOOGLE_LOGIN_REQUEST, AUTH_GOOGLE_LOGIN_SUCCESS, AUTH_LOGIN_FAIL, AUTH_LOGIN_REQUEST, AUTH_LOGIN_SUCCESS, AUTH_LOGOUT, AUTH_LOGOUT_FAIL, AUTH_REGISTER_FAIL, AUTH_REGISTER_REQUEST, AUTH_REGISTER_SUCCESS, GET_USER_TOKEN } from "../../types/auth/authTypes";
 
   const initialState = {
-    loading: true,
+    loading: false,
     isLogged: false,
     isRegister: false,
     msg: "",
     token: "",
+    error: ''
   };
 
   const authUserReducer = (state = initialState, action) => {
@@ -68,6 +69,33 @@ import { AUTH_ACTIVATE_EMAIL_FAIL, AUTH_ACTIVATE_EMAIL_SUCCESS, AUTH_CLEAR_ERROR
           ...state,
           token: action.payload
         }
+      case AUTH_LOGOUT:
+        return {
+          ...initialState
+        }
+      case AUTH_LOGOUT_FAIL:
+        return {
+          ...state,
+          error: action.payload
+        }
+      case AUTH_GOOGLE_LOGIN_REQUEST:
+        return {
+          ...state,
+          loading: true
+        }
+      case AUTH_GOOGLE_LOGIN_SUCCESS:
+        return {
+          ...state,
+          loading: false,
+          isLogged: true,
+          msg: action.payload,
+        };
+      case AUTH_GOOGLE_LOGIN_FAIL:
+        return {
+          ...state,
+          loading: false,
+          error: action.payload,
+        };
       default:
         return state;
     }

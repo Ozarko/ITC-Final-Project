@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { AUTH_CLEAR_ERROR } from "../../../../redux/types/auth/authTypes";
 import { link } from "../../../../routes/navigationLink";
 import SeparatingLine from "../../../UI/SeparatingLine/SeparatingLine";
-import SunLogo from "../../../UI/SunLogo/SunLogo";
+import Singnin from "../../../UI/Singnin/Singnin";
 import RegistrationForm from "./RegistrationForm/RegistrationForm";
 
 const Registration = ({location, history}) => {
@@ -26,31 +26,28 @@ const Registration = ({location, history}) => {
   }, [location, dispatch])
 
   return (
-    <section className="Signin">
-      <div className="container">
-        <SunLogo />
-        <div className="Signin-box">
-          <h2 className="Signin-box-title">Раді вас бачити !</h2>
-          <div className="Registration">
-            {isRegister ? (
-              <div className="Registration-success">
-                <h4>
-                  Вам на пошту прийшов лист. Будь ласка підтвердіть ваш email !
-                </h4>
-              </div>
-            ) : (
-              <>
-                <RegistrationForm />
-                <SeparatingLine text="Або" />
-                <Link to={link.login}>
-                    Ввійти до акаунт можна тут.
-                </Link>
-              </>
-            )}
+    <Singnin title={isRegister ? null : "Раді Вас бачити !"}>
+      <div className="Registration">
+        {isRegister ? (
+          <div className="Registration-success">
+            <h4>
+              Вам на пошту прийшов лист.
+              <br /> Будь ласка, підтвердіть Ваш email !
+            </h4>
           </div>
-        </div>
+        ) : (
+          <>
+            <RegistrationForm />
+            <SeparatingLine text="Або" />
+            <Link to={link.login}>
+              <p>
+                <strong>Ввійти</strong> в профіль можна тут.
+              </p>
+            </Link>
+          </>
+        )}
       </div>
-    </section>
+    </Singnin>
   );
 };
 

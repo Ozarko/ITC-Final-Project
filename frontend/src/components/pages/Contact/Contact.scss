@@ -42,24 +42,8 @@
       }
     }
 
-    &-frame {
+    & > .FrameBoxImage {
       flex: 1;
-      height: 100%;
-      padding: 10px;
-      position: relative;
-      @include flex(center, center);
-
-      &-line {
-        position: absolute;
-        width: 42rem;
-        height: 42rem;
-        border: 1px solid $main-color;
-        transform: rotate(-15deg);
-      }
-      &-image {
-        max-width: 38rem;
-        max-height: 38rem;
-      }
     }
   }
 }
@@ -68,7 +52,7 @@
   .Contact {
     &-box {
       flex-direction: column;
-      &-frame {
+      & > .FrameBoxImage {
         margin-top: 100px;
       }
     }

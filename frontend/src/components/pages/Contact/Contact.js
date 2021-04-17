@@ -7,6 +7,7 @@ import { AiOutlineMail } from "react-icons/ai";
 import { GrLocation } from "react-icons/gr";
 import { LOCATION } from "../../../config/URL/socialURL";
 import SeparatingLine from "../../UI/SeparatingLine/SeparatingLine";
+import FrameBoxImage from "../../UI/FrameBoxImage/FrameBoxImage";
 
 const Contact = () => {
   return (
@@ -37,7 +38,8 @@ const Contact = () => {
             <SeparatingLine text='або'/>
             <ContactForm />
           </div>
-          <div className="Contact-box-frame">
+          <FrameBoxImage frameBoxImage={contactImage} frameBoxAlt='картинка контактної форми' />
+          {/* <div className="Contact-box-frame">
             <div className="Contact-box-frame-line cursorHoverEffect"></div>
             <div className="Contact-box-frame-image">
               <img
@@ -46,7 +48,7 @@ const Contact = () => {
                 alt="Contact title"
               />
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

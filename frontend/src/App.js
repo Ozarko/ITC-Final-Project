@@ -4,10 +4,11 @@ import {routes} from '@routes/routes'
 import { withRouter } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAccessToken } from './redux/actions/auth/authAction';
-import fetchUser from './redux/actions/user/userAction';
 import { AUTH_LOGIN_SUCCESS } from './redux/types/auth/authTypes';
+import {fetchUser} from './redux/actions/user/userAction';
 
 const App = () => {
+  
   const dispatch = useDispatch()
   
   const firstLogin = localStorage.getItem("firstLogin");

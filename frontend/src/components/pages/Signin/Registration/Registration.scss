@@ -21,8 +21,11 @@
     @include flex(center, center);
   }
   &-success {
-    @include setFontStyles($main-font-light, $rootStyleTypeColor, 4rem);
-    letter-spacing: 3px;
+    & > h4 {
+      margin-top: 5rem;
+      @include setFontStyles($main-font-light, $rootStyleTypeColor, 3rem);
+      letter-spacing: 3px;
+    }
   }
 }
 

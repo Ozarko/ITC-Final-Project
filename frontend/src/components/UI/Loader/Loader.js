@@ -2,6 +2,7 @@ import React from "react";
 import SunLogo from "../SunLogo/SunLogo";
 import { rundomNumber } from "../../../utilites/utilities";
 import { CSSTransition } from "react-transition-group";
+import { loaderTimeOut } from "../../../config/siteConfig";
 
 const Loader = ({ loading }) => {
   const descriptionText = [
@@ -14,16 +15,16 @@ const Loader = ({ loading }) => {
 
   return (
     <CSSTransition
-    in={loading}
-    timeout={5000}
-    classNames="load"
-    mountOnEnter
-    unmountOnExit
-  >
+      in={loading}
+      timeout={loaderTimeOut}
+      classNames="load"
+      mountOnEnter
+      unmountOnExit
+    >
       <div className="Loader">
-          <SunLogo />
-          <h1 className="Loader-title">SOCKGLAMOUR</h1>
-          <p>{currentDescriptionText}</p>
+        <SunLogo />
+        <h1 className="Loader-title">SOCKGLAMOUR</h1>
+        <p>{currentDescriptionText}</p>
       </div>
     </CSSTransition>
   );

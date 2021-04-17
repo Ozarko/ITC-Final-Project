@@ -1,1 +1,1 @@
-export const loaderTimeOut = 3000
+export const loaderTimeOut = 1500

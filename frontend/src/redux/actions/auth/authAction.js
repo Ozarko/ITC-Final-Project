@@ -1,4 +1,4 @@
-import { AUTH_ACTIVATE_EMAIL_FAIL, AUTH_ACTIVATE_EMAIL_SUCCESS, AUTH_LOGIN_FAIL, AUTH_LOGIN_REQUEST, AUTH_LOGIN_SUCCESS, AUTH_REGISTER_FAIL, AUTH_REGISTER_REQUEST, AUTH_REGISTER_SUCCESS, GET_USER_TOKEN } from "../../types/auth/authTypes";
+import { AUTH_ACTIVATE_EMAIL_FAIL, AUTH_ACTIVATE_EMAIL_SUCCESS, AUTH_GOOGLE_LOGIN_FAIL, AUTH_GOOGLE_LOGIN_REQUEST, AUTH_GOOGLE_LOGIN_SUCCESS, AUTH_LOGIN_FAIL, AUTH_LOGIN_REQUEST, AUTH_LOGIN_SUCCESS, AUTH_REGISTER_FAIL, AUTH_REGISTER_REQUEST, AUTH_REGISTER_SUCCESS, GET_USER_TOKEN } from "../../types/auth/authTypes";
 import axios from "axios";
 
 export const login = (email, password) => async (dispatch) => {
@@ -76,9 +76,38 @@ export const activateEmail = (activation_token) => async (dispatch) => {
     dispatch({
       type: AUTH_ACTIVATE_EMAIL_FAIL,
       payload:
-        error.responce && error.responce.data.message
-          ? error.responce.data.message
+        error.responce && error.responce.data.msg
+          ? error.responce.data.msg
           : error.message,
+    });
+  }
+};
+
+
+export const loginWithGoogle = (responce) => async (dispatch) => {
+  try {
+    dispatch({
+      type: AUTH_GOOGLE_LOGIN_REQUEST,
+    });
+    const { data } = await axios.post("/users/google_login", {
+      tokenId: responce.tokenId,
+    });
+    
+    localStorage.setItem("firstLogin", true);
+    
+    dispatch(getAccessToken());
+
+    dispatch({
+      type: AUTH_GOOGLE_LOGIN_SUCCESS,
+      payload: data.msg,
+    });
+
+  } catch (error) {
+    dispatch({
+      type: AUTH_GOOGLE_LOGIN_FAIL,
+      payload: error.response.data.msg
+        ? error.response.data.msg
+        : error.message,
     });
   }
 };

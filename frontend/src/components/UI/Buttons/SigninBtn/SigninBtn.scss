@@ -1,0 +1,5 @@
+.SigninBtn {
+  width: 100%;
+  @include grid(260px);
+  grid-gap: 3rem;
+}

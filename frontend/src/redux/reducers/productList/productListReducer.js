@@ -1,6 +1,7 @@
 import { PRODUCT_LIST_FAIL, PRODUCT_LIST_REQUEST, PRODUCT_LIST_SUCCESS } from "../../types/productList/productListTypes";
 
 const initialState = {
+  loading: true,
   products: []
 }
 

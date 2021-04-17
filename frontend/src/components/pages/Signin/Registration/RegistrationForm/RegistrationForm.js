@@ -37,7 +37,7 @@ const RegistrationForm = ({ history }) => {
       .required(`Дане поле є обов'язковим`),
     phone: Yup.string()
       .trim()
-      .matches(/^\+?3?8?(0\d{9})$/, `Некоректно введені дані`)
+      .matches(/^\+?3?8?(0\d{9})$/, `Будь ласка, введіть правильний номер телефону`)
       .required(`Обов'язкове поле`),
     password: Yup.string()
       .trim()
@@ -54,7 +54,7 @@ const RegistrationForm = ({ history }) => {
         values.firstName,
         values.lastName,
         values.phone,
-        values.email,
+        values.email.toLowerCase(),
         values.password
       )
     );

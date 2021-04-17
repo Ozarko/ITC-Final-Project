@@ -12,7 +12,6 @@ const userSchema = mongoose.Schema(
     },
     phone: {
       type: String,
-      required: true,
       unique: true
     },
     email: {
@@ -26,7 +25,6 @@ const userSchema = mongoose.Schema(
     },
     isAdmin: {
       type: Boolean,
-      required: true,
       default: false,
     },
   },

@@ -21,14 +21,24 @@
     flex-direction: column;
     text-align: center;
     &-title {
-      margin-top: 30px; 
+      margin-top: 30px;
       letter-spacing: 5px;
       @include setFontStyles($main-font-regular, $rootStyleTypeColor, 3rem);
     }
   }
+  &-motivation {
+    margin-top: 20rem;
+    max-width: 1000px;
+    padding: 2rem;
+    text-align: center;
+    & > p {
+      @include setFontStyles($main-font-light, $rootStyleTypeColor, 2rem);
+    }
+  }
 }
 
-@import './Login/Login.scss';
-@import './Registration/Registration.scss';
-@import './ResetPassword/ResetPassword.scss';
-@import './ActivationEmail/ActivationEmail.scss';
+@media screen and(max-width: $breakpoint-sm) {
+  .Signin-motivation {
+        margin-top: 10rem;
+  }
+}

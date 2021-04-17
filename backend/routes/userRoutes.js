@@ -18,5 +18,8 @@ router.patch("/update",auth,  userCtrl.updateUser);
 router.patch("/update_all:id",auth,authAdmin, userCtrl.updateUsersRole);
 router.delete("/delete:id", auth, authAdmin, userCtrl.deleteUser);
 
+// Social login
+
+router.post("/google_login", userCtrl.googleLogin);
 
 export default router

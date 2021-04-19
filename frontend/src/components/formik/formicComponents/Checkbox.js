@@ -1,5 +1,5 @@
-import { ErrorMessage, Field } from 'formik';
-import React, { Fragment } from 'react'
+import { ErrorMessage, Field } from "formik";
+import React, { Fragment } from "react";
 
 const Checkbox = (props) => {
   const { label, name, options, ...rest } = props;
@@ -30,10 +30,10 @@ const Checkbox = (props) => {
             });
           }}
         </Field>
-        <p>
+      </div>
+        <p className='form-control-checkbox-error'>
           <ErrorMessage name={name} />
         </p>
-      </div>
     </div>
   );
 };

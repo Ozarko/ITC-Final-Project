@@ -5,8 +5,8 @@
   height: 50px;
   @include flex(center,center);
   background: $rootStyleTypeColor;
-  border: 1px solid $rootStyleTypeBg;
-  transition: all 0.7s ease;
+  border: 2px solid $rootStyleTypeBg;
+  transition: all 0.3s ease;
 
   &:active > svg {
     transform: scale(1.3);
@@ -16,6 +16,14 @@
     color: $footerRootStyleTypeBg;
     font-weight: lighter;
     font-size: 2rem;
+  }
+  &.clicked {
+    border: 2px solid $rootStyleTypeColor;
+    background: $rootStyleTypeBg;
+    & > svg {
+      transform: scale(1.1);
+      color: $rootStyleTypeColor;
+    }
   }
 }
 

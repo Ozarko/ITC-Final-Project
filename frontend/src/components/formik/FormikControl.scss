@@ -3,9 +3,21 @@
   position: relative;
   width: 100%;
 
+  &-radio {
+    @include flex(flex-start, center);
+    flex-direction: column;
+    &-field {
+      @include flex(flex-start, center);
+    }
+  }
+
   &-checkbox {
     margin-top: 1rem;
     width: 100%;
+    &-error {
+      margin-top: 1rem;
+      @include setFontStyles($main-font-regular, $rootStyleTypeColor, 1.8rem);
+    }
     &-field {
       display: flex;
       align-items: center;

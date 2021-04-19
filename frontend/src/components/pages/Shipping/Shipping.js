@@ -4,16 +4,15 @@ import { useSelector } from "react-redux";
 import { link } from "../../../routes/navigationLink";
 import ShippingFormControl from "./ShippingFormControl/ShippingFormControl";
 import ShippingOrder from "./Order/Order";
-import * as Yup from 'yup';
+import * as Yup from "yup";
 import RectangleBtn from "../../UI/Buttons/RectangleBtn/RectangleBtn";
 import FormikControl from "../../formik/FormikControl";
 import Loader from "../../UI/Loader/Loader";
 
 const Shipping = ({ history }) => {
-
   const { productInCart } = useSelector((state) => state.cart);
 
-  const {user} = useSelector((state) => state.user);
+  const { user } = useSelector((state) => state.user);
 
   useEffect(() => {
     if (!productInCart.length) {
@@ -21,27 +20,42 @@ const Shipping = ({ history }) => {
     }
   }, [history, productInCart]);
 
-    const initialValues = {
-      firstName: user.firstName,
-      lastName: user.lastName,
-      email: user.email,
-      polycyChec: []
-    };
+  const deliveryOption = [
+    { key: "Адресна доставка", value: "address" },
+    { key: "Новою Поштою", value: "NovaPoshta" },
+  ];
 
-    const validationSchema = Yup.object({
-      firstName: Yup.string().required(`Дане поле є обов'язковим`),
-      lastName: Yup.string().required(`Дане поле є обов'язковим`),
-      email: Yup.string()
-        .trim()
-        .email("Введіть валідний емейл")
-        .required(`Це поле є обов'язковим`),
-    });
+  const initialValues = {
+    firstName: user.firstName || "",
+    lastName: user.lastName || "",
+    phone: user.phone || "",
+    email: user.email || "",
+    polycyChec: [],
+  };
 
-    const onSubmit = (values, { setSubmitting, resetForm }) => {
-      console.log(values)
-      setSubmitting(false);
-      // resetForm();
-    };
+  const validationSchema = Yup.object({
+    firstName: Yup.string().required(`Дане поле є обов'язковим`),
+    lastName: Yup.string().required(`Дане поле є обов'язковим`),
+    phone: Yup.string()
+      .required(`Дане поле є обов'язковим`)
+      .trim()
+      .matches(
+        /^\+?3?8?(0\d{9})$/,
+        `Будь ласка, введіть правильний номер телефону`
+      ),
+    polycyChec: Yup.array().min(1, `Дане поле є обов'язковим.`),
+    email: Yup.string()
+      .trim()
+      .email("Введіть валідний емейл")
+      .required(`Це поле є обов'язковим`),
+    dlrOption: Yup.string().required("Required")
+  });
+
+  const onSubmit = (values, { setSubmitting, resetForm }) => {
+    console.log(values);
+    setSubmitting(false);
+    // resetForm();
+  };
 
   return (
     <>
@@ -91,6 +105,13 @@ const Shipping = ({ history }) => {
                             isEmpty={formik.values.email}
                           />
                           <FormikControl
+                            control="input"
+                            type="text"
+                            label={`Ваш телефон`}
+                            name="phone"
+                            isEmpty={formik.values.phone}
+                          />
+                          <FormikControl
                             control="checkbox"
                             label=""
                             name="polycyChec"
@@ -106,9 +127,14 @@ const Shipping = ({ history }) => {
                         <ShippingFormControl
                           count="2"
                           title="Адреса та доставка"
-                          subTitle="Ваші дані"
+                          subTitle="Виберіть спосіб доставки"
                         >
-                          Тут щось буде
+                          <FormikControl
+                            control="radio"
+                            label=""
+                            name="dlrOption"
+                            options={deliveryOption}
+                          />
                         </ShippingFormControl>
                         <ShippingFormControl
                           count="3"

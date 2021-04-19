@@ -8,6 +8,7 @@ import { GrLocation } from "react-icons/gr";
 import { LOCATION } from "../../../config/URL/socialURL";
 import SeparatingLine from "../../UI/SeparatingLine/SeparatingLine";
 import FrameBoxImage from "../../UI/FrameBoxImage/FrameBoxImage";
+import { GiSunflower } from "react-icons/gi";
 
 const Contact = () => {
   return (
@@ -35,20 +36,10 @@ const Contact = () => {
                 </a>
               </li>
             </ul>
-            <SeparatingLine text='або'/>
+            <SeparatingLine text={<GiSunflower/>}/>
             <ContactForm />
           </div>
           <FrameBoxImage frameBoxImage={contactImage} frameBoxAlt='картинка контактної форми' />
-          {/* <div className="Contact-box-frame">
-            <div className="Contact-box-frame-line cursorHoverEffect"></div>
-            <div className="Contact-box-frame-image">
-              <img
-                className="coverImage"
-                src={contactImage}
-                alt="Contact title"
-              />
-            </div>
-          </div> */}
         </div>
       </div>
     </section>

@@ -8,7 +8,7 @@ const SiteTitleNav = ({match, name}) => {
   const pathArr = path.split('/');
 
   return (
-    <div className="SiteTitleNav">
+    <nav className="SiteTitleNav">
       <ul>
         {pathArr.map((path, index) => {
           return (
@@ -25,7 +25,7 @@ const SiteTitleNav = ({match, name}) => {
           );
         })}
       </ul>
-    </div>
+    </nav>
   );
 }
 

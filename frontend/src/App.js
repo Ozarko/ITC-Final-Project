@@ -19,7 +19,7 @@ const App = () => {
     if (firstLogin) {
       dispatch(getAccessToken());
     }
-  }, [auth.isLoggin, dispatch, firstLogin]);
+  }, [dispatch, firstLogin]);
 
   useEffect(()=>{
     if(auth.token){

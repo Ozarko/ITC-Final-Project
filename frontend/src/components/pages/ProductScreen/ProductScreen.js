@@ -46,13 +46,13 @@ const ProductScreen = ({ match }) => {
     }
   }, [cart.productInCart, product]);
 
-  useEffect(()=> {
-    if(!loading || !cart.loading) {
-      setTimeout(()=> {
-        setLoader(false)
-      }, loaderTimeOut)
+  useEffect(() => {
+    if (!loading || !cart.loading) {
+      setTimeout(() => {
+        setLoader(false);
+      }, loaderTimeOut);
     }
-  }, [])
+  }, [loading, cart.loading]);
 
   const cartProductHandler = () => {
     if (isInCart) {

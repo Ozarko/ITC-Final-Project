@@ -3,7 +3,6 @@ import * as Yup from "yup";
 import React, { useState } from "react";
 import FormikControl from "../../../formik/FormikControl";
 import RectangleBtn from "../../../UI/Buttons/RectangleBtn/RectangleBtn";
-import { CSSTransition } from "react-transition-group";
 
 const ContactForm = () => {
   const [showForm, setShowForm] = useState(true);
@@ -90,12 +89,10 @@ const ContactForm = () => {
     );
   } else {
     return (
-      <CSSTransition in={!showForm} timeout={2000} mountOnEnter unmountOnExit>
         <div className="ContactForm-sent">
           <h3>Ваше повідомлення уже прямує до нас!</h3>
           <p>Найближчим часом ми зв'яжемось з вами.</p>
         </div>
-      </CSSTransition>
     );
   }
 };

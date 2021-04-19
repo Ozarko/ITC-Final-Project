@@ -1,10 +1,7 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux';
 import { link } from '../../../../routes/navigationLink';
-import SeparatingLine from '../../../UI/SeparatingLine/SeparatingLine';
-import SunLogo from '../../../UI/SunLogo/SunLogo';
 import ForgotPasswordForm from './ForgotPasswordForm/ForgotPasswordForm';
-import { GiSunflower } from "react-icons/gi";
 import Singnin from '../../../UI/Singnin/Singnin';
 
 const ForgotPassword = ({history}) => {

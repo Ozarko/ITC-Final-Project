@@ -3,6 +3,95 @@
   position: relative;
   width: 100%;
 
+  &-checkbox {
+    margin-top: 1rem;
+    width: 100%;
+    &-field {
+      display: flex;
+      align-items: center;
+
+      & > label {
+        margin-left: 2rem;
+        @include setFontStyles($main-font-italic, $rootStyleTypeColor, 14px);
+        letter-spacing: 2px;
+      }
+      &-box {
+        position: relative;
+        input,
+        svg {
+          width: 21px;
+          height: 21px;
+          display: block;
+        }
+        input {
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          position: relative;
+          outline: none;
+          background: $rootStyleTypeBg;
+          border: 1px solid $rootStyleTypeColor;
+          margin: 0;
+          padding: 0;
+          cursor: pointer;
+          border-radius: 4px;
+          transition: box-shadow 0.3s;
+          &:hover {
+            --s: 2px;
+            --b: $rootStyleTypeColor;
+          }
+          &:checked {
+            --b: $rootStyleTypeColor;
+          }
+        }
+        svg {
+          pointer-events: none;
+          fill: none;
+          stroke-width: 2px;
+          stroke-linecap: round;
+          stroke-linejoin: round;
+          stroke: var(--stroke, $rootStyleTypeColor);
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 2.1rem;
+          height: 2.1rem;
+          transform: scale(var(--scale, 1)) translateZ(0);
+        }
+        &.path {
+          input {
+            &:checked {
+              --s: 2px;
+              transition-delay: 0.4s;
+              & + svg {
+                --a: 16.1 86.12;
+                --o: 102.22;
+              }
+            }
+          }
+          svg {
+            stroke-dasharray: var(--a, 86.12);
+            stroke-dashoffset: var(--o, 86.12);
+            transition: stroke-dasharray 0.6s, stroke-dashoffset 0.6s;
+          }
+        }
+        &.bounce {
+          --stroke: $rootStyleTypeColor;
+          input {
+            &:checked {
+              --s: 11px;
+              & + svg {
+                animation: bounce 0.4s linear forwards 0.2s;
+              }
+            }
+          }
+          svg {
+            --scale: 0;
+          }
+        }
+      }
+    }
+  }
+
   & > input,
   & > textarea {
     display: block;
@@ -15,15 +104,15 @@
     background: transparent;
     letter-spacing: 1px;
 
-    &:focus ~ label,
-    &.isNotEmpty ~ label {
+    &:focus ~ .inputLabel,
+    &.isNotEmpty ~ .inputLabel {
       top: -30px;
       left: 0;
       font-size: 15px;
     }
   }
 
-  & > label {
+  & > .inputLabel {
     position: absolute;
     top: 0;
     left: 0;
@@ -45,5 +134,17 @@
     margin-top: 20px;
     height: 80px;
     resize: none;
+  }
+}
+
+@keyframes bounce {
+  50% {
+    transform: scale(1.2);
+  }
+  75% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
   }
 }

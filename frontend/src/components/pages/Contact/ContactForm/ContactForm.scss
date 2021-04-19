@@ -4,13 +4,14 @@
     margin-top: 40px;
   }
   &-sent {
-    font-family: $main-font-medium;
     & > h3 {
-      margin-top: 50px;
-      font-size: 30px;
+      @include setFontStyles($main-font-regular, $rootStyleTypeColor, 3rem);
+      letter-spacing: 2px;
     }
     & > p {
-      margin-top: 10px;
+      margin-top: 2rem;
+      @include setFontStyles($main-font-regular, $rootStyleTypeColor, 2rem);
+      letter-spacing: 2px;
     }
   }
 }

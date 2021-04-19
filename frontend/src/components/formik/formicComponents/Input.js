@@ -10,7 +10,9 @@ const Input = ({label, name, isEmpty, ...rest}) => {
         name={name}
         {...rest}
       />
-      <label htmlFor={name}>{label}</label>
+      <label className="inputLabel" htmlFor={name}>
+        {label}
+      </label>
       <p>
         <ErrorMessage name={name} />
       </p>

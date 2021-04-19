@@ -8,13 +8,20 @@ import { useSelector } from "react-redux";
 import Loader from "../../UI/Loader/Loader";
 
 const HomePage = () => {
-  const [loader, setLoader] = useState(true)
-
-  useEffect(()=> {
-      setTimeout(()=> {
-        setLoader(false)
-      }, 1000)
-  })
+  const [loader, setLoader] = useState(true);
+  const firstLogin = localStorage.getItem("firstLogin");
+  const auth = useSelector((state) => state.auth);
+  useEffect(() => {
+    if (firstLogin && !auth.loading) {
+      setTimeout(() => {
+        setLoader(false);
+      }, 1000);
+    }else{
+      setTimeout(() => {
+        setLoader(false);
+      }, 1000);
+    }
+  });
 
   return (
     <>

@@ -86,14 +86,14 @@ export const activateEmail = (activation_token) => async (dispatch) => {
 
 export const loginWithGoogle = (responce) => async (dispatch) => {
   try {
+
     dispatch({
       type: AUTH_GOOGLE_LOGIN_REQUEST,
     });
+
     const { data } = await axios.post("/users/google_login", {
       tokenId: responce.tokenId,
     });
-    
-    localStorage.setItem("firstLogin", true);
     
     dispatch(getAccessToken());
 
@@ -101,6 +101,10 @@ export const loginWithGoogle = (responce) => async (dispatch) => {
       type: AUTH_GOOGLE_LOGIN_SUCCESS,
       payload: data.msg,
     });
+
+    dispatch(getAccessToken());
+
+    localStorage.setItem("firstLogin", true);
 
   } catch (error) {
     dispatch({

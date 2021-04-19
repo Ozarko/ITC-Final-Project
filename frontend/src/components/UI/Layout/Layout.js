@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import { menuLinks } from "@routes/navigationLink";
 import Footer from "./Footer/Footer";
 import Navigation from "./Navigation/Navigation";
@@ -8,7 +8,6 @@ import { routes } from "../../../routes/routes";
 import { isMobile, themeStyle } from "../../../utilites/utilities";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router";
-import Loader from "../Loader/Loader";
 
 const Layout = () => {
   const { open } = useSelector((state) => state.cart);

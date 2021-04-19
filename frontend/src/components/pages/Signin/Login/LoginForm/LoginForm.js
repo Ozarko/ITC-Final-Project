@@ -1,23 +1,16 @@
 import { Form, Formik } from "formik";
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router";
 import * as Yup from "yup";
 import { login } from "../../../../../redux/actions/auth/authAction";
-import { link } from "../../../../../routes/navigationLink";
 import FormikControl from "../../../../formik/FormikControl";
 import RectangleBtn from "../../../../UI/Buttons/RectangleBtn/RectangleBtn";
 
-const LoginForm = ({ history }) => {
+const LoginForm = () => {
   const dispatch = useDispatch();
 
-  const { isLogged, error } = useSelector((state) => state.auth);
-
-  useEffect(() => {
-    if (isLogged) {
-      history.push(link.shop);
-    }
-  }, [dispatch, history, isLogged]);
+  const { error, googleError } = useSelector((state) => state.auth);
 
   const initialValues = {
     email: "",
@@ -61,7 +54,7 @@ const LoginForm = ({ history }) => {
               name="password"
               isEmpty={formik.values.password}
             />
-            <p className="LoginForm-error">{error}</p>
+            <p className="LoginForm-error">{error || googleError}</p>
             <RectangleBtn
               buttonText="Ввійти"
               btnType="submit"

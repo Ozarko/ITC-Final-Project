@@ -5,6 +5,7 @@ import { useHistory } from "react-router";
 import { loginWithGoogle } from "../../../../redux/actions/auth/authAction";
 import { link } from "../../../../routes/navigationLink";
 import RectangleBtn from "../RectangleBtn/RectangleBtn";
+import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props";
 
 const SigninBtn = ({ signinType }) => {
   const history = useHistory();
@@ -13,6 +14,10 @@ const SigninBtn = ({ signinType }) => {
   const responseGoogle = (responce) => {
     dispatch(loginWithGoogle(responce));
     history.push(link.main);
+  };
+
+  const responseFacebook = (response) => {
+    console.log(response);
   };
 
   return (
@@ -29,6 +34,19 @@ const SigninBtn = ({ signinType }) => {
         buttonText={`${signinType} з Google`}
         onSuccess={responseGoogle}
         cookiePolicy={"single_host_origin"}
+      />
+      <FacebookLogin
+        appId="1088597931155576"
+        autoLoad={false}
+        fields="name,email"
+        callback={responseFacebook}
+        render={(renderProps) => (
+          <RectangleBtn
+            buttonText={`${signinType} з Facebook`}
+            disabledBtn={false}
+            clickHandler={renderProps.onClick}
+          />
+        )}
       />
     </div>
   );

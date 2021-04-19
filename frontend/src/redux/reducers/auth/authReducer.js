@@ -6,7 +6,8 @@ import { AUTH_ACTIVATE_EMAIL_FAIL, AUTH_ACTIVATE_EMAIL_SUCCESS, AUTH_CLEAR_ERROR
     isRegister: false,
     msg: "",
     token: "",
-    error: ''
+    error: '',
+    googleError: ''
   };
 
   const authUserReducer = (state = initialState, action) => {
@@ -94,7 +95,8 @@ import { AUTH_ACTIVATE_EMAIL_FAIL, AUTH_ACTIVATE_EMAIL_SUCCESS, AUTH_CLEAR_ERROR
         return {
           ...state,
           loading: false,
-          error: action.payload,
+          isLogged: false,
+          googleError: action.payload,
         };
       default:
         return state;

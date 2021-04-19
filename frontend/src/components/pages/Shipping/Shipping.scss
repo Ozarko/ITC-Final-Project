@@ -1,21 +1,42 @@
 .Shipping {
-  min-height: 100vh;
-  
-  & > .container {
-    padding: 100px 20px 20px 20px;
-    @include flex(center, center);
-  }
-  
-  &-details {
-    flex: 2;
+  padding: 80px 2rem;
+  &-intro {
     width: 100%;
+    margin-bottom: 4rem;
+    padding: 2rem 0;
+    border-bottom: 2px solid $rootStyleTypeColor;
+    & > h3 {
+      @include setFontStyles($main-font-medium, $rootStyleTypeColor, 4.5rem);
+      font-weight: 400;
+      letter-spacing: 0.3rem;
+      text-transform: uppercase;
+    }
   }
-  &-order {
-    min-width: 50%;
-    background: $main-dark-color;
-    flex: 1;
+  &-box {
+    width: 100%;
+    @include flex(flex-start, center);
+    &-details {
+      margin-right: 2rem;
+      min-height: 80vh;
+      flex: 2;
+      width: 100%;
+      @include flex(flex-start, space-between);
+      &-form {
+        width: 100%;
+        &-toInLine {
+          width: 100%;
+          @include grid(260px);
+          grid-gap: 2rem;
+        }
+      }
+    }
+    &-order {
+      min-width: 50%;
+      background: $main-dark-color;
+      flex: 1;
+    }
   }
 }
 
-@import './Order/Order.scss';
-@import './ShippingFormControl/ShippingFormControl.scss';
+@import "./Order/Order.scss";
+@import "./ShippingFormControl/ShippingFormControl.scss";

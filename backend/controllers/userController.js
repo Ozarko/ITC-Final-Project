@@ -267,7 +267,9 @@ const userCtrl = {
       const passwordHash = await bcrypt.hash(password, 12);
 
       if (!email_verified)
-        return res.status(400).json({ msg: "Верифікація email була відхилена!" });
+        return res
+          .status(400)
+          .json({ msg: "Верифікація email була відхилена!" });
 
       const user = await User.findOne({ email });
 
@@ -275,7 +277,7 @@ const userCtrl = {
         const isMatch = await bcrypt.compare(password, user.password);
 
         if (!isMatch)
-          return res.status(400).json({ msg: "Ваш пароль невірний." });
+          return res.status(400).json({ msg: "Ваш пароль Google для цього сайту невірний." });
 
         const refresh_token = createRefreshToken({ id: user._id });
         res.cookie("refreshtoken", refresh_token, {
@@ -287,8 +289,8 @@ const userCtrl = {
         res.json({ msg: "Ласкаво просимо в наш магазин!" });
       } else {
         const newUser = new User({
-          firstName: name.split(' ')[0],
-          lastName: name.split(' ')[1],
+          firstName: name.split(" ")[0],
+          lastName: name.split(" ")[1],
           email,
           password: passwordHash,
         });
@@ -303,6 +305,62 @@ const userCtrl = {
         });
 
         res.json({ msg: "Ласкаво просимо в наш магазин!" });
+      }
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+  facebookLogin: async (req, res) => {
+    try {
+      const { accessToken, userID } = req.body;
+
+      const URL = `https://graph.facebook.com/v2.9/${userID}/?fields=id,name,email,picture&access_token=${accessToken}`;
+
+      const data = await fetch(URL)
+        .then((res) => res.json())
+        .then((res) => {
+          return res;
+        });
+
+      const { email, name } = data;
+
+      const password = email + process.env.FACEBOOK_SECRET;
+
+      const passwordHash = await bcrypt.hash(password, 12);
+
+      const user = await User.findOne({ email });
+
+      if (user) {
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (!isMatch)
+          return res.status(400).json({ msg: "Ваш пароль не вірний" });
+
+        const refresh_token = createRefreshToken({ id: user._id });
+        res.cookie("refreshtoken", refresh_token, {
+          httpOnly: true,
+          path: "/users/refresh_token",
+          maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+        });
+
+        res.json({ msg: "Login success!" });
+      } else {
+        const newUser = new User({
+          firstName: name.split(" ")[0],
+          lastName: name.split(" ")[1],
+          email,
+          password: passwordHash,
+        });
+
+        await newUser.save();
+
+        const refresh_token = createRefreshToken({ id: newUser._id });
+        res.cookie("refreshtoken", refresh_token, {
+          httpOnly: true,
+          path: "/users/refresh_token",
+          maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+        });
+
+        res.json({ msg: "Ви успішно увійшли в акаунт" });
       }
     } catch (err) {
       return res.status(500).json({ msg: err.message });

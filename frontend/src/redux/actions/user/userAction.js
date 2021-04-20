@@ -14,7 +14,7 @@ const fetchUser = (token) => async (dispatch) => {
     dispatch({
       type: USER_DETAILS_SUCCESS,
       payload: data,
-      isAdmin: data.isAdmin
+      isAdmin: false || data.isAdmin
     })
   } catch (error) {
     dispatch({

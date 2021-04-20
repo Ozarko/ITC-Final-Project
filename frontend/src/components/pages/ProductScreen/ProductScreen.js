@@ -24,6 +24,7 @@ const ProductScreen = ({ match }) => {
   const dispatch = useDispatch();
 
   const cart = useSelector((state) => state.cart);
+
   const { loading, product } = useSelector((state) => state.productDetails);
 
   const addQty = (qty) => {
@@ -47,7 +48,7 @@ const ProductScreen = ({ match }) => {
   }, [cart.productInCart, product]);
 
   useEffect(() => {
-    if (!loading || !cart.loading) {
+    if (!loading) {
       setTimeout(() => {
         setLoader(false);
       }, loaderTimeOut);

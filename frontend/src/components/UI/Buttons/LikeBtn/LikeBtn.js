@@ -9,7 +9,7 @@ const LikeBtn = () => {
   }
 
   return (
-    <button onClick={()=> clickHandler()} className={`LikeBtn cursorHoverEffect ${cliked && 'clicked'}`}>
+    <button onClick={clickHandler} className={`LikeBtn cursorHoverEffect ${cliked && 'clicked'}`}>
       <FaRegHeart />
     </button>
   )

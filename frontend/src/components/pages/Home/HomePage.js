@@ -9,19 +9,22 @@ import Loader from "../../UI/Loader/Loader";
 
 const HomePage = () => {
   const [loader, setLoader] = useState(true);
+  
   const firstLogin = localStorage.getItem("firstLogin");
-  const auth = useSelector((state) => state.auth);
+  
+  const user = useSelector((state) => state.user);
+
   useEffect(() => {
-    if (firstLogin && !auth.loading) {
+    if (firstLogin && !user.user.firstName) {
       setTimeout(() => {
         setLoader(false);
-      }, 1000);
-    }else{
+      }, 1500);
+    } else {
       setTimeout(() => {
         setLoader(false);
-      }, 1000);
+      }, 1500);
     }
-  });
+  }, [firstLogin, user.user.firstName]);
 
   return (
     <>

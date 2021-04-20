@@ -20,17 +20,15 @@ const Shipping = ({ history }) => {
     }
   }, [history, productInCart]);
 
-  const deliveryOption = [
-    { key: "Адресна доставка", value: "address" },
-    { key: "Новою Поштою", value: "NovaPoshta" },
-  ];
-
   const initialValues = {
     firstName: user.firstName || "",
     lastName: user.lastName || "",
     phone: user.phone || "",
     email: user.email || "",
     polycyChec: [],
+    address: "Івано-Франківська обл.",
+    city: "Івано-Франківськ",
+    postOffice: "Відділення №6. вулиця Надрічна, 2а",
   };
 
   const validationSchema = Yup.object({
@@ -48,7 +46,7 @@ const Shipping = ({ history }) => {
       .trim()
       .email("Введіть валідний емейл")
       .required(`Це поле є обов'язковим`),
-    dlrOption: Yup.string().required("Required")
+    city: Yup.string().required("Це поле є обов'язковим"),
   });
 
   const onSubmit = (values, { setSubmitting, resetForm }) => {
@@ -127,21 +125,37 @@ const Shipping = ({ history }) => {
                         <ShippingFormControl
                           count="2"
                           title="Адреса та доставка"
-                          subTitle="Виберіть спосіб доставки"
+                          subTitle="Вкажіть адресу доставки"
                         >
+                          <div className="Shipping-box-details-form-toInLine ">
+                            <FormikControl
+                              control="input"
+                              type="text"
+                              label={`Вкажіть область`}
+                              name="address"
+                              isEmpty={formik.values.address}
+                            />
+                            <FormikControl
+                              control="input"
+                              type="text"
+                              label={`Ваш населений пункт`}
+                              name="city"
+                              isEmpty={formik.values.city}
+                            />
+                          </div>
                           <FormikControl
-                            control="radio"
-                            label=""
-                            name="dlrOption"
-                            options={deliveryOption}
+                            control="input"
+                            type="text"
+                            label={`Відділення Нової Пошти`}
+                            name="postOffice"
+                            isEmpty={formik.values.postOffice}
                           />
                         </ShippingFormControl>
                         <ShippingFormControl
                           count="3"
                           title="Спосіб оплати"
-                          subTitle="Ваші дані"
+                          subTitle="Готівковий"
                         >
-                          {/* {buttonText, clickHandler, disabledBtn, btnType = 'button'} */}
                           <RectangleBtn
                             buttonText="Перейти до оплати"
                             btnType="submit"

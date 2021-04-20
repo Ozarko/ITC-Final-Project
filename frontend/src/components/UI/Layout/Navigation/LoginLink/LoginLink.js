@@ -11,9 +11,7 @@ const LoginLink = () => {
   return (
     <div className="LoginLink">
       <div className="LoginLink-box">
-        {user.isAdmin ? 
-          <Link to={link.admin}>SocksGlamour</Link>
-        : isLogged ? (
+        {isLogged ? (
           <Link to={link.profile}>{user.firstName}</Link>
         ) : (
           <Link to={link.login}>Вхід</Link>

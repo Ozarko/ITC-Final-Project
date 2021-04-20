@@ -15,7 +15,7 @@ const CartButton = () => {
   return (
     <div className="CartButton">
       <div className="CartButton-box">
-        <button onClick={() => showCart()}>
+        <button onClick={showCart}>
           <span>Кошик</span> <span className="CartButton-box-count">{productInCart.length}</span>
         </button>
         <div className="CartButton-box-line"></div>

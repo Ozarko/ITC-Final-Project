@@ -21,7 +21,7 @@ const App = () => {
     }
   }, [dispatch, firstLogin]);
 
-  useEffect(()=>{
+  useEffect(()=> {
     if(auth.token){
       dispatch({ type: AUTH_LOGIN_SUCCESS});
       dispatch(fetchUser(auth.token));

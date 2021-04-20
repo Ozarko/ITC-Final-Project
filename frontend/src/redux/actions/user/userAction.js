@@ -1,161 +1,82 @@
 import axios from "axios";
-import {
-  USER_DETAILS_FAIL,
-  USER_DETAILS_REQUEST,
-  USER_DETAILS_SUCCESS,
-  USER_LOGIN_FAIL,
-  USER_LOGIN_REQUEST,
-  USER_LOGIN_SUCCESS,
-  USER_LOGOUT,
-  USER_REGISTER_FAIL,
-  USER_REGISTER_REQUEST,
-  USER_REGISTER_SUCCESS,
-  USER_UPDATE_PROFILE_FAIL,
-  USER_UPDATE_PROFILE_REQUEST,
-  USER_UPDATE_PROFILE_SUCCESS,
-} from "../../types/user/userTypes";
+import { UPDATE_USER_DETAILS_FAIL, UPDATE_USER_DETAILS_REQUEST, UPDATE_USER_DETAILS_SUCCESS, USER_DETAILS_FAIL, USER_DETAILS_REQUEST, USER_DETAILS_SUCCESS } from "../../types/user/userTypes";
 
-export const login = (email, password) => async (dispatch) => {
-  try {
-    dispatch({
-      type: USER_LOGIN_REQUEST,
-    });
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
-    const { data } = await axios.post(
-      "/api/users/login",
-      { email, password },
-      config
-    );
-    dispatch({
-      type: USER_LOGIN_SUCCESS,
-      payload: data,
-    });
-    localStorage.setItem("userInfo", JSON.stringify(data));
-  } catch (error) {
-    dispatch({
-      type: USER_LOGIN_FAIL,
-      payload:
-        error.responce && error.responce.data.message
-          ? error.responce.data.message
-          : error.message,
-    });
-  }
-};
-
-export const logout = () => (dispatch) => {
-  localStorage.removeItem("userInfo");
-  dispatch({ type: USER_LOGOUT });
-};
-
-export const register = (name, email, password) => async (dispatch) => {
-  try {
-    dispatch({
-      type: USER_REGISTER_REQUEST,
-    });
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
-    const { data } = await axios.post(
-      "/api/users/",
-      { name, email, password },
-      config
-    );
-    dispatch({
-      type: USER_REGISTER_SUCCESS,
-      payload: data,
-    });
-
-    dispatch({
-      type: USER_LOGIN_SUCCESS,
-      payload: data,
-    });
-
-    localStorage.setItem("userInfo", JSON.stringify(data));
-  } catch (error) {
-    dispatch({
-      type: USER_REGISTER_FAIL,
-      payload:
-        error.responce && error.responce.data.message
-          ? error.responce.data.message
-          : error.message,
-    });
-  }
-};
-
-export const getUserDetails = (id) => async (dispatch, getState) => {
+const fetchUser = (token) => async (dispatch) => {
   try {
     dispatch({
       type: USER_DETAILS_REQUEST,
     });
 
-    const {
-      userLogin: { userInfo },
-    } = getState();
+    const { data } = await axios.get("/users/infor", {
+      headers: { Authorization: token },
+    });
 
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${userInfo.token}`,
-      },
-    };
-
-    const { data } = await axios.get(`/api/users/${id}`, config);
     dispatch({
       type: USER_DETAILS_SUCCESS,
       payload: data,
-    });
+      isAdmin: false || data.isAdmin
+    })
   } catch (error) {
     dispatch({
       type: USER_DETAILS_FAIL,
       payload:
-        error.responce && error.responce.data.message
-          ? error.responce.data.message
+        error.response && error.response.data.msg
+          ? error.response.data.msg
           : error.message,
     });
   }
 };
 
-export const updateUserProfile = (user) => async (dispatch, getState) => {
+const updateUser = ({token, values}) => async (dispatch, getState) => {
+
+  const {
+    firstName, lastName, phone, email, password
+  } = values;
   try {
     dispatch({
-      type: USER_UPDATE_PROFILE_REQUEST,
+      type: UPDATE_USER_DETAILS_REQUEST,
     });
 
-    const {
-      userLogin: { userInfo },
-    } = getState();
+    const {user: {user}} = getState()
 
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${userInfo.token}`,
+    await axios.patch(
+      "/users/update",
+      {
+        firstName: firstName ? firstName : user.firstName,
+        lastName: lastName ? lastName : user.lastName,
+        phone: phone ? phone : user.phone,
+        email: email ? email : user.email,
       },
-    };
+      {
+        headers: { Authorization: token },
+      }
+    );
 
-    const { data } = await axios.put(`/api/users/profile`,user, config);
-    
+    if(password) {
+      await axios.post(
+        "/users/reset",
+        { password },
+        {
+          headers: { Authorization: token },
+        }
+      );
+    }
+
+    dispatch(fetchUser(token))
+
     dispatch({
-      type: USER_UPDATE_PROFILE_SUCCESS,
-      payload: data,
-    });
-    dispatch({
-      type: USER_LOGIN_SUCCESS,
-      payload: data,
-    });
-    localStorage.setItem('userInfo', JSON.stringify(data))
+      type: UPDATE_USER_DETAILS_SUCCESS,
+      payload: 'Ваші особисті дані було змінено !'
+    })
   } catch (error) {
     dispatch({
-      type: USER_UPDATE_PROFILE_FAIL,
+      type: UPDATE_USER_DETAILS_FAIL,
       payload:
-        error.responce && error.responce.data.message
-          ? error.responce.data.message
+        error.response && error.response.data.msg
+          ? error.response.data.msg
           : error.message,
     });
   }
 };
+
+export { fetchUser, updateUser };

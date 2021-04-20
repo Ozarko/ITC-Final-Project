@@ -5,20 +5,30 @@ import HomePage from "../components/pages/Home/HomePage";
 import ProductScreen from "../components/pages/ProductScreen/ProductScreen";
 import Shop from "../components/pages/Shop/Shop";
 import { link } from "./navigationLink";
-import Signin from "../components/pages/Signin/Signin";
 import UserProfile from "../components/pages/UserProfile/UserProfile";
 import Shipping from "../components/pages/Shipping/Shipping";
+import ActivationEmail from "../components/pages/Signin/ActivationEmail/ActivationEmail";
+import Login from "../components/pages/Signin/Login/Login";
+import Registration from "../components/pages/Signin/Registration/Registration";
+import Admin from "../components/pages/Admin/Admin";
+import ForgotPassword from "../components/pages/Signin/ForgotPassword/ForgotPassword";
+import ResetPassword from "../components/pages/Signin/ResetPassword/ResetPassword";
 
 export const routes = (
   <Switch>
     <Route path={link.main} component={HomePage} exact />
-    <Route path={link.shop} component={Shop} />
+    <Route path={link.shop} component={Shop} exact />
     <Route path={link.productID} component={ProductScreen} />
-    <Route path={link.about} component={About} />
-    <Route path={link.contact} component={Contact} />
-    <Route path={link.signin} component={Signin} />
-    <Route path={link.profile} component={UserProfile} />
-    <Route path={link.shipping} component={Shipping} />
+    <Route path={link.about} component={About} exact />
+    <Route path={link.contact} component={Contact} exact />
+    <Route path={link.login} component={Login} exact />
+    <Route path={link.activateEmail} component={ActivationEmail}/>
+    <Route path={link.resetPassword} component={ResetPassword} />
+    <Route path={link.forgotPassword} component={ForgotPassword} exact />
+    <Route path={link.registration} component={Registration} exact />
+    <Route path={link.admin} component={Admin} exact />
+    <Route path={link.profile} component={UserProfile} exact />
+    <Route path={link.shipping} component={Shipping} exact />
     <Redirect to={link.main} />
   </Switch>
 );

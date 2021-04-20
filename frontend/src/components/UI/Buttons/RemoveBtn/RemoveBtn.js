@@ -3,7 +3,7 @@ import { GiTrashCan } from 'react-icons/gi'
 
 const RemoveBtn = ({clickHandler}) => {
   return (
-    <button className="RemoveBtn" onClick={()=> clickHandler()}>
+    <button className="RemoveBtn" onClick={clickHandler}>
       <GiTrashCan/>
     </button>
   )

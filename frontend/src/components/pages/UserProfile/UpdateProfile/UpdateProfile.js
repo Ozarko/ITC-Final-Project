@@ -4,35 +4,34 @@ import FormikControl from '../../../formik/FormikControl';
 import RectangleBtn from '../../../UI/Buttons/RectangleBtn/RectangleBtn';
 import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateUserProfile } from '../../../../redux/actions/user/userAction';
+import {updateUser} from '../../../../redux/actions/user/userAction';
 
 const UpdateProfile = ({user}) => {
   
   const dispatch = useDispatch()
-
-  const {success} = useSelector(state => state.userUpdateProfile)
+  const { token } = useSelector((state) => state.auth);
+  const {error} = useSelector(state => state.user)
 
   const userInitialValues = {
-    firstName: user.name.split(" ")[0],
-    lastName: user.name.split(" ")[1],
+    firstName: user.firstName,
+    lastName: user.lastName,
+    phone: user.phone,
     email: user.email,
     password: '',
     confirmPassword: ''
   };
 
   const onSubmit = (values, {setSubmitting}) => {
-    dispatch(updateUserProfile({
-      id: user._id,
-      name: `${values.firstName} ${values.lastName}`,
-      email: values.email,
-      password: values.password
-    }))
+    dispatch(updateUser({values, token}));
     setSubmitting(false)
   }
 
     const validationSchema = Yup.object({
       firstName: Yup.string(),
       lastName: Yup.string(),
+      phone: Yup.string()
+      .trim()
+      .matches(/^\+?3?8?(0\d{9})$/, `Некоректно введені дані`),
       email: Yup.string().email("Введіть валідний емейл"),
       password: Yup.string()
         .trim()
@@ -56,7 +55,7 @@ const UpdateProfile = ({user}) => {
       {
         formik => {
           return (
-            <Form className='UpdateProfile'>
+            <Form className="UpdateProfile">
               <FormikControl
                 control="input"
                 type="text"
@@ -71,6 +70,14 @@ const UpdateProfile = ({user}) => {
                 label={`Ваше прізвище`}
                 name="lastName"
                 isEmpty={formik.values.lastName}
+              />
+
+              <FormikControl
+                control="input"
+                type="text"
+                label={`Ваш телефон`}
+                name="phone"
+                isEmpty={formik.values.phone}
               />
 
               <FormikControl
@@ -97,12 +104,13 @@ const UpdateProfile = ({user}) => {
                 isEmpty={formik.values.confirmPassword}
               />
 
-              <p className="Registration-error">
-                {success && "Ваш профіль було оновлено"}
-              </p>
+              <p className="UpdateProfile-error">{error}</p>
+              {formik.values.password ? (
+                <p className="UpdateProfile-error-important">* Якщо ви змінете пароль тут, ви не зможете ввійти на сайт використовуючи Google !</p>
+              ) : null}
 
               <RectangleBtn
-                buttonText="Підтвердити зміни"
+                buttonText="Змінити особисті дані"
                 btnType="submit"
                 disabledBtn={!formik.isValid}
               />

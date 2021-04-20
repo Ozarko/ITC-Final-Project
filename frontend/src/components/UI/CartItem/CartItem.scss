@@ -18,12 +18,14 @@
     flex-direction: column;
 
     & > h5 {
+      margin: 1rem 0; 
       @include setFontStyles($main-font-medium, $rootStyleTypeColor, 2.2rem);
       font-weight: 100;
       letter-spacing: 2px;
     }
     
     &-name {
+      margin: 1rem 0; 
       & > a {
         @include setFontStyles($main-font-medium, $rootStyleTypeColor, 3rem);
         font-weight: bold;
@@ -32,6 +34,7 @@
     }
 
     &-descAndLikes {
+      margin: 1rem 0; 
       width: 100%;
       @include flex(center, space-between);
       & > div {
@@ -50,11 +53,11 @@
     @include flex(center, space-between);
     flex-direction: column;
     &-qntDel {
-      margin-bottom: 20px;
       @include flex(center, space-around);
     }
     &-price {
-      @include setFontStyles($main-font-medium, $rootStyleTypeColor, 3rem);
+      @include setFontStyles($main-font-medium, $rootStyleTypeColor, 3.2rem);
+      margin-bottom: 10px;
       & > span {
         font-weight: 100;
       }
@@ -63,18 +66,33 @@
 }
 
 
-@media screen and(max-width: $breakpoint-xsm) {
+@media screen and(max-width: $breakpoint-sm) {
   .CartItem {
     grid-template-columns: repeat(1, 1fr);
     &-image {
       justify-self: center;
       align-self: center;
-      max-width: none;
-      max-height: none;
+      max-width: 40rem;
+      max-height: 40rem;
     }
     &-info {
+      width: 100%;
+      margin-top: 10px;
       justify-self: center;
       align-self: center;
+    }
+    &-qntDelAndPrice {
+      margin-top: 20px;
+      flex-direction: row;
+    &-qntDel {
+      margin-bottom: 0;
+    }
+    &-price {
+      margin-bottom: 0;
+      & > span {
+        font-weight: 100;
+      }
+    }
     }
   }
 }

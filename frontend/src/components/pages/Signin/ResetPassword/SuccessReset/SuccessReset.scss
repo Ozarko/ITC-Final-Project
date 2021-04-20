@@ -1,0 +1,49 @@
+.SuccessReset {
+  min-height: 0;
+  padding: 13rem 0;
+  width: 100%;
+  &-box {
+    padding: 20px;
+    margin-top: 5rem;
+    width: 100%;
+    @include grid(260px);
+    grid-gap: 30px;
+    &-body {
+      height: 100%;
+      text-align: center;
+      @include flex(center, space-evenly);
+      flex-direction: column;
+      & > h3 {
+        @include setFontStyles($main-font-regular, $rootStyleTypeColor, 3rem);
+        letter-spacing: 3px;
+      }
+      & > .SeparatingLine {
+        margin: 4rem 0;
+      }
+      & > p {
+        justify-self: flex-start;
+        @include setFontStyles($main-font-regular, $rootStyleTypeColor, 2rem);
+      }
+      & > button {
+        margin: 5rem 0;
+        justify-self: end;
+      }
+    }
+    &-image {
+      position: relative;
+      padding: 5rem;
+    }
+  }
+}
+
+@media screen and(max-width: $breakpoint-sm) {
+  .SuccessReset {
+    &-box{
+      grid-template-columns: repeat(1, 1fr);
+      grid-gap: 14rem;
+    }
+    // &-image {
+    //   margin-top: 5rem;
+    // }
+  }
+}

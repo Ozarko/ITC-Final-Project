@@ -1,6 +1,3 @@
-@import './Login/Login.scss';
-@import './Registration/Registration.scss';
-
 .Signin {
   min-height: 90vh;
   background: $rootStyleTypeBg;
@@ -18,27 +15,30 @@
   }
   &-box {
     padding: 10px;
-    max-width: 600px;
+    max-width: 700px;
     width: 100%;
     @include flex(center, center);
     flex-direction: column;
     text-align: center;
     &-title {
-      margin-top: 30px; 
+      margin-top: 30px;
       letter-spacing: 5px;
       @include setFontStyles($main-font-regular, $rootStyleTypeColor, 3rem);
     }
-    & > .SeparatingLine {
-      margin: 15px 0;
-    }
-
-    &-signin {
-      align-self: center;
-      border: none;
-      background: none;
-      letter-spacing: 3px;
+  }
+  &-motivation {
+    margin-top: 20rem;
+    max-width: 1000px;
+    padding: 2rem;
+    text-align: center;
+    & > p {
       @include setFontStyles($main-font-light, $rootStyleTypeColor, 2rem);
-      @include flex(center,center);
     }
+  }
+}
+
+@media screen and(max-width: $breakpoint-sm) {
+  .Signin-motivation {
+        margin-top: 10rem;
   }
 }

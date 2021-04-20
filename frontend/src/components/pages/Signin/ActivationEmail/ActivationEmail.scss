@@ -1,0 +1,31 @@
+.ActivationEmail {
+  min-height: 80vh;
+  width: 100%;
+  padding: 15rem 0;
+  @include flex(center, center);
+
+  &-box {
+    width: 100%;
+    @include grid(300px);
+    grid-gap: 20px;
+    & > .FrameImage {
+      justify-self: center;
+    }
+    &-body {
+      padding: 2rem;
+      @include flex(center, space-between);
+      flex-direction: column;
+      text-align: center;
+      &-msg {
+        margin: 3rem 0;
+        & > h4 {
+          @include setFontStyles($main-font-bold, $rootStyleTypeColor, 3rem);
+          margin-bottom: 3rem;
+        }
+        & > p {
+          @include setFontStyles($main-font-light, $rootStyleTypeColor, 2rem);
+        }
+      }
+    }
+  }
+}

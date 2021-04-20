@@ -1,28 +1,40 @@
-import express from "express";
-import dotenv from "dotenv";
-import connectDB from "./config/database.js";
+import dotenv from 'dotenv'
+import express from 'express'
+import mongoose from 'mongoose';
 import colors from "colors";
-import productRoutes from "./routes/productRoutes.js";
+import cors from 'cors'
+import cookieParser from 'cookie-parser'
+import fileUpload from 'express-fileupload'
 import userRoutes from "./routes/userRoutes.js";
-import { errorHandler, notFound } from "./middleware/errorMiddleware.js";
-
+import productRoutes from "./routes/productRoutes.js";
 dotenv.config();
-
-connectDB();
 
 const app = express();
 
 app.use(express.json())
+app.use(cors())
+app.use(cookieParser())
+app.use(fileUpload({
+  useTempFiles: true
+}))
 
-app.get("/", (req, res) => {
-  res.send("API is running");
-});
-
+// ROUTES
+app.use("/users", userRoutes);
 app.use("/api/products", productRoutes);
-app.use("/api/users", userRoutes);
 
-app.use(notFound);
-app.use(errorHandler);
+const URI = process.env.MONGO_URI;
+
+mongoose.connect(URI, {
+  useCreateIndex: true,
+  useFindAndModify: false,
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}, error => {
+  if(error) {
+    throw error
+  }
+  console.log(`MongoDB Connected`.cyan.underline);
+})
 
 const PORT = process.env.PORT || 5000;
 

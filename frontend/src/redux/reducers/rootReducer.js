@@ -2,7 +2,9 @@ import { combineReducers } from "redux";
 import { cartReducer } from "./cart/cartReducer";
 import { productListReducer } from "./productList/productListReducer";
 import { productDetailsReducer } from "./productDetails/productDetailsReducer";
-import { userDetailsReducer, userLoginReducer, userRegisterReducer, userUpdateProfileReducer } from "./user/userReducer";
+import authUserReducer from "./auth/authReducer";
+import userReducer from "./user/userReducer";
+import resetPasswordReducer from "./resetPassword/resetPasswordReduser";
 
 
 
@@ -10,10 +12,9 @@ const rootReducer = combineReducers({
   productList: productListReducer,
   productDetails: productDetailsReducer,
   cart: cartReducer,
-  userLogin: userLoginReducer,
-  userRegister: userRegisterReducer,
-  userDetails: userDetailsReducer,
-  userUpdateProfile: userUpdateProfileReducer
+  auth: authUserReducer,
+  user: userReducer,
+  resetPssw: resetPasswordReducer
 });
 
 export default rootReducer

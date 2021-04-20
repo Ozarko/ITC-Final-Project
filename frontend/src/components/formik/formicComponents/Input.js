@@ -1,7 +1,7 @@
 import { ErrorMessage, Field } from 'formik';
-import React from 'react'
 
 const Input = ({label, name, isEmpty, ...rest}) => {
+
   return (
     <div className="form-control">
       <Field
@@ -10,7 +10,9 @@ const Input = ({label, name, isEmpty, ...rest}) => {
         name={name}
         {...rest}
       />
-      <label htmlFor={name}>{label}</label>
+      <label className="inputLabel" htmlFor={name}>
+        {label}
+      </label>
       <p>
         <ErrorMessage name={name} />
       </p>

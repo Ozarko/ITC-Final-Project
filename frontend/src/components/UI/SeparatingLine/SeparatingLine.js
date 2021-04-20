@@ -1,10 +1,10 @@
 import React from 'react'
 
-const SeparatingLine = () => {
+const SeparatingLine = ({text}) => {
   return (
     <div className="SeparatingLine">
       <div className="SeparatingLine-line left"></div>
-      <p>Або</p>
+      <p>{text}</p>
       <div className="SeparatingLine-line right"></div>
     </div>
   );

@@ -1,1 +1,3 @@
 https://habr.com/ru/post/351168/
+
+//  npm  node-fetch nodemailer

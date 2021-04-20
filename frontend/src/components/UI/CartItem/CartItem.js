@@ -32,7 +32,7 @@ const CartItem = (props) => {
       <div className="CartItem-info">
         <h5>{props.categories.join(" & ")}</h5>
         <div className="CartItem-info-name">
-        <Link to={`/product/${props.product}`} onClick={()=>cartHandler()}>
+        <Link to={`/product/${props.product}`} onClick={cartHandler}>
           {props.name}
         </Link>
         </div>
